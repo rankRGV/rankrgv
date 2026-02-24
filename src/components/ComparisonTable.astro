@@ -1,0 +1,211 @@
+---
+// ComparisonTable — RankRGV vs National Agency vs DIY
+// Shows trust-building context for prospects considering alternatives
+
+interface Props {
+  headline?: string;
+  subheadline?: string;
+}
+
+const {
+  headline = 'Why RankRGV — not a national agency, not DIY',
+  subheadline = 'Most RGV businesses have tried one of the other two. Here\'s what\'s different.',
+} = Astro.props;
+
+const rows = [
+  {
+    feature: 'Knows the RGV market',
+    rankrgv: true,
+    national: false,
+    diy: 'partial',
+    note: 'We live here. National agencies manage 100s of clients across every market.',
+  },
+  {
+    feature: 'Dedicated city & service pages',
+    rankrgv: true,
+    national: 'partial',
+    diy: false,
+    note: "Pages built for 'local seo mcallen' vs 'local seo' — different searches, different results.",
+  },
+  {
+    feature: 'Google Business Profile optimization',
+    rankrgv: true,
+    national: 'partial',
+    diy: false,
+    note: 'GBP is the #1 factor for Map Pack rankings. Most agencies don\'t touch it.',
+  },
+  {
+    feature: 'Transparent monthly reporting',
+    rankrgv: true,
+    national: 'partial',
+    diy: false,
+    note: 'You see exactly which keywords moved and how many calls came from search.',
+  },
+  {
+    feature: 'No long-term contracts',
+    rankrgv: true,
+    national: false,
+    diy: true,
+    note: "We earn your business month to month. Most national agencies lock you in for 6–12 months.",
+  },
+  {
+    feature: 'Direct communication',
+    rankrgv: true,
+    national: false,
+    diy: true,
+    note: "You talk to the person doing the work — not an account manager reading from a ticket.",
+  },
+  {
+    feature: 'Competitor research for RGV market',
+    rankrgv: true,
+    national: false,
+    diy: false,
+    note: "We know which local competitors are actually ranking and why — and we target those gaps.",
+  },
+  {
+    feature: 'Time investment from you',
+    rankrgv: 'minimal',
+    national: 'minimal',
+    diy: false,
+    note: 'DIY SEO is a real job. We handle it so you can run your business.',
+  },
+];
+---
+
+<section class="py-24 bg-bg" aria-labelledby="comparison-headline">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-14">
+      <h2 id="comparison-headline" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+        {headline}
+      </h2>
+      <p class="text-text-muted text-lg max-w-2xl mx-auto reveal reveal-delay-1">
+        {subheadline}
+      </p>
+    </div>
+
+    <div class="reveal reveal-delay-2 overflow-x-auto rounded-2xl border border-border shadow-sm">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-border">
+            <th class="text-left px-6 py-4 text-text-muted font-medium w-[40%]">What matters</th>
+            <!-- RankRGV column — highlighted -->
+            <th class="px-4 py-4 text-center w-[20%]">
+              <div class="inline-flex flex-col items-center gap-1">
+                <span class="text-brand-blue font-extrabold text-base">RankRGV</span>
+                <span class="text-xs text-brand-blue/70 font-medium">Local · RGV-only</span>
+              </div>
+            </th>
+            <th class="px-4 py-4 text-center w-[20%]">
+              <div class="inline-flex flex-col items-center gap-1">
+                <span class="text-text font-semibold">National Agency</span>
+                <span class="text-xs text-text-muted">Remote · Multi-market</span>
+              </div>
+            </th>
+            <th class="px-4 py-4 text-center w-[20%]">
+              <div class="inline-flex flex-col items-center gap-1">
+                <span class="text-text font-semibold">DIY / In-House</span>
+                <span class="text-xs text-text-muted">You do it yourself</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr class={`border-b border-border last:border-0 ${i % 2 === 0 ? 'bg-bg' : 'bg-bg-surface/50'} hover:bg-brand-blue/5 transition-colors duration-150`}>
+              <td class="px-6 py-4">
+                <div class="font-medium text-text">{row.feature}</div>
+                {row.note && <div class="text-xs text-text-muted mt-0.5 leading-relaxed">{row.note}</div>}
+              </td>
+
+              <!-- RankRGV cell — always highlighted -->
+              <td class="px-4 py-4 text-center">
+                {row.rankrgv === true ? (
+                  <div class="flex justify-center">
+                    <div class="w-7 h-7 rounded-full bg-brand-blue flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  </div>
+                ) : row.rankrgv === 'partial' || row.rankrgv === 'minimal' ? (
+                  <span class="inline-block px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-brand-blue border border-brand-blue/20">
+                    {row.rankrgv === 'minimal' ? 'Minimal' : 'Partial'}
+                  </span>
+                ) : (
+                  <div class="flex justify-center">
+                    <div class="w-7 h-7 rounded-full bg-red-100 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </td>
+
+              <!-- National agency cell -->
+              <td class="px-4 py-4 text-center">
+                {row.national === true ? (
+                  <div class="flex justify-center">
+                    <div class="w-7 h-7 rounded-full bg-green-100 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  </div>
+                ) : row.national === 'partial' ? (
+                  <span class="inline-block px-2 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
+                    Sometimes
+                  </span>
+                ) : (
+                  <div class="flex justify-center">
+                    <div class="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </td>
+
+              <!-- DIY cell -->
+              <td class="px-4 py-4 text-center">
+                {row.diy === true ? (
+                  <div class="flex justify-center">
+                    <div class="w-7 h-7 rounded-full bg-green-100 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  </div>
+                ) : row.diy === 'partial' ? (
+                  <span class="inline-block px-2 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
+                    Depends
+                  </span>
+                ) : (
+                  <div class="flex justify-center">
+                    <div class="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-10 text-center reveal reveal-delay-3">
+      <a href="/get-started/" class="btn-primary inline-flex">
+        Get your free audit — see exactly where you stand
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

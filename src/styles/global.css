@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors */
-  --color-brand-blue: #1e40af;
-  --color-brand-purple: #9333ea;
-  --color-brand-blue-light: #60a5fa;
+  /* Brand colors — blue is primary, purple is accent only */
+  --color-brand-blue: #1d4ed8;        /* richer, vibrant blue — matches current site */
+  --color-brand-blue-dark: #1e3a8a;   /* deep blue for hover states */
+  --color-brand-purple: #7c3aed;      /* purple — accent/gradient only, not primary */
+  --color-brand-blue-light: #3b82f6;  /* lighter blue for highlights */
 
   /* Surface colors */
   --color-bg: #ffffff;
@@ -39,9 +40,9 @@
 .reveal-delay-3 { transition-delay: 300ms; }
 .reveal-delay-4 { transition-delay: 400ms; }
 
-/* ── Gradient text ───────────────────────────────────────── */
+/* ── Gradient text — blue dominant, purple as accent ────── */
 .gradient-text {
-  background: linear-gradient(135deg, #60a5fa 0%, #9333ea 50%, #1e40af 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 40%, #7c3aed 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -65,23 +66,24 @@
   50%       { transform: translateY(-8px); }
 }
 
-/* ── Button glow on hover ────────────────────────────────── */
+/* ── Primary button — solid blue like current site ──────── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #1e40af, #9333ea);
+  background: #1d4ed8;
   color: white;
   font-weight: 600;
   padding: 0.75rem 1.75rem;
   border-radius: 0.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none;
 }
 
 .btn-primary:hover {
+  background: #1e3a8a;
   transform: scale(1.02);
-  box-shadow: 0 0 20px rgba(30, 64, 175, 0.4);
+  box-shadow: 0 0 24px rgba(29, 78, 216, 0.35);
 }
 
 .btn-secondary {
@@ -108,17 +110,17 @@
   align-items: center;
   gap: 0.5rem;
   background: transparent;
-  color: #1e40af;
+  color: #1d4ed8;
   font-weight: 600;
   padding: 0.75rem 1.75rem;
   border-radius: 0.5rem;
-  border: 2px solid #1e40af;
+  border: 2px solid #1d4ed8;
   transition: background 0.2s ease, color 0.2s ease;
   text-decoration: none;
 }
 
 .btn-outline:hover {
-  background: #1e40af;
+  background: #1d4ed8;
   color: white;
 }
 
@@ -129,22 +131,59 @@
 
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(30, 64, 175, 0.12);
-  border-color: #1e40af;
+  box-shadow: 0 8px 30px rgba(29, 78, 216, 0.12);
+  border-color: #1d4ed8;
 }
 
 /* ── Hero dot-grid background ────────────────────────────── */
 .hero-bg {
   background-color: #0f172a;
-  background-image: radial-gradient(circle at 1px 1px, rgba(96, 165, 250, 0.15) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.18) 1px, transparent 0);
   background-size: 32px 32px;
 }
 
 /* ── Scroll-activated frosted header ─────────────────────── */
+/* When scrolled: white background, dark text */
 .header-scrolled {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.96) !important;
   backdrop-filter: blur(12px);
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.1);
+}
+
+.header-scrolled .nav-link {
+  color: #0f172a !important;
+}
+
+.header-scrolled .nav-link:hover {
+  color: #1d4ed8 !important;
+}
+
+.header-scrolled .logo-text {
+  color: #0f172a !important;
+}
+
+.header-scrolled .phone-link {
+  color: #64748b !important;
+}
+
+.header-scrolled .dropdown-btn {
+  color: #0f172a !important;
+}
+
+/* ── Step connector line animation ──────────────────────── */
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.step-connector {
+  transform-origin: left center;
+  animation: lineGrow 0.6s ease forwards;
+  animation-play-state: paused;
+}
+
+.step-connector.is-visible {
+  animation-play-state: running;
 }
 
 /* ── Demand tier labels ──────────────────────────────────── */

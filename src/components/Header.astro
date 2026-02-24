@@ -11,10 +11,15 @@ import { mainNav } from '@/data/navigation';
     <div class="flex items-center justify-between h-16">
 
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 no-underline" aria-label="RankRGV Home">
-        <span class="text-xl font-extrabold tracking-tight text-white">
-          Rank<span class="gradient-text">RGV</span>
-        </span>
+      <a href="/" class="flex items-center gap-2 no-underline flex-shrink-0" aria-label="RankRGV Home">
+        <img
+          id="site-logo"
+          src="/images/RankRGV_compact_logo.png"
+          alt="RankRGV"
+          class="h-8 w-auto transition-all duration-300"
+          width="120"
+          height="32"
+        />
       </a>
 
       <!-- Desktop nav -->
@@ -23,12 +28,12 @@ import { mainNav } from '@/data/navigation';
           item.dropdown ? (
             <div class="relative group">
               <button
-                class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors duration-150"
+                class="header-nav-btn flex items-center gap-1 px-3 py-2 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors duration-150"
                 aria-expanded="false"
                 aria-haspopup="true"
               >
                 {item.label}
-                <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
@@ -50,7 +55,7 @@ import { mainNav } from '@/data/navigation';
           ) : (
             <a
               href={item.href}
-              class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors duration-150 no-underline"
+              class="header-nav-link px-3 py-2 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors duration-150 no-underline"
             >
               {item.label}
             </a>
@@ -62,7 +67,7 @@ import { mainNav } from '@/data/navigation';
       <div class="hidden lg:flex items-center gap-3">
         <a
           href={site.phoneHref}
-          class="text-sm font-medium text-white/70 hover:text-white transition-colors no-underline"
+          class="header-phone text-sm font-medium text-white/70 hover:text-white transition-colors no-underline"
           aria-label="Call RankRGV"
         >
           {site.phone}
@@ -75,7 +80,7 @@ import { mainNav } from '@/data/navigation';
       <!-- Mobile menu button -->
       <button
         id="mobile-menu-btn"
-        class="lg:hidden p-2 text-white/80 hover:text-white"
+        class="header-mobile-btn lg:hidden p-2 text-white/80 hover:text-white"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
@@ -89,8 +94,8 @@ import { mainNav } from '@/data/navigation';
     </div>
   </div>
 
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="lg:hidden hidden bg-bg-dark border-t border-white/10">
+  <!-- Mobile menu — always dark bg regardless of scroll -->
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-white/10 bg-bg-dark">
     <div class="px-4 py-4 space-y-1">
       {mainNav.map((item) => (
         <>
@@ -124,26 +129,58 @@ import { mainNav } from '@/data/navigation';
   </div>
 </header>
 
-<!-- Spacer to prevent content from hiding under fixed header -->
+<!-- Spacer -->
 <div class="h-16"></div>
 
 <script is:inline>
-  // ── Frosted glass on scroll ──────────────────────────────
-  const header = document.getElementById('site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      header.classList.add('header-scrolled');
-      header.classList.remove('bg-bg-dark');
+  const header   = document.getElementById('site-header');
+  const logo     = document.getElementById('site-logo');
+  const navLinks = header.querySelectorAll('.header-nav-link');
+  const navBtns  = header.querySelectorAll('.header-nav-btn');
+  const phone    = header.querySelector('.header-phone');
+  const mobileBtn = header.querySelector('.header-mobile-btn');
+
+  function setScrolled(scrolled) {
+    if (scrolled) {
+      // Light header — dark text
+      header.style.background = 'rgba(255,255,255,0.97)';
+      header.style.backdropFilter = 'blur(12px)';
+      header.style.boxShadow = '0 1px 16px rgba(0,0,0,0.10)';
+
+      // Logo: remove inversion so original colors show on white bg
+      logo.style.filter = '';
+
+      navLinks.forEach(l => { l.style.color = '#0f172a'; });
+      navBtns.forEach(b  => { b.style.color = '#0f172a'; });
+      if (phone) phone.style.color = '#64748b';
+      if (mobileBtn) mobileBtn.style.color = '#0f172a';
     } else {
-      header.classList.remove('header-scrolled');
-      header.classList.add('bg-bg-dark');
+      // Dark header
+      header.style.background = '';
+      header.style.backdropFilter = '';
+      header.style.boxShadow = '';
+
+      // Logo: invert to white on dark background
+      logo.style.filter = 'brightness(0) invert(1)';
+
+      navLinks.forEach(l => { l.style.color = ''; });
+      navBtns.forEach(b  => { b.style.color = ''; });
+      if (phone) phone.style.color = '';
+      if (mobileBtn) mobileBtn.style.color = '';
     }
+  }
+
+  // Initial state — page loads at top, dark header
+  setScrolled(window.scrollY > 20);
+
+  window.addEventListener('scroll', () => {
+    setScrolled(window.scrollY > 20);
   }, { passive: true });
 
   // ── Mobile menu toggle ───────────────────────────────────
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const iconOpen = document.getElementById('icon-open');
+  const btn       = document.getElementById('mobile-menu-btn');
+  const menu      = document.getElementById('mobile-menu');
+  const iconOpen  = document.getElementById('icon-open');
   const iconClose = document.getElementById('icon-close');
 
   btn.addEventListener('click', () => {

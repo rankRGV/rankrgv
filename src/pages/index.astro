@@ -7,6 +7,8 @@ import ServiceCard from '@/components/ServiceCard.astro';
 import HowWeWork from '@/components/HowWeWork.astro';
 import Testimonials from '@/components/Testimonials.astro';
 import CTASection from '@/components/CTASection.astro';
+import ComparisonTable from '@/components/ComparisonTable.astro';
+import FAQSection from '@/components/FAQSection.astro';
 import { services } from '@/data/services';
 import { buildOrgSchema, buildFAQSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
 import { site } from '@/config/site';
@@ -79,7 +81,11 @@ const schema = [
 
   <HowWeWork />
 
+  <ComparisonTable />
+
   <Testimonials />
+
+  <FAQSection faqs={faqs} headline="Common questions about local SEO in the RGV" />
 
   <CTASection />
 </BaseLayout>

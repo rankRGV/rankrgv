@@ -18,7 +18,7 @@ const {
     {
       number: '01',
       title: 'Free SEO Audit',
-      body: "We analyze your current Google presence, your competitors' rankings, and exactly which searches your customers are using — but you're missing. Takes 48 hours.",
+      body: "We analyze your Google presence, your competitors' rankings, and exactly which searches your customers are using — but you're missing. Takes 48 hours.",
     },
     {
       number: '02',
@@ -37,6 +37,9 @@ const {
     },
   ],
 } = Astro.props;
+
+// Determine columns: 4 steps → 4-col, 6 steps → 3-col per row
+const isEvenSix = steps.length === 6;
 ---
 
 <section class="py-20 bg-bg" aria-label="How we work">
@@ -46,23 +49,59 @@ const {
       <p class="text-text-muted text-lg reveal reveal-delay-1">{subheadline}</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {steps.map((step, i) => (
-        <div class={`relative reveal reveal-delay-${i + 1}`}>
-          <!-- Connector line (desktop) -->
-          {i < steps.length - 1 && (
-            <div class="hidden lg:block absolute top-8 left-[calc(50%+2rem)] right-[-2rem] h-px bg-border" aria-hidden="true"></div>
-          )}
+    <!-- Grid: 3 cols for 6 steps, 4 cols for 4 steps -->
+    <div class={`grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 ${isEvenSix ? 'lg:grid-cols-3' : 'lg:grid-cols-4'}`}>
+      {steps.map((step, i) => {
+        // Don't show connector after last in each row
+        const colCount = isEvenSix ? 3 : 4;
+        const isLastInRow = (i + 1) % colCount === 0;
+        const isLast = i === steps.length - 1;
+        const showConnector = !isLastInRow && !isLast;
 
-          <div class="text-center">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-purple text-white text-xl font-extrabold mb-5 mx-auto">
-              {step.number}
+        return (
+          <div class={`relative reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+            <!-- Connector line to next step (desktop only) -->
+            {showConnector && (
+              <div
+                class="step-connector hidden lg:block absolute top-8 left-[calc(50%+2.5rem)] right-[-2rem] h-px overflow-hidden"
+                aria-hidden="true"
+              >
+                <div class="h-full w-full bg-gradient-to-r from-brand-blue/40 to-brand-blue/10 origin-left scale-x-0 transition-transform duration-700 ease-out connector-line"></div>
+              </div>
+            )}
+
+            <div class="text-center">
+              <!-- Step number badge -->
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-brand-blue text-white text-xl font-extrabold mb-5 mx-auto shadow-lg shadow-brand-blue/25">
+                {step.number}
+              </div>
+              <h3 class="text-base font-bold text-text mb-2">{step.title}</h3>
+              <p class="text-text-muted text-sm leading-relaxed">{step.body}</p>
             </div>
-            <h3 class="text-lg font-bold text-text mb-3">{step.title}</h3>
-            <p class="text-text-muted text-sm leading-relaxed">{step.body}</p>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>
+
+<script is:inline>
+  // Animate connector lines when steps come into view
+  const connectors = document.querySelectorAll('.connector-line');
+  const connectorObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          // Stagger each line slightly
+          const idx = Array.from(connectors).indexOf(e.target);
+          setTimeout(() => {
+            e.target.style.transform = 'scaleX(1)';
+          }, idx * 120);
+          connectorObserver.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  connectors.forEach((c) => connectorObserver.observe(c));
+</script>
