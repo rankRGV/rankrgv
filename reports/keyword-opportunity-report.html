@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Opportunity Report — RankRGV</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#1e40af',
+              purple: '#9333ea',
+              light: '#60a5fa',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    @media print { .no-print { display: none !important; } }
+    .gradient-text {
+      background: linear-gradient(135deg, #1e40af, #9333ea, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .search-card { font-family: Arial, sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Export Button -->
+  <button id="export-btn" onclick="exportReport()"
+    class="fixed top-4 right-4 z-50 bg-brand-blue hover:bg-blue-700 text-white font-semibold py-2.5 px-5 rounded-xl shadow-lg transition-all duration-200 flex items-center gap-2 no-print">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
+    </svg>
+    Export as Image
+  </button>
+
+  <div id="report-content">
+
+    <!-- HEADER -->
+    <section class="bg-gradient-to-br from-slate-900 via-blue-950 to-purple-950 text-white py-16 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-blue to-brand-purple flex items-center justify-center text-white font-black text-lg">R</div>
+          <span class="text-white/70 font-medium text-sm tracking-widest uppercase">RankRGV</span>
+        </div>
+        <p class="text-blue-300 text-sm font-semibold tracking-widest uppercase mb-3">Prepared for: RankRGV</p>
+        <h1 class="text-4xl md:text-5xl font-black mb-4 leading-tight">
+          Your RGV Market<br>
+          <span class="gradient-text">Opportunity Report</span>
+        </h1>
+        <p class="text-gray-300 text-lg max-w-2xl">
+          We researched how customers across the Rio Grande Valley search for digital marketing, web design, and business automation services — and mapped exactly where you can dominate.
+        </p>
+        <p class="text-gray-500 text-sm mt-6">Generated: February 24, 2026 · Research based on live Google search data</p>
+      </div>
+    </section>
+
+    <!-- STAT CARDS -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-2">Your Market at a Glance</p>
+        <h2 class="text-3xl font-black text-gray-900 mb-3">Customers Are Searching. Most Aren't Finding You — Yet.</h2>
+        <p class="text-gray-600 text-lg mb-10 max-w-2xl">Customers across the RGV are actively searching for digital marketing, web design, and business automation services. Here's what we found when we looked at the market.</p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="text-5xl font-black text-brand-blue mb-2">35+</div>
+            <div class="text-gray-600 text-sm font-medium leading-snug">Different ways customers search for services like yours</div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="text-5xl font-black text-brand-purple mb-2">6</div>
+            <div class="text-gray-600 text-sm font-medium leading-snug">RGV cities where customers are actively searching</div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="text-5xl font-black text-brand-blue mb-2">3</div>
+            <div class="text-gray-600 text-sm font-medium leading-snug">Local competitors we analyzed in depth</div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="text-5xl font-black text-brand-purple mb-2">6+</div>
+            <div class="text-gray-600 text-sm font-medium leading-snug">Wide-open market gaps where you can show up first</div>
+          </div>
+        </div>
+
+        <!-- Existing Rankings Callout -->
+        <div class="mt-8 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100 rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center text-white flex-shrink-0 mt-0.5">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div>
+              <p class="font-bold text-gray-900 mb-1">Good news: You're already showing up.</p>
+              <p class="text-gray-600 text-sm">Even on your current website, RankRGV is already appearing in Google search results for "local SEO McAllen" and "business automation McAllen." A properly built site will dramatically accelerate those rankings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO SHOWS UP NOW -->
+    <section class="py-16 px-6 bg-gray-50">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-2">Current Search Landscape</p>
+        <h2 class="text-3xl font-black text-gray-900 mb-3">Who Google Shows Your Potential Customers Right Now</h2>
+        <p class="text-gray-600 text-lg mb-10 max-w-2xl">When an RGV business owner types these searches, here's what they find. Notice what's missing from every single result.</p>
+
+        <div class="space-y-6">
+
+          <!-- Search result card 1 -->
+          <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+            <div class="bg-gray-50 px-6 py-3 border-b border-gray-100">
+              <p class="text-sm text-gray-500">When someone searches:</p>
+              <p class="font-semibold text-gray-800">"local SEO services McAllen"</p>
+            </div>
+            <div class="px-6 py-4 space-y-3 search-card">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-brand-blue text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                <div><p class="font-medium text-gray-800 text-sm">Activate Digital Media</p><p class="text-gray-500 text-xs">National agency · generic "Areas Served" page</p></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-brand-blue text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                <div><p class="font-medium text-gray-800 text-sm">Cobalt Digital Marketing</p><p class="text-gray-500 text-xs">Local competitor · dedicated McAllen SEO page</p></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-brand-blue text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                <div><p class="font-medium text-gray-800 text-sm">Imagine It Studios</p><p class="text-gray-500 text-xs">Local competitor · older content, no differentiation</p></div>
+              </div>
+              <div class="flex items-start gap-3 pt-1 border-t border-gray-100">
+                <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-600 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">→</span>
+                <div><p class="font-medium text-amber-700 text-sm">RankRGV is showing up — but deep in results where most people don't scroll.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search result card 2 -->
+          <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+            <div class="bg-gray-50 px-6 py-3 border-b border-gray-100">
+              <p class="text-sm text-gray-500">When someone searches:</p>
+              <p class="font-semibold text-gray-800">"web design McAllen"</p>
+            </div>
+            <div class="px-6 py-4 space-y-3 search-card">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-brand-blue text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                <div><p class="font-medium text-gray-800 text-sm">Thrive Agency</p><p class="text-gray-500 text-xs">National agency · location landing page</p></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-brand-blue text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                <div><p class="font-medium text-gray-800 text-sm">Pixelero</p><p class="text-gray-500 text-xs">Local competitor · general services page</p></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-brand-blue text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                <div><p class="font-medium text-gray-800 text-sm">Imagine It Studios</p><p class="text-gray-500 text-xs">Local competitor · dedicated web design page</p></div>
+              </div>
+              <div class="flex items-start gap-3 pt-1 border-t border-gray-100">
+                <span class="w-6 h-6 rounded-full bg-red-100 text-red-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">→</span>
+                <div><p class="font-medium text-red-600 text-sm">RankRGV is not showing up for this search at all — a major opportunity to capture.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search result card 3 -->
+          <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+            <div class="bg-gray-50 px-6 py-3 border-b border-gray-100">
+              <p class="text-sm text-gray-500">When someone searches:</p>
+              <p class="font-semibold text-gray-800">"business automation McAllen"</p>
+            </div>
+            <div class="px-6 py-4 space-y-3 search-card">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-brand-blue text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                <div><p class="font-medium text-gray-800 text-sm">Mation.com</p><p class="text-gray-500 text-xs">Industrial automation company — not a marketing agency</p></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-brand-blue text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                <div><p class="font-medium text-gray-800 text-sm">HummingAgent.ai</p><p class="text-gray-500 text-xs">National AI SaaS tool — not a local agency</p></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-brand-blue text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3–5</span>
+                <div><p class="font-medium text-gray-800 text-sm">Random national tech companies</p><p class="text-gray-500 text-xs">None offering the service RGV businesses actually need</p></div>
+              </div>
+              <div class="flex items-start gap-3 pt-1 border-t border-gray-100">
+                <span class="w-6 h-6 rounded-full bg-green-100 text-green-600 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">★</span>
+                <div><p class="font-medium text-green-700 text-sm">RankRGV is already appearing — and the competition doesn't even offer what you offer. This category is yours to own.</p></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OPPORTUNITIES -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-2">Where The Opportunity Is</p>
+        <h2 class="text-3xl font-black text-gray-900 mb-3">Six Gaps Your Competitors Are Leaving Wide Open</h2>
+        <p class="text-gray-600 text-lg mb-10 max-w-2xl">These are the places where customers are actively searching and finding no real answer — just directories and national companies that don't understand the Valley.</p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+
+          <div class="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-6 h-6 rounded-full bg-green-500 text-white text-xs font-bold flex items-center justify-center">✓</span>
+              <span class="inline-block px-2.5 py-0.5 bg-green-500 text-white text-xs font-bold rounded-full">High Demand</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg mb-2">Business Automation — Every City</h3>
+            <p class="text-gray-600 text-sm">No local marketing agency has a strong automation page for any RGV city. Customers searching for this are finding industrial companies and national SaaS tools — not a local partner who understands their business. A dedicated page for each city puts you in a category of one.</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-6 h-6 rounded-full bg-brand-blue text-white text-xs font-bold flex items-center justify-center">✓</span>
+              <span class="inline-block px-2.5 py-0.5 bg-brand-blue text-white text-xs font-bold rounded-full">High Demand</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg mb-2">SEO & Web Design in Secondary RGV Cities</h3>
+            <p class="text-gray-600 text-sm">Edinburg, Harlingen, Mission, and Pharr have businesses actively searching — but zero dedicated local agency pages targeting them specifically. Brownsville has some competition, but most pages are thin and generic. Dedicated pages for each city win by default.</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-purple-50 to-violet-50 border border-purple-200 rounded-2xl p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-6 h-6 rounded-full bg-brand-purple text-white text-xs font-bold flex items-center justify-center">✓</span>
+              <span class="inline-block px-2.5 py-0.5 bg-brand-purple text-white text-xs font-bold rounded-full">Steady Demand</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg mb-2">The Bilingual RGV Market</h3>
+            <p class="text-gray-600 text-sm">Not a single local competitor addresses the bilingual customer base, border economy dynamics, or the unique way RGV consumers search and buy. This is territory no out-of-town agency can credibly claim — and no local agency has tried.</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-bold flex items-center justify-center">✓</span>
+              <span class="inline-block px-2.5 py-0.5 bg-amber-500 text-white text-xs font-bold rounded-full">Growing Opportunity</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg mb-2">Missed Call Text-Back & AI Lead Response</h3>
+            <p class="text-gray-600 text-sm">Customers are searching for "missed call text back" and "AI lead response" in the RGV. The only results are national SaaS platforms — no local agency is positioning themselves as the provider of this service. Whoever builds this page first wins.</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-blue-50 to-sky-50 border border-blue-200 rounded-2xl p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-6 h-6 rounded-full bg-sky-500 text-white text-xs font-bold flex items-center justify-center">✓</span>
+              <span class="inline-block px-2.5 py-0.5 bg-sky-500 text-white text-xs font-bold rounded-full">Steady Demand</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg mb-2">Real Reporting & Transparency Positioning</h3>
+            <p class="text-gray-600 text-sm">Every local agency promises "results." Not one positions transparency as a core differentiator — no competitor talks about real-time dashboards, what metrics actually matter, or what bad reporting looks like. This resonates deeply with business owners who've been burned before.</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-green-50 to-teal-50 border border-green-200 rounded-2xl p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center">✓</span>
+              <span class="inline-block px-2.5 py-0.5 bg-teal-500 text-white text-xs font-bold rounded-full">Growing Opportunity</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg mb-2">Industry-Specific SEO Pages</h3>
+            <p class="text-gray-600 text-sm">Healthcare SEO McAllen. Legal SEO McAllen. Contractor SEO McAllen. These are searches with real buyer intent — and zero dedicated local agency pages targeting any of them. Post-launch content expansion opportunity.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETITOR REALITY CHECK -->
+    <section class="py-16 px-6 bg-gray-50">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-2">Competitor Reality Check</p>
+        <h2 class="text-3xl font-black text-gray-900 mb-3">What We Found When We Dug Into Your Competition</h2>
+        <p class="text-gray-600 text-lg mb-10 max-w-2xl">We analyzed what each competitor is actually ranking for — and the picture is clearer than you'd expect.</p>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-2xl border border-gray-200 p-6">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-bold text-gray-900">Imagine It Studios</h3>
+                <p class="text-gray-500 text-sm">imagineitstudios.com · McAllen, TX</p>
+              </div>
+              <span class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-full">Main Competitor</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-3">The most established local agency — they've been around long enough to rank for their brand name and appear across multiple searches. But here's the reality: most of their rankings come from old blog posts about Facebook features from years ago. Their SEO strategy isn't sophisticated — they just have age and local history. Their pages are outdated and rely on seniority, not quality.</p>
+            <div class="flex items-center gap-6 text-sm">
+              <div><span class="font-bold text-gray-900">201</span> <span class="text-gray-500">search terms found</span></div>
+              <div><span class="font-bold text-gray-900">8</span> <span class="text-gray-500">at top position</span></div>
+              <div><span class="text-amber-600 font-medium">Beatable with better content</span></div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-gray-200 p-6">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-bold text-gray-900">Cobalt Digital Marketing</h3>
+                <p class="text-gray-500 text-sm">cobaltdigital.marketing · McAllen, TX</p>
+              </div>
+              <span class="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">Smart Competitor</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-3">The most strategically-minded local competitor. They've built a content education hub — blog posts teaching businesses about SEO concepts — to build long-term authority. This is working for them. Their service pages for McAllen appear consistently in search results. The gap: they don't offer automation, and their content isn't hyper-local to the RGV. They know marketing, but they haven't leaned into being the Valley's agency.</p>
+            <div class="flex items-center gap-6 text-sm">
+              <div><span class="font-bold text-gray-900">161</span> <span class="text-gray-500">search terms found</span></div>
+              <div><span class="font-bold text-gray-900">1</span> <span class="text-gray-500">at top position</span></div>
+              <div><span class="text-orange-600 font-medium">Strongest content competitor</span></div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-gray-200 p-6">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-bold text-gray-900">RGV SEO Service</h3>
+                <p class="text-gray-500 text-sm">rgvseoservice.com · McAllen, TX</p>
+              </div>
+              <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Not a Threat</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-3">Despite the name, this competitor has almost no online presence. Their entire website ranks for only 5 search terms nationally — all at low positions. They appear in one key search on the strength of their homepage alone, with no strategy behind it. A properly built site will pass them completely within weeks of launch.</p>
+            <div class="flex items-center gap-6 text-sm">
+              <div><span class="font-bold text-gray-900">5</span> <span class="text-gray-500">search terms found</span></div>
+              <div><span class="font-bold text-gray-900">0</span> <span class="text-gray-500">at top position</span></div>
+              <div><span class="text-green-600 font-medium">Easily surpassed</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT THIS MEANS -->
+    <section class="py-16 px-6 bg-gradient-to-br from-slate-900 via-blue-950 to-purple-950 text-white">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-blue-300 text-sm font-semibold tracking-widest uppercase mb-3">The Bottom Line</p>
+        <h2 class="text-4xl font-black mb-6 leading-tight">The RGV Market Is Weaker Than You'd Expect — and That's Your Edge.</h2>
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-6">
+          Customers across McAllen, Brownsville, Edinburg, Harlingen, Mission, and Pharr are actively searching for exactly what you offer. Most of them are finding national directories, outdated local agency pages, or nothing useful at all.
+        </p>
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-6">
+          The new RankRGV website is being built specifically to be the answer when those searches happen — with dedicated pages for every city, every service, and every combination. No generic templates. No city-name swaps. Real, useful content for RGV businesses.
+        </p>
+        <div class="bg-white/10 border border-white/20 rounded-2xl p-8 max-w-2xl mx-auto mt-8">
+          <p class="text-white font-bold text-xl mb-2">Ready to get started?</p>
+          <p class="text-gray-300 mb-4">Get your free SEO audit and see exactly where you stand today.</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="https://rankrgv.com/get-started/" class="inline-block bg-gradient-to-r from-brand-blue to-brand-purple text-white font-bold py-3 px-8 rounded-xl hover:opacity-90 transition-opacity">Get My Free Audit</a>
+            <a href="tel:9563915991" class="inline-block border border-white/30 text-white font-medium py-3 px-8 rounded-xl hover:bg-white/10 transition-colors">Call (956) 391-5991</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-gray-500 py-8 px-6 text-center text-sm">
+      <p class="font-medium text-gray-400 mb-1">RankRGV · McAllen, TX · (956) 391-5991 · rankrgv.com</p>
+      <p>Market Opportunity Report generated February 24, 2026</p>
+      <p class="mt-2 text-xs text-gray-600">Market research powered by DataForSEO. Demand levels reflect current search trends and may fluctuate. This report does not guarantee specific search rankings.</p>
+    </footer>
+
+  </div><!-- /report-content -->
+
+  <script>
+    async function exportReport() {
+      const btn = document.getElementById('export-btn');
+      const content = document.getElementById('report-content');
+      btn.style.display = 'none';
+      try {
+        const canvas = await html2canvas(content, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: '#f9fafb',
+          windowWidth: 1280,
+          scrollY: -window.scrollY
+        });
+        const link = document.createElement('a');
+        link.download = 'Market-Opportunity-Report-RankRGV.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      } catch(err) {
+        alert('Export failed. Please try a manual screenshot.');
+        console.error(err);
+      } finally {
+        btn.style.display = 'flex';
+      }
+    }
+  </script>
+  <style>@media print { .no-print { display: none !important; } }</style>
+</body>
+</html>

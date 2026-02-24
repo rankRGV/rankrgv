@@ -1,0 +1,324 @@
+---
+import ServiceLayout from '@/layouts/ServiceLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const service = getServiceBySlug('local-seo')!;
+
+const faqs = [
+  {
+    question: 'How long does SEO take to work in McAllen?',
+    answer:
+      "Most McAllen businesses see their first meaningful movement in Google Maps within 60–90 days. Full organic rankings for competitive keywords typically take 3–6 months. The RGV market has weaker competition than most Texas metros, which means results come faster — but this is still a compounding strategy, not a quick fix. We report monthly so you always see exactly where you stand.",
+  },
+  {
+    question: 'How much do SEO services cost in the RGV?',
+    answer:
+      "Local SEO pricing in the RGV ranges widely — from $300/month for bare-minimum work to $2,000+/month for full-service campaigns. What matters more than the number is what's included. At RankRGV, we start with a free audit so you know exactly what needs fixing before you spend a dollar. We'll give you a straight number based on your specific situation — no packages, no upsells.",
+  },
+  {
+    question: "What's the difference between local SEO and regular SEO?",
+    answer:
+      "Regular (organic) SEO targets people searching for information anywhere. Local SEO specifically targets people searching for businesses in a specific city or area — 'plumber in McAllen,' 'dentist near me,' 'SEO company McAllen TX.' Local SEO also includes Google Maps optimization, which is the top 3 results shown on a map above the regular search results. For most RGV businesses, local SEO is what actually drives phone calls and customers.",
+  },
+  {
+    question: 'Do I need local SEO if I already have a Google Business Profile?',
+    answer:
+      "Yes — having a Google Business Profile is just the starting line. Most GBP profiles in the RGV are incomplete, unoptimized, and missing the signals Google uses to rank you. Local SEO covers optimizing your GBP, building your website to rank for city-specific searches, earning local citations and reviews, and creating service-area content. Your GBP is one piece; local SEO is the whole system.",
+  },
+  {
+    question: 'What is the Google Map Pack and how do I get in it?',
+    answer:
+      "The Google Map Pack is the section at the top of local search results showing a map and three business listings. It appears for nearly every service-based search ('SEO company McAllen,' 'restaurant near me'). It gets roughly 3× the clicks of the organic results below it. Getting into the Map Pack requires a fully optimized Google Business Profile, consistent local citations, positive reviews, and a website Google trusts as a local authority. That's exactly what we build.",
+  },
+  {
+    question: 'Can SEO help my business show up in both McAllen and surrounding cities?',
+    answer:
+      "Absolutely — and this is one of the biggest advantages of the approach we use. We build dedicated pages for every city you serve. So if you serve McAllen, Edinburg, and Mission, you get three separate ranking pages, each targeting local searches for that city. This is how service area businesses (ones without a physical storefront in every city) dominate multiple markets simultaneously.",
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Free SEO Audit',
+    text: 'We analyze your current Google presence, your Google Business Profile, your website technical health, and your top 3 local competitors. You get a clear picture of exactly where you stand and what needs to change.',
+  },
+  {
+    name: 'Keyword & Opportunity Map',
+    text: 'We identify every search your ideal customers are making — by service and by city. You see the exact keywords we will target and why, before we build anything. No guessing.',
+  },
+  {
+    name: 'On-Page & Technical Build',
+    text: 'We build or optimize every page on your site to rank for its assigned keywords. This includes title tags, meta descriptions, schema markup, content, internal linking, and page speed.',
+  },
+  {
+    name: 'Google Business Profile Optimization',
+    text: 'We optimize your GBP categories, service areas, photos, posts, and Q&A to maximize your visibility in the Map Pack for every relevant local search.',
+  },
+  {
+    name: 'Citation Building & Reputation',
+    text: 'We build consistent local citations across directories, help you generate more 5-star reviews, and build the local authority signals Google uses to rank businesses.',
+  },
+  {
+    name: 'Monthly Reporting & Ongoing Growth',
+    text: 'Every month you get a clear report: which keywords moved, how many calls came from search, and what we are working on next. Rankings compound over time — we keep pushing.',
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Local SEO McAllen TX',
+    'RankRGV provides local SEO services for McAllen and Rio Grande Valley businesses. We optimize Google Business Profiles, build city-specific pages, and drive real phone calls and customers.',
+    site.areaServed
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How Local SEO Works for McAllen Businesses',
+    'A step-by-step look at how RankRGV implements local SEO to get Rio Grande Valley businesses ranking on Google Maps and organic search.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Local SEO', href: '/local-seo/' },
+  ]),
+  buildWebPageSchema(
+    service.titleTag,
+    service.metaDescription,
+    '/local-seo/',
+    [
+      { label: 'Home', href: '/' },
+      { label: 'Local SEO', href: '/local-seo/' },
+    ]
+  ),
+];
+---
+
+<ServiceLayout service={service} schema={schema}>
+  <Hero
+    badge="Local SEO & Google Maps Optimization"
+    headline='Get to the Top 3 on Google Maps.<br /><span class="gradient-text">Before your competitors do.</span>'
+    subheadline="When someone in McAllen or the RGV searches for your service, they call whoever shows up first. We build the rankings that make that business yours."
+    primaryCTA={{ label: 'Get Your Free SEO Audit', href: '/get-started/' }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '6', label: 'RGV Cities Targeted' },
+      { value: '#1', label: 'Map Pack Goal' },
+      { value: '90', label: 'Days to First Movement' },
+      { value: '0', label: 'Long-Term Contracts' },
+    ]}
+  />
+
+  <!-- What is local SEO — definition block (AEO/AI extractable) -->
+  <section class="py-20 bg-bg" aria-labelledby="what-is-local-seo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <h2 id="what-is-local-seo" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            What is local SEO — and why does it matter for McAllen businesses?
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-6">
+            Local SEO is the process of optimizing your online presence so your business appears when people nearby search for what you offer. Not general searches — the ones that matter: <strong>"plumber in McAllen,"</strong> <strong>"dentist near me,"</strong> <strong>"best SEO company McAllen TX."</strong>
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-6">
+            The most valuable real estate in local search is the <strong>Google Map Pack</strong> — the three businesses shown with a map at the top of results. Studies consistently show that the Map Pack captures over 40% of all clicks for local searches. Being in it means the phone rings. Being out of it means you're invisible.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            In the RGV, the competition is still catching up. Most local businesses have incomplete Google Business Profiles, outdated websites, and no dedicated pages for the cities they serve. That means the door is wide open for businesses willing to do this right.
+          </p>
+        </div>
+
+        <!-- Map Pack visualization -->
+        <div class="reveal reveal-delay-1">
+          <div class="bg-bg-surface rounded-2xl border border-border p-8">
+            <div class="text-xs text-text-muted font-medium uppercase tracking-wider mb-4">Google search: "seo company mcallen"</div>
+
+            <!-- Fake map pack -->
+            <div class="space-y-3">
+              {[
+                { pos: 1, name: 'Your Business Here', label: 'With RankRGV', highlight: true },
+                { pos: 2, name: 'Competitor A', label: '', highlight: false },
+                { pos: 3, name: 'Competitor B', label: '', highlight: false },
+              ].map(({ pos, name, label, highlight }) => (
+                <div class={`flex items-center gap-4 p-4 rounded-xl border ${highlight ? 'bg-brand-blue/5 border-brand-blue/30' : 'bg-bg border-border'}`}>
+                  <div class={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${highlight ? 'bg-brand-blue text-white' : 'bg-bg-surface text-text-muted'}`}>
+                    {pos}
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class={`font-semibold text-sm ${highlight ? 'text-brand-blue' : 'text-text'}`}>{name}</div>
+                    {label && <div class="text-xs text-brand-blue font-medium mt-0.5">{label}</div>}
+                    <div class="flex items-center gap-1 mt-1">
+                      {Array.from({ length: 5 }).map(() => (
+                        <svg class={`w-3 h-3 ${highlight ? 'text-amber-400' : 'text-text-muted/30'}`} fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  {highlight && (
+                    <svg class="w-5 h-5 text-brand-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-border">
+              <div class="flex items-center gap-2 text-xs text-text-muted">
+                <svg class="w-4 h-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                The Map Pack gets ~40% of all clicks for local searches
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we do — service breakdown -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="seo-services">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <h2 id="seo-services" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What's included in RankRGV's local SEO service
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Everything that moves the needle on Google Maps and organic search — nothing you don't need.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+            title: 'Google Business Profile Optimization',
+            body: 'Complete GBP audit and optimization: categories, service areas, photos, posts, Q&A, and the backend signals Google uses to decide who shows in the Map Pack.',
+          },
+          {
+            icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+            title: 'City & Service Page Building',
+            body: 'Dedicated pages for every city you serve and every service you offer. Each page is built to rank for its specific keyword — not generic filler content.',
+          },
+          {
+            icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
+            title: 'Local Citation Building',
+            body: 'Consistent business listings across Google, Bing, Apple Maps, Yelp, and 50+ directories. Inconsistent NAP data confuses Google — we clean it up and build it right.',
+          },
+          {
+            icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z',
+            title: 'Review Generation Strategy',
+            body: 'More 5-star reviews = higher Map Pack rankings. We set up automated review request sequences and give you a simple system to generate reviews consistently.',
+          },
+          {
+            icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+            title: 'Technical SEO Foundation',
+            body: 'Page speed, schema markup, mobile optimization, crawlability — the technical signals that tell Google your site is trustworthy and authoritative.',
+          },
+          {
+            icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+            title: 'Monthly Reporting',
+            body: "Every month: which keywords moved, how many calls came from Google, and what we're working on next. Clear numbers, no spin.",
+          },
+        ].map((item, i) => (
+          <div class={`bg-bg rounded-2xl p-7 border border-border card-hover reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+            <div class="w-11 h-11 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+              </svg>
+            </div>
+            <h3 class="font-bold text-text mb-2">{item.title}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we get your business to the top of Google"
+    subheadline="A proven process built for the RGV market."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <!-- Competitor context — RGV market reality -->
+  <section class="py-20 bg-bg" aria-labelledby="rgv-market">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <h2 id="rgv-market" class="text-3xl sm:text-4xl font-bold text-text mb-6 reveal">
+          The RGV SEO market is wide open. Here's why that matters.
+        </h2>
+        <div class="space-y-5 text-text-muted text-lg leading-relaxed">
+          <p class="reveal reveal-delay-1">
+            Most Texas metros are brutally competitive for local SEO. Not the RGV. McAllen, Brownsville, Edinburg — these markets have meaningful search demand with surprisingly weak competition. The businesses ranking today have thin content, incomplete GBPs, and no dedicated city-service pages.
+          </p>
+          <p class="reveal reveal-delay-2">
+            That creates an unusual opportunity: a professionally built, technically optimized site can outrank established competitors in 90–120 days. Not because we have a magic trick, but because the bar to clear is low.
+          </p>
+          <p class="reveal reveal-delay-3">
+            The businesses that move now will own these rankings for years. The ones that wait will pay more to compete against the ones who didn't.
+          </p>
+        </div>
+
+        <!-- Competitor gap visual -->
+        <div class="mt-10 bg-bg-surface rounded-2xl border border-border p-6 reveal reveal-delay-4">
+          <div class="text-sm font-semibold text-text mb-4">Current competition for top McAllen SEO keywords</div>
+          <div class="space-y-3">
+            {[
+              { label: 'National directories (Clutch, Yelp)', fill: 85, color: 'bg-text-muted/20' },
+              { label: 'Out-of-market agencies with landing pages', fill: 60, color: 'bg-text-muted/20' },
+              { label: 'Local agencies with thin content', fill: 40, color: 'bg-amber-300' },
+              { label: 'RankRGV target: dedicated pages + full optimization', fill: 95, color: 'bg-brand-blue' },
+            ].map(({ label, fill, color }) => (
+              <div>
+                <div class="flex justify-between text-xs text-text-muted mb-1">
+                  <span>{label}</span>
+                </div>
+                <div class="h-2 bg-bg rounded-full overflow-hidden">
+                  <div class={`h-full ${color} rounded-full`} style={`width: ${fill}%`}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p class="text-xs text-text-muted mt-4">Relative optimization depth — not a ranking prediction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <ServiceAreaGrid
+    headline="Local SEO services across the Rio Grande Valley"
+    serviceSlug="local-seo"
+  />
+
+  <FAQSection faqs={faqs} headline="Local SEO questions from RGV business owners" />
+
+  <CTASection
+    headline="Ready to show up when McAllen customers search?"
+    subheadline="Get a free SEO audit — we'll show you exactly which searches you're missing and what it will take to rank."
+  />
+</ServiceLayout>

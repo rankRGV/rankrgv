@@ -1,0 +1,306 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('mcallen')!;
+const service = getServiceBySlug('local-seo')!;
+
+const title = 'Local SEO McAllen TX | Top 3 Map Pack for McAllen Businesses | RankRGV';
+const description =
+  'McAllen local SEO specialists. We get McAllen businesses into the top 3 Google Maps results for the searches that drive real calls and customers. Free audit.';
+
+const faqs = [
+  {
+    question: 'How long until my McAllen business ranks on Google Maps?',
+    answer:
+      "Most McAllen businesses see their first movement in Google Maps rankings within 60–90 days. Full Map Pack placement for competitive terms takes 3–5 months. The McAllen market is less saturated than most Texas metros, which means faster movement — but there are no overnight fixes. We show you progress every month so you can see exactly where you're moving.",
+  },
+  {
+    question: 'What makes McAllen SEO different from general SEO?',
+    answer:
+      "McAllen SEO is specifically about ranking for searches with 'McAllen,' 'near me,' and surrounding city modifiers. It requires an optimized Google Business Profile with McAllen as a primary service area, city-specific pages on your website, local citations on McAllen directories, and reviews from McAllen customers. General SEO strategies miss most of these signals — and they're exactly what Google uses to decide who shows in the McAllen Map Pack.",
+  },
+  {
+    question: "Do you do SEO for McAllen businesses without a physical office?",
+    answer:
+      "Yes — this is actually our specialty. Many of the best businesses in the RGV operate as service area businesses (SABs): they serve customers at the customer's location but don't have a storefront. Google handles SABs differently in the Map Pack. We optimize specifically for this model: correct service area settings in your GBP, the right schema markup on your website, and content that targets local intent without needing a physical address.",
+  },
+  {
+    question: 'Can you help me rank in McAllen and other RGV cities at the same time?',
+    answer:
+      "Yes — that's the whole strategy. We build dedicated pages for every city you want to rank in. McAllen gets its own page, Edinburg gets its own page, Brownsville gets its own page. Each is optimized for local searches in that city. This is how you rank across the entire RGV without any single page competing against itself.",
+  },
+  {
+    question: 'How much does local SEO cost for a McAllen business?',
+    answer:
+      "It depends on your starting point and how competitive your specific keywords are. We don't sell packages — we start with a free audit to understand exactly what your situation needs. From there, we give you a specific number. Most McAllen small business SEO engagements run $500–$1,500/month. We'll tell you what's realistic before you commit to anything.",
+  },
+  {
+    question: 'Do you only work with McAllen businesses or the whole RGV?',
+    answer:
+      "The whole RGV — but McAllen is our primary market and where most of our clients are based. We serve McAllen, Brownsville, Edinburg, Harlingen, Mission, and Pharr. We understand the RGV market deeply because it's the only market we operate in.",
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'McAllen SEO Audit',
+    text: "We run a full audit of your current McAllen Google presence — your GBP, your website's city-specific pages, your existing rankings, and your top 3 McAllen competitors. You get a clear, jargon-free picture of the gap.",
+  },
+  {
+    name: 'McAllen Keyword Map',
+    text: "We identify every search McAllen customers use to find your type of business. You see exactly which keywords will drive the most calls before we touch anything.",
+  },
+  {
+    name: 'GBP Optimization',
+    text: "We fully optimize your Google Business Profile for McAllen: primary and secondary categories, service area configuration, services, photos, posts, and the technical signals that move Map Pack rankings.",
+  },
+  {
+    name: 'City Pages & On-Page SEO',
+    text: "We build or optimize McAllen-specific pages on your website — with the right keywords, schema, and content structure Google needs to rank you for local searches.",
+  },
+  {
+    name: 'Citations & Review Strategy',
+    text: "We build McAllen-focused local citations and give you a simple system to generate more 5-star Google reviews — the single biggest signal for Map Pack rankings.",
+  },
+  {
+    name: 'Monthly Progress Reports',
+    text: "Every month: which McAllen searches you moved up for, how many calls came from Google, and what we're targeting next. No spin — just the numbers.",
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Local SEO McAllen TX',
+    'RankRGV provides local SEO services specifically for McAllen businesses. We optimize Google Business Profiles, build city-specific pages, and drive Map Pack rankings that generate real calls.',
+    'McAllen'
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How We Get McAllen Businesses into the Google Map Pack',
+    'The step-by-step process RankRGV uses to rank McAllen businesses in the top 3 Google Maps results.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'McAllen', href: '/service-areas/mcallen/' },
+    { label: 'Local SEO', href: '/service-areas/mcallen/local-seo/' },
+  ]),
+  buildWebPageSchema(
+    title,
+    description,
+    '/service-areas/mcallen/local-seo/',
+    [
+      { label: 'Home', href: '/' },
+      { label: 'Service Areas', href: '/service-areas/' },
+      { label: 'McAllen', href: '/service-areas/mcallen/' },
+      { label: 'Local SEO', href: '/service-areas/mcallen/local-seo/' },
+    ]
+  ),
+];
+---
+
+<ServiceAreaLayout
+  area={area}
+  service={service}
+  title={title}
+  description={description}
+  schema={schema}
+>
+  <Hero
+    badge="Local SEO · McAllen, TX"
+    headline='Top 3 Google Maps rankings<br /><span class="gradient-text">for McAllen businesses.</span>'
+    subheadline="When McAllen customers search for your service on Google, they call whoever shows up first. We get your business into that top 3 — and keep you there."
+    primaryCTA={{ label: 'Get Your Free McAllen SEO Audit', href: '/get-started/' }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'McAllen', label: 'Primary target city' },
+      { value: 'Top 3', label: 'Map Pack goal' },
+      { value: '90 days', label: 'Average time to first movement' },
+      { value: '0', label: 'Long-term contracts' },
+    ]}
+  />
+
+  <!-- McAllen SEO intro — differentiated from /local-seo/ -->
+  <section class="py-20 bg-bg" aria-labelledby="mcallen-seo-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="mcallen-seo-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            McAllen SEO is a specific game — and most agencies are playing the wrong one
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            General SEO agencies target broad keywords. McAllen SEO is different — it's about ranking for the searches McAllen customers actually make. <strong>"Dentist in McAllen."</strong> <strong>"HVAC company near La Plaza Mall."</strong> <strong>"Best SEO company McAllen TX."</strong>
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            These searches have local intent — the searcher is ready to call. The business that shows up in the Google Map Pack for these gets the majority of that traffic. The ones below the Map Pack get close to nothing.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We've studied the McAllen market specifically: who's ranking, why they're ranking, what keywords are uncontested, and where the fastest wins are. That's the audit we run for every McAllen client before we touch anything.
+          </p>
+        </div>
+
+        <!-- McAllen-specific opportunity callouts -->
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              icon: '✓',
+              title: 'McAllen SEO competition is weak',
+              body: "Most McAllen businesses ranking today have thin content and no dedicated city-service pages. A properly built site breaks through fast.",
+              highlight: true,
+            },
+            {
+              icon: '✓',
+              title: 'Your GBP is doing most of the Map Pack work',
+              body: "Google Business Profile optimization is the fastest path to Map Pack rankings. Most McAllen GBPs are 40–60% complete.",
+              highlight: true,
+            },
+            {
+              icon: '✓',
+              title: 'RankRGV already ranks for McAllen keywords',
+              body: "We rank for 'local seo mcallen' and 'business automation mcallen' on WordPress with zero optimization. Imagine what a proper build does.",
+              highlight: true,
+            },
+          ].map(({ icon, title, body, highlight }) => (
+            <div class={`p-5 rounded-xl border ${highlight ? 'bg-green-50 border-green-200' : 'bg-bg border-border'}`}>
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we do for McAllen businesses specifically -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="mcallen-seo-work">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="mcallen-seo-work" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What RankRGV does for McAllen SEO clients
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Specific actions. No vague "optimization" — actual deliverables that move rankings.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Google Business Profile — McAllen-specific optimization',
+            items: [
+              'Primary category set to your highest-traffic service',
+              'McAllen set as primary service area + surrounding cities added',
+              'Services section fully populated with keyword-rich descriptions',
+              'Photo strategy: exterior, team, work samples, before/afters',
+              'Weekly GBP posts targeting McAllen keywords',
+              'Q&A section populated with common questions',
+            ],
+          },
+          {
+            title: 'Website — McAllen city pages',
+            items: [
+              'Dedicated /service-areas/mcallen/ hub page',
+              'Individual McAllen + service pages (McAllen SEO, McAllen web design, etc.)',
+              'LocalBusiness schema with McAllen service area',
+              'Title tags following "Local SEO McAllen TX | Benefit | RankRGV" pattern',
+              'McAllen-specific content (landmarks, neighborhoods, market context)',
+              'Internal linking from McAllen hub to all service pages',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we get McAllen businesses into the Map Pack"
+    subheadline="A proven process specific to the McAllen market."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <Testimonials />
+
+  <!-- Internal links to other city SEO pages -->
+  <section class="py-16 bg-bg" aria-labelledby="other-cities">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities" class="text-2xl font-bold text-text mb-8 text-center reveal">
+        Also serving these RGV cities for local SEO
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Local SEO Brownsville TX', href: '/service-areas/brownsville/local-seo/' },
+          { label: 'Local SEO Edinburg TX', href: '/service-areas/edinburg/local-seo/' },
+          { label: 'Local SEO Harlingen TX', href: '/service-areas/harlingen/local-seo/' },
+          { label: 'Local SEO Mission TX', href: '/service-areas/mission/local-seo/' },
+          { label: 'Local SEO Pharr TX', href: '/service-areas/pharr/local-seo/' },
+        ].map(({ label, href }) => (
+          <a
+            href={href}
+            class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline"
+          >
+            {label}
+          </a>
+        ))}
+        <a
+          href="/local-seo/"
+          class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline"
+        >
+          All Local SEO Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection
+    faqs={faqs}
+    headline="McAllen SEO questions answered"
+  />
+
+  <CTASection
+    headline="Let's get your McAllen business to the top of Google"
+    subheadline="Free audit — we'll show you exactly where you stand in McAllen search results and how fast we can move you up."
+  />
+</ServiceAreaLayout>

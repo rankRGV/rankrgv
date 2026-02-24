@@ -1,0 +1,30 @@
+---
+interface Stat {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  stats?: Stat[];
+}
+
+const { stats = [
+  { value: '6', label: 'RGV Cities Covered' },
+  { value: '3', label: 'Core Services' },
+  { value: '99+', label: 'Target Lighthouse Score' },
+  { value: '100%', label: 'RGV-Focused' },
+] } = Astro.props;
+---
+
+<section class="bg-bg-dark border-y border-white/10 py-10" aria-label="Trust signals">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      {stats.map((stat, i) => (
+        <div class={`reveal reveal-delay-${i + 1}`}>
+          <div class="text-3xl sm:text-4xl font-extrabold gradient-text mb-1">{stat.value}</div>
+          <div class="text-sm text-white/50 font-medium">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

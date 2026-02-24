@@ -1,0 +1,34 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import type { ServiceArea } from '@/data/serviceAreas';
+import type { Service } from '@/data/services';
+
+interface Props {
+  area: ServiceArea;
+  service?: Service; // present on loc-service pages, absent on city hub pages
+  title: string;
+  description: string;
+  schema?: object | object[];
+}
+
+const { area, service, title, description, schema } = Astro.props;
+
+const breadcrumbs = service
+  ? [
+      { label: 'Home', href: '/' },
+      { label: 'Service Areas', href: '/service-areas/' },
+      { label: area.name, href: `/service-areas/${area.slug}/` },
+      { label: service.shortName, href: `/service-areas/${area.slug}/${service.slug}/` },
+    ]
+  : [
+      { label: 'Home', href: '/' },
+      { label: 'Service Areas', href: '/service-areas/' },
+      { label: area.name, href: `/service-areas/${area.slug}/` },
+    ];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <Breadcrumbs items={breadcrumbs} />
+  <slot />
+</BaseLayout>

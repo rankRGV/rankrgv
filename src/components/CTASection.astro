@@ -1,0 +1,38 @@
+---
+import { site } from '@/config/site';
+
+interface Props {
+  headline?: string;
+  subheadline?: string;
+  primaryCTA?: { label: string; href: string };
+  secondaryCTA?: { label: string; href: string };
+}
+
+const {
+  headline = 'Ready to show up when your customers search?',
+  subheadline = "Let's find out exactly what keywords you're missing — and build a plan to own them.",
+  primaryCTA = { label: 'Get Your Free SEO Audit', href: '/get-started/' },
+  secondaryCTA = { label: `Call ${site.phone}`, href: site.phoneHref },
+} = Astro.props;
+---
+
+<section class="hero-bg py-20 relative overflow-hidden" aria-label="Call to action">
+  <div class="absolute inset-0 bg-gradient-to-r from-brand-blue/20 to-brand-purple/20 pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 reveal">{headline}</h2>
+    <p class="text-lg text-white/70 mb-10 max-w-2xl mx-auto reveal reveal-delay-1">{subheadline}</p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-2">
+      <a href={primaryCTA.href} class="btn-primary">
+        {primaryCTA.label}
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+      <a href={secondaryCTA.href} class="btn-secondary">
+        {secondaryCTA.label}
+      </a>
+    </div>
+  </div>
+</section>

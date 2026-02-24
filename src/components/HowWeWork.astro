@@ -1,0 +1,68 @@
+---
+interface Step {
+  number: string;
+  title: string;
+  body: string;
+}
+
+interface Props {
+  headline?: string;
+  subheadline?: string;
+  steps?: Step[];
+}
+
+const {
+  headline = 'How it works',
+  subheadline = 'No long-term contracts. No fluff. Just a clear process that gets results.',
+  steps = [
+    {
+      number: '01',
+      title: 'Free SEO Audit',
+      body: "We analyze your current Google presence, your competitors' rankings, and exactly which searches your customers are using — but you're missing. Takes 48 hours.",
+    },
+    {
+      number: '02',
+      title: 'Build Your Strategy',
+      body: "We map every keyword opportunity to a specific page on your site. You see exactly what we're targeting and why before we build anything.",
+    },
+    {
+      number: '03',
+      title: 'Build & Optimize',
+      body: "We build or optimize your website and Google Business Profile to rank for the searches that matter. Every page is built to show up and convert.",
+    },
+    {
+      number: '04',
+      title: 'Track & Grow',
+      body: "You get monthly reporting on rankings, traffic, and calls. We identify new opportunities as the market changes and keep you ahead.",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="py-20 bg-bg" aria-label="How we work">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">{headline}</h2>
+      <p class="text-text-muted text-lg reveal reveal-delay-1">{subheadline}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {steps.map((step, i) => (
+        <div class={`relative reveal reveal-delay-${i + 1}`}>
+          <!-- Connector line (desktop) -->
+          {i < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-8 left-[calc(50%+2rem)] right-[-2rem] h-px bg-border" aria-hidden="true"></div>
+          )}
+
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-purple text-white text-xl font-extrabold mb-5 mx-auto">
+              {step.number}
+            </div>
+            <h3 class="text-lg font-bold text-text mb-3">{step.title}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{step.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

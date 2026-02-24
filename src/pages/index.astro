@@ -1,0 +1,85 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import PainPoints from '@/components/PainPoints.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import CTASection from '@/components/CTASection.astro';
+import { services } from '@/data/services';
+import { buildOrgSchema, buildFAQSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const faqs = [
+  {
+    question: 'How long does it take to see results from local SEO?',
+    answer: 'Most clients see meaningful movement in Google Maps rankings within 60–90 days. Full organic rankings for competitive keywords typically take 3–6 months. We show you progress monthly so you always know where you stand.',
+  },
+  {
+    question: 'Do I need to sign a long-term contract?',
+    answer: "No. We don't lock you into contracts because we'd rather earn your business every month. Our SEO clients typically stay for 12+ months because the results compound over time.",
+  },
+  {
+    question: 'What makes RankRGV different from other McAllen marketing agencies?',
+    answer: "We're 100% focused on the Rio Grande Valley. We know the local market, the search patterns, and the competition. We don't split our attention between industries or regions — this is all we do.",
+  },
+  {
+    question: 'What is included in the free SEO audit?',
+    answer: "We analyze your Google Business Profile, your website's technical SEO, your current keyword rankings, and your top competitors. You get a clear picture of where you stand and exactly what needs to change.",
+  },
+];
+
+const schema = [
+  buildOrgSchema(),
+  buildFAQSchema(faqs),
+  buildWebPageSchema(
+    'Local SEO & Web Design McAllen TX | RankRGV',
+    'RankRGV helps McAllen and RGV businesses get found on Google. Local SEO, web design, and business automation built for the Rio Grande Valley market.',
+    '/'
+  ),
+];
+---
+
+<BaseLayout
+  title="Local SEO & Web Design McAllen TX | Real Results for RGV Businesses | RankRGV"
+  description="RankRGV helps McAllen and RGV businesses get found on Google. Local SEO, web design, and business automation built for the Rio Grande Valley. Free SEO audit."
+  schema={schema}
+>
+  <Hero
+    badge="Serving the Rio Grande Valley"
+    headline='Get found on Google.<br /><span class="gradient-text">Own your market.</span>'
+    subheadline="We help McAllen and RGV businesses rank higher, get more calls, and close more customers — without the runaround. Free SEO audit to get started."
+  />
+
+  <TrustSignals />
+
+  <PainPoints />
+
+  <!-- Services section -->
+  <section class="py-20 bg-bg" aria-label="Our services">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Everything your business needs to grow online
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Three focused services. All built around one goal: more customers finding you on Google.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((service, i) => (
+          <div class={`reveal reveal-delay-${i + 1}`}>
+            <ServiceCard service={service} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork />
+
+  <Testimonials />
+
+  <CTASection />
+</BaseLayout>

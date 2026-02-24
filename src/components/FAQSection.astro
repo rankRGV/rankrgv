@@ -1,0 +1,42 @@
+---
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  headline?: string;
+  faqs: FAQ[];
+}
+
+const {
+  headline = 'Frequently asked questions',
+  faqs,
+} = Astro.props;
+
+if (faqs.length < 4) {
+  console.warn(`FAQSection: Only ${faqs.length} FAQs provided. Minimum required is 4 per page.`);
+}
+---
+
+<section class="py-20 bg-bg-surface" aria-label="Frequently asked questions">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl sm:text-4xl font-bold text-text text-center mb-12 reveal">{headline}</h2>
+
+    <div class="space-y-3">
+      {faqs.map((faq, i) => (
+        <details class={`bg-bg rounded-xl border border-border overflow-hidden reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer hover:bg-bg-surface transition-colors duration-150">
+            <span class="font-semibold text-text">{faq.question}</span>
+            <svg class="faq-icon w-5 h-5 text-brand-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5">
+            <p class="text-text-muted leading-relaxed">{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

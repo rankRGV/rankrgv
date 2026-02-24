@@ -1,0 +1,141 @@
+---
+import { site } from '@/config/site';
+
+interface Props {
+  headline?: string;
+  subheadline?: string;
+  submitLabel?: string;
+}
+
+const {
+  headline = 'Get your free SEO audit',
+  subheadline = "Tell us about your business and we'll show you exactly what keyword opportunities you're missing.",
+  submitLabel = 'Send My Free Audit Request',
+} = Astro.props;
+---
+
+<div class="bg-bg rounded-2xl border border-border p-8 sm:p-10">
+  <h2 class="text-2xl font-bold text-text mb-2">{headline}</h2>
+  <p class="text-text-muted mb-8">{subheadline}</p>
+
+  <form
+    action={`https://submit-form.com/${site.formsparkId}`}
+    method="POST"
+    id="contact-form"
+    class="space-y-5"
+    novalidate
+  >
+    <!-- Honeypot spam prevention -->
+    <input type="checkbox" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
+    <!-- Redirect after success -->
+    <input type="hidden" name="_redirect" value={`${site.url}/thank-you/`} />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div>
+        <label for="name" class="block text-sm font-medium text-text mb-1.5">Your name <span class="text-red-500">*</span></label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          autocomplete="name"
+          class="w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-shadow duration-150"
+          placeholder="Maria Gonzalez"
+        />
+      </div>
+      <div>
+        <label for="business" class="block text-sm font-medium text-text mb-1.5">Business name <span class="text-red-500">*</span></label>
+        <input
+          type="text"
+          id="business"
+          name="business"
+          required
+          class="w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-shadow duration-150"
+          placeholder="Rio Grande Family Clinic"
+        />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div>
+        <label for="email" class="block text-sm font-medium text-text mb-1.5">Email <span class="text-red-500">*</span></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          autocomplete="email"
+          class="w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-shadow duration-150"
+          placeholder="maria@example.com"
+        />
+      </div>
+      <div>
+        <label for="phone" class="block text-sm font-medium text-text mb-1.5">Phone</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          autocomplete="tel"
+          class="w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-shadow duration-150"
+          placeholder="956-555-0100"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label for="city" class="block text-sm font-medium text-text mb-1.5">City <span class="text-red-500">*</span></label>
+      <select
+        id="city"
+        name="city"
+        required
+        class="w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-shadow duration-150"
+      >
+        <option value="">Select your city…</option>
+        <option value="McAllen">McAllen</option>
+        <option value="Brownsville">Brownsville</option>
+        <option value="Edinburg">Edinburg</option>
+        <option value="Harlingen">Harlingen</option>
+        <option value="Mission">Mission</option>
+        <option value="Pharr">Pharr</option>
+        <option value="Other RGV">Other RGV city</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="website" class="block text-sm font-medium text-text mb-1.5">Website URL</label>
+      <input
+        type="url"
+        id="website"
+        name="website"
+        autocomplete="url"
+        class="w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-shadow duration-150"
+        placeholder="https://yoursite.com"
+      />
+    </div>
+
+    <div>
+      <label for="message" class="block text-sm font-medium text-text mb-1.5">What's your biggest challenge right now?</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        class="w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-shadow duration-150 resize-none"
+        placeholder="We don't show up on Google, our website is old, leads aren't calling back…"
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full btn-primary justify-center py-4 text-base"
+    >
+      {submitLabel}
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </button>
+
+    <p class="text-xs text-text-muted text-center">
+      No spam, no obligations. Just a straight answer about your opportunities.
+    </p>
+  </form>
+</div>

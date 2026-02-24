@@ -1,0 +1,213 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { services } from '@/data/services';
+import {
+  buildOrgSchema,
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('mcallen')!;
+
+const title = 'Digital Marketing Agency McAllen TX | Local SEO & Web Design | RankRGV';
+const description =
+  "McAllen's local SEO and digital marketing agency. RankRGV helps McAllen businesses rank higher on Google, get more calls, and grow faster. Free SEO audit available.";
+
+const faqs = [
+  {
+    question: "Why should I hire a McAllen-based marketing agency instead of a national company?",
+    answer:
+      "National agencies manage hundreds of clients across the country. They don't know that McAllen searches behave differently than Austin or Dallas, that the bilingual market affects search patterns, or which local competitors are actually your biggest threats. We work exclusively in the RGV — this is the only market we optimize for. That means faster results and strategies that actually fit how your customers search.",
+  },
+  {
+    question: "How competitive is the digital marketing space in McAllen?",
+    answer:
+      "Less competitive than most Texas metros. McAllen has real search demand — people are actively looking for local SEO, web design, and digital marketing services — but the local competition is weak. Most agencies ranking today have thin content and no dedicated service-area pages. A properly optimized site can break into the top 3 results faster here than almost anywhere else in Texas.",
+  },
+  {
+    question: "Do you understand the bilingual customer base in McAllen?",
+    answer:
+      "Yes. The RGV has a unique dual-market dynamic where search behavior shifts between English and Spanish depending on the customer and the service. We factor this into keyword research and content strategy. While our websites are built in English first (where search volume is highest), we can incorporate bilingual elements for businesses where it matters.",
+  },
+  {
+    question: "Which industries in McAllen benefit most from local SEO?",
+    answer:
+      "Any business where customers search before they call: healthcare, legal services, home services (HVAC, plumbing, roofing), automotive repair, restaurants, retail, and professional services. The common thread is high-intent search — people who are ready to hire, not just browsing. In McAllen specifically, healthcare, legal, and home services are the highest-volume categories.",
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
+    name: site.name,
+    url: site.url,
+    telephone: site.phone,
+    description: 'Digital marketing agency serving McAllen and the Rio Grande Valley. Local SEO, web design, and business automation.',
+    areaServed: {
+      '@type': 'City',
+      name: 'McAllen, TX',
+    },
+    serviceArea: {
+      '@type': 'GeoCircle',
+      geoMidpoint: {
+        '@type': 'GeoCoordinates',
+        latitude: 26.2034,
+        longitude: -98.2300,
+      },
+      geoRadius: '30000',
+    },
+  },
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'McAllen', href: '/service-areas/mcallen/' },
+  ]),
+  buildWebPageSchema(
+    title,
+    description,
+    '/service-areas/mcallen/',
+    [
+      { label: 'Home', href: '/' },
+      { label: 'Service Areas', href: '/service-areas/' },
+      { label: 'McAllen', href: '/service-areas/mcallen/' },
+    ]
+  ),
+];
+---
+
+<ServiceAreaLayout
+  area={area}
+  title={title}
+  description={description}
+  schema={schema}
+>
+  <Hero
+    badge="Serving McAllen, TX & Hidalgo County"
+    headline='McAllen's local SEO & digital marketing agency.<br /><span class="gradient-text">Built for the RGV.</span>'
+    subheadline="We help McAllen businesses show up on Google, get more calls, and grow — with strategies built around how the RGV market actually works."
+    primaryCTA={{ label: 'Get Your Free McAllen SEO Audit', href: '/get-started/' }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'McAllen', label: 'Primary Market' },
+      { value: '3', label: 'Services Available' },
+      { value: '#1', label: 'Map Pack Target' },
+      { value: 'RGV', label: 'Our Only Market' },
+    ]}
+  />
+
+  <!-- McAllen market context -->
+  <section class="py-20 bg-bg" aria-labelledby="mcallen-market">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="mcallen-market" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Digital marketing in McAllen — why local expertise matters
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            McAllen is the economic hub of the Rio Grande Valley — one of the fastest-growing metros in Texas with a thriving healthcare, retail, and professional services sector. Customers here search in both English and Spanish, are highly mobile, and make decisions fast.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            National agencies don't understand that dynamic. They build generic pages that technically mention McAllen but aren't optimized for how people here actually search. We're RGV-only — every strategy we build is shaped by the local market.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            The McAllen digital marketing space is less competitive than most Texas markets. Businesses that build a real local SEO foundation now will own these rankings for years.
+          </p>
+        </div>
+
+        <!-- Quick stats about McAllen -->
+        <div class="grid grid-cols-2 gap-4 reveal reveal-delay-1">
+          {[
+            { value: '145K+', label: 'McAllen population' },
+            { value: '#1', label: 'Fastest-growing RGV city' },
+            { value: 'Low', label: 'SEO competition vs. other Texas metros' },
+            { value: '90 days', label: 'Average time to first rankings' },
+          ].map(({ value, label }) => (
+            <div class="bg-bg-surface rounded-2xl p-6 border border-border text-center">
+              <div class="text-2xl font-extrabold gradient-text mb-1">{value}</div>
+              <div class="text-xs text-text-muted">{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services available in McAllen -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="mcallen-services">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 id="mcallen-services" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Digital marketing services for McAllen businesses
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Every service we offer is available to McAllen businesses — with strategies tailored to the local market.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((service, i) => (
+          <div class={`reveal reveal-delay-${i + 1}`}>
+            <div class="relative">
+              <ServiceCard service={service} />
+              <!-- Override link to city-service page -->
+              <a
+                href={`/service-areas/mcallen/${service.slug}/`}
+                class="absolute inset-0 rounded-2xl"
+                aria-label={`${service.name} in McAllen`}
+              ></a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas within McAllen -->
+  <section class="py-20 bg-bg" aria-labelledby="mcallen-neighborhoods">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 id="mcallen-neighborhoods" class="text-3xl font-bold text-text mb-4 reveal">
+          We help businesses across all of McAllen
+        </h2>
+        <p class="text-text-muted reveal reveal-delay-1">
+          From North McAllen to Sharyland, Downtown to La Paloma — if your customers are in the McAllen area, we help them find you.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {area.neighborhoods.map((n) => (
+          <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">
+            {n}
+          </span>
+        ))}
+        <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">
+          & surrounding areas
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <FAQSection
+    faqs={faqs}
+    headline="Questions about digital marketing in McAllen"
+  />
+
+  <CTASection
+    headline="Ready to dominate McAllen searches?"
+    subheadline="Get a free audit — we'll show you exactly where you stand in McAllen search results and what it takes to rank."
+  />
+</ServiceAreaLayout>

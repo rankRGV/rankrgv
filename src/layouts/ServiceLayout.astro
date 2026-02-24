@@ -1,0 +1,26 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import type { Service } from '@/data/services';
+
+interface Props {
+  service: Service;
+  schema?: object | object[];
+}
+
+const { service, schema } = Astro.props;
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: service.name, href: `/${service.slug}/` },
+];
+---
+
+<BaseLayout
+  title={service.titleTag}
+  description={service.metaDescription}
+  schema={schema}
+>
+  <Breadcrumbs items={breadcrumbs} />
+  <slot />
+</BaseLayout>
