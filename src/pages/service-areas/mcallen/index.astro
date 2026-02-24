@@ -130,16 +130,19 @@ const schema = [
 
         <!-- McAllen aerial / city image + stats -->
         <div class="reveal reveal-delay-1 space-y-4">
-          <!-- City image — McAllen downtown / La Plaza area -->
-          <div class="rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-bg-surface flex items-center justify-center">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/McAllen_Texas_Skyline.jpg/1280px-McAllen_Texas_Skyline.jpg"
-              alt="McAllen, Texas — RGV's economic hub"
-              class="w-full h-full object-cover"
-              loading="lazy"
-              width="640"
-              height="360"
-            />
+          <!-- City image — drop your own McAllen photo into /public/images/mcallen-city.jpg -->
+          <div class="rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-bg-dark relative flex items-end">
+            <!-- Placeholder: styled dark panel with city name. Replace src below with a real photo. -->
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark via-bg-dark to-brand-purple/40"></div>
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+            <div class="relative z-10 p-6 w-full">
+              <div class="text-white/50 text-xs font-semibold uppercase tracking-widest mb-1">Rio Grande Valley</div>
+              <div class="text-white text-2xl font-extrabold tracking-tight">McAllen, Texas</div>
+              <div class="text-white/40 text-sm mt-1">RGV's economic hub · Hidalgo County</div>
+            </div>
+            <!-- Uncomment and update src once you have a real McAllen photo in /public/images/:
+            <img src="/images/mcallen-city.jpg" alt="McAllen, Texas" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+            -->
           </div>
           <!-- Quick stats grid -->
           <div class="grid grid-cols-2 gap-3">
@@ -215,29 +218,31 @@ const schema = [
 
   <Testimonials />
 
-  <!-- Google Maps embed — McAllen service area -->
-  <section class="py-16 bg-bg-surface" aria-labelledby="mcallen-map">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-10">
-        <h2 id="mcallen-map" class="text-2xl font-bold text-text mb-3 reveal">
+  <!-- Google Maps embed — McAllen service area — full width -->
+  <section aria-labelledby="mcallen-map">
+    <!-- Heading inside contained wrapper -->
+    <div class="py-12 bg-bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 id="mcallen-map" class="text-2xl font-bold text-text mb-2 reveal">
           Serving McAllen and all of Hidalgo County
         </h2>
         <p class="text-text-muted reveal reveal-delay-1">
           We serve businesses throughout McAllen and surrounding RGV communities.
         </p>
       </div>
-      <div class="rounded-2xl overflow-hidden border border-border shadow-sm reveal reveal-delay-2" style="height: 380px;">
-        <iframe
-          title="McAllen, Texas service area map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114841.30974648!2d-98.28138!3d26.2034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866577e87c1bc069%3A0x6a90a4c1f8e63bd6!2sMcAllen%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-          width="100%"
-          height="380"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
+    </div>
+    <!-- Map: full viewport width, no padding, no border-radius -->
+    <div class="w-full reveal reveal-delay-2" style="height: 420px;">
+      <iframe
+        title="McAllen, Texas service area map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114841.30974648!2d-98.28138!3d26.2034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866577e87c1bc069%3A0x6a90a4c1f8e63bd6!2sMcAllen%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+        width="100%"
+        height="420"
+        style="border:0; display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
   </section>
 
