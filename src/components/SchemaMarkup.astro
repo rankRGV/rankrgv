@@ -113,11 +113,12 @@ export function buildBreadcrumbSchema(items: { label: string; href: string }[]) 
 }
 
 // ── WebPage schema ───────────────────────────────────────────────────────────
+// Note: breadcrumbs are handled via a standalone BreadcrumbList schema — do NOT
+// pass them here to avoid duplicate BreadcrumbList schemas on the same page.
 export function buildWebPageSchema(
   name: string,
   description: string,
-  url: string,
-  breadcrumbs?: { label: string; href: string }[]
+  url: string
 ) {
   return {
     '@context': 'https://schema.org',
@@ -126,9 +127,6 @@ export function buildWebPageSchema(
     description,
     url: url.startsWith('http') ? url : `${site.url}${url}`,
     isPartOf: { '@type': 'WebSite', name: site.name, url: site.url },
-    ...(breadcrumbs && {
-      breadcrumb: buildBreadcrumbSchema(breadcrumbs),
-    }),
   };
 }
 ---

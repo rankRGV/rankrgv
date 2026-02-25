@@ -73,16 +73,7 @@ const schema = [
     { label: 'Service Areas', href: '/service-areas/' },
     { label: 'McAllen', href: '/service-areas/mcallen/' },
   ]),
-  buildWebPageSchema(
-    title,
-    description,
-    '/service-areas/mcallen/',
-    [
-      { label: 'Home', href: '/' },
-      { label: 'Service Areas', href: '/service-areas/' },
-      { label: 'McAllen', href: '/service-areas/mcallen/' },
-    ]
-  ),
+  buildWebPageSchema(title, description, '/service-areas/mcallen/'),
 ];
 ---
 
@@ -136,9 +127,9 @@ const schema = [
             <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark via-bg-dark to-brand-purple/40"></div>
             <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
             <div class="relative z-10 p-6 w-full">
-              <div class="text-white/50 text-xs font-semibold uppercase tracking-widest mb-1">Rio Grande Valley</div>
+              <div class="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">Rio Grande Valley</div>
               <div class="text-white text-2xl font-extrabold tracking-tight">McAllen, Texas</div>
-              <div class="text-white/40 text-sm mt-1">RGV's economic hub · Hidalgo County</div>
+              <div class="text-white/60 text-sm mt-1">RGV's economic hub · Hidalgo County</div>
             </div>
             <!-- Uncomment and update src once you have a real McAllen photo in /public/images/:
             <img src="/images/mcallen-city.jpg" alt="McAllen, Texas" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />

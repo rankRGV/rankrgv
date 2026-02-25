@@ -95,15 +95,7 @@ const schema = [
     { label: 'Home', href: '/' },
     { label: 'Local SEO', href: '/local-seo/' },
   ]),
-  buildWebPageSchema(
-    service.titleTag,
-    service.metaDescription,
-    '/local-seo/',
-    [
-      { label: 'Home', href: '/' },
-      { label: 'Local SEO', href: '/local-seo/' },
-    ]
-  ),
+  buildWebPageSchema(service.titleTag, service.metaDescription, '/local-seo/'),
 ];
 ---
 
