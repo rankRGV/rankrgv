@@ -14,4 +14,12 @@ export const site = {
   twitterHandle: '@rankrgv',
   // SAB — no physical address
   areaServed: ['McAllen', 'Brownsville', 'Edinburg', 'Harlingen', 'Mission', 'Pharr'],
+  social: {
+    facebook:  'https://www.facebook.com/rankrgv',
+    instagram: 'https://www.instagram.com/rankrgv',
+    twitter:   'https://x.com/RankRGV',
+    linkedin:  'https://www.linkedin.com/company/rankrgv',
+    youtube:   'https://www.youtube.com/@RankRGV',
+    gbp:       'https://share.google/iUQjPkarhCgqbYHuE',
+  },
 };

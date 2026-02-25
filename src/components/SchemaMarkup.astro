@@ -32,10 +32,7 @@ export function buildOrgSchema() {
       },
       geoRadius: '80000', // ~50 miles covering full RGV
     },
-    sameAs: [
-      'https://www.facebook.com/rankrgv',
-      'https://www.instagram.com/rankrgv',
-    ],
+    sameAs: Object.values(site.social),
   };
 }
 
