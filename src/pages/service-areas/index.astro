@@ -1,0 +1,285 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { serviceAreas } from '@/data/serviceAreas';
+import { services } from '@/data/services';
+import {
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+  buildFAQSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const title = 'RGV Digital Marketing Service Areas | McAllen, Brownsville, Edinburg & More | RankRGV';
+const description =
+  'RankRGV serves businesses across the entire Rio Grande Valley — McAllen, Brownsville, Edinburg, Harlingen, Mission, and Pharr. Local SEO, web design, and business automation for every RGV city.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Service Areas', href: '/service-areas/' },
+];
+
+const faqs = [
+  {
+    question: 'Which cities in the Rio Grande Valley does RankRGV serve?',
+    answer:
+      'RankRGV serves businesses throughout the Rio Grande Valley, with dedicated SEO strategies for McAllen, Brownsville, Edinburg, Harlingen, Mission, and Pharr. Each city gets its own set of optimized pages — not a copy-paste of another city\'s content. We understand the local market dynamics, search patterns, and competitive landscape for each RGV city.',
+  },
+  {
+    question: 'Does RankRGV work with businesses that serve multiple RGV cities?',
+    answer:
+      'Yes — this is one of the most common scenarios we handle. Many RGV businesses operate as service area businesses (SABs): they serve customers across multiple cities but don\'t have a physical location in each one. We build the right page architecture for every city you want to rank in — dedicated city pages, proper schema markup, and a GBP service area configuration that covers your full territory without diluting your primary market.',
+  },
+  {
+    question: 'Do you build separate pages for each RGV city?',
+    answer:
+      'Yes, and this is critical. A single "we serve the whole RGV" page does not rank for city-specific searches. Google needs to see a dedicated page for "SEO company Brownsville TX" to rank you for that search — and a different page for Edinburg, Harlingen, and so on. We build each city page with unique, locally-relevant content so they rank independently and don\'t compete with each other.',
+  },
+  {
+    question: 'Can you rank my business in cities where I have no physical presence?',
+    answer:
+      'Yes. Google\'s local algorithm allows service area businesses to rank in cities they actively serve, without a physical address there. The key is the right combination: a properly configured Google Business Profile with service areas set, dedicated city pages on your website, and local signals (citations, reviews mentioning the city) that confirm you actually operate there. We handle all of this.',
+  },
+  {
+    question: 'Is SEO competition the same across all RGV cities?',
+    answer:
+      'No — and this matters for prioritization. McAllen is the most competitive market in the RGV, though still weak compared to Austin or Dallas. Brownsville, Edinburg, and Harlingen are slightly less competitive. Mission and Pharr have the least competition for most keywords. We prioritize your primary city first, then build outward across the RGV as rankings establish.',
+  },
+];
+
+const schema = [
+  buildBreadcrumbSchema(breadcrumbs),
+  buildWebPageSchema(title, description, '/service-areas/'),
+  buildFAQSchema(faqs),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <Hero
+    badge="Serving All 6 Major RGV Cities"
+    headline={`Digital marketing for the<br /><span class="gradient-text">entire Rio Grande Valley.</span>`}
+    subheadline="RankRGV builds local SEO, web design, and business automation strategies for businesses across McAllen, Brownsville, Edinburg, Harlingen, Mission, and Pharr — with city-specific pages built to rank in each market."
+    secondaryCTA={{ label: 'See all cities', href: '#service-areas' }}
+    mockupQuery="digital marketing rgv texas"
+    mockupCategory="Marketing Agency · Rio Grande Valley, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '6', label: 'RGV cities served' },
+      { value: '3', label: 'Services available per city' },
+      { value: 'RGV', label: 'Our only market — no national clients' },
+      { value: '0', label: 'Generic "we serve the whole region" pages' },
+    ]}
+  />
+
+  <!-- Why city-specific pages matter -->
+  <section class="py-20 bg-bg" aria-labelledby="why-city-pages">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="why-city-pages" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            "We serve the whole RGV" doesn't rank on Google
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            When a customer in Brownsville searches for <strong>"plumber Brownsville TX"</strong> — Google does not show a general "we serve all of South Texas" page. It shows businesses with a dedicated Brownsville page that proves local relevance with the right content, schema, and signals.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Most RGV agencies build one service page and add a line that says "serving McAllen, Brownsville, and all of the Rio Grande Valley." That doesn't rank. The businesses showing up in each city's Map Pack have pages built specifically for that city.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build a dedicated page for every city you want to rank in — with unique content, local schema markup, and internal linking that tells Google exactly what you do and where you do it.
+          </p>
+        </div>
+
+        <!-- City coverage callouts -->
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              city: 'McAllen',
+              desc: 'RGV economic hub. Most competitive market — also the highest search volume and highest revenue per client.',
+            },
+            {
+              city: 'Brownsville',
+              desc: "Texas's southernmost city, home to SpaceX Starbase. Rapidly growing business environment with strong search demand.",
+            },
+            {
+              city: 'Edinburg',
+              desc: 'County seat and UTRGV home. Professional services and healthcare are the dominant search categories.',
+            },
+            {
+              city: 'Harlingen',
+              desc: 'Healthcare hub anchored by Valley Baptist. Slightly less competitive than McAllen with solid local search volume.',
+            },
+            {
+              city: 'Mission',
+              desc: 'Fast-growing McAllen suburb. Business corridor along Mile 2 is expanding quickly — low competition window still open.',
+            },
+            {
+              city: 'Pharr',
+              desc: 'International trade gateway. Lowest competition of the 6 major cities — fastest path to Map Pack placement.',
+            },
+          ].map(({ city, desc }) => (
+            <div class="p-4 rounded-xl border border-border bg-bg-surface flex items-start gap-4 reveal">
+              <a
+                href={`/service-areas/${city.toLowerCase()}/`}
+                class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-brand-blue to-brand-purple flex items-center justify-center text-white font-bold text-sm no-underline hover:opacity-90 transition-opacity"
+              >
+                {city.slice(0, 2).toUpperCase()}
+              </a>
+              <div>
+                <a
+                  href={`/service-areas/${city.toLowerCase()}/`}
+                  class="font-bold text-text hover:text-brand-blue transition-colors no-underline"
+                >
+                  {city}, TX
+                </a>
+                <p class="text-text-muted text-sm leading-relaxed mt-0.5">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All 6 city hub cards -->
+  <section class="py-20 bg-bg-surface" id="service-areas" aria-labelledby="all-cities-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="all-cities-heading" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Choose your city
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Every city has its own dedicated pages with strategies built for that market — not copy-pasted content with a city name swapped in.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {serviceAreas.map((area, i) => (
+          <div class={`bg-bg rounded-2xl border border-border overflow-hidden reveal reveal-delay-${(i % 3) + 1}`}>
+            <!-- City header -->
+            <div class="p-6 pb-4 border-b border-border">
+              <div class="flex items-start justify-between mb-3">
+                <div>
+                  <h3 class="text-xl font-bold text-text">
+                    <a href={`/service-areas/${area.slug}/`} class="hover:text-brand-blue transition-colors no-underline">
+                      {area.name}, TX
+                    </a>
+                  </h3>
+                  <p class="text-sm text-text-muted">{area.county} County · {area.population} residents</p>
+                </div>
+                <a
+                  href={`/service-areas/${area.slug}/`}
+                  class="flex-shrink-0 w-8 h-8 rounded-full bg-bg-surface border border-border flex items-center justify-center hover:border-brand-blue hover:text-brand-blue transition-colors text-text-muted"
+                  aria-label={`View ${area.name} services`}
+                >
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+              <p class="text-sm text-text-muted leading-relaxed">{area.marketContext}</p>
+            </div>
+
+            <!-- Service links for this city -->
+            <div class="p-4 space-y-1.5">
+              {services.map((service) => (
+                <a
+                  href={`/service-areas/${area.slug}/${service.slug}/`}
+                  class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-bg-surface transition-colors group no-underline"
+                >
+                  <div class="w-7 h-7 rounded-md bg-gradient-to-br from-brand-blue/10 to-brand-purple/10 flex items-center justify-center flex-shrink-0 group-hover:from-brand-blue/20 group-hover:to-brand-purple/20 transition-colors">
+                    <svg class="w-3.5 h-3.5 text-brand-blue" viewBox="0 0 24 24" fill="currentColor">
+                      <path d={service.icon} />
+                    </svg>
+                  </div>
+                  <span class="text-sm font-medium text-text group-hover:text-brand-blue transition-colors">
+                    {service.shortName} in {area.name}
+                  </span>
+                  <svg class="w-3.5 h-3.5 text-text-muted ml-auto opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Full city × service link matrix (SEO internal link hub) -->
+  <section class="py-20 bg-bg" aria-labelledby="service-matrix">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="service-matrix" class="text-3xl font-bold text-text mb-4 reveal">
+          All services across the RGV
+        </h2>
+        <p class="text-text-muted reveal reveal-delay-1">
+          Every combination of city and service — with a dedicated page built to rank for that specific search.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto reveal reveal-delay-1">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr>
+              <th class="text-left p-4 text-sm font-semibold text-text-muted border-b border-border w-32">City</th>
+              {services.map((service) => (
+                <th class="p-4 text-sm font-semibold text-text border-b border-border text-center">
+                  <a href={`/${service.slug}/`} class="hover:text-brand-blue transition-colors no-underline">
+                    {service.shortName}
+                  </a>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {serviceAreas.map((area, i) => (
+              <tr class={i % 2 === 0 ? 'bg-bg-surface/50' : ''}>
+                <td class="p-4 border-b border-border">
+                  <a href={`/service-areas/${area.slug}/`} class="font-semibold text-text hover:text-brand-blue transition-colors no-underline text-sm">
+                    {area.name}
+                  </a>
+                </td>
+                {services.map((service) => (
+                  <td class="p-4 border-b border-border text-center">
+                    <a
+                      href={`/service-areas/${area.slug}/${service.slug}/`}
+                      class="inline-flex items-center gap-1.5 text-sm text-brand-blue hover:text-brand-purple transition-colors no-underline font-medium"
+                    >
+                      <svg class="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {service.shortName} in {area.name}
+                    </a>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <FAQSection
+    faqs={faqs}
+    headline="Questions about our RGV service areas"
+  />
+
+  <CTASection
+    headline="Ready to rank in every RGV city you serve?"
+    subheadline="15-minute call and we'll map out exactly which cities to target first — and how fast you can rank in each one."
+  />
+</BaseLayout>
