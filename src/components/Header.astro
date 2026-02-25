@@ -86,9 +86,9 @@ import { mainNav } from '@/data/navigation';
         ))}
       </nav>
 
-      <!-- CTA — standalone, no competing phone link -->
+      <!-- CTA — standalone tap-to-call -->
       <div class="hidden lg:flex items-center">
-        <a href="/get-started/" class="btn-primary text-sm py-2 px-4">
+        <a href={site.phoneHref} class="btn-primary text-sm py-2 px-4">
           Free Consultation
         </a>
       </div>
@@ -139,7 +139,7 @@ import { mainNav } from '@/data/navigation';
       ))}
       <div class="pt-3 border-t border-white/10 flex flex-col gap-3">
         <a href={site.phoneHref} class="text-sm text-white/70 px-3 no-underline">{site.phone}</a>
-        <a href="/get-started/" class="btn-primary text-sm text-center">Free Consultation</a>
+        <a href={site.phoneHref} class="btn-primary text-sm text-center">Free Consultation</a>
       </div>
     </div>
   </div>
