@@ -1,0 +1,299 @@
+---
+import ServiceLayout from '@/layouts/ServiceLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const service = getServiceBySlug('web-design')!;
+
+const faqs = [
+  {
+    question: 'How much does a website cost for a McAllen small business?',
+    answer:
+      "Web design pricing in the RGV ranges from $800 for a simple 3-page site to $5,000+ for a full multi-service build with SEO architecture. The number that matters more is the return — a site that generates 5 new calls per month pays for itself in weeks. We start with a discovery call to understand your goals and give you a specific number. No packages, no surprises.",
+  },
+  {
+    question: 'How long does it take to build a website?',
+    answer:
+      "For most McAllen small business websites, we deliver a completed site in 2–4 weeks from the time we have your content and approvals. Rush timelines are possible for businesses with upcoming launches or events. We don't drag projects out — our process is structured and our timelines are real.",
+  },
+  {
+    question: 'What makes a website rank on Google?',
+    answer:
+      "Rankings come from a combination of technical signals (site speed, mobile-first code, structured data, crawlability), content signals (pages targeting the right keywords, written for both users and search engines), and authority signals (backlinks, citations, reviews). Every RankRGV site is built with ranking baked in from day one — not added as an afterthought. Most web design agencies build pretty sites that Google ignores. We build sites Google trusts.",
+  },
+  {
+    question: 'Do I really need a new website if I already have one?',
+    answer:
+      "Not always — but most RGV business websites we audit have serious technical problems that prevent them from ranking. Common issues: loading in 5+ seconds, not mobile-optimized, missing schema markup, no city-specific pages, and titles like 'Home' instead of 'Plumber McAllen TX.' We'll tell you honestly whether you need a rebuild or whether your current site can be fixed. We don't push new builds if they're not necessary.",
+  },
+  {
+    question: "What's the difference between a template website and a custom-built site?",
+    answer:
+      "Template websites (Wix, Squarespace, GoDaddy builders) look decent but are slow to load, hard for Google to crawl, and make you look identical to your competitors. Custom-built sites — especially in a modern framework like Astro — load instantly, score 99+ on Google's PageSpeed test, and are structured exactly how Google's algorithm prefers. For an RGV business trying to rank, that technical advantage is significant.",
+  },
+  {
+    question: 'Will my website work perfectly on mobile phones?',
+    answer:
+      "Yes — and this isn't optional. Over 60% of local searches in McAllen happen on mobile. We build mobile-first: the mobile version is built first, and the desktop version extends from there. Every button, form, and navigation element is tested on real mobile devices before launch. Google also uses mobile-first indexing — meaning your mobile site is what Google actually crawls and ranks.",
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Discovery & Strategy',
+    text: "We start with a conversation about your business, your customers, and your goals. Who searches for you? What do they need to see before they call? What are your top 3 competitors doing? The strategy comes before any design decision.",
+  },
+  {
+    name: 'Keyword & SEO Architecture',
+    text: "Before we design a single page, we map out the keyword structure. Every page gets an assigned keyword target, a title tag formula, and a content outline. We build the site architecture around what your customers search for in McAllen and the RGV.",
+  },
+  {
+    name: 'Design & Build',
+    text: "We build your site in Astro — the fastest-loading web framework available. Every page is mobile-first, 99+ PageSpeed, and coded clean. No page builders, no bloated plugins, no WordPress vulnerabilities. Pure, fast, crawlable HTML.",
+  },
+  {
+    name: 'Content & Copy',
+    text: "We write or refine every page's copy with two goals: convert visitors and rank on Google. Your homepage talks to your best customer. Your service pages target their specific searches. Your location pages rank for your city.",
+  },
+  {
+    name: 'Testing & Launch',
+    text: "Before we go live: cross-browser testing, mobile testing, form submission testing, speed audit, schema validation, sitemap submission to Google Search Console, and a full accessibility review. We launch when it's right — not when the calendar says so.",
+  },
+  {
+    name: 'Ongoing Performance',
+    text: "After launch, we monitor rankings, traffic, and form submissions. Sites are living assets — we keep them updated, fast, and ranking. Monthly reports show you exactly how your site is performing.",
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Web Design McAllen TX',
+    'RankRGV builds fast-loading, SEO-optimized websites for McAllen and RGV businesses. Every site scores 99+ on Google PageSpeed and is built to rank from day one.',
+    site.areaServed
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How RankRGV Builds Websites for McAllen Businesses',
+    'A step-by-step look at how RankRGV designs and builds websites that rank on Google and convert visitors into calls.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Web Design', href: '/web-design/' },
+  ]),
+  buildWebPageSchema(service.titleTag, service.metaDescription, '/web-design/'),
+];
+---
+
+<ServiceLayout service={service} schema={schema}>
+  <Hero
+    badge="Web Design & Development — McAllen, TX"
+    headline='Websites that rank, load fast,<br /><span class="gradient-text">and actually convert.</span>'
+    subheadline="Most McAllen business websites look fine and do nothing. We build sites that show up on Google, load in under a second, and turn visitors into calls."
+    showVisual={false}
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '99+', label: 'Google PageSpeed Score' },
+      { value: '<1s', label: 'Average load time' },
+      { value: '100%', label: 'Mobile-first builds' },
+      { value: '0', label: 'Cookie-cutter templates' },
+    ]}
+  />
+
+  <!-- What we believe about web design -->
+  <section class="py-20 bg-bg" aria-labelledby="web-design-philosophy">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <h2 id="web-design-philosophy" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            A website is your best salesperson — or your worst first impression.
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-6">
+            When a McAllen customer searches for your service, clicks your link, and lands on a slow or outdated website — they leave within 3 seconds. That's a customer you paid for (through SEO or ads) that you just lost to a competitor.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-6">
+            The bar for web design in the RGV is still remarkably low. Most local business sites load slowly, aren't optimized for mobile, and have no real SEO structure. A properly built, fast-loading site stands out immediately — to visitors and to Google.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We don't build sites that look good in a mockup. We build sites that get found, load fast, and convert. Every design decision is made with your customer's next action in mind.
+          </p>
+        </div>
+
+        <!-- Website performance visual -->
+        <div class="reveal reveal-delay-1">
+          <div class="bg-bg-surface rounded-2xl border border-border p-8">
+            <div class="text-xs text-text-muted font-medium uppercase tracking-wider mb-5">RankRGV site vs. typical RGV business site</div>
+            <div class="space-y-5">
+              {[
+                { label: 'PageSpeed Score', ours: '99', theirs: '42', better: true },
+                { label: 'Mobile load time', ours: '0.8s', theirs: '5.4s', better: true },
+                { label: 'Google ranking signals', ours: 'Optimized', theirs: 'Missing', better: true },
+                { label: 'Schema markup', ours: '✓', theirs: '✗', better: true },
+                { label: 'City-specific pages', ours: '✓', theirs: '✗', better: true },
+              ].map(({ label, ours, theirs, better }) => (
+                <div class="grid grid-cols-3 items-center gap-3 text-sm">
+                  <div class="text-text-muted">{label}</div>
+                  <div class="text-center font-bold text-brand-blue bg-brand-blue/5 rounded-lg py-1.5 px-3">{ours}</div>
+                  <div class="text-center font-medium text-text-muted/50 bg-bg rounded-lg py-1.5 px-3">{theirs}</div>
+                </div>
+              ))}
+              <div class="grid grid-cols-3 items-center gap-3 text-xs text-text-muted mt-2 pt-3 border-t border-border">
+                <div></div>
+                <div class="text-center font-semibold text-brand-blue">RankRGV</div>
+                <div class="text-center">Typical local site</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's included -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="web-design-includes">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <h2 id="web-design-includes" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What's included in every RankRGV website
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Not add-ons. Not upgrades. Everything that matters — standard.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+            title: '99+ PageSpeed Performance',
+            body: 'Every site we build scores 99+ on Google PageSpeed. Fast sites rank higher, convert better, and keep visitors from bouncing. We build in Astro — the fastest web framework available.',
+          },
+          {
+            icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+            title: 'Mobile-First Design',
+            body: "60%+ of McAllen searches happen on mobile. We build the mobile version first. Every button, form, and navigation element is tested on real phones before launch.",
+          },
+          {
+            icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+            title: 'SEO Architecture Built In',
+            body: "Title tags, meta descriptions, schema markup, internal linking, canonical URLs — all built into every page from the start. Not an afterthought. Not an add-on.",
+          },
+          {
+            icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+            title: 'City & Service Pages',
+            body: 'Every city you serve gets a dedicated page optimized for local searches. Every service gets its own page. This is the structure Google rewards — and most competitors skip.',
+          },
+          {
+            icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+            title: 'Lead Capture Forms',
+            body: 'Every site includes optimized lead forms connected to your email and CRM. Honeypot spam protection, confirmation emails, and mobile-friendly submission flows.',
+          },
+          {
+            icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+            title: 'Analytics & Tracking',
+            body: 'Google Analytics 4 and Search Console configured from day one. See where your traffic comes from, which pages convert, and which searches bring customers.',
+          },
+        ].map((item, i) => (
+          <div class={`bg-bg rounded-2xl p-7 border border-border card-hover reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+            <div class="w-11 h-11 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+              </svg>
+            </div>
+            <h3 class="font-bold text-text mb-2">{item.title}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we build your website"
+    subheadline="A clean process from discovery to launch — and beyond."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <!-- Why most local websites fail -->
+  <section class="py-20 bg-bg" aria-labelledby="why-local-sites-fail">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <h2 id="why-local-sites-fail" class="text-3xl sm:text-4xl font-bold text-text mb-6 reveal">
+          Why most McAllen business websites don't generate leads
+        </h2>
+        <div class="space-y-5 text-text-muted text-lg leading-relaxed">
+          <p class="reveal reveal-delay-1">
+            We audit dozens of RGV business websites every month. The same problems show up every time: sites loading in 6+ seconds, no city-specific pages, title tags that say "Home," and zero schema markup. These are not cosmetic problems — they're ranking killers.
+          </p>
+          <p class="reveal reveal-delay-2">
+            A slow website doesn't just annoy visitors — Google uses page speed as a direct ranking signal. A site that loads in 5 seconds ranks lower than one that loads in under a second, all else being equal. In a market where most businesses have weak sites, this gap is an opportunity.
+          </p>
+          <p class="reveal reveal-delay-3">
+            The good news: the RGV market is still catching up. Businesses that invest in a properly built, fast-loading, SEO-optimized website now will dominate their category for years. The ones that don't will spend that same time wondering why their phone doesn't ring.
+          </p>
+        </div>
+
+        <!-- Common website problems -->
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 reveal reveal-delay-4">
+          {[
+            { problem: 'Site loads in 5+ seconds', impact: 'Visitors leave, rankings drop' },
+            { problem: 'Not mobile-optimized', impact: '60%+ of traffic bounces' },
+            { problem: 'No city-specific pages', impact: "Can't rank for local searches" },
+            { problem: 'Missing schema markup', impact: 'Google ignores key signals' },
+            { problem: 'Generic title tags', impact: 'No keyword targeting' },
+            { problem: 'No lead capture forms', impact: 'Traffic with nowhere to go' },
+          ].map(({ problem, impact }) => (
+            <div class="bg-bg-surface rounded-xl p-4 border border-border">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3 h-3 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-text text-sm">{problem}</div>
+                  <div class="text-text-muted text-xs mt-0.5">{impact}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <ServiceAreaGrid
+    headline="Web design services across the Rio Grande Valley"
+    serviceSlug="web-design"
+  />
+
+  <FAQSection faqs={faqs} headline="Web design questions from RGV business owners" />
+
+  <CTASection
+    headline="Ready for a website that actually works?"
+    subheadline="Call for a free 15-min conversation about what your site needs — or request a free written audit."
+  />
+</ServiceLayout>
