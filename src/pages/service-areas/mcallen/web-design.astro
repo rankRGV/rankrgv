@@ -1,0 +1,298 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('mcallen')!;
+const service = getServiceBySlug('web-design')!;
+
+const title = 'Web Design McAllen TX | Fast, SEO-Ready Sites That Convert | RankRGV';
+const description =
+  'McAllen web design built to rank on Google and convert visitors into leads. RankRGV builds fast-loading, mobile-first sites for McAllen businesses — 99+ PageSpeed, no page builders.';
+
+const faqs = [
+  {
+    question: 'How much does a professional website cost for a McAllen business?',
+    answer:
+      "Most McAllen small business websites run $2,000–$5,000 for a well-built site that loads fast and ranks. The range depends on how many pages you need, whether you need a blog, and the complexity of your services. We don't use page builders or templates — every site is custom-coded, which is why they perform so much better than the average McAllen website. We give you a clear number upfront, no surprises.",
+  },
+  {
+    question: 'How long does it take to build a new McAllen business website?',
+    answer:
+      "4–6 weeks for a standard McAllen business site. The timeline depends on how quickly you can provide content (logo, photos, your service descriptions) and how many revision rounds we go through. We move fast on our end — our builds are typically waiting on client input, not the other way around.",
+  },
+  {
+    question: "My McAllen competitor has a bad website and still ranks. Why?",
+    answer:
+      "Because Google ranks on more than design. Your competitor probably has a strong Google Business Profile, a few years of local citations, and some reviews. Those signals outweigh a slow website — for now. But here's the thing: McAllen search competition is still weak. A properly built site with the right technical foundation will overtake them. We see it happen within 60–90 days consistently.",
+  },
+  {
+    question: 'Do I need a completely new website or just improvements to my current one?',
+    answer:
+      "Depends on what's holding you back. If your current site loads in over 3 seconds, isn't mobile-friendly, or doesn't have proper SEO structure, a rebuild will outperform trying to fix a broken foundation. If it's just missing the right content and local pages, we can build on top of what you have. We'll tell you honestly after we look at it — we won't push a full rebuild if it isn't needed.",
+  },
+  {
+    question: 'Is SEO included with a new McAllen website?',
+    answer:
+      "Every site we build includes the technical SEO foundation: fast page speeds, proper meta tags, LocalBusiness schema, city-specific pages, mobile-first design, and a clean URL structure. That's table stakes for us. Ongoing local SEO — GBP management, citation building, review strategy — is a separate engagement if you want to keep pushing rankings after launch.",
+  },
+  {
+    question: 'Do you use WordPress or page builders for McAllen websites?',
+    answer:
+      "No. We build on Astro — a modern static site generator that produces sites that score 99+ on Google PageSpeed out of the box. WordPress sites with page builders typically score 40–65. That gap matters enormously for both ranking and conversion. If you already have a WordPress site you want to keep, we can still help — but for new builds, we use the right tool for the job.",
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Discovery Call',
+    text: "We start with a 30-minute conversation about your McAllen business — your services, target customers, top competitors, and what you want your website to actually do for you. This shapes everything.",
+  },
+  {
+    name: 'Site Architecture & Keyword Map',
+    text: "Before we design anything, we map out the full page structure based on how McAllen customers search. Every page has a purpose — no filler pages, no wasted clicks.",
+  },
+  {
+    name: 'Design Mockup',
+    text: "You review a full desktop and mobile design before any code is written. We iterate until it's exactly right. Our designs are built around your brand and your market — not a template.",
+  },
+  {
+    name: 'Build & Content Integration',
+    text: "We build the site and integrate your content, photos, and business information. Every page is optimized for speed and local search as it's built — not bolted on afterward.",
+  },
+  {
+    name: 'Testing & Launch',
+    text: "Full device and browser testing before launch. PageSpeed audited. Schema validated. Forms tested. DNS migrated. You get a handoff walkthrough so you know how to update your own content.",
+  },
+  {
+    name: 'Post-Launch SEO Foundation',
+    text: "We submit your sitemap to Google Search Console, verify your GBP link points to the new site, and monitor for any indexing issues in the first 30 days. Your rankings don't stall at launch.",
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Web Design McAllen TX',
+    'RankRGV designs and builds professional websites for McAllen businesses — fast-loading, mobile-first, and built to rank on Google from day one.',
+    'McAllen'
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How We Build McAllen Business Websites That Rank and Convert',
+    'The step-by-step process RankRGV uses to build fast, high-converting websites for McAllen businesses.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'McAllen', href: '/service-areas/mcallen/' },
+    { label: 'Web Design', href: '/service-areas/mcallen/web-design/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/mcallen/web-design/'),
+];
+---
+
+<ServiceAreaLayout
+  area={area}
+  service={service}
+  title={title}
+  description={description}
+  schema={schema}
+>
+  <Hero
+    badge="Web Design · McAllen, TX"
+    headline='A McAllen website that ranks on Google<br /><span class="gradient-text">and turns visitors into calls.</span>'
+    subheadline="Most McAllen business websites load slow, look outdated on mobile, and rank nowhere. We build fast, modern sites that score 99+ on Google PageSpeed and are built for local search from the ground up."
+    secondaryCTA={{ label: 'See how we build', href: '#how-we-work' }}
+    mockupQuery="web design mcallen tx"
+    mockupCategory="Web Design · McAllen, TX"
+    showVisual={false}
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '99+', label: 'PageSpeed score (Google Lighthouse)' },
+      { value: '<1s', label: 'Average load time' },
+      { value: 'McAllen', label: 'Primary target market' },
+      { value: '0', label: 'Page builders or WordPress' },
+    ]}
+  />
+
+  <!-- McAllen web design intro -->
+  <section class="py-20 bg-bg" aria-labelledby="mcallen-webdesign-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="mcallen-webdesign-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Most McAllen business websites are costing you customers — quietly
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            A slow site doesn't just lose rankings — it loses the customer the moment they tap your link. Google's data is clear: if your site takes more than 3 seconds to load, <strong>over half your mobile visitors leave before the page appears.</strong> In McAllen, where most searches happen on a phone, this is your first impression.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            We've looked at most of the websites ranking for McAllen keywords right now. They're slow. They're not mobile-first. They don't have proper schema markup. Most were built on page builders that make them worse with every plugin added.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build on Astro — a modern static site framework — which is why every site we ship scores 99+ on Google PageSpeed. That speed advantage translates directly into higher rankings and more conversions.
+          </p>
+        </div>
+
+        <!-- McAllen-specific callouts -->
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              icon: '✓',
+              title: 'McAllen searches happen on phones',
+              body: "Over 70% of local searches in the RGV come from mobile. If your site isn't built mobile-first, you're invisible to most of your market.",
+              highlight: true,
+            },
+            {
+              icon: '✓',
+              title: 'PageSpeed is now a direct ranking factor',
+              body: "Google's Core Web Vitals are factored into local rankings. A 99+ score puts you ahead of every slow competitor ranking in McAllen today.",
+              highlight: true,
+            },
+            {
+              icon: '✓',
+              title: 'City pages are the local SEO multiplier',
+              body: "Every city you want to rank in gets a dedicated page. McAllen. Edinburg. Brownsville. Built into the site architecture from day one — not added as an afterthought.",
+              highlight: true,
+            },
+          ].map(({ icon, title, body, highlight }) => (
+            <div class={`p-5 rounded-xl border ${highlight ? 'bg-green-50 border-green-200' : 'bg-bg border-border'}`}>
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's included in a McAllen web design project -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="mcallen-webdesign-includes">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="mcallen-webdesign-includes" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What's included in every McAllen web design project
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          No add-on fees for the basics. Every site ships with the full stack.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Performance & technical foundation',
+            items: [
+              '99+ Google PageSpeed / Lighthouse score',
+              'Sub-1-second load time on mobile and desktop',
+              'Core Web Vitals optimized (LCP, FID, CLS)',
+              'Secure HTTPS with SSL certificate',
+              'Clean, crawlable HTML — no page builder bloat',
+              'Automatic sitemap generation',
+            ],
+          },
+          {
+            title: 'Local SEO built in from day one',
+            items: [
+              'LocalBusiness schema markup with McAllen service area',
+              'City-specific pages for every RGV city you serve',
+              'Title tags and meta descriptions targeting McAllen keywords',
+              'Internal linking structure that passes authority correctly',
+              'Google Search Console setup and sitemap submission',
+              'GBP website link updated at launch',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we build McAllen business websites"
+    subheadline="A clear process — from first call to Google-indexed and ranking."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <Testimonials />
+
+  <!-- Internal links to other city web design pages -->
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-webdesign">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-webdesign" class="text-2xl font-bold text-text mb-8 text-center reveal">
+        Also building websites for these RGV cities
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Web Design Brownsville TX', href: '/service-areas/brownsville/web-design/' },
+          { label: 'Web Design Edinburg TX', href: '/service-areas/edinburg/web-design/' },
+          { label: 'Web Design Harlingen TX', href: '/service-areas/harlingen/web-design/' },
+          { label: 'Web Design Mission TX', href: '/service-areas/mission/web-design/' },
+          { label: 'Web Design Pharr TX', href: '/service-areas/pharr/web-design/' },
+        ].map(({ label, href }) => (
+          <a
+            href={href}
+            class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline"
+          >
+            {label}
+          </a>
+        ))}
+        <a
+          href="/web-design/"
+          class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline"
+        >
+          All Web Design Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection
+    faqs={faqs}
+    headline="McAllen web design questions answered"
+  />
+
+  <CTASection
+    headline="Let's build a McAllen website that actually works"
+    subheadline="15-minute call and we'll tell you exactly what your current site is costing you — or get a free written audit."
+  />
+</ServiceAreaLayout>

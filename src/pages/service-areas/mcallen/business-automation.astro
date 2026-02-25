@@ -1,0 +1,298 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('mcallen')!;
+const service = getServiceBySlug('business-automation')!;
+
+const title = 'Business Automation McAllen TX | Missed Call Text-Back & Follow-Up | RankRGV';
+const description =
+  'Automate lead follow-up, review requests, and missed call responses for your McAllen business. RankRGV sets up automation systems that respond in under 5 minutes — 24/7.';
+
+const faqs = [
+  {
+    question: 'What is business automation for a McAllen small business?',
+    answer:
+      "Business automation means using software to handle the repetitive follow-up work that currently falls through the cracks — or that you have to do manually. For McAllen businesses, that typically means: texting back a missed call within 5 minutes, sending review requests after a job is complete, following up with a lead who filled out your form but never responded, and sending appointment reminders. These are things your competitors are still doing by hand (or not doing at all).",
+  },
+  {
+    question: 'How does missed call text-back work for McAllen businesses?',
+    answer:
+      "When a customer calls your McAllen business and you don't answer — whether you're on another call, on a job, or it's after hours — they get an automatic text within 30 seconds. Something like: 'Hey, this is [Business]. Sorry I missed you — what can I help you with?' Most leads will text back. Many will book. Without this, that caller just calls the next business in Google Maps. This single automation alone recovers deals that most McAllen businesses are silently losing every week.",
+  },
+  {
+    question: 'Can you automate Google review requests for my McAllen business?',
+    answer:
+      "Yes — and this is one of the highest-ROI automations for any McAllen business. After a job is complete or a service is delivered, your customer automatically gets a text or email asking them to leave a Google review. It includes a direct link to your GBP. No more asking manually and forgetting. Most McAllen businesses that implement this double their review count within 60–90 days. More reviews means higher Map Pack rankings — it compounds.",
+  },
+  {
+    question: 'Does my McAllen business need to be tech-savvy to use these systems?',
+    answer:
+      "No. We set everything up, test it, and hand you a simple dashboard. Most of it runs completely automatically — you don't have to touch it. Where you do interact (responding to leads who text back, for example), it's through a mobile app that works like a regular text conversation. If you can use a smartphone, you can run these automations.",
+  },
+  {
+    question: 'How long does it take to set up automation for a McAllen business?',
+    answer:
+      "Most McAllen business automation setups are live within 1–2 weeks. We connect your phone number, CRM, and any existing tools you use, build the automation workflows, test them end-to-end, and hand off. The first week is usually getting access and understanding your current process. The second week is building and testing. You're live before most agencies have even finished their onboarding calls.",
+  },
+  {
+    question: 'What tools do you use for McAllen business automation?',
+    answer:
+      "We use GoHighLevel as the core platform for most McAllen businesses — it handles CRM, automation, text/email, review requests, and reporting in one place. For businesses with specific existing tools (like a specific booking system or CRM), we can integrate or work with what you have. We're tool-agnostic — we use what's right for your business, not what's easiest for us.",
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Lead Flow Audit',
+    text: "We map out exactly what happens to every lead that contacts your McAllen business today — from first call or form fill to close (or drop). We find where leads are being lost and how much that's costing you.",
+  },
+  {
+    name: 'Automation Blueprint',
+    text: "We design the specific automations your business needs. Not a generic template — your actual lead sources, your team's workflow, your services. You approve the blueprint before we build anything.",
+  },
+  {
+    name: 'Setup & Integration',
+    text: "We build the automations in your platform, connect your phone number and email, integrate with your existing tools (booking system, CRM, etc.), and configure every trigger and message.",
+  },
+  {
+    name: 'Testing',
+    text: "Every automation gets tested end-to-end before you go live. We run through every scenario — missed call, form fill, review request, no-show reminder. Nothing ships broken.",
+  },
+  {
+    name: 'Team Handoff',
+    text: "We walk your team through the dashboard: where to see incoming leads, how to respond, what to do if something looks off. Most teams are comfortable in under an hour.",
+  },
+  {
+    name: 'Monitor & Refine',
+    text: "First 30 days, we watch the numbers — response rates, conversion rates, review growth. We adjust message timing, copy, or sequencing based on what your McAllen customers respond to.",
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Business Automation McAllen TX',
+    'RankRGV builds business automation systems for McAllen businesses — missed call text-back, automated review requests, lead follow-up sequences, and appointment reminders.',
+    'McAllen'
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How We Set Up Business Automation for McAllen Businesses',
+    'The step-by-step process RankRGV uses to automate lead follow-up, review generation, and customer communication for McAllen businesses.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'McAllen', href: '/service-areas/mcallen/' },
+    { label: 'Business Automation', href: '/service-areas/mcallen/business-automation/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/mcallen/business-automation/'),
+];
+---
+
+<ServiceAreaLayout
+  area={area}
+  service={service}
+  title={title}
+  description={description}
+  schema={schema}
+>
+  <Hero
+    badge="Business Automation · McAllen, TX"
+    headline='McAllen businesses are losing leads<br /><span class="gradient-text">every day they don't respond fast enough.</span>'
+    subheadline="When a McAllen customer calls and gets voicemail, they call the next business. When a lead fills out your form and waits 24 hours, they've already hired someone else. We automate the response so you never lose another lead to slow follow-up."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="business automation mcallen tx"
+    mockupCategory="Business Automation · McAllen, TX"
+    showVisual={false}
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '<5 min', label: 'Avg. automated response time' },
+      { value: '24/7', label: 'Automation runs while you sleep' },
+      { value: '3×', label: 'More reviews in 90 days' },
+      { value: '0', label: 'Leads lost to slow response' },
+    ]}
+  />
+
+  <!-- McAllen automation intro -->
+  <section class="py-20 bg-bg" aria-labelledby="mcallen-automation-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="mcallen-automation-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            The McAllen lead problem most business owners don't see
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Most McAllen business owners think their lead problem is <em>getting</em> more leads. The real problem is how many leads they already have — and are losing quietly. A missed call that never gets texted back. A form fill that sits in an inbox for 6 hours. A happy customer who meant to leave a review but never did.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The research on this is stark: <strong>78% of customers buy from the business that responds first.</strong> In McAllen, where most businesses are still doing follow-up manually (or not at all), the first responder wins almost every time.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build the systems that make your McAllen business the fastest responder — automatically. Missed call? Text back in 30 seconds. New lead? Follow-up in 2 minutes. Job complete? Review request sent before you drive away.
+          </p>
+        </div>
+
+        <!-- McAllen-specific callouts -->
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              icon: '✓',
+              title: 'McAllen is still early on automation adoption',
+              body: "Most of your competitors are still using a notebook and a callback list. First-mover advantage is still real in the RGV market.",
+              highlight: true,
+            },
+            {
+              icon: '✓',
+              title: 'Reviews drive McAllen Map Pack rankings',
+              body: "Google uses review velocity and recency as Map Pack signals. Automated review requests are the fastest path to outranking competitors who rely on manual asks.",
+              highlight: true,
+            },
+            {
+              icon: '✓',
+              title: 'Automation works for service-area businesses',
+              body: "Whether you're a plumber, roofer, attorney, or clinic — if you have a phone number and a website form, we can automate the follow-up. No physical office required.",
+              highlight: true,
+            },
+          ].map(({ icon, title, body, highlight }) => (
+            <div class={`p-5 rounded-xl border ${highlight ? 'bg-green-50 border-green-200' : 'bg-bg border-border'}`}>
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we automate for McAllen businesses -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="mcallen-automation-what">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="mcallen-automation-what" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What we automate for McAllen businesses
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Specific automations — not vague "AI tools." These are the ones that directly impact revenue.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Lead capture & response',
+            items: [
+              'Missed call text-back within 30 seconds',
+              'Website form auto-response in under 2 minutes',
+              'Multi-step follow-up for leads who don\'t reply',
+              'Lead source tracking (which channel is working)',
+              'Appointment booking link sent automatically',
+              'No-show reminders 24 hours and 1 hour before',
+            ],
+          },
+          {
+            title: 'Reviews & reputation',
+            items: [
+              'Automatic review request after job completion',
+              'SMS + email dual-channel delivery',
+              'Direct link to your Google Business Profile',
+              'Timing optimization (best response windows)',
+              'Negative feedback redirect before it goes public',
+              'Monthly review count and rating tracking',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we set up automation for McAllen businesses"
+    subheadline="From lead flow audit to live automations in 1–2 weeks."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <Testimonials />
+
+  <!-- Internal links to other city automation pages -->
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-automation">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-automation" class="text-2xl font-bold text-text mb-8 text-center reveal">
+        Also setting up automation for these RGV cities
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Business Automation Brownsville TX', href: '/service-areas/brownsville/business-automation/' },
+          { label: 'Business Automation Edinburg TX', href: '/service-areas/edinburg/business-automation/' },
+          { label: 'Business Automation Harlingen TX', href: '/service-areas/harlingen/business-automation/' },
+          { label: 'Business Automation Mission TX', href: '/service-areas/mission/business-automation/' },
+          { label: 'Business Automation Pharr TX', href: '/service-areas/pharr/business-automation/' },
+        ].map(({ label, href }) => (
+          <a
+            href={href}
+            class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline"
+          >
+            {label}
+          </a>
+        ))}
+        <a
+          href="/business-automation/"
+          class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline"
+        >
+          All Business Automation Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection
+    faqs={faqs}
+    headline="McAllen business automation questions answered"
+  />
+
+  <CTASection
+    headline="Stop losing McAllen leads to slow response"
+    subheadline="15-minute call and we'll show you exactly where your follow-up is leaking — or get a free written audit."
+  />
+</ServiceAreaLayout>
