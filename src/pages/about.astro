@@ -19,6 +19,23 @@ const schema = [
     description: description,
     areaServed: site.areaServed.map((city) => ({ '@type': 'City', name: `${city}, TX` })),
     sameAs: Object.values(site.social),
+    founder: {
+      '@type': 'Person',
+      name: 'Eddie Urbano',
+      jobTitle: 'Founder',
+      url: `${site.url}/about/`,
+      image: `${site.url}/images/eddie-urbano.jpg`,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Eddie Urbano',
+    jobTitle: 'Founder',
+    worksFor: { '@type': 'Organization', name: site.name, url: site.url },
+    url: `${site.url}/about/`,
+    image: `${site.url}/images/eddie-urbano.jpg`,
+    sameAs: Object.values(site.social),
   },
   {
     '@context': 'https://schema.org',
@@ -109,6 +126,49 @@ const schema = [
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="founder-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
+
+        <!-- Photo -->
+        <div class="reveal flex justify-center lg:justify-start">
+          <div class="relative">
+            <div class="w-72 h-72 rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+              <img
+                src="/images/eddie-urbano.jpg"
+                alt="Eddie Urbano, Founder of RankRGV"
+                class="w-full h-full object-cover object-top"
+                width="288"
+                height="288"
+                loading="lazy"
+              />
+            </div>
+            <div class="absolute -bottom-4 -right-4 bg-brand-blue text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg">
+              Founder · RankRGV
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio -->
+        <div class="reveal reveal-delay-1">
+          <p class="text-sm font-semibold text-brand-blue uppercase tracking-wider mb-2">The person behind RankRGV</p>
+          <h2 id="founder-heading" class="text-3xl sm:text-4xl font-bold text-text mb-6">Eddie Urbano</h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Eddie spent 15 years in tech watching AI and automation systems transform how businesses operate — then looked at the RGV and saw the opposite. Local businesses relying on slow follow-up, weak websites, and agencies rolling out subpar work at full price.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            He built RankRGV to change that. No generic templates. No deliverables that don't move the needle. Fast systems, real rankings, and the kind of results-obsessed approach that the Rio Grande Valley has been waiting for.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            The RGV is his market. Not managed from a spreadsheet in Dallas. Not another out-of-market agency checking a South Texas box. He's here — and he's building local businesses into the dominant presence in their market.
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
