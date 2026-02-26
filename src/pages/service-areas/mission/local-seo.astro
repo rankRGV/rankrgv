@@ -1,0 +1,205 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('mission')!;
+const service = getServiceBySlug('local-seo')!;
+
+const title = 'Local SEO Mission TX | Google Map Pack Rankings | RankRGV';
+const description =
+  "Mission local SEO specialists. Mission TX is the fastest-growing Hidalgo County suburb — and its SEO competition is near zero. Get into the Map Pack before it fills up. Free audit.";
+
+const faqs = [
+  {
+    question: 'Is it too early to invest in local SEO in Mission?',
+    answer:
+      "The opposite — it's exactly the right time. Search demand in Mission is growing as the population grows, but the local SEO competition hasn't followed. Most Mission businesses ranking in the Map Pack today got there by default. Moving now means you establish dominant rankings before competitors catch on. The businesses that wait will pay more and work harder to displace whoever got there first.",
+  },
+  {
+    question: 'What types of searches do Mission customers make?',
+    answer:
+      "Mission's residential growth drives strong home services searches — HVAC, roofing, plumbing, landscaping, pest control. The Mile 2 Road business corridor generates commercial searches for restaurants, retail, and professional services. New families moving into Bentsen Grove and Los Ebanos search for dentists, pediatricians, daycare, and schools. These are consistent, year-round, high-intent searches.",
+  },
+  {
+    question: 'Does Mission have enough search volume to justify SEO?',
+    answer:
+      "Yes — and it's increasing every year as Mission grows. Even at current population levels, the search demand for home services, healthcare, and professional services in Mission generates enough calls to substantially grow a local business. More importantly, Mission searches are lower-volume but also lower-cost and lower-competition. You can achieve top 3 rankings here that would take significantly more investment in McAllen.",
+  },
+  {
+    question: 'Will ranking in Mission help me also show up in McAllen searches?',
+    answer:
+      "Not directly — Mission and McAllen searches are separate. Google shows city-specific results for each. What a strong Mission presence does is build domain authority and citation signals that compound across all your city pages. We build Mission first, then expand to McAllen as your overall local authority grows.",
+  },
+  {
+    question: 'How long does Mission local SEO take to show results?',
+    answer:
+      "Mission is one of the fastest markets in the RGV — we typically see Map Pack movement within 45–60 days. With near-zero competition in most categories, a properly optimized GBP and a dedicated Mission page often reach the top 3 within the first 90 days. No guarantees, but Mission consistently outperforms our timeline expectations.",
+  },
+  {
+    question: 'Do you cover businesses along the Mile 2 Road corridor specifically?',
+    answer:
+      "Yes. The Mile 2 Road corridor is Mission's commercial hub and we optimize for its specific geography — including businesses in adjacent areas like Bentsen Road and the Mission CISD corridors. Your GBP service area and your city page content are both configured to capture searches from customers in your actual service radius.",
+  },
+];
+
+const howToSteps = [
+  { name: 'Mission SEO Audit', text: "We analyze your current Mission Google presence, your top 3 competitors, and the specific keyword landscape for your category in this fast-growing market." },
+  { name: 'Mission Keyword Map', text: "We identify every search Mission customers make to find your type of business — including new-resident searches that most established businesses haven't thought to target." },
+  { name: 'GBP Optimization', text: "We fully optimize your GBP for Mission: categories, Hidalgo County service area, services, photos, and the local signals that move Map Pack rankings in a growing market." },
+  { name: 'City Pages & On-Page SEO', text: "We build or optimize Mission-specific pages — with the right keywords, schema, and content that establishes your relevance to the Mission market before competitors do." },
+  { name: 'Citations & Review Strategy', text: "We build Mission-focused citations and a review system. In a low-competition market, a fast-growing review count is a decisive advantage." },
+  { name: 'Monthly Reports', text: "Every month: your Mission ranking movements, calls from Google, and what we're targeting next. You see exactly how the market is developing around you." },
+];
+
+const schema = [
+  buildServiceSchema('Local SEO Mission TX', 'RankRGV provides local SEO services for Mission businesses — ranking in the fastest-growing, lowest-competition market in Hidalgo County.', 'Mission'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Get Mission Businesses into the Google Map Pack', 'The process RankRGV uses to rank Mission businesses in the top 3 Google Maps results.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Mission', href: '/service-areas/mission/' },
+    { label: 'Local SEO', href: '/service-areas/mission/local-seo/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/mission/local-seo/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Local SEO · Mission, TX"
+    headline='Top 3 Google Maps rankings<br /><span class="gradient-text">for Mission businesses.</span>'
+    subheadline="Mission is growing fast and its SEO competition is near zero. Every new resident is a new customer searching on their phone. We get your business ranked before the market catches up."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="local seo mission tx"
+    mockupCategory="SEO Agency · Mission, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'Mission', label: 'Fastest-growing RGV suburb' },
+      { value: 'Top 3', label: 'Map Pack goal' },
+      { value: '45 days', label: 'Average time to first movement' },
+      { value: 'Near 0', label: 'SEO competition in most categories' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="mission-seo-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="mission-seo-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Mission's growth is outpacing its competition — that's your window
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            New subdivisions, new schools, new commercial development along Mile 2 Road — Mission is expanding faster than its digital market has developed. Every new family moving into Bentsen Grove or Los Ebanos is a new customer searching for HVAC, dentists, plumbers, and restaurants on their phone. Most of the businesses they find are there by default, not by strategy.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Mission is adjacent to McAllen, which is where most marketing agencies focus. That's exactly why Mission is still wide open. We've seen more businesses achieve top 3 Map Pack placement here faster than anywhere else in the RGV — because the bar is that low.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            This window is real, but it won't last forever. As McAllen's growth continues to spill west into Mission, competition will follow. The businesses that establish rankings now will hold them.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Near-zero SEO competition in most categories', body: "Most Mission businesses ranking today have unclaimed or minimally-optimized GBPs. A fully-optimized profile moves to the top fast.", highlight: true },
+            { icon: '✓', title: 'Growing population = growing search demand', body: 'Every new Mission resident is a new person searching for local services on Google. The market is getting bigger every month.', highlight: true },
+            { icon: '✓', title: 'First-mover rankings compound over time', body: "Ranking #1 in Mission today makes it harder for competitors to displace you later. Local SEO authority builds — it doesn't reset.", highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="mission-seo-work">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="mission-seo-work" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">What RankRGV does for Mission SEO clients</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">Specific actions — capturing Mission's growth window.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'GBP — Mission-specific optimization',
+            items: ['Category optimized for highest-volume Mission keyword', 'Hidalgo County service area + Mission neighborhoods configured', 'Services section with Mission-relevant keyword descriptions', 'Photo strategy for Mile 2 corridor and surrounding areas', 'Weekly GBP posts targeting Mission residential searches', 'Q&A section addressing new-resident common questions'],
+          },
+          {
+            title: 'Website — Mission city pages',
+            items: ['Dedicated /service-areas/mission/ hub page', 'Individual Mission + service pages', 'LocalBusiness schema with Mission service area', 'Title tags targeting "Service Mission TX" keyword pattern', 'Growing-suburb and residential market content signals', 'Internal linking from Mission hub to all service pages'],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we get Mission businesses into the Map Pack"
+    subheadline="A focused process for the fastest-growing market in the RGV."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-seo-ms">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-seo-ms" class="text-2xl font-bold text-text mb-8 text-center reveal">Also serving these RGV cities for local SEO</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Local SEO McAllen TX', href: '/service-areas/mcallen/local-seo/' },
+          { label: 'Local SEO Brownsville TX', href: '/service-areas/brownsville/local-seo/' },
+          { label: 'Local SEO Edinburg TX', href: '/service-areas/edinburg/local-seo/' },
+          { label: 'Local SEO Harlingen TX', href: '/service-areas/harlingen/local-seo/' },
+          { label: 'Local SEO Pharr TX', href: '/service-areas/pharr/local-seo/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/local-seo/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Local SEO Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Mission SEO questions answered" />
+
+  <CTASection
+    headline="Claim your Mission rankings before the market fills up"
+    subheadline="15 minutes on a call and we'll show you exactly which Mission keywords are still wide open — or get a free written audit."
+  />
+</ServiceAreaLayout>

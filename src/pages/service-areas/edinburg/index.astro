@@ -1,0 +1,197 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { services } from '@/data/services';
+import {
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('edinburg')!;
+
+const title = 'Digital Marketing Agency Edinburg TX | Local SEO & Web Design | RankRGV';
+const description =
+  "Edinburg's local SEO and digital marketing agency. RankRGV helps Edinburg businesses rank higher on Google and get more local customers. Home to UTRGV — we understand the Edinburg market.";
+
+const faqs = [
+  {
+    question: "How is marketing in Edinburg different from the rest of the RGV?",
+    answer:
+      "Edinburg is the Hidalgo County seat and home to UTRGV — two factors that shape its search market significantly. Professional services (legal, accounting, healthcare) see disproportionately high search volume compared to a city of 100,000. The university also creates a younger, tech-savvy customer base that searches more and converts faster online. We build strategies around this demographic reality, not generic 'South Texas' templates.",
+  },
+  {
+    question: "How competitive is local SEO in Edinburg compared to McAllen?",
+    answer:
+      "Significantly less competitive. Most Edinburg businesses ranking today have thin websites, few reviews, and no dedicated city-service pages. McAllen gets the majority of RGV marketing attention, which means Edinburg keywords are largely uncontested. We can often get Edinburg businesses into the top 3 search results faster than McAllen equivalents — with the same amount of work.",
+  },
+  {
+    question: "Do you work with businesses near the UTRGV campus?",
+    answer:
+      "Yes — and we understand the unique dynamics of marketing to a university market. Businesses near UTRGV face a mix of student customers and faculty/staff, each with different search behaviors and price sensitivities. We've analyzed what kinds of searches come from the UTRGV corridor and can build content strategies that capture both audiences.",
+  },
+  {
+    question: "Which Edinburg industries are the best fit for local SEO?",
+    answer:
+      "Professional services top the list — attorneys, CPAs, financial advisors, and healthcare providers all see strong local search demand in Edinburg. Home services (HVAC, roofing, plumbing) are also high-volume. The UTRGV ecosystem creates demand for tutoring services, apartments, food delivery, and student-oriented businesses. Any service business where customers search before they call is a strong candidate.",
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
+    name: site.name,
+    url: site.url,
+    telephone: site.phone,
+    description: 'Digital marketing agency serving Edinburg and the Rio Grande Valley. Local SEO, web design, and business automation.',
+    areaServed: { '@type': 'City', name: 'Edinburg, TX' },
+  },
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Edinburg', href: '/service-areas/edinburg/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/edinburg/'),
+];
+---
+
+<ServiceAreaLayout area={area} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Serving Edinburg, TX & Hidalgo County"
+    headline={`Edinburg's local SEO & digital marketing agency.<br /><span class="gradient-text">Built for the county seat.</span>`}
+    subheadline="Edinburg is the Hidalgo County seat and home to UTRGV. It has strong professional services demand, a growing student economy, and SEO competition so low that properly built businesses rank in weeks."
+    secondaryCTA={{ label: 'View our services', href: '#edinburg-services' }}
+    mockupQuery="digital marketing edinburg tx"
+    mockupCategory="Marketing Agency · Edinburg, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '100K+', label: 'Edinburg population' },
+      { value: 'UTRGV', label: 'University drives professional search demand' },
+      { value: 'Very Low', label: 'Local SEO competition' },
+      { value: 'Hidalgo', label: 'County seat — full market coverage' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="edinburg-market">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="edinburg-market" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Edinburg ranks faster than almost anywhere else in the RGV
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Most marketing agencies focus their RGV efforts on McAllen — the biggest market. That leaves Edinburg almost completely unoptimized. Businesses ranking in Edinburg today are often there by default: few competitors, thin content, and no real optimization. A properly built site breaks in fast.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            UTRGV drives a professional-services search market that punches above Edinburg's population size. Attorneys, healthcare providers, financial advisors — these businesses see search volume that would surprise most people. The county seat status also means Edinburg attracts searches from across all of Hidalgo County.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We help Edinburg businesses build the local presence that captures this demand — before the market catches up with itself.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1 space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-bg-dark relative flex items-end">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark via-bg-dark to-brand-purple/40"></div>
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+            <div class="relative z-10 p-6 w-full">
+              <div class="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">Rio Grande Valley</div>
+              <div class="text-white text-2xl font-extrabold tracking-tight">Edinburg, Texas</div>
+              <div class="text-white/60 text-sm mt-1">Hidalgo County seat · Home of UTRGV</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { value: '100K+', label: 'Edinburg population' },
+              { value: 'UTRGV', label: 'Major university campus' },
+              { value: 'Fastest', label: 'Path to Map Pack in RGV' },
+              { value: '45–60 days', label: 'Average time to first rankings' },
+            ].map(({ value, label }) => (
+              <div class="bg-bg-surface rounded-xl p-4 border border-border text-center">
+                <div class="text-xl font-extrabold gradient-text mb-0.5">{value}</div>
+                <div class="text-xs text-text-muted leading-tight">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="edinburg-services">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 id="edinburg-services" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Digital marketing services for Edinburg businesses
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Built for the Edinburg market — from professional services to the UTRGV corridor.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((service, i) => (
+          <div class={`reveal reveal-delay-${i + 1}`}>
+            <div class="relative">
+              <ServiceCard service={service} />
+              <a href={`/service-areas/edinburg/${service.slug}/`} class="absolute inset-0 rounded-2xl" aria-label={`${service.name} in Edinburg`}></a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg" aria-labelledby="edinburg-neighborhoods">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 id="edinburg-neighborhoods" class="text-3xl font-bold text-text mb-4 reveal">
+          We help businesses across all of Edinburg
+        </h2>
+        <p class="text-text-muted reveal reveal-delay-1">
+          Downtown to North Edinburg, the UTRGV corridor to Trenton Road — if your customers are in the Edinburg area, we help them find you.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {area.neighborhoods.map((n) => (
+          <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">{n}</span>
+        ))}
+        <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">& surrounding areas</span>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <section aria-labelledby="edinburg-map">
+    <div class="py-12 bg-bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 id="edinburg-map" class="text-2xl font-bold text-text mb-2 reveal">Serving Edinburg and all of Hidalgo County</h2>
+        <p class="text-text-muted reveal reveal-delay-1">We serve businesses throughout Edinburg and surrounding RGV communities.</p>
+      </div>
+    </div>
+    <div class="w-full reveal reveal-delay-2" style="height: 420px;">
+      <iframe
+        title="Edinburg, Texas service area map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114841.30974648!2d-98.1634!3d26.3017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665781bb8ee11a5%3A0x0!2sEdinburg%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000002!5m2!1sen!2sus"
+        width="100%" height="420" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Questions about digital marketing in Edinburg" />
+
+  <CTASection
+    headline="Ready to dominate Edinburg searches?"
+    subheadline="Call for a free 15-min conversation about your Edinburg rankings — or get a free written audit."
+  />
+</ServiceAreaLayout>

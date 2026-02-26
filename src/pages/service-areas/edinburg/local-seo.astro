@@ -1,0 +1,223 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('edinburg')!;
+const service = getServiceBySlug('local-seo')!;
+
+const title = 'Local SEO Edinburg TX | Google Map Pack for Edinburg Businesses | RankRGV';
+const description =
+  'Edinburg local SEO specialists. We rank Edinburg businesses in the top 3 Google Maps results — fast. UTRGV market, professional services, county seat. Free audit.';
+
+const faqs = [
+  {
+    question: 'How fast can an Edinburg business get into the Google Map Pack?',
+    answer:
+      "Edinburg is the fastest Map Pack market in the RGV. With proper GBP optimization and a dedicated city page, we see initial movement in 45–60 days for most categories. The local competition is so thin that a properly optimized business often jumps multiple positions in the first 30 days. We track every ranking shift and show you the data monthly.",
+  },
+  {
+    question: 'Does being near UTRGV affect SEO for Edinburg businesses?',
+    answer:
+      "Yes — significantly. UTRGV creates search demand patterns unique to Edinburg. Professional services see disproportionately high traffic from faculty, staff, and students. Healthcare providers near campus see strong appointment-seeking searches. Businesses serving the university corridor have a built-in audience that other RGV cities don't have. We build keyword strategies that capture both the university market and the broader Edinburg community.",
+  },
+  {
+    question: 'As the Hidalgo County seat, does Edinburg get searches from outside the city?',
+    answer:
+      "Yes — county seat status drives above-average search volume for government services, legal, financial, and professional services from across Hidalgo County. Someone in Pharr or Mission searching for an attorney or accountant may search 'Edinburg TX' because that's where the county government is. We capture these cross-city searches as part of your Edinburg strategy.",
+  },
+  {
+    question: 'How much does Edinburg local SEO cost?',
+    answer:
+      "Edinburg SEO engagements typically run $500–$1,200/month. Because competition is lower than McAllen, you get similar results for a smaller investment. We never sell packages — we start with a free audit, understand your specific situation, and give you a specific number. No contracts either.",
+  },
+  {
+    question: 'Can you rank my Edinburg business while also targeting McAllen?',
+    answer:
+      "Yes — this is a common setup. Edinburg and McAllen are neighboring cities and many businesses want to rank in both. We build dedicated pages for each city you want to rank in. Edinburg gets its own optimized page targeting Edinburg searches; McAllen gets its own. They don't compete — they compound your total RGV footprint.",
+  },
+  {
+    question: 'What Edinburg industries have the strongest local SEO demand?',
+    answer:
+      "Professional services lead the field — attorneys, CPAs, financial advisors, and consultants all have strong search demand in Edinburg. Healthcare (clinics, specialists, dentists) is the second-strongest category. Home services (HVAC, roofing, plumbing) are consistent year-round. The UTRGV corridor also generates strong tutoring, apartment, and food service searches for businesses that want to capture the student market.",
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Edinburg SEO Audit',
+    text: "We analyze your current Edinburg Google presence — GBP, city pages, existing rankings, and top competitors. You get a clear picture of where you stand and how fast you can move in this market.",
+  },
+  {
+    name: 'Edinburg Keyword Map',
+    text: "We identify every search Edinburg customers make to find your type of business — including UTRGV-adjacent and county seat searches that most agencies miss entirely.",
+  },
+  {
+    name: 'GBP Optimization',
+    text: "We fully optimize your Google Business Profile for Edinburg: categories, service area (Hidalgo County), services, photos, posts, and the technical signals that drive Map Pack rankings.",
+  },
+  {
+    name: 'City Pages & On-Page SEO',
+    text: "We build or optimize Edinburg-specific pages — with the right keywords, schema markup, and content that Google needs to rank you for local searches from the UTRGV corridor to North Edinburg.",
+  },
+  {
+    name: 'Citations & Review Strategy',
+    text: "We build Edinburg-focused citations and give you a simple review generation system. In a market with low competition, a consistent review strategy dominates fast.",
+  },
+  {
+    name: 'Monthly Reporting',
+    text: "Every month: your Edinburg ranking movements, call volume from Google, and what we're targeting next. Straightforward numbers — nothing to decode.",
+  },
+];
+
+const schema = [
+  buildServiceSchema('Local SEO Edinburg TX', 'RankRGV provides local SEO services for Edinburg businesses — ranking in the Google Map Pack faster than any other RGV market.', 'Edinburg'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Get Edinburg Businesses into the Google Map Pack', 'The process RankRGV uses to rank Edinburg businesses in the top 3 Google Maps results.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Edinburg', href: '/service-areas/edinburg/' },
+    { label: 'Local SEO', href: '/service-areas/edinburg/local-seo/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/edinburg/local-seo/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Local SEO · Edinburg, TX"
+    headline='Top 3 Google Maps rankings<br /><span class="gradient-text">for Edinburg businesses.</span>'
+    subheadline="Edinburg has real search demand and almost no SEO competition. The UTRGV market, county seat searches, and professional services traffic are sitting there — unclaimed. We build the presence that captures them."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="local seo edinburg tx"
+    mockupCategory="SEO Agency · Edinburg, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'Edinburg', label: 'Primary target city' },
+      { value: 'Top 3', label: 'Map Pack goal' },
+      { value: '45 days', label: 'Fastest Map Pack movement in RGV' },
+      { value: '0', label: 'Long-term contracts' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="edinburg-seo-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="edinburg-seo-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Edinburg is the easiest Map Pack market in Hidalgo County
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Every marketing agency in the RGV chases McAllen. That means Edinburg is ignored — leaving a market with real professional-services search volume completely unoptimized. The businesses ranking in Edinburg's Map Pack today are there by default, not by strategy. A properly built local presence walks right past them.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            UTRGV's presence amplifies this. The university creates above-average search demand for professional services — legal, financial, healthcare, and anything serving the academic community. County seat status adds government-adjacent searches from across all of Hidalgo County.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We've mapped the Edinburg market specifically: the exact keywords driving the most calls, who's ranking and why, and where the fastest wins are. That's where we start.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Lowest competition of any Hidalgo County city', body: 'Most agencies skip Edinburg in favor of McAllen. Their loss — your opportunity.', highlight: true },
+            { icon: '✓', title: 'UTRGV drives professional services demand', body: 'Faculty, staff, and students create above-average search volume for attorneys, healthcare, and financial services.', highlight: true },
+            { icon: '✓', title: 'County seat searches cover all of Hidalgo County', body: 'Edinburg captures searches from Mission, Pharr, and surrounding areas — not just Edinburg residents.', highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="edinburg-seo-work">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="edinburg-seo-work" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">What RankRGV does for Edinburg SEO clients</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">Specific actions — not vague promises.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Google Business Profile — Edinburg-specific',
+            items: ['Category optimized for your highest-volume Edinburg keyword', 'Hidalgo County service area configuration', 'Services section populated with Edinburg keyword-rich descriptions', 'Photo strategy including campus-adjacent location signals', 'Weekly GBP posts targeting Edinburg and county seat searches', 'Q&A section addressing common Edinburg customer questions'],
+          },
+          {
+            title: 'Website — Edinburg city pages',
+            items: ['Dedicated /service-areas/edinburg/ hub page', 'Individual Edinburg + service pages', 'LocalBusiness schema with Edinburg service area', 'Title tags targeting "Service Edinburg TX" keywords', 'UTRGV and county seat content signals', 'Internal linking structure connecting all Edinburg pages'],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we get Edinburg businesses into the Map Pack"
+    subheadline="A focused process for the fastest-moving market in Hidalgo County."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-seo-ed">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-seo-ed" class="text-2xl font-bold text-text mb-8 text-center reveal">Also serving these RGV cities for local SEO</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Local SEO McAllen TX', href: '/service-areas/mcallen/local-seo/' },
+          { label: 'Local SEO Brownsville TX', href: '/service-areas/brownsville/local-seo/' },
+          { label: 'Local SEO Harlingen TX', href: '/service-areas/harlingen/local-seo/' },
+          { label: 'Local SEO Mission TX', href: '/service-areas/mission/local-seo/' },
+          { label: 'Local SEO Pharr TX', href: '/service-areas/pharr/local-seo/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/local-seo/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Local SEO Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Edinburg SEO questions answered" />
+
+  <CTASection
+    headline="Let's get your Edinburg business ranked before the competition wakes up"
+    subheadline="15 minutes on a call and we'll tell you exactly how fast you can rank in Edinburg — or get a free written audit."
+  />
+</ServiceAreaLayout>

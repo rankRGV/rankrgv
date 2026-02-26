@@ -1,0 +1,197 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { services } from '@/data/services';
+import {
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('mission')!;
+
+const title = 'Digital Marketing Agency Mission TX | Local SEO & Web Design | RankRGV';
+const description =
+  "Mission's local SEO and digital marketing agency. RankRGV helps Mission businesses rank on Google before the competition catches up. The fastest-growing Hidalgo County suburb — free SEO audit.";
+
+const faqs = [
+  {
+    question: "Why is Mission such a good opportunity for local SEO right now?",
+    answer:
+      "Mission is growing fast — the Mile 2 Road business corridor is expanding, new residential developments are bringing new residents with spending power, and search demand is rising. But the local SEO market hasn't caught up yet. Most Mission businesses ranking today got there by default: no real competition, thin content, no optimization strategy. The window to establish dominant rankings before this market matures is still wide open — and it won't stay that way.",
+  },
+  {
+    question: "Is Mission SEO different from McAllen SEO even though they're neighboring cities?",
+    answer:
+      "Yes. Search intent differs by city even when the cities are adjacent. Someone searching 'HVAC Mission TX' is specifically looking for a Mission-based provider — they don't want a McAllen business 10 miles away. Google knows this and serves local results for each city independently. A McAllen page will not rank for Mission searches, and vice versa. You need a dedicated Mission page to capture Mission customers.",
+  },
+  {
+    question: "Do you work with new businesses opening in Mission?",
+    answer:
+      "Yes — and new businesses in Mission are actually in a strong position. You're entering a market with weak competition and a growing customer base. The right foundational SEO work done early compounds over time. We've found that Mission businesses with properly built pages and a complete Google Business Profile can see Map Pack movement within 60 days — faster than most RGV cities.",
+  },
+  {
+    question: "Which Mission businesses benefit most from local SEO?",
+    answer:
+      "Home services (HVAC, plumbing, roofing, landscaping) are the highest-volume category in Mission given the residential growth. Restaurants, auto repair, and healthcare providers are strong secondary categories. The Mile 2 Road commercial corridor sees service searches for everything from insurance to dentistry. Any business serving the Mission residential base is a strong candidate.",
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
+    name: site.name,
+    url: site.url,
+    telephone: site.phone,
+    description: 'Digital marketing agency serving Mission and the Rio Grande Valley. Local SEO, web design, and business automation.',
+    areaServed: { '@type': 'City', name: 'Mission, TX' },
+  },
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Mission', href: '/service-areas/mission/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/mission/'),
+];
+---
+
+<ServiceAreaLayout area={area} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Serving Mission, TX & Hidalgo County"
+    headline={`Mission's local SEO & digital marketing agency.<br /><span class="gradient-text">Fastest window in the RGV.</span>`}
+    subheadline="Mission is growing fast and its SEO competition is still low. New residents, new businesses, and an expanding Mile 2 Road corridor — the opportunity to dominate local search here won't last forever."
+    secondaryCTA={{ label: 'View our services', href: '#mission-services' }}
+    mockupQuery="digital marketing mission tx"
+    mockupCategory="Marketing Agency · Mission, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '85K+', label: 'Mission population — and growing' },
+      { value: 'Mile 2', label: 'Expanding business corridor' },
+      { value: 'Lowest', label: 'Competition of any RGV city' },
+      { value: 'Hidalgo', label: 'County — full area coverage' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="mission-market">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="mission-market" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Mission is the easiest market in the RGV to rank in — for now
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Mission's population is growing faster than its digital marketing market has developed. New subdivisions like Bentsen Grove and Los Ebanos are bringing thousands of new residents who search online for everything — but most of the businesses serving them haven't claimed, let alone optimized, their local presence.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The citrus industry may have put Mission on the map historically, but it's the Mile 2 Road business corridor that's driving the modern economy. New commercial developments here are creating fresh categories of local search demand every year.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We tell every Mission client the same thing: this window won't stay open forever. As McAllen's growth spills west and Mission's population keeps climbing, this market will tighten. Moving now means owning rankings before anyone else thinks to.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1 space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-bg-dark relative flex items-end">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark via-bg-dark to-brand-purple/40"></div>
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+            <div class="relative z-10 p-6 w-full">
+              <div class="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">Rio Grande Valley</div>
+              <div class="text-white text-2xl font-extrabold tracking-tight">Mission, Texas</div>
+              <div class="text-white/60 text-sm mt-1">Hidalgo County · Mile 2 Road business corridor</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { value: '85K+', label: 'Mission population' },
+              { value: 'Growing', label: 'Fastest RGV suburb' },
+              { value: 'Lowest', label: 'Local SEO competition in RGV' },
+              { value: '45 days', label: 'Average time to first rankings' },
+            ].map(({ value, label }) => (
+              <div class="bg-bg-surface rounded-xl p-4 border border-border text-center">
+                <div class="text-xl font-extrabold gradient-text mb-0.5">{value}</div>
+                <div class="text-xs text-text-muted leading-tight">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="mission-services">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 id="mission-services" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Digital marketing services for Mission businesses
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Built for Mission's growing residential and commercial market.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((service, i) => (
+          <div class={`reveal reveal-delay-${i + 1}`}>
+            <div class="relative">
+              <ServiceCard service={service} />
+              <a href={`/service-areas/mission/${service.slug}/`} class="absolute inset-0 rounded-2xl" aria-label={`${service.name} in Mission`}></a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg" aria-labelledby="mission-neighborhoods">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 id="mission-neighborhoods" class="text-3xl font-bold text-text mb-4 reveal">
+          We help businesses across all of Mission
+        </h2>
+        <p class="text-text-muted reveal reveal-delay-1">
+          Downtown to Bentsen Grove, Los Ebanos to North Mission — if your customers are in the Mission area, we help them find you.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {area.neighborhoods.map((n) => (
+          <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">{n}</span>
+        ))}
+        <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">& surrounding areas</span>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <section aria-labelledby="mission-map">
+    <div class="py-12 bg-bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 id="mission-map" class="text-2xl font-bold text-text mb-2 reveal">Serving Mission and all of Hidalgo County</h2>
+        <p class="text-text-muted reveal reveal-delay-1">We serve businesses throughout Mission and surrounding RGV communities.</p>
+      </div>
+    </div>
+    <div class="w-full reveal reveal-delay-2" style="height: 420px;">
+      <iframe
+        title="Mission, Texas service area map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114841.30974648!2d-98.3253!3d26.2159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665b11c53b2dea7%3A0x0!2sMission%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000004!5m2!1sen!2sus"
+        width="100%" height="420" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Questions about digital marketing in Mission" />
+
+  <CTASection
+    headline="Ready to own Mission search results before the competition arrives?"
+    subheadline="15-min call and we'll show you exactly which Mission keywords are up for grabs — or get a free written audit."
+  />
+</ServiceAreaLayout>

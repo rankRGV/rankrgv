@@ -1,0 +1,223 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('harlingen')!;
+const service = getServiceBySlug('local-seo')!;
+
+const title = 'Local SEO Harlingen TX | Google Map Pack Rankings | RankRGV';
+const description =
+  'Harlingen local SEO specialists. We rank Harlingen businesses in the top 3 Google Maps results. Healthcare, home services, and professional businesses — Cameron County coverage. Free audit.';
+
+const faqs = [
+  {
+    question: 'How does the healthcare economy affect SEO for Harlingen businesses?',
+    answer:
+      "Valley Baptist Medical Center and the UTRGV Health Sciences campus make healthcare Harlingen's dominant search category. But the healthcare economy ripples out: medical-legal firms, medical equipment suppliers, home health agencies, rehabilitation services, and insurance businesses all benefit from the high-value patient and caregiver searches that flow through Harlingen. If you're adjacent to healthcare in any way, Harlingen has above-average search volume for your category.",
+  },
+  {
+    question: 'How long does Harlingen local SEO take to show results?',
+    answer:
+      "Most Harlingen businesses see initial Map Pack movement within 60–75 days. Harlingen has solid search volume but slightly less competition than McAllen, which means consistent forward movement once the foundation is in place. Healthcare-adjacent businesses often see faster movement because the search volume is so high — even a few positions gained translate immediately into more calls.",
+  },
+  {
+    question: 'Does Valley International Airport affect local SEO for Harlingen businesses?',
+    answer:
+      "It depends on your business. If you serve travelers, business visitors, or airport-adjacent industries (hotels, car rentals, transportation, restaurants), the airport creates a niche search category worth targeting. For most businesses in Harlingen, the airport is less relevant than the healthcare and residential economy. We flag this during your audit if it's a significant opportunity for your specific category.",
+  },
+  {
+    question: 'Can you help my Harlingen business rank across Cameron County?',
+    answer:
+      "Yes. Harlingen sits at the geographic center of Cameron County, which makes it a natural hub for county-wide searches. We build a page architecture that covers Harlingen specifically while also targeting surrounding Cameron County cities — San Benito, Los Fresnos, La Feria — where your customers may also be searching.",
+  },
+  {
+    question: 'How much does Harlingen local SEO cost?',
+    answer:
+      "Harlingen SEO engagements run $500–$1,500/month depending on industry and how many search categories you're targeting. Healthcare-adjacent businesses may run higher due to the competitive nature of medical search. We start with a free audit, give you a specific number, and there are no long-term contracts.",
+  },
+  {
+    question: 'Do you work with Harlingen businesses that also serve Brownsville?',
+    answer:
+      "Yes — this cross-Cameron County coverage is common. Many Harlingen businesses serve customers throughout Cameron County including Brownsville. We build dedicated city pages for each market you want to rank in, with each page optimized independently. A Harlingen page won't rank for Brownsville searches — but a Brownsville page will, if we build it.",
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Harlingen SEO Audit',
+    text: "We analyze your current Harlingen presence — GBP, city pages, existing rankings, and your top 3 competitors in your category. For healthcare-adjacent businesses, we pay special attention to medical search patterns and trust signals.",
+  },
+  {
+    name: 'Harlingen Keyword Map',
+    text: "We identify every search Harlingen customers make to find your business. For healthcare categories, this includes patient journey searches — not just 'business name + Harlingen TX.'",
+  },
+  {
+    name: 'GBP Optimization',
+    text: "We fully optimize your Google Business Profile for Harlingen: categories, Cameron County service area, services, photos, and the trust signals that matter in Harlingen's professional market.",
+  },
+  {
+    name: 'City Pages & On-Page SEO',
+    text: "We build or optimize Harlingen-specific pages with the right keywords, schema markup, and content that Google needs to rank you for local healthcare and professional service searches.",
+  },
+  {
+    name: 'Citations & Review Strategy',
+    text: "We build Harlingen-focused citations and a review generation system. In healthcare and professional services, review volume and recency are critical Map Pack factors.",
+  },
+  {
+    name: 'Monthly Reports',
+    text: "Every month: your Harlingen ranking movements, call volume from Google, and next priorities. Clean data — no jargon.",
+  },
+];
+
+const schema = [
+  buildServiceSchema('Local SEO Harlingen TX', 'RankRGV provides local SEO services for Harlingen businesses — Google Business Profile optimization, city pages, and Map Pack rankings in the Cameron County healthcare hub.', 'Harlingen'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Get Harlingen Businesses into the Google Map Pack', 'The process RankRGV uses to rank Harlingen businesses in the top 3 Google Maps results.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Harlingen', href: '/service-areas/harlingen/' },
+    { label: 'Local SEO', href: '/service-areas/harlingen/local-seo/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/harlingen/local-seo/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Local SEO · Harlingen, TX"
+    headline='Top 3 Google Maps rankings<br /><span class="gradient-text">for Harlingen businesses.</span>'
+    subheadline="Harlingen's healthcare economy drives above-average search demand for professional services. We get your Harlingen business into the Map Pack — and keep you there across all of Cameron County."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="local seo harlingen tx"
+    mockupCategory="SEO Agency · Harlingen, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'Harlingen', label: 'Primary target city' },
+      { value: 'Top 3', label: 'Map Pack goal' },
+      { value: 'Cameron', label: 'County — full coverage' },
+      { value: '0', label: 'Long-term contracts' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="harlingen-seo-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="harlingen-seo-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Harlingen's healthcare economy creates above-average search demand
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Valley Baptist Medical Center and the UTRGV Health Sciences campus make Harlingen the healthcare capital of the RGV. That concentration of medical activity creates search demand that ripples through every business category — from medical legal to medical equipment, from home health to insurance. If your business touches healthcare at all, Harlingen has stronger search volume than its population size would suggest.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            For non-healthcare businesses, Harlingen's mid-size business community and stable residential base create consistent demand for home services, professional services, restaurants, and retail. The competition is lower than McAllen but the customer intent is just as strong.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We've mapped the Harlingen search landscape — who's ranking, what keywords drive the most calls, and where the fastest wins are for your specific category.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Healthcare search demand exceeds population size', body: 'Valley Baptist and UTRGV Health Sciences drive high-value patient and professional searches beyond what Harlingen\'s 75K population would normally generate.', highlight: true },
+            { icon: '✓', title: 'Cameron County coverage from a central location', body: "Harlingen's central position in Cameron County means ranking here captures searches from across the county — Los Fresnos, San Benito, and beyond.", highlight: true },
+            { icon: '✓', title: 'Lower competition than McAllen, same intent', body: 'Harlingen customers search with the same urgency and buying intent as McAllen — but far fewer businesses compete for those searches.', highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="harlingen-seo-work">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="harlingen-seo-work" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">What RankRGV does for Harlingen SEO clients</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">Specific deliverables that move rankings.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'GBP — Harlingen-specific optimization',
+            items: ['Category optimized for your primary Harlingen keyword', 'Cameron County service area configuration', 'Services with healthcare-appropriate descriptions where relevant', 'Trust-building photo strategy', 'Weekly posts targeting Harlingen and Cameron County searches', 'Q&A section for common Harlingen customer questions'],
+          },
+          {
+            title: 'Website — Harlingen city pages',
+            items: ['Dedicated /service-areas/harlingen/ hub page', 'Individual Harlingen + service pages', 'LocalBusiness schema with Harlingen service area', 'Title tags targeting "Service Harlingen TX" keyword pattern', 'Healthcare and professional market content signals', 'Internal linking connecting all Harlingen pages'],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we get Harlingen businesses into the Map Pack"
+    subheadline="A process built for Harlingen's healthcare and professional market."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-seo-hl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-seo-hl" class="text-2xl font-bold text-text mb-8 text-center reveal">Also serving these RGV cities for local SEO</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Local SEO McAllen TX', href: '/service-areas/mcallen/local-seo/' },
+          { label: 'Local SEO Brownsville TX', href: '/service-areas/brownsville/local-seo/' },
+          { label: 'Local SEO Edinburg TX', href: '/service-areas/edinburg/local-seo/' },
+          { label: 'Local SEO Mission TX', href: '/service-areas/mission/local-seo/' },
+          { label: 'Local SEO Pharr TX', href: '/service-areas/pharr/local-seo/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/local-seo/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Local SEO Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Harlingen SEO questions answered" />
+
+  <CTASection
+    headline="Let's get your Harlingen business ranked in Cameron County"
+    subheadline="15 minutes on a call and we'll tell you exactly how to rank in Harlingen — or get a free written audit."
+  />
+</ServiceAreaLayout>

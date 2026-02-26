@@ -1,0 +1,223 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('brownsville')!;
+const service = getServiceBySlug('local-seo')!;
+
+const title = 'Local SEO Brownsville TX | Google Map Pack Rankings | RankRGV';
+const description =
+  'Brownsville local SEO specialists. We get Brownsville businesses into the top 3 Google Maps results — including the bilingual market and SpaceX-era growth. Free audit.';
+
+const faqs = [
+  {
+    question: 'How long does it take to rank in Google Maps for Brownsville searches?',
+    answer:
+      "Most Brownsville businesses see initial Map Pack movement within 60–90 days of proper optimization. Brownsville has real search volume but weaker competition than McAllen, which means faster movement on most keywords. For service businesses in categories with few optimized competitors — HVAC, plumbing, legal services, auto repair — we often see first movement inside 45 days. We show you the data monthly so you can track every ranking shift.",
+  },
+  {
+    question: 'Do you optimize for Spanish-language searches in Brownsville?',
+    answer:
+      "Yes — and this is non-negotiable in Brownsville. The bilingual search market here is more significant than in any other RGV city. We analyze both English and Spanish keyword volumes for your specific business category and incorporate bilingual signals where they move the needle. Your Google Business Profile categories, your website copy, and your review strategy all have bilingual dimensions we factor in.",
+  },
+  {
+    question: 'How does SpaceX affect local SEO for Brownsville businesses?',
+    answer:
+      "SpaceX Starbase has brought engineers, contractors, and support workers to the Brownsville area — creating new search demand for housing, restaurants, professional services, home services, and more. It's also attracting new businesses that need the same services you offer. We track these emerging keyword categories and help established Brownsville businesses capture new SpaceX-economy searches before new competitors do.",
+  },
+  {
+    question: 'Can you rank my Brownsville business in Cameron County searches?',
+    answer:
+      "Yes. Many Brownsville service businesses need to rank across all of Cameron County — from Brownsville proper to San Benito, Los Fresnos, and Port Isabel. We build a page architecture that handles your primary Brownsville market while also targeting Cameron County searches. Service area businesses don't need a physical location in each city — they need the right GBP configuration and dedicated local pages.",
+  },
+  {
+    question: 'How much does local SEO cost for a Brownsville business?',
+    answer:
+      "Brownsville local SEO engagements typically run $500–$1,500/month depending on your industry competition and how many search categories you need to cover. We never sell packages — we start with a free audit to understand your specific situation, then give you a number. Brownsville's lower competition often means lower monthly investment to achieve equivalent results to a McAllen campaign.",
+  },
+  {
+    question: 'Do you work with Brownsville businesses that serve both the US and Mexico?',
+    answer:
+      "Yes. Cross-border businesses in Brownsville have unique search patterns: US customers search in English on Google.com, while cross-border customers may search in Spanish or on different devices. We optimize for the US search market primarily (where Google Maps rankings live), but can incorporate bilingual signals and content that captures both audiences where there's meaningful traffic.",
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Brownsville SEO Audit',
+    text: "We analyze your current Brownsville Google presence — your GBP, your website's city-specific pages, existing rankings, and your top 3 Brownsville competitors. You get a jargon-free picture of exactly what's working and what's costing you customers.",
+  },
+  {
+    name: 'Brownsville Keyword Map',
+    text: "We identify every search Brownsville customers make to find businesses like yours — in English and Spanish where both have meaningful volume. You see exactly which keywords will drive the most calls before we change anything.",
+  },
+  {
+    name: 'GBP Optimization',
+    text: "We fully optimize your Google Business Profile for Brownsville: primary and secondary categories, service area configuration for Cameron County, services, photos, posts, and the technical signals that move Map Pack rankings.",
+  },
+  {
+    name: 'City Pages & On-Page SEO',
+    text: "We build or optimize Brownsville-specific pages on your website — with the right keywords, schema markup, and content structure Google needs to rank you for local searches across Cameron County.",
+  },
+  {
+    name: 'Citations & Review Strategy',
+    text: "We build Brownsville-focused local citations and give you a simple system to generate more 5-star Google reviews — the single biggest signal for Map Pack rankings in any market.",
+  },
+  {
+    name: 'Monthly Reports',
+    text: "Every month: which Brownsville searches you moved up for, how many calls came from Google, and what we're targeting next. Data only — no spin.",
+  },
+];
+
+const schema = [
+  buildServiceSchema('Local SEO Brownsville TX', 'RankRGV provides local SEO services for Brownsville businesses — Google Business Profile optimization, city-specific pages, and Map Pack rankings that drive real calls.', 'Brownsville'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Get Brownsville Businesses into the Google Map Pack', 'The step-by-step process RankRGV uses to rank Brownsville businesses in the top 3 Google Maps results.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Brownsville', href: '/service-areas/brownsville/' },
+    { label: 'Local SEO', href: '/service-areas/brownsville/local-seo/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/brownsville/local-seo/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Local SEO · Brownsville, TX"
+    headline='Top 3 Google Maps rankings<br /><span class="gradient-text">for Brownsville businesses.</span>'
+    subheadline="When Brownsville customers search for your service, they call whoever shows up first. We get your business into that top 3 — in both English and Spanish search markets."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="local seo brownsville tx"
+    mockupCategory="SEO Agency · Brownsville, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'Brownsville', label: 'Primary target city' },
+      { value: 'Top 3', label: 'Map Pack goal' },
+      { value: '60 days', label: 'Average time to first movement' },
+      { value: '0', label: 'Long-term contracts' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="brownsville-seo-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="brownsville-seo-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Brownsville SEO means winning two search markets at once
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Brownsville is unique in the RGV. The bilingual search market here is significant enough to require a real strategy — not an afterthought. Customers search in both English and Spanish, and the businesses that optimize for both consistently outperform those that treat Brownsville like any other Texas city.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            On top of that, SpaceX Starbase is reshaping Brownsville's economy in real time. New residents, new businesses, and new categories of search demand are emerging that didn't exist two years ago. The Brownsville businesses that establish Map Pack presence now will capture this growth as it compounds.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We've analyzed the Brownsville search market specifically: who's ranking, why they're ranking, and where the fastest wins are. That's the audit we run before touching anything.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Brownsville SEO competition is still weak', body: 'Most businesses ranking in Brownsville today have thin content and no dedicated service pages. A properly built site moves fast.', highlight: true },
+            { icon: '✓', title: 'The bilingual angle is an untapped advantage', body: "Most agencies ignore Spanish-language search signals. Optimizing for both markets gives you coverage your competitors don't have.", highlight: true },
+            { icon: '✓', title: 'SpaceX is creating new search demand daily', body: 'New businesses and residents are searching for local services in Brownsville. The window to capture these searches first is open now.', highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="brownsville-seo-work">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="brownsville-seo-work" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">What RankRGV does for Brownsville SEO clients</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">Specific deliverables — not vague "optimization."</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Google Business Profile — Brownsville-specific',
+            items: ['Primary category set to highest-traffic service', 'Brownsville + Cameron County service area configured', 'Services fully populated with keyword-rich descriptions', 'Bilingual photo strategy where applicable', 'Weekly GBP posts targeting Brownsville keywords', 'Q&A section populated with common local questions'],
+          },
+          {
+            title: 'Website — Brownsville city pages',
+            items: ['Dedicated /service-areas/brownsville/ hub page', 'Individual Brownsville + service pages', 'LocalBusiness schema with Brownsville service area', 'Title tags following "Service Brownsville TX | Benefit" pattern', 'Brownsville-specific content (SpaceX economy, bilingual market)', 'Internal linking from Brownsville hub to all service pages'],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we get Brownsville businesses into the Map Pack"
+    subheadline="A proven process built around the Brownsville market."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-seo-bv">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-seo-bv" class="text-2xl font-bold text-text mb-8 text-center reveal">Also serving these RGV cities for local SEO</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Local SEO McAllen TX', href: '/service-areas/mcallen/local-seo/' },
+          { label: 'Local SEO Edinburg TX', href: '/service-areas/edinburg/local-seo/' },
+          { label: 'Local SEO Harlingen TX', href: '/service-areas/harlingen/local-seo/' },
+          { label: 'Local SEO Mission TX', href: '/service-areas/mission/local-seo/' },
+          { label: 'Local SEO Pharr TX', href: '/service-areas/pharr/local-seo/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/local-seo/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Local SEO Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Brownsville SEO questions answered" />
+
+  <CTASection
+    headline="Let's get your Brownsville business to the top of Google"
+    subheadline="15 minutes on a call and we'll tell you exactly how to rank in Brownsville — or get a free written audit."
+  />
+</ServiceAreaLayout>

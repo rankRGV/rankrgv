@@ -1,0 +1,197 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { services } from '@/data/services';
+import {
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('brownsville')!;
+
+const title = 'Digital Marketing Agency Brownsville TX | Local SEO & Web Design | RankRGV';
+const description =
+  "Brownsville's local SEO and digital marketing agency. RankRGV helps Brownsville businesses rank higher on Google, get more calls, and grow in the fastest-evolving market in South Texas. Free audit.";
+
+const faqs = [
+  {
+    question: "Why does Brownsville need a different SEO strategy than other RGV cities?",
+    answer:
+      "Brownsville is undergoing a transformation unlike any other RGV city — SpaceX Starbase, new tech businesses, and rapid population growth are changing who searches for what, and how. National agencies treat Brownsville as a generic 'South Texas' market. We track the actual search trends in Brownsville specifically — including the bilingual market where Spanish-language searches drive significant traffic that most agencies ignore entirely.",
+  },
+  {
+    question: "How competitive is digital marketing in Brownsville?",
+    answer:
+      "Brownsville is slightly less competitive than McAllen for most business categories — but that's changing fast as new businesses arrive with SpaceX. Right now is an exceptional window: search demand for professional services, home services, healthcare, and legal is growing, but the number of properly optimized local businesses is still low. Businesses that build their local SEO foundation now will own these positions as the market heats up.",
+  },
+  {
+    question: "Do you optimize for Spanish-language searches in Brownsville?",
+    answer:
+      "Yes — and this is critical in Brownsville. The bilingual search market here is larger than in most RGV cities. We factor Spanish-language keyword data into our research and can implement bilingual content strategies for businesses where it drives meaningful traffic. The English search market is always our starting point (highest volume), but Spanish-language signals are real ranking factors that most agencies skip.",
+  },
+  {
+    question: "Which Brownsville industries benefit most from local SEO?",
+    answer:
+      "Healthcare, legal services, home services (roofing, HVAC, plumbing), automotive, and any business tied to SpaceX or the growing tech economy. Brownsville has high medical search traffic given its proximity to Valley Regional Medical Center and multiple clinics. Legal searches are also very strong. Any service business where customers search before they call benefits from a strong Brownsville local presence.",
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
+    name: site.name,
+    url: site.url,
+    telephone: site.phone,
+    description: 'Digital marketing agency serving Brownsville and the Rio Grande Valley. Local SEO, web design, and business automation.',
+    areaServed: { '@type': 'City', name: 'Brownsville, TX' },
+  },
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Brownsville', href: '/service-areas/brownsville/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/brownsville/'),
+];
+---
+
+<ServiceAreaLayout area={area} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Serving Brownsville, TX & Cameron County"
+    headline={`Brownsville's local SEO & digital marketing agency.<br /><span class="gradient-text">Built for South Texas.</span>`}
+    subheadline="Brownsville is growing faster than any city in the RGV. We help Brownsville businesses capture that growth — with local SEO, web design, and automation built for this market."
+    secondaryCTA={{ label: 'View our services', href: '#brownsville-services' }}
+    mockupQuery="digital marketing brownsville tx"
+    mockupCategory="Marketing Agency · Brownsville, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '185K+', label: 'Brownsville population' },
+      { value: 'SpaceX', label: 'Fueling Brownsville\'s fastest growth' },
+      { value: 'Low', label: 'SEO competition for most keywords' },
+      { value: 'Cameron', label: 'County — full coverage' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="brownsville-market">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="brownsville-market" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Brownsville is the most interesting market in South Texas right now
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            SpaceX Starbase has put Brownsville on the national map — and it's bringing engineers, contractors, and new businesses that need everything from plumbers to accountants. Search demand in Brownsville is growing, but the local SEO infrastructure hasn't caught up.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The bilingual market is also significantly larger in Brownsville than in McAllen or Edinburg. Customers here search in both English and Spanish, and businesses that optimize for both capture more of the market. Most national agencies don't even know to ask this question.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We serve Brownsville as an RGV-specialist agency — not a "South Texas" vendor with a checkbox for your city. Our Brownsville strategies account for Cameron County coverage, the SpaceX economy, and the bilingual search patterns that drive real traffic here.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1 space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-bg-dark relative flex items-end">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark via-bg-dark to-brand-purple/40"></div>
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+            <div class="relative z-10 p-6 w-full">
+              <div class="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">Rio Grande Valley</div>
+              <div class="text-white text-2xl font-extrabold tracking-tight">Brownsville, Texas</div>
+              <div class="text-white/60 text-sm mt-1">Texas's southernmost city · Cameron County</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { value: '185K+', label: 'Brownsville population' },
+              { value: 'SpaceX', label: 'Starbase — new economy driver' },
+              { value: 'Low', label: 'SEO competition vs. Texas average' },
+              { value: '60 days', label: 'Average time to first movement' },
+            ].map(({ value, label }) => (
+              <div class="bg-bg-surface rounded-xl p-4 border border-border text-center">
+                <div class="text-xl font-extrabold gradient-text mb-0.5">{value}</div>
+                <div class="text-xs text-text-muted leading-tight">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="brownsville-services">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 id="brownsville-services" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Digital marketing services for Brownsville businesses
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Every service tailored to how Brownsville customers search.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((service, i) => (
+          <div class={`reveal reveal-delay-${i + 1}`}>
+            <div class="relative">
+              <ServiceCard service={service} />
+              <a href={`/service-areas/brownsville/${service.slug}/`} class="absolute inset-0 rounded-2xl" aria-label={`${service.name} in Brownsville`}></a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg" aria-labelledby="brownsville-neighborhoods">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 id="brownsville-neighborhoods" class="text-3xl font-bold text-text mb-4 reveal">
+          We help businesses across all of Brownsville
+        </h2>
+        <p class="text-text-muted reveal reveal-delay-1">
+          From Downtown Brownsville to Boca Chica, Southmost to Sunrise — if your customers are in the Brownsville area, we help them find you.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {area.neighborhoods.map((n) => (
+          <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">{n}</span>
+        ))}
+        <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">& surrounding areas</span>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <section aria-labelledby="brownsville-map">
+    <div class="py-12 bg-bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 id="brownsville-map" class="text-2xl font-bold text-text mb-2 reveal">Serving Brownsville and all of Cameron County</h2>
+        <p class="text-text-muted reveal reveal-delay-1">We serve businesses throughout Brownsville and the surrounding RGV communities.</p>
+      </div>
+    </div>
+    <div class="w-full reveal reveal-delay-2" style="height: 420px;">
+      <iframe
+        title="Brownsville, Texas service area map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114841.30974648!2d-97.4975!3d25.9017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866f97a38b3d2a5f%3A0x0!2sBrownsville%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000001!5m2!1sen!2sus"
+        width="100%" height="420" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Questions about digital marketing in Brownsville" />
+
+  <CTASection
+    headline="Ready to grow your Brownsville business on Google?"
+    subheadline="Call for a free 15-min conversation about Brownsville rankings — or get a free written audit."
+  />
+</ServiceAreaLayout>
