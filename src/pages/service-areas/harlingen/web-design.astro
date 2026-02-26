@@ -1,0 +1,224 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('harlingen')!;
+const service = getServiceBySlug('web-design')!;
+
+const title = 'Web Design Harlingen TX | Fast, SEO-Ready Sites That Convert | RankRGV';
+const description =
+  "Harlingen web design for healthcare, professional services, and Cameron County businesses. RankRGV builds fast-loading, mobile-first sites that rank on Google — 99+ PageSpeed, no page builders. Free audit.";
+
+const faqs = [
+  {
+    question: 'Are there special web design requirements for Harlingen healthcare businesses?',
+    answer:
+      "Yes — healthcare web design has specific requirements. HIPAA-compliant contact forms (no patient data stored insecurely), healthcare-specific schema markup (Physician, MedicalOrganization, MedicalClinic), Google's health content guidelines, and trust signals that matter to patients — credentials, board certifications, patient testimonials formatted correctly. We build healthcare sites that rank for the searches Harlingen patients are actually making and convert those visits into appointment requests.",
+  },
+  {
+    question: 'How much does a professional website cost for a Harlingen business?',
+    answer:
+      "Most Harlingen business websites run $2,000–$5,000. Healthcare and medical sites with multiple providers, service pages, and patient resources sometimes run higher depending on complexity. We build on Astro — not WordPress or page builders — which means 99+ PageSpeed scores and better Google rankings as a baseline. We give you a clear number upfront, no hourly billing, no surprise fees.",
+  },
+  {
+    question: 'Will a new website help my Harlingen business rank on Google?',
+    answer:
+      "Yes — if it's built correctly. A fast, mobile-first site with proper LocalBusiness schema, Harlingen-specific page structure, and correct keyword targeting will outrank slow, generic competitor sites. Harlingen has relatively low web design competition in most categories outside of healthcare. We see Harlingen businesses move in Google rankings within 60–90 days of launching a properly built site.",
+  },
+  {
+    question: 'Can you build a Harlingen website that serves all of Cameron County?',
+    answer:
+      "Yes. Many Harlingen businesses serve patients, clients, or customers across Cameron County — from Brownsville to San Benito to Los Fresnos. We build your site to rank for Harlingen-specific searches as the primary anchor while adding city pages for other Cameron County markets you serve. Service area businesses don't need a physical address in every city — they need the right page structure.",
+  },
+  {
+    question: 'Does Valley International Airport affect how I should build my Harlingen website?',
+    answer:
+      "For hospitality, transportation, and professional services that cater to business travelers, yes. We can build airport-adjacent content that captures searches from visitors and business travelers moving through Harlingen. For most residential service businesses, the airport angle is less relevant — we focus on the search terms your actual customers use, not generic local landmarks.",
+  },
+  {
+    question: 'How long does a Harlingen website build take?',
+    answer:
+      "4–6 weeks for a standard business site. Healthcare sites with HIPAA considerations, multiple providers, or resource libraries can run 6–8 weeks. The biggest timeline variable is content delivery on your end — photos, credentials, service descriptions. We provide a content checklist early in the process so nothing stalls the build. Full design mockup for approval before any code is written.",
+  },
+];
+
+const howToSteps = [
+  { name: 'Discovery Call', text: "We start by understanding your Harlingen business — your services, whether healthcare HIPAA requirements apply, your Cameron County service area, and what you need your website to accomplish." },
+  { name: 'Site Architecture & Keyword Map', text: "We map the full page structure based on how Harlingen customers search — including healthcare-specific terms, Valley Baptist adjacency, and Cameron County coverage pages." },
+  { name: 'Design Mockup', text: "Full desktop and mobile mockup before code is written. Healthcare sites get specific trust-signal design treatment. Every design is built for your Harlingen market — not repurposed from a template." },
+  { name: 'Build & Content Integration', text: "We build the site with your content, photos, and business information integrated. Healthcare forms are built HIPAA-compliant by default. Every page is optimized for Harlingen and Cameron County local search." },
+  { name: 'Testing & Launch', text: "Full cross-device testing. PageSpeed audited, schema validated, forms tested and verified. DNS migration handled. Healthcare sites get extra validation on schema and form security." },
+  { name: 'Post-Launch Foundation', text: "Google Search Console setup, sitemap submission, GBP link updated, 30-day indexing monitoring. Your Harlingen rankings build correctly from day one." },
+];
+
+const schema = [
+  buildServiceSchema('Web Design Harlingen TX', 'RankRGV designs and builds professional websites for Harlingen businesses — fast-loading, mobile-first, healthcare-capable, and built to rank in the Cameron County market.', 'Harlingen'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Build Harlingen Business Websites That Rank and Convert', 'The step-by-step process RankRGV uses to build fast, high-converting websites for Harlingen businesses.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Harlingen', href: '/service-areas/harlingen/' },
+    { label: 'Web Design', href: '/service-areas/harlingen/web-design/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/harlingen/web-design/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Web Design · Harlingen, TX"
+    headline='A Harlingen website that earns patient trust<br /><span class="gradient-text">and converts Cameron County searches.</span>'
+    subheadline="Harlingen is Cameron County's healthcare hub. We build websites for medical practices, professional services, and local businesses that load fast, rank on Google, and convert the high-value patients and clients Harlingen attracts."
+    secondaryCTA={{ label: 'See how we build', href: '#how-we-work' }}
+    mockupQuery="web design harlingen tx"
+    mockupCategory="Web Design · Harlingen, TX"
+    visualType="pagespeed"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '99+', label: 'PageSpeed score (Google Lighthouse)' },
+      { value: '<1s', label: 'Average load time' },
+      { value: 'Healthcare', label: 'HIPAA-compliant forms included' },
+      { value: '0', label: 'Page builders or WordPress' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="harlingen-webdesign-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="harlingen-webdesign-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Harlingen's healthcare economy demands websites that build trust fast
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Valley Baptist Medical Center, the UTRGV Health Sciences campus, and dozens of specialty clinics make healthcare Harlingen's defining sector. But the same trust standards that apply to healthcare are bleeding into every Harlingen professional service — patients don't separate their standards for a clinic website from their standards for an attorney or financial advisor.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            We've seen what most Harlingen business websites look like right now. Slow loads. No schema markup. Generic templates. Outdated on mobile. The bar is low enough that a properly built site stands out immediately — and Google's rankings reflect that within weeks.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build on Astro — not WordPress — which produces 99+ PageSpeed scores by default. Healthcare sites get HIPAA-compliant forms, medical schema markup, and content structured for the specific searches Harlingen patients and clients make.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Healthcare-capable from the ground up', body: "HIPAA-compliant contact forms, medical schema markup, and patient trust signals built in. Not retrofitted after the fact.", highlight: true },
+            { icon: '✓', title: 'Cameron County coverage built into the architecture', body: "Harlingen businesses serve patients and clients from Brownsville to San Benito. We build the page structure to capture that county-wide demand.", highlight: true },
+            { icon: '✓', title: 'High-value searches need a site that converts', body: "Healthcare and professional service searches convert at the highest rates in Harlingen. A slow, generic site is leaving those leads to competitors with better pages.", highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="harlingen-webdesign-includes">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="harlingen-webdesign-includes" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What's included in every Harlingen web design project
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">No add-on fees for the basics. Every site ships with the full stack.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Performance & technical foundation',
+            items: [
+              '99+ Google PageSpeed / Lighthouse score',
+              'Sub-1-second load time on mobile and desktop',
+              'Core Web Vitals optimized (LCP, INP, CLS)',
+              'Secure HTTPS with SSL certificate',
+              'Clean, crawlable HTML — no page builder bloat',
+              'Automatic sitemap generation',
+            ],
+          },
+          {
+            title: 'Local SEO + healthcare foundation',
+            items: [
+              'LocalBusiness schema with Harlingen / Cameron County service area',
+              'Medical and professional service schema (where applicable)',
+              'HIPAA-compliant contact and appointment forms',
+              'City-specific pages for every Cameron County market',
+              'Google Search Console setup and sitemap submission',
+              'GBP website link updated at launch',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we build Harlingen business websites"
+    subheadline="A clear process — from first call to ranked, converting, and live."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-webdesign-hl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-webdesign-hl" class="text-2xl font-bold text-text mb-8 text-center reveal">Also building websites for these RGV cities</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Web Design McAllen TX', href: '/service-areas/mcallen/web-design/' },
+          { label: 'Web Design Brownsville TX', href: '/service-areas/brownsville/web-design/' },
+          { label: 'Web Design Edinburg TX', href: '/service-areas/edinburg/web-design/' },
+          { label: 'Web Design Mission TX', href: '/service-areas/mission/web-design/' },
+          { label: 'Web Design Pharr TX', href: '/service-areas/pharr/web-design/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/web-design/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Web Design Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Harlingen web design questions answered" />
+
+  <CTASection
+    headline="Let's build a Harlingen website that earns trust and ranks on Google"
+    subheadline="15-minute call and we'll audit your current site and show you exactly where it's losing patients and clients — or get a free written audit."
+  />
+</ServiceAreaLayout>

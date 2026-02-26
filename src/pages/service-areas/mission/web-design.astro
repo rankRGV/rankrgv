@@ -1,0 +1,224 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('mission')!;
+const service = getServiceBySlug('web-design')!;
+
+const title = 'Web Design Mission TX | Fast, SEO-Ready Sites That Convert | RankRGV';
+const description =
+  "Mission web design for the fastest-growing RGV suburb. RankRGV builds fast-loading, mobile-first sites for Mission businesses — 99+ PageSpeed, built to rank before the competition arrives. Free audit.";
+
+const faqs = [
+  {
+    question: 'Does my Mission business need a website if I already have a Google Business Profile?',
+    answer:
+      "Yes — and they work together. Your GBP gets you into the Map Pack. Your website gets you into the organic rankings below it and provides the content that makes your GBP more authoritative. Businesses with strong GBPs and no website leave organic traffic entirely to competitors. In Mission's growing market, a properly built website + optimized GBP gives you two entry points in every search result page instead of one.",
+  },
+  {
+    question: 'How much does a professional website cost for a Mission business?',
+    answer:
+      "Most Mission small business websites run $2,000–$5,000. We build on Astro — not WordPress or page builders — which produces 99+ PageSpeed scores as a baseline. That performance advantage directly translates into better Google rankings and higher conversion rates compared to the typical Mission business website. Flat pricing, clear scope, no surprise fees.",
+  },
+  {
+    question: 'Is it too early to invest in a website for a new Mission business?',
+    answer:
+      "The opposite — it's the best time. Mission is growing faster than its digital marketing market has developed. New businesses that establish a web presence now rank faster, rank higher, and hold those rankings longer than businesses that wait. We've seen properly built Mission business sites reach top 3 Google positions within 60–90 days because the competition is that thin. Getting in early means you own those positions before anyone else claims them.",
+  },
+  {
+    question: 'Can a new Mission website help me also rank in McAllen?',
+    answer:
+      "Your Mission site directly ranks for Mission searches. For McAllen, you need a dedicated McAllen page — Google ranks city searches independently. What your Mission site does is build domain authority that makes your McAllen page more competitive when you add it. We typically build Mission first, then expand to McAllen as part of a coordinated service area page strategy.",
+  },
+  {
+    question: 'Do you design websites for businesses along the Mile 2 Road corridor?',
+    answer:
+      "Yes. The Mile 2 Road commercial corridor is Mission's primary business hub and we understand its geography. Your website is built to rank for searches from customers in your actual service radius — including businesses on Bentsen Road, Mission CISD corridors, and new residential developments on the west side of Mission.",
+  },
+  {
+    question: 'How long does a Mission website build take?',
+    answer:
+      "4–6 weeks for a standard business site. The biggest variable is how quickly you provide content — your logo, photos, service descriptions. We move fast on the build side and provide a content checklist upfront so nothing delays launch. You see a full design mockup before any code is written.",
+  },
+];
+
+const howToSteps = [
+  { name: 'Discovery Call', text: "We start by understanding your Mission business — your services, your customers, your competitors, and what you need the website to actually accomplish. New businesses and established ones get different starting points." },
+  { name: 'Site Architecture & Keyword Map', text: "We map the full page structure before design starts — based on how Mission customers search, what Mile 2 Road terms matter, and which neighboring cities you serve." },
+  { name: 'Design Mockup', text: "Full desktop and mobile design mockup before any code is written. Built for your brand and your Mission market — not a template from a different city." },
+  { name: 'Build & Content Integration', text: "We build the site with your content, photos, and business information. Every page is optimized for Mission local search as it's built — not retrofitted." },
+  { name: 'Testing & Launch', text: "Full cross-device testing. PageSpeed audited, schema validated, forms tested. DNS migration handled. Launch handoff so you know how to update your own content." },
+  { name: 'Post-Launch Foundation', text: "Google Search Console setup, sitemap submission, GBP link updated, 30-day indexing monitoring. Your Mission rankings build correctly from launch day." },
+];
+
+const schema = [
+  buildServiceSchema('Web Design Mission TX', 'RankRGV designs and builds professional websites for Mission businesses — fast-loading, mobile-first, and built to rank in the fastest-growing RGV suburb.', 'Mission'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Build Mission Business Websites That Rank and Convert', 'The step-by-step process RankRGV uses to build fast, high-converting websites for Mission businesses.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Mission', href: '/service-areas/mission/' },
+    { label: 'Web Design', href: '/service-areas/mission/web-design/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/mission/web-design/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Web Design · Mission, TX"
+    headline='A Mission website that ranks before<br /><span class="gradient-text">the competition arrives.</span>'
+    subheadline="Mission is the fastest-growing suburb in Hidalgo County and its web design market is still nearly empty. New residents searching for local businesses deserve a site that loads fast and converts. We build it — 99+ PageSpeed, built to rank."
+    secondaryCTA={{ label: 'See how we build', href: '#how-we-work' }}
+    mockupQuery="web design mission tx"
+    mockupCategory="Web Design · Mission, TX"
+    visualType="pagespeed"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '99+', label: 'PageSpeed score (Google Lighthouse)' },
+      { value: '<1s', label: 'Average load time' },
+      { value: 'Mission', label: 'Fastest-growing RGV suburb' },
+      { value: '0', label: 'Page builders or WordPress' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="mission-webdesign-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="mission-webdesign-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Mission is growing faster than its digital market — that's your advantage
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            New subdivisions like Bentsen Grove and Los Ebanos are bringing thousands of new Mission residents every year. Each one searches their phone for HVAC companies, plumbers, dentists, and restaurants before they pick up the phone. Most Mission businesses they find are there by default — unclaimed GBPs, no website, or a slow page-builder site that doesn't rank.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The Mile 2 Road commercial corridor is expanding. New businesses opening along it need to establish a web presence before the market matures and competition increases. The businesses that build solid sites now hold their rankings — the ones that wait pay more to catch up.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build on Astro, which produces 99+ PageSpeed scores as a standard output. That speed advantage over a typical Mission competitor site directly translates into higher rankings and more calls — particularly on mobile, where the new Mission residential market searches.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'First-mover advantage is still real in Mission', body: "Most Mission businesses don't have proper websites yet. A properly built site today claims rankings that will be much harder to win after the market develops.", highlight: true },
+            { icon: '✓', title: 'New residents = high-intent, untapped searches', body: "New families in Bentsen Grove and Los Ebanos are searching for everything from HVAC to pediatricians. Most of these searches have no strong competitors showing up.", highlight: true },
+            { icon: '✓', title: 'Built to grow with Mission as the market expands', body: "We build the page architecture to add cities, services, and content as your Mission business grows. Your site scales without needing a rebuild.", highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="mission-webdesign-includes">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="mission-webdesign-includes" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What's included in every Mission web design project
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">No add-on fees for the basics. Every site ships with the full stack.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Performance & technical foundation',
+            items: [
+              '99+ Google PageSpeed / Lighthouse score',
+              'Sub-1-second load time on mobile and desktop',
+              'Core Web Vitals optimized (LCP, INP, CLS)',
+              'Secure HTTPS with SSL certificate',
+              'Clean, crawlable HTML — no page builder bloat',
+              'Automatic sitemap generation',
+            ],
+          },
+          {
+            title: 'Local SEO built in from day one',
+            items: [
+              'LocalBusiness schema with Mission / Hidalgo County service area',
+              'Mission neighborhood targeting (Bentsen Grove, Los Ebanos, Mile 2)',
+              'City-specific pages for every RGV market you serve',
+              'Title tags targeting Mission TX keyword patterns',
+              'Google Search Console setup and sitemap submission',
+              'GBP website link updated at launch',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we build Mission business websites"
+    subheadline="From first call to Google-indexed and ranking — a clear, proven process."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-webdesign-ms">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-webdesign-ms" class="text-2xl font-bold text-text mb-8 text-center reveal">Also building websites for these RGV cities</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Web Design McAllen TX', href: '/service-areas/mcallen/web-design/' },
+          { label: 'Web Design Brownsville TX', href: '/service-areas/brownsville/web-design/' },
+          { label: 'Web Design Edinburg TX', href: '/service-areas/edinburg/web-design/' },
+          { label: 'Web Design Harlingen TX', href: '/service-areas/harlingen/web-design/' },
+          { label: 'Web Design Pharr TX', href: '/service-areas/pharr/web-design/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/web-design/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Web Design Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Mission web design questions answered" />
+
+  <CTASection
+    headline="Build your Mission website before the competition does"
+    subheadline="15-minute call and we'll show you exactly what a properly built site could do for your Mission rankings — or get a free written audit."
+  />
+</ServiceAreaLayout>

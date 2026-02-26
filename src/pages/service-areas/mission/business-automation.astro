@@ -1,0 +1,224 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('mission')!;
+const service = getServiceBySlug('business-automation')!;
+
+const title = 'Business Automation Mission TX | Missed Call Text-Back & Follow-Up | RankRGV';
+const description =
+  "Automate lead follow-up, review requests, and missed call responses for your Mission business. RankRGV builds automation for Mission's fast-growing home services and residential market — 24/7 response.";
+
+const faqs = [
+  {
+    question: 'Why does missed call text-back matter so much for Mission home services businesses?',
+    answer:
+      "Mission's growth is driven by residential development — Bentsen Grove, Los Ebanos, and new subdivisions along the western corridor. New homeowners need HVAC, roofing, plumbing, and landscaping services — and they search and call multiple businesses before deciding. When you miss a call and don't text back immediately, that customer has called your competitor before you even notice the missed call. Automatic text-back within 30 seconds keeps you in the conversation. Most Mission home services businesses aren't doing this yet — it's a clear competitive edge.",
+  },
+  {
+    question: 'How does automation help a new Mission business establish reviews quickly?',
+    answer:
+      "For a new Mission business, reviews are your most important ranking factor after GBP setup. Automated review requests sent after every completed job generate a consistent stream of new reviews without any manual effort. Most new Mission businesses that implement this see 20–30 Google reviews within the first 60–90 days — which is often enough to outrank established competitors who never systematized their review collection. In Mission's low-competition market, this compounds fast.",
+  },
+  {
+    question: 'Can automation handle my Mission business after hours?',
+    answer:
+      "Yes — this is one of the biggest advantages for Mission businesses. New residents searching for services on evenings and weekends often call when businesses are closed. An automated text-back that goes out within 30 seconds of a missed call — even at 9pm — keeps that lead alive until you can follow up the next morning. Without automation, that call is a lost lead. With it, it's a queued opportunity.",
+  },
+  {
+    question: 'What types of Mission businesses benefit most from automation?',
+    answer:
+      "Home services businesses benefit the most given Mission's residential growth driver — HVAC, roofing, plumbing, pest control, landscaping. These businesses receive high call volumes with high no-answer rates (you're often on a job when a new customer calls). Restaurants and healthcare providers in Mission benefit from automated review requests. Any Mission business that gets customer inquiries by phone or web form is a strong automation candidate.",
+  },
+  {
+    question: 'Does my Mission business need to be tech-savvy to run these systems?',
+    answer:
+      "No. We set everything up, test every workflow, and hand you a simple mobile dashboard. The system runs automatically — you don't need to manage it day-to-day. When a lead texts back after an automated message, you respond through a mobile app that feels like a regular text conversation. Your team will be comfortable in under an hour.",
+  },
+  {
+    question: 'How long does it take to set up automation for a Mission business?',
+    answer:
+      "Most Mission business automation setups are live within 1–2 weeks. Week one is process mapping and blueprint approval. Week two is building, testing, and team handoff. Home services configurations are typically the fastest to set up — the workflows are well-defined and we've built them many times.",
+  },
+];
+
+const howToSteps = [
+  { name: 'Lead Flow Audit', text: "We map what happens to every lead that contacts your Mission business today — phone calls, form submissions, walk-ins. For home services, we specifically look at missed call rate and how currently leads that don't answer are handled." },
+  { name: 'Automation Blueprint', text: "We design the specific workflows your Mission business needs: missed call text-back timing, follow-up sequences, review request triggers, appointment reminders. You review and approve before we build." },
+  { name: 'Setup & Integration', text: "We build the automations, connect your phone number, integrate with your booking or scheduling tool if you have one, and configure every trigger and message." },
+  { name: 'Testing', text: "Every automation is tested end-to-end. Missed call triggers, form fill responses, review requests, no-show reminders — every scenario runs cleanly before you go live." },
+  { name: 'Team Handoff', text: "We walk your team through the dashboard — where to see new leads, how to respond to texts, and what the system handles automatically. Most Mission business owners are fully comfortable in under an hour." },
+  { name: 'Monitor & Refine', text: "First 30 days, we watch response rates, booking rates, and review growth. We adjust timing or messaging based on how Mission customers respond to your specific workflows." },
+];
+
+const schema = [
+  buildServiceSchema('Business Automation Mission TX', 'RankRGV builds business automation systems for Mission businesses — missed call text-back, automated review requests, and 24/7 lead follow-up for the fastest-growing RGV suburb.', 'Mission'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Set Up Business Automation for Mission Businesses', 'The step-by-step process RankRGV uses to automate lead follow-up, review generation, and customer communication for Mission businesses.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Mission', href: '/service-areas/mission/' },
+    { label: 'Business Automation', href: '/service-areas/mission/business-automation/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/mission/business-automation/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Business Automation · Mission, TX"
+    headline='Mission home services businesses lose jobs<br /><span class="gradient-text">every time they miss a call.</span>'
+    subheadline="Mission's residential growth is generating more home service calls than ever — and most go to voicemail. We automate text-back in 30 seconds, follow-up in 2 minutes, and review requests after every job. You stop losing leads to faster competitors."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="business automation mission tx"
+    mockupCategory="Business Automation · Mission, TX"
+    visualType="sms"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '<5 min', label: 'Avg. automated response time' },
+      { value: '24/7', label: 'Automation runs during and after jobs' },
+      { value: '3×', label: 'More reviews in 90 days' },
+      { value: '0', label: 'Missed calls left without a response' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="mission-automation-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="mission-automation-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Mission's growing residential market rewards the fastest responder
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Every new family moving into Bentsen Grove, Los Ebanos, or the newer Mission subdivisions is searching for home services on their phone. When they call and get voicemail, they call the next HVAC company, the next roofer, the next plumber. The business that responds first — not the best business, just the fastest — wins the job the majority of the time.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Mission home services businesses are busy on jobs, out in the field, not at a desk watching the phone. That's the problem automation solves. When you miss a call, an automatic text goes out in 30 seconds. The customer responds. You call back when you're free. Instead of a lost lead, it's a queued appointment.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            Most Mission competitors aren't doing this. Automation gives you a clear edge in a growing market — and as Mission's population keeps climbing, the volume of calls you can automatically capture grows too.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Home services automation built for Mission\'s growth', body: "HVAC, roofing, plumbing, pest control — we build the workflows specific to your Mission trade business, not a generic template.", highlight: true },
+            { icon: '✓', title: 'After-hours coverage for when you\'re on jobs', body: "You can't answer the phone while you're on a roof or inside a crawl space. Automation captures those calls automatically and keeps leads warm until you can follow up.", highlight: true },
+            { icon: '✓', title: 'Reviews build Map Pack rankings that stay', body: "Automated review requests after every job build review count faster than manual asks. In Mission's low-competition market, 30 reviews vs. 5 is often the difference between Map Pack and invisible.", highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="mission-automation-what">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="mission-automation-what" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What we automate for Mission businesses
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">Specific automations — not vague tools. These directly impact jobs won and reviews earned.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Lead capture & response',
+            items: [
+              'Missed call text-back within 30 seconds',
+              'Website form auto-response in under 2 minutes',
+              'Multi-step follow-up for leads who don\'t reply',
+              'Booking link sent automatically on first contact',
+              'Job confirmation and day-before reminders',
+              'No-show and reschedule follow-up sequences',
+            ],
+          },
+          {
+            title: 'Reviews & reputation',
+            items: [
+              'Automatic review request after job completion',
+              'SMS + email dual-channel delivery',
+              'Direct link to your Google Business Profile',
+              'Timing optimized for home services completion',
+              'Negative feedback redirect before public posting',
+              'Monthly review count and Map Pack tracking',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we set up automation for Mission businesses"
+    subheadline="From lead flow audit to live automations in 1–2 weeks."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-automation-ms">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-automation-ms" class="text-2xl font-bold text-text mb-8 text-center reveal">Also setting up automation for these RGV cities</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Business Automation McAllen TX', href: '/service-areas/mcallen/business-automation/' },
+          { label: 'Business Automation Brownsville TX', href: '/service-areas/brownsville/business-automation/' },
+          { label: 'Business Automation Edinburg TX', href: '/service-areas/edinburg/business-automation/' },
+          { label: 'Business Automation Harlingen TX', href: '/service-areas/harlingen/business-automation/' },
+          { label: 'Business Automation Pharr TX', href: '/service-areas/pharr/business-automation/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/business-automation/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Business Automation Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Mission business automation questions answered" />
+
+  <CTASection
+    headline="Stop losing Mission jobs to competitors who respond faster"
+    subheadline="15-minute call and we'll show you exactly where your leads are going — or get a free written audit."
+  />
+</ServiceAreaLayout>

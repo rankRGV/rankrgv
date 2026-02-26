@@ -1,0 +1,205 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('pharr')!;
+const service = getServiceBySlug('local-seo')!;
+
+const title = 'Local SEO Pharr TX | Google Map Pack Rankings | RankRGV';
+const description =
+  "Pharr local SEO specialists. Pharr TX has real search demand driven by one of Texas's busiest international bridges — and near-zero SEO competition. Get into the Map Pack before anyone else notices. Free audit.";
+
+const faqs = [
+  {
+    question: 'Why is Pharr the best local SEO opportunity in South Texas?',
+    answer:
+      "Pharr has all the ingredients: real search demand (from 80,000+ residents plus international bridge commerce), a growing residential base in Las Milpas and Sharyland Plantation, and almost no local businesses that have optimized their digital presence. Most Pharr businesses ranking in Google today have unclaimed or minimally-setup GBPs. That's not competition — that's a vacancy. We consistently see Pharr businesses hit the Map Pack faster than anywhere else in the RGV.",
+  },
+  {
+    question: 'Does the Pharr International Bridge affect local search demand?',
+    answer:
+      "Yes — significantly. The bridge drives logistics, freight, customs, and cross-border commerce that generates consistent local searches for services McAllen and Brownsville don't see at the same volume: freight brokers, import/export attorneys, warehousing, commercial vehicle services. These are high-value, low-competition keywords that Pharr businesses are uniquely positioned to capture. And that's on top of the normal residential search demand every RGV city has.",
+  },
+  {
+    question: 'How fast can a Pharr business reach the Google Map Pack?',
+    answer:
+      "Pharr is our fastest market in the RGV. With a properly optimized GBP, a dedicated Pharr service page, and basic citation building, we've seen initial Map Pack movement in 30–45 days. In categories with near-zero competition, top 3 placement within 60–90 days is common. These aren't promises — but Pharr genuinely outperforms every other RGV market on timeline because the bar is that low.",
+  },
+  {
+    question: 'Do Pharr businesses need separate local SEO from McAllen?',
+    answer:
+      "Yes — Google treats Pharr and McAllen as distinct markets even though they share a border. A customer searching 'plumber Pharr TX' will see Pharr results, not McAllen results. A McAllen page will not rank for that search. You need a dedicated Pharr page and a properly configured GBP service area to capture Pharr customers. This is exactly what we build.",
+  },
+  {
+    question: 'What Pharr business categories have the most untapped search demand?',
+    answer:
+      "Home services (HVAC, roofing, plumbing, pest control) lead the residential side — Las Milpas and Sharyland Plantation generate strong household-service searches. The commercial side is where Pharr really stands out: logistics, customs brokerage, freight, warehousing, and commercial vehicle services see searches in Pharr that you won't find at this scale in other RGV cities. Healthcare and professional services are also largely uncontested.",
+  },
+  {
+    question: 'Is Pharr SEO worth investing in given the smaller population?',
+    answer:
+      "Absolutely. Pharr has 80,000+ residents and growing — that's a real local economy. More importantly, the competitive vacuum means you can achieve rankings that would cost 5–10x more to attain in McAllen. And rankings in Pharr compound: once you hold the top positions in a low-competition market, you hold them for a long time. First-mover advantage here is significant.",
+  },
+];
+
+const howToSteps = [
+  { name: 'Pharr SEO Audit', text: "We assess your current Pharr digital presence, your top 3 competitors' GBPs and websites, and the specific keyword landscape for your category in the Pharr market — including bridge-economy search angles most businesses miss." },
+  { name: 'Pharr Keyword Map', text: "We identify every search Pharr customers — and bridge-corridor businesses — make to find your type of service. Residential searches, commercial logistics searches, and everything in between." },
+  { name: 'GBP Optimization', text: "We fully optimize your GBP for Pharr: primary category, service area (Pharr, Hidalgo County, surrounding areas), services, photos, and the review velocity strategy that moves Map Pack rankings in an untapped market." },
+  { name: 'City Pages & On-Page SEO', text: "We build a dedicated Pharr page (or optimize your existing one) with the right keyword signals, LocalBusiness schema, and content that establishes your authority in this specific market." },
+  { name: 'Citations & Listings', text: "We build Pharr-specific citations across business directories to establish local entity signals that Google uses to verify your relevance to the Pharr market." },
+  { name: 'Monthly Reports', text: "Every month: your Pharr Map Pack ranking movements, call volume from Google, and next priorities. You always know exactly where you stand in this market." },
+];
+
+const schema = [
+  buildServiceSchema('Local SEO Pharr TX', 'RankRGV provides local SEO services for Pharr businesses — ranking in the fastest-moving, lowest-competition market in South Texas.', 'Pharr'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Get Pharr Businesses into the Google Map Pack', 'The process RankRGV uses to rank Pharr businesses in the top 3 Google Maps results.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Pharr', href: '/service-areas/pharr/' },
+    { label: 'Local SEO', href: '/service-areas/pharr/local-seo/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/pharr/local-seo/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Local SEO · Pharr, TX"
+    headline='Top 3 Google Maps rankings<br /><span class="gradient-text">for Pharr businesses.</span>'
+    subheadline="Pharr has real search demand — from 80,000+ residents and one of Texas's busiest international bridges — and almost no local SEO competition. We get your business ranked before the market wakes up."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="local seo pharr tx"
+    mockupCategory="SEO Agency · Pharr, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'Pharr', label: 'Fastest Map Pack results in RGV' },
+      { value: 'Top 3', label: 'Map Pack goal' },
+      { value: '30–45 days', label: 'Average time to first movement' },
+      { value: 'Near 0', label: 'SEO competition in most categories' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="pharr-seo-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="pharr-seo-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Pharr is the lowest-competition SEO market in South Texas
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The Pharr International Bridge is one of Texas's busiest commercial ports of entry. The logistics, warehousing, and cross-border commerce it drives creates local search demand you won't find at this scale in other RGV cities. And right now, almost no Pharr businesses are set up to capture it.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The Las Milpas and Sharyland Plantation residential communities are growing, bringing new household demand for home services, healthcare, and professional services. These are real searches happening right now — HVAC, roofing, dentists, attorneys, restaurants — with almost no optimized competition showing up in the results.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We tell Pharr clients the same thing every time: this is the opportunity. Once the market develops, these rankings will cost significantly more to attain. Moving now means you own positions that are genuinely hard to displace later.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Bridge economy = unique, uncrowded search demand', body: "Logistics, customs, freight, and warehousing searches in Pharr are high-value and nearly uncontested. Categories no other RGV market has at this scale.", highlight: true },
+            { icon: '✓', title: 'Residential growth adds consistent everyday demand', body: 'Las Milpas and Sharyland Plantation are growing. Every new household generates searches for home services, healthcare, and local professionals.', highlight: true },
+            { icon: '✓', title: 'First-mover rankings compound and hold', body: "The competitive vacuum is real right now. Rankings won in a low-competition market are easier to hold than rankings won against established competitors.", highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="pharr-seo-work">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="pharr-seo-work" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">What RankRGV does for Pharr SEO clients</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">Specific actions — built for Pharr's unique bridge-economy and residential market.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'GBP — Pharr-specific optimization',
+            items: ['Category optimized for highest-volume Pharr keyword', 'Hidalgo County + Pharr neighborhoods service area configured', 'Services section with Pharr and bridge-economy descriptions', 'Photo strategy for residential and commercial Pharr market', 'Weekly GBP posts targeting Pharr residential and logistics searches', 'Q&A addressing both residential and bridge-commerce questions'],
+          },
+          {
+            title: 'Website — Pharr city pages',
+            items: ['Dedicated /service-areas/pharr/ hub page', 'Individual Pharr + service pages for each offering', 'LocalBusiness schema with Pharr service area', 'Title tags targeting "Service Pharr TX" keyword pattern', 'Bridge-economy and residential content signals', 'Internal linking from Pharr hub to all service pages'],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we get Pharr businesses into the Map Pack"
+    subheadline="A focused process for the lowest-competition market in South Texas."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-seo-ph">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-seo-ph" class="text-2xl font-bold text-text mb-8 text-center reveal">Also serving these RGV cities for local SEO</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Local SEO McAllen TX', href: '/service-areas/mcallen/local-seo/' },
+          { label: 'Local SEO Brownsville TX', href: '/service-areas/brownsville/local-seo/' },
+          { label: 'Local SEO Edinburg TX', href: '/service-areas/edinburg/local-seo/' },
+          { label: 'Local SEO Harlingen TX', href: '/service-areas/harlingen/local-seo/' },
+          { label: 'Local SEO Mission TX', href: '/service-areas/mission/local-seo/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/local-seo/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Local SEO Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Pharr SEO questions answered" />
+
+  <CTASection
+    headline="Claim your Pharr rankings in the lowest-competition market in South Texas"
+    subheadline="15 minutes on a call and we'll show you exactly which Pharr keywords are still wide open — or get a free written audit."
+  />
+</ServiceAreaLayout>

@@ -1,0 +1,224 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('harlingen')!;
+const service = getServiceBySlug('business-automation')!;
+
+const title = 'Business Automation Harlingen TX | Missed Call Text-Back & Follow-Up | RankRGV';
+const description =
+  'Automate lead follow-up, appointment reminders, and review requests for your Harlingen business. RankRGV builds automation for healthcare, home services, and professional businesses — 24/7 response.';
+
+const faqs = [
+  {
+    question: 'How does business automation work for Harlingen healthcare businesses?',
+    answer:
+      "For healthcare practices near Valley Baptist or the UTRGV Health Sciences campus, automation handles the follow-up that falls through the cracks in a busy clinical environment. Appointment reminders reduce no-show rates (which run 15–25% for most practices without reminders). Post-visit review requests build your Google rating without any manual staff effort. Missed call text-back ensures new patients don't get lost to voicemail. All healthcare configurations are built to avoid PHI in non-compliant channels — we're specific about what we automate and how.",
+  },
+  {
+    question: 'Can automation reduce no-shows for a Harlingen medical or dental practice?',
+    answer:
+      "Yes — this is one of the highest-ROI automations for Harlingen healthcare businesses. Automated appointment reminders sent 24 hours and 1 hour before scheduled appointments reduce no-show rates by 30–50% in most practices. Each recovered appointment is recovered revenue. For a practice seeing 20+ patients per day, that's a meaningful impact on monthly revenue without any additional staff involvement.",
+  },
+  {
+    question: 'Does missed call text-back work for Harlingen home services businesses?',
+    answer:
+      "It's especially effective for home services. When a homeowner in Harlingen calls an HVAC company at 2pm and gets voicemail, they immediately call the next company on the list. An automatic text back within 30 seconds that says 'Hey, this is [Company Name]. Sorry I missed you — what can I help you with?' changes the dynamic. They respond to the text, stay engaged with your business, and often book. This single automation recovers 20–30% of missed calls that would otherwise convert to competitors.",
+  },
+  {
+    question: 'How quickly can a Harlingen business start seeing results from automation?',
+    answer:
+      "Most clients see immediate impact from missed call text-back and follow-up automations — typically within the first week of going live. Review count improvement is usually visible within 30–45 days as automated requests generate a consistent new stream. The compounding benefit is the Map Pack ranking improvement that follows from a growing review count, which typically becomes visible in 60–90 days.",
+  },
+  {
+    question: 'Does my Harlingen business need to be tech-savvy to use these systems?',
+    answer:
+      "No. We build everything, test every workflow, and hand you a simple mobile dashboard. Most automations run without you touching them at all. When leads text back or need a response, it happens through a mobile app that works like a regular text or email conversation. Your team will be comfortable with it in under an hour.",
+  },
+  {
+    question: 'How long does it take to set up automation for a Harlingen business?',
+    answer:
+      "Most Harlingen setups are live within 1–2 weeks. Healthcare configurations may take slightly longer due to compliance review of specific workflows. Week one is process mapping and blueprint approval. Week two is building, testing, and handoff. We move fast — the bottleneck is rarely us.",
+  },
+];
+
+const howToSteps = [
+  { name: 'Lead Flow Audit', text: "We map what happens to every lead that contacts your Harlingen business today — new patient calls, home service inquiries, form submissions. For healthcare, we also map appointment lifecycle touchpoints." },
+  { name: 'Automation Blueprint', text: "We design the specific automations your Harlingen business needs — healthcare-compliant where applicable, your actual lead sources, your service type, your team's workflow. You approve the blueprint before we build." },
+  { name: 'Setup & Integration', text: "We build the automations, connect your phone number, integrate with your existing scheduling or booking tool, configure reminder timing, and set up healthcare-compliant workflows where needed." },
+  { name: 'Testing', text: "Every automation is tested end-to-end before launch. Missed call triggers, appointment reminders, review requests, follow-up sequences — every scenario is validated." },
+  { name: 'Team Handoff', text: "We walk your front desk or customer service team through the dashboard. For healthcare, we include a compliance walkthrough of what the system does and doesn't transmit." },
+  { name: 'Monitor & Refine', text: "First 30 days, we track response rates, no-show rates, and review growth. We adjust message timing, sequence steps, or reminder frequency based on what your Harlingen patients and customers respond to." },
+];
+
+const schema = [
+  buildServiceSchema('Business Automation Harlingen TX', 'RankRGV builds business automation systems for Harlingen businesses — appointment reminders, missed call text-back, automated review requests, and HIPAA-aware healthcare workflows.', 'Harlingen'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Set Up Business Automation for Harlingen Businesses', 'The step-by-step process RankRGV uses to automate lead follow-up, appointment management, and review generation for Harlingen businesses.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Harlingen', href: '/service-areas/harlingen/' },
+    { label: 'Business Automation', href: '/service-areas/harlingen/business-automation/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/harlingen/business-automation/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Business Automation · Harlingen, TX"
+    headline='Harlingen healthcare and service businesses lose patients<br /><span class="gradient-text">to slow response and no-show gaps.</span>'
+    subheadline="In Harlingen's healthcare-driven economy, an unanswered call is a lost patient. A missed appointment is lost revenue. We automate the response, the reminders, and the review requests — so your business captures every lead it already earned."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="business automation harlingen tx"
+    mockupCategory="Business Automation · Harlingen, TX"
+    visualType="sms"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '<5 min', label: 'Avg. automated response time' },
+      { value: '24/7', label: 'Automation runs while you treat patients' },
+      { value: '30–50%', label: 'No-show reduction with reminders' },
+      { value: '0', label: 'Leads lost to slow response' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="harlingen-automation-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="harlingen-automation-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Harlingen's healthcare economy has unique automation opportunities
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Valley Baptist Medical Center and the UTRGV Health Sciences campus make healthcare the defining sector of Harlingen's economy — and healthcare has specific automation needs that general business tools don't handle correctly. Appointment reminders, post-visit review requests, missed patient calls — these require both good timing and compliance awareness.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            For home services, professional services, and retail businesses, the same principle applies: the first business to respond wins. Harlingen customers who call an HVAC company and get voicemail call the next one immediately. Automated text-back in 30 seconds changes that — and most Harlingen competitors aren't doing it.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build automation systems that fit the specific context of your Harlingen business — not generic templates from an out-of-market agency that has never thought about HIPAA or healthcare compliance in the RGV.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Healthcare-aware automation, not generic tools', body: "Appointment reminders, post-visit review requests, and missed patient call workflows built with healthcare context — not one-size-fits-all SaaS templates.", highlight: true },
+            { icon: '✓', title: 'No-show reduction is immediate ROI', body: "Each recovered appointment is recovered revenue. Automated reminders consistently cut no-show rates by 30–50% for practices that implement them.", highlight: true },
+            { icon: '✓', title: 'Home services: first responder wins every time', body: "HVAC, roofing, plumbing in Harlingen — the business that responds first wins the job. Automated text-back ensures you're always first.", highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="harlingen-automation-what">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="harlingen-automation-what" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What we automate for Harlingen businesses
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">Specific automations that directly impact patient retention and revenue.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Lead capture & appointment management',
+            items: [
+              'Missed call text-back within 30 seconds',
+              'New inquiry auto-response in under 2 minutes',
+              'Appointment confirmation sequences',
+              '24-hour and 1-hour pre-appointment reminders',
+              'No-show follow-up and reschedule workflows',
+              'Post-visit check-in messages',
+            ],
+          },
+          {
+            title: 'Reviews & reputation',
+            items: [
+              'Automatic review request after each appointment or job',
+              'SMS + email dual-channel delivery',
+              'Direct link to your Google Business Profile',
+              'Timing optimized for healthcare and service contexts',
+              'Negative feedback redirect before public posting',
+              'Monthly review count and rating dashboard',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we set up automation for Harlingen businesses"
+    subheadline="From lead flow audit to live automations — including healthcare-aware configuration — in 1–2 weeks."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-automation-hl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-automation-hl" class="text-2xl font-bold text-text mb-8 text-center reveal">Also setting up automation for these RGV cities</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Business Automation McAllen TX', href: '/service-areas/mcallen/business-automation/' },
+          { label: 'Business Automation Brownsville TX', href: '/service-areas/brownsville/business-automation/' },
+          { label: 'Business Automation Edinburg TX', href: '/service-areas/edinburg/business-automation/' },
+          { label: 'Business Automation Mission TX', href: '/service-areas/mission/business-automation/' },
+          { label: 'Business Automation Pharr TX', href: '/service-areas/pharr/business-automation/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/business-automation/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Business Automation Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Harlingen business automation questions answered" />
+
+  <CTASection
+    headline="Stop losing Harlingen patients and customers to slow response"
+    subheadline="15-minute call and we'll map out exactly where your follow-up is leaking revenue — or get a free written audit."
+  />
+</ServiceAreaLayout>

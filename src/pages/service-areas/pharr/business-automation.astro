@@ -1,0 +1,224 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('pharr')!;
+const service = getServiceBySlug('business-automation')!;
+
+const title = 'Business Automation Pharr TX | Missed Call Text-Back & Follow-Up | RankRGV';
+const description =
+  'Automate lead follow-up, review requests, and missed call responses for your Pharr business. RankRGV builds automation systems that respond in under 5 minutes — 24/7. Serving residential and commercial Pharr businesses.';
+
+const faqs = [
+  {
+    question: 'How does business automation work for Pharr businesses near the international bridge?',
+    answer:
+      "Commercial and logistics businesses near the Pharr International Bridge often receive inquiries from contacts operating on different time zones or outside standard US business hours. Automation ensures every inquiry gets an immediate response — regardless of when it arrives. A freight broker, customs attorney, or warehousing company that responds automatically within 30 seconds to every contact request converts significantly more leads than one that responds the next business day.",
+  },
+  {
+    question: 'What is missed call text-back and why does it matter for Pharr businesses?',
+    answer:
+      "When a customer calls your Pharr business and you can't answer — whether you're on another call, on a job, or after hours — they automatically receive a text within 30 seconds: 'Hey, this is [Business Name]. Sorry I missed you — how can I help?' Most will text back. Many will book. Without this, that caller immediately contacts your next competitor in the Map Pack. Most Pharr businesses have never implemented this — which means the first business in your category to do it has a real advantage.",
+  },
+  {
+    question: 'Can automation help my Pharr business get more Google reviews?',
+    answer:
+      "Yes — and in Pharr's low-competition market, reviews are the fastest path to Map Pack dominance. After every completed job or service, your customer automatically receives a text or email with a direct link to leave a Google review. No manual follow-up, no awkward asks. Most Pharr businesses that implement this double their review count within 60–90 days. More reviews means higher Map Pack rankings — which compounds over time.",
+  },
+  {
+    question: 'Does my Pharr business need to be large to benefit from automation?',
+    answer:
+      "No. Some of our best automation results come from solo operators and small Pharr businesses — HVAC owner-operators, solo attorneys, small clinics. The smaller your team, the more automation matters: you physically can't be available to answer every call, respond to every form, and follow up with every lead manually. Automation fills that gap so you don't lose business while you're delivering service.",
+  },
+  {
+    question: 'How quickly can a Pharr business see results from automation?',
+    answer:
+      "Immediate impact from missed call text-back — typically within the first week, you'll recover calls that previously went nowhere. Review count improvement usually shows within 30–45 days as automated requests generate a consistent new stream. Map Pack ranking improvement from the growing review count becomes visible in 60–90 days in most Pharr categories.",
+  },
+  {
+    question: 'How long does it take to set up automation for a Pharr business?',
+    answer:
+      "Most Pharr business automation setups are live within 1–2 weeks. Week one is process mapping and blueprint approval. Week two is building, testing, and handoff. Simple single-location service businesses are often live faster. We move quickly — the delay is rarely on our side.",
+  },
+];
+
+const howToSteps = [
+  { name: 'Lead Flow Audit', text: "We map what happens to every lead that contacts your Pharr business — residential inquiries, bridge-economy commercial contacts, form submissions. We find the drop points where leads are currently lost." },
+  { name: 'Automation Blueprint', text: "We design the specific automations your Pharr business needs — missed call response timing, follow-up cadence, review request triggers. We build for your actual customer base, not a generic template." },
+  { name: 'Setup & Integration', text: "We build the automations, connect your phone number, integrate with any existing tools (booking system, CRM), and configure every trigger, message, and timing sequence." },
+  { name: 'Testing', text: "Every workflow is tested end-to-end before you go live. Missed call, form fill, review request, appointment reminder — every scenario verified." },
+  { name: 'Team Handoff', text: "We walk your team through the dashboard. Where to see incoming leads, how to respond, what the system handles automatically. Most Pharr business owners are fully comfortable in under an hour." },
+  { name: 'Monitor & Refine', text: "First 30 days, we track response rates, booking rates, and review growth. We adjust message timing, copy, or sequence steps based on what your Pharr customers respond to." },
+];
+
+const schema = [
+  buildServiceSchema('Business Automation Pharr TX', 'RankRGV builds business automation systems for Pharr businesses — missed call text-back, automated review requests, and 24/7 lead follow-up for residential and commercial Pharr businesses.', 'Pharr'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Set Up Business Automation for Pharr Businesses', 'The step-by-step process RankRGV uses to automate lead follow-up, review generation, and customer communication for Pharr businesses.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Pharr', href: '/service-areas/pharr/' },
+    { label: 'Business Automation', href: '/service-areas/pharr/business-automation/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/pharr/business-automation/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Business Automation · Pharr, TX"
+    headline='Pharr businesses lose leads<br /><span class="gradient-text">every time a call goes to voicemail.</span>'
+    subheadline="In a low-competition market like Pharr, the first business to respond wins nearly every time. We automate missed call text-back in 30 seconds, follow-up in 2 minutes, and review requests after every job — while you're focused on doing the actual work."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="business automation pharr tx"
+    mockupCategory="Business Automation · Pharr, TX"
+    visualType="sms"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '<5 min', label: 'Avg. automated response time' },
+      { value: '24/7', label: 'Automation runs while you work' },
+      { value: '3×', label: 'More reviews in 90 days' },
+      { value: '0', label: 'Leads lost to slow response' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="pharr-automation-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="pharr-automation-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            In Pharr's open market, speed is the competitive advantage most businesses are ignoring
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Pharr has near-zero local SEO competition — most businesses ranking in Google Maps today have barely-optimized GBPs. But the same applies to lead response: most Pharr businesses are still handling follow-up manually, with a call-back list and no automated response to missed calls or form fills.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The research is clear: 78% of customers buy from the first business to respond. In Pharr, where commercial bridge-economy customers may be contacting you outside normal hours and residential customers move fast when searching on their phone — the first responder wins almost every time.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build the systems that make your Pharr business the automatic first responder in your category — while you're on a job, in a meeting, or asleep. The automation works. The leads stay warm. You call back when you're ready.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Bridge-economy customers contact outside business hours', body: "Commercial and logistics contacts near the international bridge don't always call at 9am. Automation captures every inquiry, regardless of time.", highlight: true },
+            { icon: '✓', title: "Pharr's review gap is the fastest ranking lever", body: "Most Pharr businesses have 5–10 reviews. Automated review requests consistently build that to 50+ within 90 days — which often moves Map Pack rankings immediately in this low-competition market.", highlight: true },
+            { icon: '✓', title: 'First-mover advantage applies to automation too', body: "Most Pharr competitors aren't using automation yet. The business that implements it first owns the response speed advantage — and the review count gap — before the market catches up.", highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="pharr-automation-what">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="pharr-automation-what" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What we automate for Pharr businesses
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">Specific automations — not generic tools. These directly impact calls won and reviews earned.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Lead capture & response',
+            items: [
+              'Missed call text-back within 30 seconds',
+              'Website form auto-response in under 2 minutes',
+              'Multi-step follow-up for non-responding leads',
+              'Booking link sent automatically on first contact',
+              'Appointment confirmation and reminder sequences',
+              'No-show follow-up and reschedule workflows',
+            ],
+          },
+          {
+            title: 'Reviews & reputation',
+            items: [
+              'Automatic review request after job completion',
+              'SMS + email dual-channel delivery',
+              'Direct link to your Google Business Profile',
+              'Timing optimized for service completion',
+              'Negative feedback redirect before public posting',
+              'Monthly review count and rating dashboard',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we set up automation for Pharr businesses"
+    subheadline="From lead flow audit to live automations in 1–2 weeks."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-automation-ph">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-automation-ph" class="text-2xl font-bold text-text mb-8 text-center reveal">Also setting up automation for these RGV cities</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Business Automation McAllen TX', href: '/service-areas/mcallen/business-automation/' },
+          { label: 'Business Automation Brownsville TX', href: '/service-areas/brownsville/business-automation/' },
+          { label: 'Business Automation Edinburg TX', href: '/service-areas/edinburg/business-automation/' },
+          { label: 'Business Automation Harlingen TX', href: '/service-areas/harlingen/business-automation/' },
+          { label: 'Business Automation Mission TX', href: '/service-areas/mission/business-automation/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/business-automation/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Business Automation Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Pharr business automation questions answered" />
+
+  <CTASection
+    headline="Stop losing Pharr leads to competitors who respond faster"
+    subheadline="15-minute call and we'll map out exactly where your follow-up is leaking — or get a free written audit."
+  />
+</ServiceAreaLayout>

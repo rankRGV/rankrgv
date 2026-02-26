@@ -1,0 +1,224 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('pharr')!;
+const service = getServiceBySlug('web-design')!;
+
+const title = 'Web Design Pharr TX | Fast, SEO-Ready Sites That Convert | RankRGV';
+const description =
+  "Pharr web design for the lowest-competition market in South Texas. RankRGV builds fast-loading, mobile-first sites for Pharr businesses — 99+ PageSpeed, built to rank before anyone else shows up. Free audit.";
+
+const faqs = [
+  {
+    question: 'Does my Pharr business really need a website if I get most business from referrals?',
+    answer:
+      "Yes — and here's why: referrals still Google your business before they call. If they find a slow site or nothing at all, referral conversion drops. And referrals eventually plateau. A properly built Pharr website opens a second, scalable channel: Google search. In Pharr's current near-zero-competition environment, that second channel can produce as many leads as your referral network — without the ceiling.",
+  },
+  {
+    question: 'How much does a professional website cost for a Pharr business?',
+    answer:
+      "Most Pharr small business websites run $2,000–$5,000. We build on Astro — not WordPress or page builders — which means 99+ PageSpeed scores and significantly better Google rankings as a baseline. The Pharr market is so low-competition right now that a properly built site often hits top 3 within 90 days. Fixed pricing, no surprises.",
+  },
+  {
+    question: 'Can a Pharr website also rank for bridge-economy searches?',
+    answer:
+      "Yes — if your business serves the logistics, freight, customs, or commercial corridor adjacent to the Pharr International Bridge. We build content that targets those specific high-value, low-competition searches. Freight brokers, customs attorneys, warehousing, and commercial vehicle services are examples of categories where Pharr has near-zero web competition but real search demand from the bridge economy.",
+  },
+  {
+    question: 'How long does a Pharr website build take?',
+    answer:
+      "4–6 weeks for a standard business site. The biggest variable is how fast you can provide content — your logo, photos, service descriptions. We provide a content checklist upfront. You see a full design mockup before any code is written. For logistics or commercial businesses with more complex service pages, timelines may extend slightly.",
+  },
+  {
+    question: 'Do I need separate pages for Pharr and McAllen if I serve both?',
+    answer:
+      "Yes. Google ranks city searches independently — a Pharr page ranks for Pharr searches, a McAllen page ranks for McAllen searches. We build the architecture so both work. Most clients start with the city where their business is physically located or strongest, then add additional city pages as part of a coordinated service area expansion.",
+  },
+  {
+    question: 'Do you use WordPress for Pharr websites?',
+    answer:
+      "No. We build on Astro — a modern static site framework that produces 99+ PageSpeed scores out of the box. WordPress sites with plugins typically score 40–65. That gap matters for both rankings and conversion rate. In Pharr's low-competition market, a 99+ site versus a 50 site is often the difference between first and fifth in Map Pack rankings.",
+  },
+];
+
+const howToSteps = [
+  { name: 'Discovery Call', text: "We start by understanding your Pharr business — your services, whether you serve the bridge economy or residential market (or both), your competitors, and what you need the website to accomplish." },
+  { name: 'Site Architecture & Keyword Map', text: "We map the full page structure before design starts — based on how Pharr customers search, what bridge-economy terms are relevant, and which additional RGV cities you serve." },
+  { name: 'Design Mockup', text: "Full desktop and mobile design mockup before any code is written. Built for your brand and the Pharr market — not a generic template." },
+  { name: 'Build & Content Integration', text: "We build the site with your content, photos, and business information. Every page is optimized for Pharr local search as it's built — not retrofitted afterward." },
+  { name: 'Testing & Launch', text: "Full cross-device testing. PageSpeed audited, schema validated, forms tested. DNS migration handled. Launch handoff walkthrough included." },
+  { name: 'Post-Launch Foundation', text: "Google Search Console setup, sitemap submission, GBP link updated, 30-day indexing monitoring. Your Pharr rankings build from launch day — not weeks after." },
+];
+
+const schema = [
+  buildServiceSchema('Web Design Pharr TX', 'RankRGV designs and builds professional websites for Pharr businesses — fast-loading, mobile-first, and built to rank in the lowest-competition market in South Texas.', 'Pharr'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Build Pharr Business Websites That Rank and Convert', 'The step-by-step process RankRGV uses to build fast, high-converting websites for Pharr businesses.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Pharr', href: '/service-areas/pharr/' },
+    { label: 'Web Design', href: '/service-areas/pharr/web-design/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/pharr/web-design/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Web Design · Pharr, TX"
+    headline='A Pharr website built to rank in the<br /><span class="gradient-text">lowest-competition market in South Texas.</span>'
+    subheadline="Pharr has real search demand from 80,000+ residents and one of Texas's busiest international bridges — and almost no businesses with properly built websites. We build the site that claims those rankings before anyone else shows up."
+    secondaryCTA={{ label: 'See how we build', href: '#how-we-work' }}
+    mockupQuery="web design pharr tx"
+    mockupCategory="Web Design · Pharr, TX"
+    visualType="pagespeed"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '99+', label: 'PageSpeed score (Google Lighthouse)' },
+      { value: '<1s', label: 'Average load time' },
+      { value: 'Pharr', label: 'Lowest competition in South Texas' },
+      { value: '0', label: 'Page builders or WordPress' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="pharr-webdesign-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="pharr-webdesign-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Pharr's search market is wide open — and most businesses don't know it
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The Pharr International Bridge drives consistent demand for logistics, freight, and commercial services that generates search traffic most RGV cities don't see. On top of that, Las Milpas and Sharyland Plantation are growing residential communities with strong demand for home services, healthcare, and local professionals. Real customers searching every day.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Most Pharr businesses ranking in Google right now have unclaimed or barely-touched GBPs and no real website. That's not competition — it's a vacancy. A properly built Pharr site often reaches top 3 in Google within 60–90 days because the bar is that low.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build on Astro — not WordPress — which produces 99+ PageSpeed scores on every site we ship. That performance advantage over a generic competitor site is measurable in rankings and in conversion rate. Your Pharr customers are on their phones; if your site doesn't load fast, you're losing them.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Bridge economy = high-value, uncrowded searches', body: "Logistics, freight, customs, and commercial searches in Pharr are largely uncontested. Categories with real search demand and near-zero competition.", highlight: true },
+            { icon: '✓', title: 'Residential search demand is growing', body: "Las Milpas and Sharyland Plantation are growing. New residents search for everything local — and most of those searches return weak or no real competition.", highlight: true },
+            { icon: '✓', title: 'First-mover rankings in Pharr are still available', body: "This competitive vacuum is real right now. A properly built site claims Map Pack positions that will become significantly harder to attain as the market develops.", highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="pharr-webdesign-includes">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="pharr-webdesign-includes" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What's included in every Pharr web design project
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">No add-on fees for the basics. Every site ships with the full stack.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Performance & technical foundation',
+            items: [
+              '99+ Google PageSpeed / Lighthouse score',
+              'Sub-1-second load time on mobile and desktop',
+              'Core Web Vitals optimized (LCP, INP, CLS)',
+              'Secure HTTPS with SSL certificate',
+              'Clean, crawlable HTML — no page builder bloat',
+              'Automatic sitemap generation',
+            ],
+          },
+          {
+            title: 'Local SEO built in from day one',
+            items: [
+              'LocalBusiness schema with Pharr / Hidalgo County service area',
+              'Bridge-economy and residential content signals',
+              'City-specific pages for every RGV market you serve',
+              'Title tags targeting Pharr TX keyword patterns',
+              'Google Search Console setup and sitemap submission',
+              'GBP website link updated at launch',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we build Pharr business websites"
+    subheadline="From first call to ranked, indexed, and converting — a clear process."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-webdesign-ph">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-webdesign-ph" class="text-2xl font-bold text-text mb-8 text-center reveal">Also building websites for these RGV cities</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Web Design McAllen TX', href: '/service-areas/mcallen/web-design/' },
+          { label: 'Web Design Brownsville TX', href: '/service-areas/brownsville/web-design/' },
+          { label: 'Web Design Edinburg TX', href: '/service-areas/edinburg/web-design/' },
+          { label: 'Web Design Harlingen TX', href: '/service-areas/harlingen/web-design/' },
+          { label: 'Web Design Mission TX', href: '/service-areas/mission/web-design/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/web-design/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Web Design Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Pharr web design questions answered" />
+
+  <CTASection
+    headline="Let's build a Pharr website that claims your rankings before competitors arrive"
+    subheadline="15-minute call and we'll audit your current site and show you exactly what you're leaving on the table — or get a free written audit."
+  />
+</ServiceAreaLayout>

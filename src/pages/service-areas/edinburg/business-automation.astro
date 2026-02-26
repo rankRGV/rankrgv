@@ -1,0 +1,224 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('edinburg')!;
+const service = getServiceBySlug('business-automation')!;
+
+const title = 'Business Automation Edinburg TX | Missed Call Text-Back & Follow-Up | RankRGV';
+const description =
+  'Automate lead follow-up, review requests, and appointment reminders for your Edinburg business. RankRGV builds automation systems that respond in under 5 minutes — 24/7. Professional services specialists.';
+
+const faqs = [
+  {
+    question: 'How does business automation work for Edinburg professional services firms?',
+    answer:
+      "For attorneys, CPAs, and financial advisors in Edinburg, automation handles the follow-up gap that costs professional service firms the most: the window between when a prospect first contacts you and when you actually connect with them. A new inquiry that waits 24 hours has often already called another firm. Automated follow-up — an immediate response acknowledging their inquiry, a scheduling link, and a multi-step nurture sequence if they don't respond — keeps professional service leads engaged without requiring you to be at your desk 24/7.",
+  },
+  {
+    question: 'Can automation work for healthcare providers near UTRGV?',
+    answer:
+      "Yes — with HIPAA-compliant configurations. For healthcare providers near the UTRGV Health Sciences campus or serving the Edinburg patient population, we build automation workflows that don't transmit protected health information through insecure channels. Appointment reminders, review requests after visits, and general practice follow-up are all configurable in a compliant way. We're specific about what can and can't be automated in healthcare — we don't cut corners on compliance.",
+  },
+  {
+    question: 'Does missed call text-back work for Edinburg businesses?',
+    answer:
+      "Yes — and it's one of the most effective automations in a professional services market like Edinburg. When a prospective client calls and gets voicemail, they typically move on within minutes. An automatic text response within 30 seconds changes that dynamic: 'Thanks for reaching out — this is [Firm Name]. We'll be in touch shortly. What can we help you with?' Most prospects will respond. Many will schedule. That automatic text-back is recovering inquiries that currently disappear into voicemail.",
+  },
+  {
+    question: 'How do automated review requests help Edinburg businesses rank on Google?',
+    answer:
+      "Google uses review velocity, review count, and review recency as Map Pack ranking signals. Most Edinburg businesses ask for reviews manually — inconsistently, awkwardly, and rarely. Automated review requests sent after every completed service generate a consistent stream of new reviews that compounds over time. In Edinburg's low-competition market, a business with 50 reviews versus a competitor with 8 reviews will rank higher — and automation is the fastest way to build that gap.",
+  },
+  {
+    question: 'Is GoHighLevel the right platform for an Edinburg professional services firm?',
+    answer:
+      "For most Edinburg professional services businesses, yes — GoHighLevel handles CRM, text and email automation, review requests, appointment booking, and reporting in one place. For firms with specific existing platforms (a legal CRM, a medical practice management system), we assess what needs to connect and what can be replaced. We're platform-agnostic and won't push GoHighLevel when something else is a better fit.",
+  },
+  {
+    question: 'How long does it take to set up automation for an Edinburg business?',
+    answer:
+      "Most Edinburg business automation setups are live within 1–2 weeks. Week one is access, process mapping, and blueprint review. Week two is building, testing, and handoff. Professional services configurations sometimes run slightly longer due to compliance review. You'll be live before most agencies have finished their proposal process.",
+  },
+];
+
+const howToSteps = [
+  { name: 'Lead Flow Audit', text: "We map every touchpoint where an Edinburg lead contacts your business — phone, form, email, walk-in referral — and identify exactly where prospects are falling through. For professional services, this typically surfaces 2–3 significant drop points." },
+  { name: 'Automation Blueprint', text: "We design the workflows your specific Edinburg business needs: professional services intake, healthcare-compliant if applicable, follow-up cadence, review request timing. You approve before we build anything." },
+  { name: 'Setup & Integration', text: "We build the automations, connect your phone number, integrate with your existing calendar or scheduling tool, and configure every trigger and message. HIPAA-compliant configurations get extra validation." },
+  { name: 'Testing', text: "Every workflow is tested end-to-end. Missed call triggers, form fills, review requests, appointment confirmations and reminders — every scenario runs before you go live." },
+  { name: 'Team Handoff', text: "We walk your team through the dashboard — where leads come in, how to respond, what the automation handles automatically. Most professional services teams are fully comfortable within an hour." },
+  { name: 'Monitor & Refine', text: "First 30 days, we track response rates, appointment bookings, and review growth. We adjust timing, messaging, or sequences based on how your Edinburg market responds." },
+];
+
+const schema = [
+  buildServiceSchema('Business Automation Edinburg TX', 'RankRGV builds business automation systems for Edinburg businesses — missed call text-back, automated review requests, appointment reminders, and lead follow-up for professional services.', 'Edinburg'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Set Up Business Automation for Edinburg Businesses', 'The step-by-step process RankRGV uses to automate lead follow-up, review generation, and customer communication for Edinburg professional services businesses.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Edinburg', href: '/service-areas/edinburg/' },
+    { label: 'Business Automation', href: '/service-areas/edinburg/business-automation/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/edinburg/business-automation/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Business Automation · Edinburg, TX"
+    headline='Edinburg professional services firms lose leads<br /><span class="gradient-text">every hour they don't respond fast enough.</span>'
+    subheadline="Attorneys, healthcare providers, and professional services in Edinburg compete on trust — but they lose prospects to response speed. We automate follow-up so you never lose another inquiry to a slow callback or an unanswered voicemail."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="business automation edinburg tx"
+    mockupCategory="Business Automation · Edinburg, TX"
+    visualType="sms"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '<5 min', label: 'Avg. automated response time' },
+      { value: '24/7', label: 'Automation runs while you work' },
+      { value: '3×', label: 'More reviews in 90 days' },
+      { value: '0', label: 'Leads lost to slow response' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="edinburg-automation-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="edinburg-automation-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Edinburg professional services lose more leads to slow response than anything else
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            When a prospective client in Edinburg calls an attorney, a CPA, or a healthcare provider and gets voicemail, they don't wait. They call the next firm. The research is consistent: 78% of customers hire the business that responds first. In professional services, that window is minutes — not hours.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Edinburg's professional services market is strong — UTRGV drives demand for legal, financial, and healthcare services that outpaces what you'd expect from a city of 100,000. The problem isn't lead volume. It's lead capture. Most inquiries contact 2–3 firms. The first to respond professionally wins the appointment.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build the systems that make your Edinburg practice the fastest and most professional responder in your market — automatically. Missed call? Text back in 30 seconds. New inquiry form? Response in under 2 minutes. Job complete? Review request sent before the day ends.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Professional services automation done right', body: "Attorneys, healthcare providers, CPAs — each category has different follow-up norms and compliance considerations. We build for your specific professional context.", highlight: true },
+            { icon: '✓', title: 'HIPAA-compliant healthcare configurations', body: "Healthcare automation requires specific handling of patient data. Our healthcare configurations are built to comply — no PHI in unencrypted messages, compliant workflows throughout.", highlight: true },
+            { icon: '✓', title: 'Automated reviews = faster Map Pack rankings', body: "Edinburg is low-competition in most professional categories. A consistent automated review flow outpaces any competitor relying on manual review requests.", highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="edinburg-automation-what">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="edinburg-automation-what" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What we automate for Edinburg businesses
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">Specific automations — not generic tools. These are the ones that directly impact professional service revenue.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Lead capture & follow-up',
+            items: [
+              'Missed call text-back within 30 seconds',
+              'Inquiry form auto-response in under 2 minutes',
+              'Multi-step follow-up for non-responding leads',
+              'Consultation scheduling link sent automatically',
+              'Appointment confirmation and reminder sequences',
+              'No-show follow-up and reschedule workflows',
+            ],
+          },
+          {
+            title: 'Reviews & reputation',
+            items: [
+              'Automatic review request after each completed service',
+              'SMS + email dual-channel delivery',
+              'Direct link to your Google Business Profile',
+              'Timing optimized for professional service contexts',
+              'Negative feedback redirect before public posting',
+              'Monthly review count and rating dashboard',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we set up automation for Edinburg businesses"
+    subheadline="From lead flow audit to live automations in 1–2 weeks."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-automation-ed">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-automation-ed" class="text-2xl font-bold text-text mb-8 text-center reveal">Also setting up automation for these RGV cities</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Business Automation McAllen TX', href: '/service-areas/mcallen/business-automation/' },
+          { label: 'Business Automation Brownsville TX', href: '/service-areas/brownsville/business-automation/' },
+          { label: 'Business Automation Harlingen TX', href: '/service-areas/harlingen/business-automation/' },
+          { label: 'Business Automation Mission TX', href: '/service-areas/mission/business-automation/' },
+          { label: 'Business Automation Pharr TX', href: '/service-areas/pharr/business-automation/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/business-automation/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Business Automation Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Edinburg business automation questions answered" />
+
+  <CTASection
+    headline="Stop losing Edinburg clients to the firm that responded first"
+    subheadline="15-minute call and we'll show you exactly where your lead follow-up is leaking — or get a free written audit."
+  />
+</ServiceAreaLayout>

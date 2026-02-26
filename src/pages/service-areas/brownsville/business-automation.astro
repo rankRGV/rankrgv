@@ -1,0 +1,224 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const area = getAreaBySlug('brownsville')!;
+const service = getServiceBySlug('business-automation')!;
+
+const title = 'Business Automation Brownsville TX | Missed Call Text-Back & Follow-Up | RankRGV';
+const description =
+  'Automate lead follow-up, review requests, and missed call responses for your Brownsville business. RankRGV builds automation systems that respond in under 5 minutes — in English and Spanish — 24/7.';
+
+const faqs = [
+  {
+    question: 'Can your automation systems respond in Spanish for Brownsville customers?',
+    answer:
+      "Yes — and for Brownsville businesses, this matters. A significant portion of Brownsville's customer base is more comfortable in Spanish, and an English-only automated response can feel off-putting or impersonal to that segment. We configure your missed call text-back, follow-up sequences, and review requests in both English and Spanish, either as separate workflows based on customer language or as bilingual messaging. You choose the approach that fits your business.",
+  },
+  {
+    question: 'How does missed call text-back work for a Brownsville business?',
+    answer:
+      "When a customer calls and you can't answer — whether you're on another call, on a job, or it's after hours — they get an automatic text within 30 seconds. Something like: 'Hey, this is [Business Name]. Sorry we missed you — what can we help you with?' We configure this in both languages if needed. Most leads will text back. Many will book on the spot. Without this, a missed call in Brownsville means they call the next business in Google Maps.",
+  },
+  {
+    question: 'Does automation work for Brownsville businesses near the international crossings?',
+    answer:
+      "Yes. Border-adjacent businesses often have irregular call volumes and after-hours inquiries from commercial and logistics customers with different time zone expectations. Automation is especially valuable here — it ensures every lead is captured regardless of when they contact you, which is critical when your customers may be operating on Matamoros business hours or calling outside your normal window.",
+  },
+  {
+    question: 'Can I get more Google reviews for my Brownsville business automatically?',
+    answer:
+      "Yes — and this is one of the highest-impact automations for Brownsville businesses. After a job or service is complete, your customer automatically receives a text or email with a direct link to your Google Business Profile. No manual follow-up required. Most Brownsville businesses that implement this double their review count within 60–90 days. More reviews means stronger Map Pack rankings — and in a low-competition market like Brownsville, that compounds fast.",
+  },
+  {
+    question: 'Does my Brownsville business need to be tech-savvy to use these systems?',
+    answer:
+      "No. We set everything up, test every workflow, and hand you a simple mobile dashboard. Most of the system runs automatically — you don't touch it. When leads text back, you respond through a mobile app that works like a regular text conversation. If you can use a smartphone, you can run this.",
+  },
+  {
+    question: 'How long does it take to set up automation for a Brownsville business?',
+    answer:
+      "Most Brownsville business automation setups are live within 1–2 weeks. We connect your phone number, build the workflows (including bilingual configurations if needed), test them end-to-end, and hand off. The first week is access and process mapping. The second week is building and testing. You're live before most agencies finish their discovery calls.",
+  },
+];
+
+const howToSteps = [
+  { name: 'Lead Flow Audit', text: "We map what happens to every lead that contacts your Brownsville business today — from first call or form fill to close or drop. We identify where leads fall through and what bilingual follow-up gaps exist." },
+  { name: 'Automation Blueprint', text: "We design the specific automations your Brownsville business needs — including language configuration, your actual lead sources, your team's workflow, and your services. You approve before we build." },
+  { name: 'Setup & Integration', text: "We build the automations, connect your phone number and email, configure bilingual messaging if applicable, and integrate with any existing tools." },
+  { name: 'Testing', text: "Every automation is tested end-to-end in both languages before you go live — missed call, form fill, review request, appointment reminders. Nothing ships broken." },
+  { name: 'Team Handoff', text: "We walk your team through the dashboard. In under an hour, you'll know where to see incoming leads, how to respond, and how to update message templates." },
+  { name: 'Monitor & Refine', text: "First 30 days, we watch response rates, conversion rates, and review growth. We adjust timing, copy, or language configuration based on what your Brownsville customers respond to." },
+];
+
+const schema = [
+  buildServiceSchema('Business Automation Brownsville TX', 'RankRGV builds business automation systems for Brownsville businesses — bilingual missed call text-back, automated review requests, and 24/7 lead follow-up.', 'Brownsville'),
+  buildFAQSchema(faqs),
+  buildHowToSchema('How We Set Up Business Automation for Brownsville Businesses', 'The step-by-step process RankRGV uses to automate lead follow-up, review generation, and customer communication for Brownsville businesses.', howToSteps),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Brownsville', href: '/service-areas/brownsville/' },
+    { label: 'Business Automation', href: '/service-areas/brownsville/business-automation/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/brownsville/business-automation/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Business Automation · Brownsville, TX"
+    headline='Brownsville businesses lose leads<br /><span class="gradient-text">to slow response and language gaps.</span>'
+    subheadline="In a bilingual market, a missed call or a slow English-only response costs you customers. We automate follow-up in English and Spanish — missed call text-back in 30 seconds, review requests after every job, 24/7."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="business automation brownsville tx"
+    mockupCategory="Business Automation · Brownsville, TX"
+    visualType="sms"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '<5 min', label: 'Avg. automated response time' },
+      { value: '24/7', label: 'Automation runs while you sleep' },
+      { value: 'EN + ES', label: 'Bilingual follow-up configured' },
+      { value: '0', label: 'Leads lost to slow response' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="brownsville-automation-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="brownsville-automation-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Brownsville's bilingual market rewards the fastest, most personal response
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            In Brownsville, slow follow-up doesn't just lose leads — language gaps can lose them too. When a Spanish-speaking customer calls and gets an English voicemail with no callback, they move on. When they call and get a quick, bilingual text response, they stay engaged. The business that responds first wins in every market. In Brownsville, the business that responds first in the right language wins decisively.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Most Brownsville businesses are still doing follow-up manually — a callback list, a notebook, maybe a text they send themselves. That approach has a ceiling. Automation removes the ceiling: every lead gets a response within 30 seconds, regardless of time of day or how busy the team is.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build the systems that make your Brownsville business the fastest, most professional responder in your market — automatically. While your competitors sleep, your automation is working.
+          </p>
+        </div>
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            { icon: '✓', title: 'Bilingual follow-up for a bilingual market', body: "Missed call texts, review requests, and follow-up sequences configured in English and Spanish. No customer left behind because of language.", highlight: true },
+            { icon: '✓', title: 'After-hours coverage for border-adjacent businesses', body: "Cross-border commerce customers don't always call during US business hours. Automation responds to every lead, 24/7, regardless of when they contact you.", highlight: true },
+            { icon: '✓', title: 'Reviews drive Map Pack rankings in Brownsville', body: "Automated review requests after every job are the fastest path to outranking competitors on Google Maps — in a market where most businesses still ask manually.", highlight: true },
+          ].map(({ icon, title, body }) => (
+            <div class="p-5 rounded-xl border bg-green-50 border-green-200">
+              <div class="flex gap-4">
+                <span class="text-green-600 font-bold text-lg flex-shrink-0">{icon}</span>
+                <div>
+                  <div class="font-bold text-text mb-1">{title}</div>
+                  <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg-surface" aria-labelledby="brownsville-automation-what">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 id="brownsville-automation-what" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What we automate for Brownsville businesses
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">Specific automations — not vague tools. These directly impact revenue.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: 'Lead capture & response',
+            items: [
+              'Missed call text-back within 30 seconds',
+              'Bilingual messaging configuration (English + Spanish)',
+              'Website form auto-response in under 2 minutes',
+              'Multi-step follow-up for non-responding leads',
+              'Appointment booking link sent automatically',
+              'No-show reminders 24 hours and 1 hour before',
+            ],
+          },
+          {
+            title: 'Reviews & reputation',
+            items: [
+              'Automatic review request after job completion',
+              'SMS + email dual-channel delivery',
+              'Direct link to your Google Business Profile',
+              'Bilingual review request messages',
+              'Negative feedback redirect before it goes public',
+              'Monthly review count and rating tracking',
+            ],
+          },
+        ].map(({ title, items }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-7 reveal reveal-delay-${i + 1}`}>
+            <h3 class="font-bold text-text mb-5 text-lg">{title}</h3>
+            <ul class="space-y-2.5">
+              {items.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-text-muted">
+                  <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we set up automation for Brownsville businesses"
+    subheadline="From lead flow audit to live bilingual automations — 1 to 2 weeks."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities-automation-bv">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities-automation-bv" class="text-2xl font-bold text-text mb-8 text-center reveal">Also setting up automation for these RGV cities</h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Business Automation McAllen TX', href: '/service-areas/mcallen/business-automation/' },
+          { label: 'Business Automation Edinburg TX', href: '/service-areas/edinburg/business-automation/' },
+          { label: 'Business Automation Harlingen TX', href: '/service-areas/harlingen/business-automation/' },
+          { label: 'Business Automation Mission TX', href: '/service-areas/mission/business-automation/' },
+          { label: 'Business Automation Pharr TX', href: '/service-areas/pharr/business-automation/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
+        ))}
+        <a href="/business-automation/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Business Automation Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Brownsville business automation questions answered" />
+
+  <CTASection
+    headline="Stop losing Brownsville leads to slow response and language gaps"
+    subheadline="15-minute call and we'll show you exactly where your follow-up is leaking — or get a free written audit."
+  />
+</ServiceAreaLayout>
