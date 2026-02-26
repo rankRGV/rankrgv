@@ -4,6 +4,7 @@ import Hero from '@/components/Hero.astro';
 import TrustSignals from '@/components/TrustSignals.astro';
 import HowWeWork from '@/components/HowWeWork.astro';
 import Testimonials from '@/components/Testimonials.astro';
+import PricingSection from '@/components/PricingSection.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
@@ -313,6 +314,31 @@ const schema = [
       </div>
     </div>
   </section>
+
+  <PricingSection
+    id="gbp-pricing"
+    headline="GBP Management pricing"
+    subheadline="We handle the posts, review responses, photos, and monthly optimization — you focus on running your business."
+    bg="bg-surface"
+    cards={[
+      {
+        name: 'GBP Management',
+        price: '$300',
+        period: '/month',
+        description: 'Full Google Business Profile management. We keep your profile active, optimized, and generating calls — month after month.',
+        features: [
+          'Weekly GBP posts',
+          'Review monitoring & responses (within 24 hrs)',
+          'Photo management & uploads',
+          'Q&A monitoring & updates',
+          'Category & service area optimization',
+          'Monthly performance snapshot',
+        ],
+        cta: { label: 'Get started free', href: '/get-started/' },
+      },
+    ]}
+    note="Want full local SEO rankings in addition to GBP management? See our Local SEO packages — GBP management is included."
+  />
 
   <Testimonials />
 

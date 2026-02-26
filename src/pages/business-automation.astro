@@ -4,6 +4,7 @@ import Hero from '@/components/Hero.astro';
 import TrustSignals from '@/components/TrustSignals.astro';
 import HowWeWork from '@/components/HowWeWork.astro';
 import Testimonials from '@/components/Testimonials.astro';
+import PricingSection from '@/components/PricingSection.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
@@ -255,6 +256,31 @@ const schema = [
       title: s.name,
       body: s.text,
     }))}
+  />
+
+  <PricingSection
+    id="automation-pricing"
+    headline="Business automation pricing"
+    subheadline="Every business is different. We scope automation projects individually — you only pay for what you actually need."
+    bg="bg-surface"
+    cards={[
+      {
+        name: 'Business Automation',
+        price: 'Custom',
+        period: 'quoted per project',
+        description: 'Missed call text-back, lead nurture sequences, review automation, and appointment systems — built to your workflow.',
+        features: [
+          'Missed call text-back (< 60 sec response)',
+          'Automated lead nurture sequences',
+          'Review request automation',
+          'Appointment reminders',
+          'CRM pipeline setup',
+          'Monthly performance monitoring',
+        ],
+        cta: { label: 'Schedule a free call', href: '/contact/' },
+      },
+    ]}
+    note="Typical setup starts at $750 one-time + $250/month management. Schedule a free call and we'll scope it for your specific setup."
   />
 
   <Testimonials />

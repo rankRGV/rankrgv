@@ -1,0 +1,161 @@
+---
+interface Props {
+  name: string;
+  badge?: string;
+  price: string;
+  period?: string;
+  description: string;
+  features: string[];
+  lockedFeatures?: string[];
+  cta: { label: string; href: string };
+  highlighted?: boolean;
+}
+
+const {
+  name,
+  badge,
+  price,
+  period,
+  description,
+  features,
+  lockedFeatures = [],
+  cta,
+  highlighted = false,
+} = Astro.props;
+---
+
+<div
+  class={`rounded-2xl border overflow-hidden flex flex-col h-full transition-shadow duration-200 ${
+    highlighted
+      ? 'border-brand-blue shadow-xl shadow-brand-blue/10'
+      : 'border-border shadow-sm hover:shadow-md'
+  }`}
+>
+  <!-- Header — glass-effect surface -->
+  <div
+    class={`relative p-6 overflow-hidden ${
+      highlighted ? 'bg-brand-blue/5' : 'bg-bg-surface'
+    }`}
+  >
+    <!-- Subtle glass gradient overlay -->
+    <div
+      class={`absolute inset-x-0 top-0 h-24 pointer-events-none bg-gradient-to-b ${
+        highlighted ? 'from-brand-blue/8 to-transparent' : 'from-white/60 to-transparent'
+      }`}
+      aria-hidden="true"
+    ></div>
+
+    <!-- Plan name + badge -->
+    <div class="relative flex items-start justify-between gap-3 mb-5">
+      <div
+        class={`text-xs font-bold uppercase tracking-widest ${
+          highlighted ? 'text-brand-blue' : 'text-text-muted'
+        }`}
+      >
+        {name}
+      </div>
+      {
+        badge && (
+          <span class="flex-shrink-0 bg-brand-blue text-white text-xs font-bold px-2.5 py-1 rounded-full leading-none">
+            {badge}
+          </span>
+        )
+      }
+    </div>
+
+    <!-- Price -->
+    <div class="relative flex items-end gap-2 mb-3">
+      <span class="text-4xl font-extrabold text-text tracking-tight">{price}</span>
+      {period && <span class="text-text-muted pb-1 text-sm leading-snug">{period}</span>}
+    </div>
+
+    <!-- Description -->
+    <p class="relative text-sm text-text-muted leading-relaxed mb-5">{description}</p>
+
+    <!-- CTA Button -->
+    <a
+      href={cta.href}
+      class={`relative w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 no-underline ${
+        highlighted
+          ? 'bg-brand-blue text-white hover:bg-brand-blue-dark shadow-md shadow-brand-blue/20'
+          : 'border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white'
+      }`}
+    >
+      {cta.label}
+      <svg
+        class="w-4 h-4 flex-shrink-0"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M17 8l4 4m0 0l-4 4m4-4H3"
+        ></path>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Feature list body -->
+  <div class="bg-bg p-6 flex-1">
+    <ul class="space-y-3">
+      {
+        features.map((feature) => (
+          <li class="flex items-start gap-2.5 text-sm text-text-muted">
+            <svg
+              class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            {feature}
+          </li>
+        ))
+      }
+
+      {
+        lockedFeatures.length > 0 && (
+          <>
+            <li class="pt-2 pb-1">
+              <div class="flex items-center gap-3 text-xs text-text-muted/50">
+                <span class="h-px flex-1 bg-border" />
+                <span>Upgrade to access</span>
+                <span class="h-px flex-1 bg-border" />
+              </div>
+            </li>
+            {lockedFeatures.map((feature) => (
+              <li class="flex items-start gap-2.5 text-sm text-text-muted/40">
+                <svg
+                  class="w-4 h-4 flex-shrink-0 mt-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </>
+        )
+      }
+    </ul>
+  </div>
+</div>

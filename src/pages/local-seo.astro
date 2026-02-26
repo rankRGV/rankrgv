@@ -4,6 +4,7 @@ import Hero from '@/components/Hero.astro';
 import TrustSignals from '@/components/TrustSignals.astro';
 import HowWeWork from '@/components/HowWeWork.astro';
 import Testimonials from '@/components/Testimonials.astro';
+import PricingSection from '@/components/PricingSection.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
@@ -309,6 +310,70 @@ const schema = [
       </div>
     </div>
   </section>
+
+  <PricingSection
+    id="local-seo-pricing"
+    headline="Local SEO pricing"
+    subheadline="Month-to-month. No setup fees. No long-term contracts."
+    bg="bg-surface"
+    cards={[
+      {
+        name: 'Visibility',
+        price: '$500',
+        period: '/month',
+        description: 'The foundation. Get your Google presence optimized and start building real rankings in your primary market.',
+        features: [
+          'GBP optimization & management',
+          '2 content pieces per month',
+          'Local citation cleanup',
+          'Rank tracking across target keywords',
+          'Monthly ranking report',
+        ],
+        lockedFeatures: [
+          '4 content pieces per month',
+          'Geo-grid ranking reports',
+          'Competitor gap analysis',
+          'Location page expansion',
+          'Quarterly strategy call',
+        ],
+        cta: { label: 'Get started free', href: '/get-started/' },
+      },
+      {
+        name: 'Domination',
+        badge: 'Most Popular',
+        price: '$850',
+        period: '/month',
+        description: 'Full local SEO — built to own your category across every RGV city you serve.',
+        features: [
+          'Everything in Visibility',
+          '4 content pieces per month',
+          'Location page expansion (all 6 cities)',
+          'Geo-grid ranking reports',
+          'Competitor gap analysis',
+          'Quarterly strategy call',
+          'GBP posts & review management',
+        ],
+        cta: { label: 'Get started free', href: '/get-started/' },
+        highlighted: true,
+      },
+      {
+        name: 'Market Leader',
+        price: '$1,200+',
+        period: '/month',
+        description: 'Full-service for competitive verticals — legal, healthcare, multi-location.',
+        features: [
+          'Everything in Domination',
+          '6+ content pieces per month',
+          'Multi-location support',
+          'Competitive verticals (legal, medical)',
+          'Bi-weekly check-ins',
+          'Priority support',
+        ],
+        cta: { label: "Let's talk scope", href: '/contact/' },
+      },
+    ]}
+    note="Not sure which tier fits? Start with a free audit — we'll tell you exactly what we'd recommend."
+  />
 
   <Testimonials />
 

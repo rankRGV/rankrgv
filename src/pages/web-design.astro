@@ -4,6 +4,7 @@ import Hero from '@/components/Hero.astro';
 import TrustSignals from '@/components/TrustSignals.astro';
 import HowWeWork from '@/components/HowWeWork.astro';
 import Testimonials from '@/components/Testimonials.astro';
+import PricingSection from '@/components/PricingSection.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
@@ -283,6 +284,69 @@ const schema = [
       </div>
     </div>
   </section>
+
+  <PricingSection
+    id="web-design-pricing"
+    headline="Web design pricing"
+    subheadline="One-time projects. No retainer required. Includes 30 days of post-launch support."
+    bg="bg-surface"
+    cards={[
+      {
+        name: 'Foundation',
+        price: '$1,500',
+        period: 'one-time',
+        description: 'A fast, professional website that ranks and converts. Built for the RGV market from day one.',
+        features: [
+          '5–7 pages',
+          '99+ Google PageSpeed score',
+          'Mobile-first design',
+          'GBP-connected & schema-ready',
+          'Contact form with lead capture',
+          'Basic local SEO foundation',
+        ],
+        lockedFeatures: [
+          'Service & location pages',
+          'Automation-ready architecture',
+          'Full schema markup suite',
+        ],
+        cta: { label: 'Get started free', href: '/get-started/' },
+      },
+      {
+        name: 'Growth',
+        badge: 'Most Popular',
+        price: '$2,500',
+        period: 'one-time',
+        description: 'A complete website built to rank for every service and every city you serve.',
+        features: [
+          'Everything in Foundation',
+          '10–15 pages',
+          'Service + location pages built out',
+          'Automation-ready architecture',
+          'Full schema markup suite',
+          'Conversion-optimized layout',
+          'Google Analytics 4 setup',
+        ],
+        cta: { label: 'Get started free', href: '/get-started/' },
+        highlighted: true,
+      },
+      {
+        name: 'Authority',
+        price: 'Custom',
+        period: 'quoted',
+        description: 'Full city × service matrix and premium builds for businesses serious about owning their market.',
+        features: [
+          'Everything in Growth',
+          'Full city × service page matrix',
+          'Premium custom design',
+          'Complex integrations',
+          'Content-rich architecture',
+          'Priority development',
+        ],
+        cta: { label: 'Request a quote', href: '/contact/' },
+      },
+    ]}
+    note="All projects quoted after a free discovery call so scope is clear before anything is signed."
+  />
 
   <Testimonials />
 

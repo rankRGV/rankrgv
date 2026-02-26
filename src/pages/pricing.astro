@@ -1,0 +1,317 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PricingCard from '@/components/PricingCard.astro';
+import PricingSection from '@/components/PricingSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { buildWebPageSchema, buildBreadcrumbSchema } from '@/components/SchemaMarkup.astro';
+
+const title = 'Transparent Pricing | Local SEO, Web Design & GBP Management | RankRGV';
+const description =
+  'Straightforward pricing for local SEO, web design, GBP management, and business automation for Rio Grande Valley businesses. No hidden fees. No long-term contracts.';
+
+const schema = [
+  buildWebPageSchema(title, description, '/pricing/'),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Pricing', href: '/pricing/' },
+  ]),
+];
+
+const defaultCta = { label: 'Get started free', href: '/get-started/' };
+
+const gbpCards = [
+  {
+    name: 'GBP Management',
+    price: '$300',
+    period: '/month',
+    description:
+      'Full Google Business Profile management — posts, review responses, photos, and monthly optimization. We keep your profile active so Google keeps showing you.',
+    features: [
+      'Weekly GBP posts',
+      'Review monitoring & responses (within 24 hrs)',
+      'Photo management & uploads',
+      'Q&A monitoring & updates',
+      'Category & service area optimization',
+      'Monthly performance snapshot',
+    ],
+    cta: defaultCta,
+  },
+];
+
+const seoCards = [
+  {
+    name: 'Visibility',
+    price: '$500',
+    period: '/month',
+    description:
+      'The foundation. Get your Google presence optimized and start building real rankings in your primary market.',
+    features: [
+      'GBP optimization & management',
+      '2 content pieces per month',
+      'Local citation cleanup',
+      'Rank tracking across target keywords',
+      'Monthly ranking report',
+    ],
+    lockedFeatures: [
+      '4 content pieces per month',
+      'Geo-grid ranking reports',
+      'Competitor gap analysis',
+      'Location page expansion',
+      'Quarterly strategy call',
+    ],
+    cta: defaultCta,
+  },
+  {
+    name: 'Domination',
+    badge: 'Most Popular',
+    price: '$850',
+    period: '/month',
+    description:
+      'Full local SEO — built to own your category across every RGV city you serve.',
+    features: [
+      'Everything in Visibility',
+      '4 content pieces per month',
+      'Location page expansion (all 6 cities)',
+      'Geo-grid ranking reports',
+      'Competitor gap analysis',
+      'Quarterly strategy call',
+      'GBP posts & review management',
+    ],
+    cta: defaultCta,
+    highlighted: true,
+  },
+  {
+    name: 'Market Leader',
+    price: '$1,200+',
+    period: '/month',
+    description:
+      'Full-service for competitive verticals — legal, healthcare, multi-location. Maximum output, priority access.',
+    features: [
+      'Everything in Domination',
+      '6+ content pieces per month',
+      'Multi-location support',
+      'Competitive verticals (legal, medical)',
+      'Bi-weekly check-ins',
+      'Priority support',
+      'Custom strategy sessions',
+    ],
+    cta: { label: 'Let\'s talk scope', href: '/contact/' },
+  },
+];
+
+const webCards = [
+  {
+    name: 'Foundation',
+    price: '$1,500',
+    period: 'one-time',
+    description:
+      'A fast, professional website that ranks and converts. Built for the RGV market from day one.',
+    features: [
+      '5–7 pages',
+      '99+ Google PageSpeed score',
+      'Mobile-first design',
+      'GBP-connected & schema-ready',
+      'Contact form with lead capture',
+      'Basic local SEO foundation',
+    ],
+    lockedFeatures: [
+      'Service & location pages',
+      'Automation-ready architecture',
+      'Full schema markup suite',
+    ],
+    cta: defaultCta,
+  },
+  {
+    name: 'Growth',
+    badge: 'Most Popular',
+    price: '$2,500',
+    period: 'one-time',
+    description:
+      'A complete website built to rank for every service and every city you serve.',
+    features: [
+      'Everything in Foundation',
+      '10–15 pages',
+      'Service + location pages built out',
+      'Automation-ready architecture',
+      'Full schema markup suite',
+      'Conversion-optimized layout',
+      'Google Analytics 4 setup',
+    ],
+    cta: defaultCta,
+    highlighted: true,
+  },
+  {
+    name: 'Authority',
+    price: 'Custom',
+    period: 'quoted',
+    description:
+      'Full city × service matrix, complex integrations, and premium builds for businesses serious about owning their market.',
+    features: [
+      'Everything in Growth',
+      'Full city × service page matrix',
+      'Premium custom design',
+      'Complex integrations',
+      'Content-rich architecture',
+      'Priority development',
+      'Ongoing support package',
+    ],
+    cta: { label: 'Request a quote', href: '/contact/' },
+  },
+];
+
+const automationCards = [
+  {
+    name: 'Business Automation',
+    price: 'Custom',
+    period: 'quoted per project',
+    description:
+      'Missed call text-back, lead nurture sequences, review automation, and appointment systems — scoped to your business and built to your workflow.',
+    features: [
+      'Missed call text-back (< 60 sec response)',
+      'Automated lead nurture sequences',
+      'Review request automation',
+      'Appointment reminders',
+      'CRM pipeline setup',
+      'Monthly performance monitoring',
+    ],
+    cta: { label: 'Schedule a free call', href: '/contact/' },
+  },
+];
+
+const pricingFaqs = [
+  {
+    q: 'Do you require long-term contracts?',
+    a: "No — we're month-to-month on all recurring services. We'd rather earn your business every month with results than hold you with paperwork.",
+  },
+  {
+    q: 'Can I start with GBP Management and upgrade to full SEO later?',
+    a: 'Absolutely. GBP Management is a natural entry point — and when you\'re ready to push for full rankings, the upgrade to a Local SEO package is seamless.',
+  },
+  {
+    q: 'What\'s included in the free SEO audit?',
+    a: "Your Google Business Profile health, website technical SEO, current keyword rankings, and a top-3 competitor comparison. No pitch deck — just a straight read of where you stand.",
+  },
+  {
+    q: 'Can I combine services?',
+    a: 'Yes. Most clients pair Local SEO + Web Design at launch, then add automation once their site and rankings are established. We can structure a package that makes sense for your stage.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <!-- Hero -->
+  <section
+    class="relative py-20 overflow-hidden"
+    style="background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 60%, #312e81 100%);"
+  >
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0); background-size: 28px 28px;"
+      aria-hidden="true"
+    ></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+        No hidden fees · No long-term contracts
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
+        Transparent pricing for<br />RGV businesses.
+      </h1>
+      <p class="text-xl text-white/80 max-w-2xl mx-auto">
+        We publish our prices because we're confident in our work. Every competitor in the Valley hides theirs. We don't.
+      </p>
+    </div>
+  </section>
+
+  <!-- GBP Management -->
+  <section class="py-20 bg-bg" aria-label="GBP Management pricing">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <div class="inline-flex items-center gap-2 bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4 reveal">
+          Best entry point
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">GBP Management</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Not ready for full SEO? Start here. We manage your Google Business Profile — posts, reviews, photos — so it stays active and keeps ranking.
+        </p>
+      </div>
+      <div class="max-w-sm mx-auto reveal reveal-delay-2">
+        <PricingCard {...gbpCards[0]} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Local SEO -->
+  <PricingSection
+    id="local-seo-pricing"
+    headline="Local SEO packages"
+    subheadline="Monthly retainers built to rank you across every RGV city your customers search from."
+    cards={seoCards}
+    note="All plans are month-to-month. No setup fees. Starts with a free audit so you know exactly where you stand."
+    bg="bg-surface"
+  />
+
+  <!-- Web Design -->
+  <PricingSection
+    id="web-design-pricing"
+    headline="Web design packages"
+    subheadline="One-time projects. Built in Astro for 99+ PageSpeed, SEO-ready from day one, designed to convert."
+    cards={webCards}
+    note="All sites include 30 days of post-launch support. Hosting on Vercel — fast, reliable, included in the quoted price."
+    bg="bg"
+  />
+
+  <!-- Business Automation -->
+  <section class="py-20 bg-bg-surface" aria-label="Business Automation pricing" id="automation-pricing">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">Business Automation</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Every business has different systems, workflows, and tools. We scope automation projects individually so you only pay for what you actually need.
+        </p>
+      </div>
+      <div class="max-w-sm mx-auto reveal reveal-delay-2">
+        <PricingCard {...automationCards[0]} />
+      </div>
+      <div class="mt-8 max-w-xl mx-auto bg-bg border border-border rounded-2xl p-6 reveal reveal-delay-3">
+        <div class="text-sm font-bold text-text mb-3">What a typical automation setup includes:</div>
+        <ul class="space-y-2 text-sm text-text-muted">
+          {[
+            'Missed call text-back — automated SMS within 60 seconds of a missed call',
+            'Lead nurture sequence — 5–7 touchpoints over 2–3 weeks',
+            'Review request automation — sent after every completed job',
+            'Appointment reminders — reduce no-shows by 40–60%',
+          ].map((item) => (
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing FAQ strip -->
+  <section class="py-20 bg-bg" aria-label="Pricing questions">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-text mb-8 text-center reveal">Common pricing questions</h2>
+      <div class="space-y-6">
+        {
+          pricingFaqs.map(({ q, a }, i) => (
+            <div class={`reveal reveal-delay-${i % 3}`}>
+              <div class="font-bold text-text mb-2">{q}</div>
+              <p class="text-text-muted leading-relaxed">{a}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    headline="Not sure which package fits?"
+    subheadline="15-minute call — we'll look at where you stand and tell you exactly what we'd recommend. No pitch deck, no pressure."
+  />
+</BaseLayout>

@@ -1,0 +1,66 @@
+---
+import PricingCard from './PricingCard.astro';
+
+interface PricingCardData {
+  name: string;
+  badge?: string;
+  price: string;
+  period?: string;
+  description: string;
+  features: string[];
+  lockedFeatures?: string[];
+  cta: { label: string; href: string };
+  highlighted?: boolean;
+}
+
+interface Props {
+  headline: string;
+  subheadline?: string;
+  cards: PricingCardData[];
+  note?: string;
+  id?: string;
+  bg?: 'bg' | 'bg-surface';
+}
+
+const { headline, subheadline, cards, note, id, bg = 'bg-surface' } = Astro.props;
+
+const gridClass =
+  cards.length === 1
+    ? 'max-w-sm mx-auto'
+    : cards.length === 2
+      ? 'grid grid-cols-1 md:grid-cols-2 max-w-2xl mx-auto gap-6'
+      : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+---
+
+<section
+  id={id}
+  class={`py-20 ${bg === 'bg' ? 'bg-bg' : 'bg-bg-surface'}`}
+  aria-label={headline}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">{headline}</h2>
+      {
+        subheadline && (
+          <p class="text-text-muted text-lg reveal reveal-delay-1">{subheadline}</p>
+        )
+      }
+    </div>
+
+    <div class={gridClass}>
+      {
+        cards.map((card, i) => (
+          <div class={`reveal reveal-delay-${Math.min(i + 1, 4)} h-full`}>
+            <PricingCard {...card} />
+          </div>
+        ))
+      }
+    </div>
+
+    {
+      note && (
+        <p class="text-center text-sm text-text-muted mt-8 reveal reveal-delay-2">{note}</p>
+      )
+    }
+  </div>
+</section>
