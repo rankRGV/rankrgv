@@ -1,0 +1,330 @@
+---
+import ServiceLayout from '@/layouts/ServiceLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const title = 'Google Maps Optimization McAllen TX | Get Into the Map Pack | RankRGV';
+const description =
+  'Get your McAllen business into the top 3 Google Maps results. RankRGV optimizes your Google Business Profile and builds the local authority signals that move you into the Map Pack — fast.';
+
+const serviceData = {
+  slug: 'google-maps-optimization',
+  name: 'Google Maps Optimization',
+  shortName: 'Maps Optimization',
+  headline: 'Get Into the Top 3 on Google Maps',
+  description: 'We optimize your Google Business Profile and build the local authority signals that move your McAllen business into the top 3 Google Maps results.',
+  icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
+  primaryKeyword: 'google maps optimization mcallen tx',
+  titleTag: title,
+  metaDescription: description,
+};
+
+const faqs = [
+  {
+    question: 'What is Google Maps optimization and how does it work?',
+    answer:
+      "Google Maps optimization (also called Google Business Profile optimization or local SEO) is the process of improving your business's visibility in Google Maps and the local Map Pack — the 3 business listings that appear at the top of Google search results for local queries. It works by optimizing your Google Business Profile (categories, service areas, photos, posts, Q&A), building consistent citations across directories, generating customer reviews, and creating location-specific website content that signals local authority to Google's ranking algorithm.",
+  },
+  {
+    question: 'How long does it take to get into the Google Map Pack in McAllen?',
+    answer:
+      "For most McAllen business categories, meaningful movement in Google Maps rankings happens within 60–90 days of proper optimization. Some lower-competition categories and cities like Pharr and Mission can see top-3 results in 30–45 days. The timeline depends on your category's competition level, how complete your Google Business Profile is today, how many reviews you have vs. competitors, and your website's current technical health. We assess all of these in a free audit before giving you a realistic timeline.",
+  },
+  {
+    question: 'Why does my business show up in Google Maps for some searches but not others?',
+    answer:
+      "Google shows different Map Pack results based on search query, searcher location, and your relevance to the specific search. If your business shows up for your exact business name but not for category searches like 'plumber near me' or 'dentist in McAllen,' that means your profile isn't optimized for those keyword categories. The fix is ensuring your GBP categories match exactly how customers search, your service areas are set correctly, and your website content reinforces those keyword signals.",
+  },
+  {
+    question: 'What is a Google Business Profile and why does it matter for local rankings?',
+    answer:
+      "A Google Business Profile (GBP, formerly Google My Business) is the free business listing that powers your appearance in Google Maps and the local Map Pack. It includes your business name, category, phone number, website, hours, photos, reviews, and service areas. It's the single most important factor in local Map Pack rankings. Most RGV businesses have a GBP that is incomplete, in the wrong category, or missing key information — which directly suppresses their rankings even when their website is solid.",
+  },
+  {
+    question: 'Do I need a physical address to show up on Google Maps?',
+    answer:
+      "No — service area businesses (contractors, consultants, agencies, mobile services) can rank in Google Maps without a physical storefront address. Google has a specific 'Service Area Business' setting where you set the cities you serve instead of a physical address. RankRGV is itself a service area business — we serve McAllen, Brownsville, Edinburg, Harlingen, Mission, and Pharr without a public office address and are fully eligible to rank in all six cities' Map Packs.",
+  },
+  {
+    question: 'How important are Google reviews for Maps rankings?',
+    answer:
+      "Very important — reviews are one of the top 3 Map Pack ranking factors. Google uses review quantity, recency, and average rating as direct signals of business quality and local authority. A business with 50 reviews rated 4.8 will almost always outrank a competitor with 5 reviews at 5.0, all else being equal. More importantly, recent reviews matter more than old ones — a business that generated 10 reviews last month outranks one that got 50 reviews two years ago. We set up automated review request systems so new reviews come in consistently.",
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Google Business Profile Audit',
+    text: 'We audit your current GBP setup: business category accuracy, service area configuration, photo quality and quantity, Q&A completeness, post frequency, and the backend signals Google uses to determine Map Pack eligibility. Most profiles we see are missing 3–5 critical signals.',
+  },
+  {
+    name: 'Category & Service Area Optimization',
+    text: 'Your primary GBP category is the single most important field in your entire profile. We identify the exact categories that match how your customers search — not just what sounds right. We also configure your service area to cover all the cities you actually serve.',
+  },
+  {
+    name: 'Citation Cleanup & Building',
+    text: 'Inconsistent business information across directories (Yelp, Apple Maps, Bing Places, industry directories) confuses Google and suppresses rankings. We audit your existing citations, correct any inconsistencies in your name/address/phone, and build new citations on high-authority directories.',
+  },
+  {
+    name: 'Review Generation System',
+    text: 'We set up an automated system that requests Google reviews from customers at the optimal moment — right after a completed job or service. Most businesses that implement this see their review count double within 60 days. More reviews = higher Map Pack position.',
+  },
+  {
+    name: 'Website Keyword Alignment',
+    text: 'Your website must reinforce the same keyword and location signals as your GBP. We build or optimize city-specific pages that directly support your Map Pack rankings — each page targeting the searches your GBP profile claims to serve.',
+  },
+  {
+    name: 'Monthly Monitoring & Push',
+    text: 'We track your Map Pack position for every target keyword monthly and keep applying the signals that move rankings: fresh GBP posts, new photos, review growth, and any algorithm-specific adjustments. Rankings compound — we keep pushing.',
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Google Maps Optimization McAllen TX',
+    'RankRGV optimizes Google Business Profiles and local authority signals to get McAllen and RGV businesses into the top 3 Google Maps Map Pack results.',
+    site.areaServed
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How Google Maps Optimization Works for McAllen Businesses',
+    'The step-by-step process RankRGV uses to get RGV businesses into the Google Maps top 3.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Google Maps Optimization', href: '/google-maps-optimization/' },
+  ]),
+  buildWebPageSchema(title, description, '/google-maps-optimization/'),
+];
+---
+
+<ServiceLayout service={serviceData} schema={schema}>
+  <Hero
+    badge="Google Maps Optimization — McAllen & RGV"
+    headline='Get your business into the top 3<br /><span class="gradient-text">on Google Maps.</span>'
+    subheadline="The Map Pack is where local searches convert. When someone in McAllen searches for your service, the top 3 results get most of the clicks. We build the signals that put you there."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="best dentist near mcallen tx"
+    mockupCategory="Dentist · McAllen, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: '40%', label: 'Of local clicks go to Map Pack' },
+      { value: 'Top 3', label: 'Our ranking goal for every client' },
+      { value: '60–90', label: 'Days to first meaningful movement' },
+      { value: '0', label: 'Long-term contracts required' },
+    ]}
+  />
+
+  <!-- What is the Map Pack — AEO definition block -->
+  <section class="py-20 bg-bg" aria-labelledby="what-is-map-pack">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <h2 id="what-is-map-pack" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            What is the Google Map Pack — and why is it everything?
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-6">
+            The <strong>Google Map Pack</strong> is the block of 3 local business listings that appears at the top of Google search results for local queries — above all organic results, above paid ads on mobile, above everything. It includes a map, business name, star rating, phone number, and address or service area.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-6">
+            Studies consistently show the Map Pack captures <strong>roughly 40% of all clicks</strong> for local searches. The 3 businesses shown get the overwhelming majority of calls. Everyone below them — on the map or in organic results — fights over what's left.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            In the RGV, most Map Pack positions are held by businesses that haven't actively optimized anything. They're ranking on age and proximity alone — not because they're the best option. That's a gap a properly optimized profile can close in 60–90 days.
+          </p>
+        </div>
+
+        <!-- Map Pack visualization -->
+        <div class="reveal reveal-delay-1">
+          <div class="bg-bg-surface rounded-2xl border border-border p-8">
+            <div class="text-xs text-text-muted font-medium uppercase tracking-wider mb-4">Google search: "dentist near mcallen tx"</div>
+            <div class="space-y-3">
+              {[
+                { pos: 1, name: 'Your Business Here', label: 'With RankRGV', highlight: true },
+                { pos: 2, name: 'Competitor A', label: '', highlight: false },
+                { pos: 3, name: 'Competitor B', label: '', highlight: false },
+              ].map(({ pos, name, label, highlight }) => (
+                <div class={`flex items-center gap-4 p-4 rounded-xl border ${highlight ? 'bg-brand-blue/5 border-brand-blue/30' : 'bg-bg border-border'}`}>
+                  <div class={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${highlight ? 'bg-brand-blue text-white' : 'bg-bg-surface text-text-muted'}`}>
+                    {pos}
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class={`font-semibold text-sm ${highlight ? 'text-brand-blue' : 'text-text'}`}>{name}</div>
+                    {label && <div class="text-xs text-brand-blue font-medium mt-0.5">{label}</div>}
+                    <div class="flex items-center gap-1 mt-1">
+                      {Array.from({ length: 5 }).map(() => (
+                        <svg class={`w-3 h-3 ${highlight ? 'text-amber-400' : 'text-text-muted/30'}`} fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  {highlight && (
+                    <svg class="w-5 h-5 text-brand-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div class="mt-4 pt-4 border-t border-border">
+              <div class="flex items-center gap-2 text-xs text-text-muted">
+                <svg class="w-4 h-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                The Map Pack captures ~40% of all local search clicks
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Business Profile — what it is and why it matters -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="gbp-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <h2 id="gbp-section" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          What we optimize in your Google Business Profile
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Your GBP is the most important ranking factor in local search — and most McAllen profiles are leaving rankings on the table.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+            title: 'Business Category Selection',
+            body: 'Your primary category is the single most important field in your GBP. Getting this wrong means Google never shows you for the searches that matter. We identify the exact categories that match how your customers actually search.',
+          },
+          {
+            icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
+            title: 'Service Area Configuration',
+            body: 'For service area businesses, Google needs to know exactly which cities you serve. We configure your service areas to cover every city you want to rank in — McAllen, Brownsville, Edinburg, Harlingen, Mission, and Pharr.',
+          },
+          {
+            icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
+            title: 'Photo Optimization',
+            body: 'Profiles with 10+ photos get significantly more views and clicks than those with 1–2. We audit your current photos, identify gaps (exterior, interior, team, work examples), and implement a photo strategy that signals active business health to Google.',
+          },
+          {
+            icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z',
+            title: 'Review Generation Strategy',
+            body: 'More reviews = higher Map Pack position. We set up automated systems that request Google reviews from customers at the optimal moment after each job. Most businesses see their review count double within 60 days of implementation.',
+          },
+          {
+            icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
+            title: 'GBP Posts & Q&A',
+            body: 'Regular GBP posts signal an active, engaged business to Google. Q&A responses (including proactively adding and answering your own questions) add keyword-rich content directly to your profile. We maintain both on a consistent schedule.',
+          },
+          {
+            icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
+            title: 'Citation Consistency',
+            body: 'Inconsistent business name, address, or phone number across directories actively hurts your Maps ranking. We audit 50+ directories, clean up inconsistencies, and build new citations on high-authority sites — the foundational trust signal for Map Pack eligibility.',
+          },
+        ].map((item, i) => (
+          <div class={`bg-bg rounded-2xl p-7 border border-border card-hover reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+            <div class="w-11 h-11 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+              </svg>
+            </div>
+            <h3 class="font-bold text-text mb-2">{item.title}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we get your business into the Google Map Pack"
+    subheadline="A proven process built for RGV businesses — from audit to top 3."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <!-- Why RGV businesses are missing from Google Maps -->
+  <section class="py-20 bg-bg" aria-labelledby="why-missing">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <h2 id="why-missing" class="text-3xl sm:text-4xl font-bold text-text mb-6 reveal">
+          Why most McAllen businesses don't show up on Google Maps
+        </h2>
+        <div class="space-y-5 text-text-muted text-lg leading-relaxed">
+          <p class="reveal reveal-delay-1">
+            We audit Google Business Profiles for McAllen businesses every week. The same five problems show up every time: wrong primary category, missing service areas, no photos posted in the past 6 months, fewer than 10 reviews, and a website that doesn't mention the city once in its content.
+          </p>
+          <p class="reveal reveal-delay-2">
+            Each of these is a ranking suppressor. Each one is fixable. And because most businesses in the RGV have all five, fixing even a few moves you ahead of competitors who haven't touched their profile in years.
+          </p>
+          <p class="reveal reveal-delay-3">
+            The Map Pack is not a lottery. It's an optimization competition — and in most McAllen, Brownsville, and Edinburg categories, the bar to clear is remarkably low. The businesses that optimize now will own these positions for years.
+          </p>
+        </div>
+
+        <!-- Common GBP problems -->
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 reveal reveal-delay-4">
+          {[
+            { problem: 'Wrong primary GBP category', impact: 'Invisible for main keyword searches' },
+            { problem: 'Service areas not configured', impact: "Can't rank in cities you serve" },
+            { problem: 'Fewer than 10 Google reviews', impact: 'Outranked by less qualified competitors' },
+            { problem: 'No photos posted in 6+ months', impact: 'Signals inactive business to Google' },
+            { problem: 'Inconsistent NAP across directories', impact: 'Confuses Google, suppresses ranking' },
+            { problem: 'Website never mentions city name', impact: 'No location signal for Maps algorithm' },
+          ].map(({ problem, impact }) => (
+            <div class="bg-bg-surface rounded-xl p-4 border border-border">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3 h-3 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-text text-sm">{problem}</div>
+                  <div class="text-text-muted text-xs mt-0.5">{impact}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <ServiceAreaGrid
+    headline="Google Maps optimization across the Rio Grande Valley"
+    serviceSlug="local-seo"
+  />
+
+  <FAQSection faqs={faqs} headline="Google Maps optimization questions from RGV business owners" />
+
+  <CTASection
+    headline="Ready to show up where your customers are searching?"
+    subheadline="Get a free audit of your Google Business Profile — we'll show you exactly what's holding you back from the Map Pack."
+  />
+</ServiceLayout>

@@ -5,11 +5,18 @@ export const mainNav = [
   {
     label: 'Services',
     href: '#',
-    dropdown: services.map((s) => ({
-      label: s.shortName,
-      href: `/${s.slug}/`,
-      description: s.description,
-    })),
+    dropdown: [
+      ...services.map((s) => ({
+        label: s.shortName,
+        href: `/${s.slug}/`,
+        description: s.description,
+      })),
+      {
+        label: 'Google Maps Optimization',
+        href: '/google-maps-optimization/',
+        description: 'Get your business into the top 3 Google Maps results.',
+      },
+    ],
   },
   {
     label: 'Service Areas',
