@@ -1,0 +1,203 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CTASection from '@/components/CTASection.astro';
+import { site } from '@/config/site';
+import { services } from '@/data/services';
+
+const title = 'About RankRGV | Your RGV Digital Marketing Partner';
+const description =
+  'RankRGV is a McAllen-based local SEO and digital marketing agency built specifically for Rio Grande Valley businesses. No generic templates. No out-of-market agencies. Just results.';
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: site.name,
+    url: site.url,
+    telephone: site.phone,
+    email: site.email,
+    description: description,
+    areaServed: site.areaServed.map((city) => ({ '@type': 'City', name: `${city}, TX` })),
+    sameAs: Object.values(site.social),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description: description,
+    url: `${site.url}/about/`,
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <!-- Hero -->
+  <section
+    class="relative py-24 overflow-hidden"
+    style="background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 60%, #312e81 100%);"
+  >
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0); background-size: 28px 28px;"
+      aria-hidden="true"
+    ></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+        McAllen, TX · Serving the entire RGV
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
+        We built RankRGV because the RGV deserved better.
+      </h1>
+      <p class="text-xl text-white/80 max-w-2xl mx-auto">
+        Out-of-market agencies treating South Texas like a template. Local businesses invisible on Google while their competitors ranked by default. We started RankRGV to fix that — specifically for the Rio Grande Valley.
+      </p>
+    </div>
+  </section>
+
+  <!-- The story -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            The RGV is a real market. Most agencies treat it like an afterthought.
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            McAllen, Brownsville, Edinburg, Harlingen, Mission, Pharr — six distinct cities, two counties, and one of the fastest-growing metro areas in Texas. But most digital marketing agencies working in the RGV use the same approach they use in Dallas or Houston: generic templates, no local knowledge, and keyword strategies built for someone else's market.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The result is predictable. RGV businesses spend money, see generic deliverables, and end up no closer to the top of Google than when they started. Meanwhile, the actual keyword opportunity in the Rio Grande Valley is unlike anywhere else in Texas — difficulty scores of 0–9 on search terms that would cost thousands per month in a competitive market.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            RankRGV exists to capture that opportunity for the businesses that deserve to rank — the real local businesses doing real work in the Valley. We're not a national agency with a McAllen checkbox. This is our only market. We know it, and we build for it.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1 space-y-4">
+          {[
+            {
+              label: 'What we are',
+              items: [
+                'McAllen-based — this is our home market',
+                'Specialists, not generalists — local SEO, web design, business automation',
+                'Transparent — you always know what we\'re doing and why',
+                'Results-focused — rankings and calls, not deliverables for their own sake',
+                'Direct — we tell you what you need to hear, not what you want to hear',
+              ],
+              positive: true,
+            },
+            {
+              label: "What we're not",
+              items: [
+                'An out-of-market agency managing 200 clients from a spreadsheet',
+                'A web design shop that calls itself an SEO company',
+                'A vanity metrics operation (impressions, "reach," followers)',
+                'A vendor that locks you into contracts for work you can\'t measure',
+              ],
+              positive: false,
+            },
+          ].map(({ label, items, positive }) => (
+            <div class={`rounded-2xl border p-6 ${positive ? 'bg-green-50 border-green-200' : 'bg-bg-surface border-border'}`}>
+              <div class={`text-sm font-bold uppercase tracking-wider mb-3 ${positive ? 'text-green-700' : 'text-text-muted'}`}>{label}</div>
+              <ul class="space-y-2">
+                {items.map((item) => (
+                  <li class="flex items-start gap-2 text-sm text-text-muted">
+                    <span class={`flex-shrink-0 font-bold ${positive ? 'text-green-600' : 'text-text-muted'}`}>{positive ? '✓' : '×'}</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our approach -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">How we actually work</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">No mystery. No jargon. Just a clear approach that produces results you can measure.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((service, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-8 reveal reveal-delay-${i + 1}`}>
+            <div class="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-brand-blue" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d={service.icon} />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-text mb-2">{service.name}</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-4">{service.description}</p>
+            <a href={`/${service.slug}/`} class="text-sm font-semibold text-brand-blue hover:underline">
+              Learn more →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What we believe -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-10 text-center reveal">What we believe about local marketing</h2>
+      <div class="space-y-6">
+        {[
+          {
+            heading: 'Rankings without calls are useless.',
+            body: 'We don\'t chase vanity metrics. Position tracking, impressions, domain authority — these only matter if they translate into your phone ringing and your inbox filling up. Every strategy we build is measured against one thing: are you getting more real customers?',
+          },
+          {
+            heading: 'The RGV is not a template market.',
+            body: 'Edinburg is not McAllen. Pharr is not Brownsville. Each city has distinct search patterns, distinct competitive landscapes, and distinct customer demographics. Generic city-page templates that just swap the city name are not local SEO — they\'re content farm content. We write every page for the actual market it targets.',
+          },
+          {
+            heading: 'Speed is the multiplier nobody talks about.',
+            body: 'In local service businesses, the first responder wins most of the time. Fast website, fast Google loading, fast follow-up on leads — speed compounds across every touchpoint. That\'s why we obsess over PageSpeed scores, automated text-back, and same-day follow-up systems.',
+          },
+          {
+            heading: 'Transparency is non-negotiable.',
+            body: 'You should know exactly what we\'re doing, why, and what it\'s producing. Every month: what we did, what moved, what\'s next. No hiding behind "proprietary processes." No vague deliverables. If it\'s not working, we tell you — and we fix it.',
+          },
+        ].map(({ heading, body }, i) => (
+          <div class={`flex gap-6 reveal reveal-delay-${i % 3}`}>
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center mt-1">
+              <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-text text-lg mb-2">{heading}</h3>
+              <p class="text-text-muted leading-relaxed">{body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cities we serve -->
+  <section class="py-16 bg-bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-text mb-4 reveal">We serve these RGV cities</h2>
+      <p class="text-text-muted mb-8 reveal reveal-delay-1">Six cities across Hidalgo and Cameron counties — each with dedicated strategy, not copy-paste coverage.</p>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {site.areaServed.map((city) => (
+          <a
+            href={`/service-areas/${city.toLowerCase()}/`}
+            class="px-5 py-2.5 rounded-full bg-bg border border-border text-sm font-semibold text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline"
+          >
+            {city}, TX
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    headline="Ready to talk about your RGV rankings?"
+    subheadline="15-minute call, no pitch deck, no pressure. Just a straight conversation about where you stand and what's possible."
+  />
+</BaseLayout>

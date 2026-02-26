@@ -1,0 +1,144 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContactForm from '@/components/ContactForm.astro';
+import { site } from '@/config/site';
+
+const title = 'Contact RankRGV | Free SEO Audit for Your RGV Business';
+const description =
+  "Get in touch with RankRGV. Free 15-minute call or free written SEO audit for any RGV business. McAllen-based local SEO and digital marketing agency — no pitch decks, just straight answers.";
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description: description,
+  url: `${site.url}/contact/`,
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <!-- Page header -->
+  <section
+    class="relative py-20 overflow-hidden"
+    style="background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 60%, #312e81 100%);"
+  >
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0); background-size: 28px 28px;"
+      aria-hidden="true"
+    ></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Get in touch</h1>
+      <p class="text-xl text-white/80 max-w-xl mx-auto">
+        Fill out the form and we'll respond within one business day. Or just call — we pick up.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact content -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Left: contact info + what to expect -->
+        <div class="reveal">
+          <h2 class="text-2xl font-bold text-text mb-6">What happens when you reach out</h2>
+
+          <div class="space-y-6 mb-10">
+            {[
+              {
+                step: '01',
+                heading: 'We review your business',
+                body: "Before we talk, we look up your Google Business Profile, your website, and who's ranking above you for your main keywords. We come prepared.",
+              },
+              {
+                step: '02',
+                heading: '15-minute call, no pitch deck',
+                body: "We tell you exactly where you stand — what's working, what's missing, and what your competition is doing that you're not. Straight answers, no upsell pressure.",
+              },
+              {
+                step: '03',
+                heading: 'Free written audit (if you prefer)',
+                body: "Not a talker? We can send you a written audit of your current local SEO position — keyword opportunities, GBP gaps, and competitor comparison — before any conversation.",
+              },
+            ].map(({ step, heading, body }) => (
+              <div class="flex gap-5">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                  <span class="text-brand-blue font-bold text-sm">{step}</span>
+                </div>
+                <div>
+                  <div class="font-bold text-text mb-1">{heading}</div>
+                  <p class="text-text-muted text-sm leading-relaxed">{body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Direct contact options -->
+          <div class="bg-bg-surface rounded-2xl border border-border p-6 space-y-4">
+            <div class="text-sm font-bold text-text uppercase tracking-wider mb-4">Prefer direct contact?</div>
+            <a
+              href={site.phoneHref}
+              class="flex items-center gap-3 text-text-muted hover:text-brand-blue transition-colors no-underline group"
+            >
+              <div class="w-9 h-9 rounded-lg bg-brand-blue/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-blue/20 transition-colors">
+                <svg class="w-4 h-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-text">{site.phone}</div>
+                <div class="text-xs text-text-muted">Call or text — we respond fast</div>
+              </div>
+            </a>
+            <a
+              href={`mailto:${site.email}`}
+              class="flex items-center gap-3 text-text-muted hover:text-brand-blue transition-colors no-underline group"
+            >
+              <div class="w-9 h-9 rounded-lg bg-brand-blue/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-blue/20 transition-colors">
+                <svg class="w-4 h-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-text">{site.email}</div>
+                <div class="text-xs text-text-muted">We respond same business day</div>
+              </div>
+            </a>
+            <a
+              href={site.social.gbp}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 text-text-muted hover:text-brand-blue transition-colors no-underline group"
+            >
+              <div class="w-9 h-9 rounded-lg bg-brand-blue/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-blue/20 transition-colors">
+                <svg class="w-4 h-4 text-brand-blue" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-text">Google Business Profile</div>
+                <div class="text-xs text-text-muted">Find us on Google Maps</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Service area note -->
+          <p class="text-sm text-text-muted mt-6">
+            <span class="font-semibold text-text">Service area:</span> We serve McAllen, Brownsville, Edinburg, Harlingen, Mission, Pharr, and surrounding RGV communities. We're a remote-first, service area business — no storefront.
+          </p>
+        </div>
+
+        <!-- Right: form -->
+        <div class="reveal reveal-delay-1">
+          <ContactForm
+            headline="Request a free audit"
+            subheadline="Tell us about your business and we'll come prepared with exactly where you stand on Google."
+            submitLabel="Send My Free Audit Request"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

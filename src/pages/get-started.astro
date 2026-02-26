@@ -1,0 +1,172 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContactForm from '@/components/ContactForm.astro';
+import { site } from '@/config/site';
+
+const title = 'Get a Free RGV SEO Audit | Start Ranking on Google | RankRGV';
+const description =
+  "Get a free local SEO audit for your RGV business. RankRGV will show you exactly which keywords you're missing, who's outranking you, and how fast you can move — no pitch deck, no obligation.";
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description: description,
+  url: `${site.url}/get-started/`,
+};
+
+const benefits = [
+  {
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
+    heading: 'We review your Google presence before we talk',
+    body: "We look up your GBP, your website, and who's ranking above you for your main keywords. You get a prepared analysis, not a discovery call.",
+  },
+  {
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+    heading: 'Keyword opportunities specific to your city and category',
+    body: "The RGV has remarkably low SEO competition. We'll show you the specific gaps — keywords your competitors aren't targeting, Map Pack positions nobody's claimed.",
+  },
+  {
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    heading: 'A realistic timeline — no false promises',
+    body: "We'll tell you honestly how fast your market typically moves. Some Pharr and Mission categories hit top 3 in 30 days. McAllen takes longer. You get the real picture.",
+  },
+  {
+    icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z',
+    heading: 'No obligation, no high-pressure sales call',
+    body: "We don't do pitches. If we can help you, we'll tell you exactly how. If we're not the right fit, we'll say so. Either way you leave with more information than you came with.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <!-- Hero -->
+  <section
+    class="relative py-20 overflow-hidden"
+    style="background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 60%, #312e81 100%);"
+  >
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0); background-size: 28px 28px;"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="absolute -right-32 -top-32 w-96 h-96 rounded-full pointer-events-none"
+      style="background: radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 70%);"
+      aria-hidden="true"
+    ></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+        Free · No obligation · RGV businesses only
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-5 leading-tight">
+        Find out exactly where you stand on Google — for free.
+      </h1>
+      <p class="text-xl text-white/80 max-w-2xl mx-auto">
+        Fill out the form and we'll review your current Google presence, identify the keyword gaps your competitors are exploiting, and tell you how fast you can realistically rank. Straight answers, no pitch.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main content: benefits + form -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Left: what you get -->
+        <div>
+          <h2 class="text-2xl font-bold text-text mb-8 reveal">What your free audit includes</h2>
+          <div class="space-y-6">
+            {benefits.map(({ icon, heading, body }, i) => (
+              <div class={`flex gap-5 reveal reveal-delay-${i % 3}`}>
+                <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-brand-blue/10 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icon} />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-bold text-text mb-1">{heading}</div>
+                  <p class="text-text-muted text-sm leading-relaxed">{body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Social proof / trust signals -->
+          <div class="mt-10 pt-8 border-t border-border reveal">
+            <div class="text-sm font-bold text-text uppercase tracking-wider mb-4">What to expect</div>
+            <div class="grid grid-cols-2 gap-4">
+              {[
+                { value: '< 1 day', label: 'Response time' },
+                { value: '15 min', label: 'Initial call length' },
+                { value: '$0', label: 'Cost of the audit' },
+                { value: '0', label: 'Obligations after' },
+              ].map(({ value, label }) => (
+                <div class="bg-bg-surface rounded-xl p-4 border border-border text-center">
+                  <div class="text-2xl font-extrabold gradient-text mb-0.5">{value}</div>
+                  <div class="text-xs text-text-muted">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Phone CTA -->
+          <div class="mt-8 reveal">
+            <p class="text-text-muted text-sm mb-3">Prefer to talk first?</p>
+            <a
+              href={site.phoneHref}
+              class="inline-flex items-center gap-2 font-bold text-brand-blue hover:text-brand-blue/80 transition-colors no-underline"
+            >
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
+              </svg>
+              Call or text {site.phone}
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="reveal reveal-delay-1">
+          <ContactForm
+            headline="Request your free audit"
+            subheadline="We review your business before we call — so your 15 minutes counts."
+            submitLabel="Get My Free SEO Audit"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ-style objection handling -->
+  <section class="py-16 bg-bg-surface">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-text mb-8 text-center reveal">Common questions before reaching out</h2>
+      <div class="space-y-5">
+        {[
+          {
+            q: "Is this really free?",
+            a: "Yes. We review your Google presence, identify keyword gaps, and give you a straight assessment of your situation — at no cost. We do this because the businesses that see what's possible become clients. But there's no pressure and no invoice if you decide not to move forward.",
+          },
+          {
+            q: "Do you only work with businesses in the RGV?",
+            a: "Yes. We're McAllen-based and we serve McAllen, Brownsville, Edinburg, Harlingen, Mission, Pharr, and surrounding communities. We're not a national agency — the RGV is our specific focus and we know this market well.",
+          },
+          {
+            q: "What if I'm not ready to start right now?",
+            a: "That's fine. Get the audit anyway. The information is useful regardless of timing, and there's no follow-up campaign if you tell us you're not ready. When you are, you'll know exactly where to start.",
+          },
+          {
+            q: "How fast do you respond?",
+            a: "Within one business day, usually same day. If you need to talk faster, call or text us directly at " + site.phone + ".",
+          },
+        ].map(({ q, a }, i) => (
+          <div class={`bg-bg rounded-2xl border border-border p-6 reveal reveal-delay-${i % 3}`}>
+            <div class="font-bold text-text mb-2">{q}</div>
+            <p class="text-text-muted text-sm leading-relaxed">{a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
