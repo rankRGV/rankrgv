@@ -6,7 +6,7 @@ export const site = {
   phoneHref: 'tel:9563915991',
   email: 'hello@rankrgv.com',
   formsparkId: 'CTzJGJckq',
-  ga4Id: '', // Fill in after Vercel deploy
+  ga4Id: 'G-ZLFQ1WH6MN',
   primaryCity: 'McAllen',
   primaryState: 'TX',
   primaryRegion: 'Rio Grande Valley',
