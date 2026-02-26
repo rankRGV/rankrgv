@@ -16,7 +16,18 @@ const {
 
 <div class="bg-bg rounded-2xl border border-border p-8 sm:p-10">
   <h2 class="text-2xl font-bold text-text mb-2">{headline}</h2>
-  <p class="text-text-muted mb-8">{subheadline}</p>
+  <p class="text-text-muted mb-6">{subheadline}</p>
+
+  <!-- Plan interest banner (hidden by default; JS shows it when ?plan= is in the URL) -->
+  <div
+    id="plan-selection-banner"
+    class="hidden items-center gap-3 bg-brand-blue/10 border border-brand-blue/20 rounded-xl px-4 py-3 mb-6"
+  >
+    <svg class="w-4 h-4 text-brand-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span class="text-sm text-text">Inquiring about: <strong id="plan-banner-text" class="text-brand-blue"></strong></span>
+  </div>
 
   <form
     action={`https://submit-form.com/${site.formsparkId}`}
@@ -29,6 +40,8 @@ const {
     <input type="checkbox" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
     <!-- Redirect after success -->
     <input type="hidden" name="_redirect" value={`${site.url}/thank-you/`} />
+    <!-- Plan interest from URL params — populated by the script below -->
+    <input type="hidden" id="plan_interest" name="plan_interest" value="" />
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
       <div>
@@ -139,3 +152,32 @@ const {
     </p>
   </form>
 </div>
+
+<script>
+  (() => {
+    const params = new URLSearchParams(window.location.search);
+    const plan = params.get('plan');
+    const service = params.get('service');
+    if (!plan) return;
+
+    const serviceLabels: Record<string, string> = {
+      'local-seo': 'Local SEO',
+      'web-design': 'Web Design',
+      'gbp-management': 'GBP Management',
+      'business-automation': 'Business Automation',
+    };
+    const svcLabel = (service && serviceLabels[service]) ? ' — ' + serviceLabels[service] : '';
+    const displayText = plan + svcLabel;
+
+    const field = document.getElementById('plan_interest') as HTMLInputElement | null;
+    if (field) field.value = displayText;
+
+    const banner = document.getElementById('plan-selection-banner');
+    const text = document.getElementById('plan-banner-text');
+    if (banner && text) {
+      text.textContent = displayText;
+      banner.classList.remove('hidden');
+      banner.classList.add('flex');
+    }
+  })();
+</script>
