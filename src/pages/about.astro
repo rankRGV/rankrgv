@@ -131,20 +131,20 @@ const schema = [
   </section>
 
   <!-- Founder -->
-  <section class="py-20 bg-bg-surface" aria-labelledby="founder-heading">
+  <section class="py-20 bg-bg" aria-labelledby="founder-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start max-w-5xl mx-auto">
 
-        <!-- Photo -->
+        <!-- Photo — portrait ratio -->
         <div class="reveal flex justify-center lg:justify-start">
           <div class="relative">
-            <div class="w-72 h-72 rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+            <div class="w-64 rounded-2xl overflow-hidden border-4 border-white shadow-xl" style="aspect-ratio:3/4;">
               <img
                 src="/images/eddie-urbano.png"
                 alt="Eddie Urbano, Founder of RankRGV"
                 class="w-full h-full object-cover object-top"
-                width="288"
-                height="288"
+                width="256"
+                height="341"
                 loading="lazy"
               />
             </div>
@@ -155,17 +155,20 @@ const schema = [
         </div>
 
         <!-- Bio -->
-        <div class="reveal reveal-delay-1">
+        <div class="reveal reveal-delay-1 pt-2">
           <p class="text-sm font-semibold text-brand-blue uppercase tracking-wider mb-2">The person behind RankRGV</p>
           <h2 id="founder-heading" class="text-3xl sm:text-4xl font-bold text-text mb-6">Eddie Urbano</h2>
-          <p class="text-text-muted text-lg leading-relaxed mb-5">
-            Eddie spent 15 years in tech watching AI and automation systems transform how businesses operate — then looked at the RGV and saw the opposite. Local businesses relying on slow follow-up, weak websites, and agencies rolling out subpar work at full price.
+          <p class="text-lg leading-relaxed mb-5">
+            <strong class="text-text font-semibold">Eddie spent 15 years in tech watching AI and automation systems transform how businesses operate — then looked at the RGV and saw the opposite.</strong>
+            <span class="text-text-muted"> Local businesses relying on slow follow-up, weak websites, and agencies rolling out subpar work at full price.</span>
           </p>
-          <p class="text-text-muted text-lg leading-relaxed mb-5">
-            He built RankRGV to change that. No generic templates. No deliverables that don't move the needle. Fast systems, real rankings, and the kind of results-obsessed approach that the Rio Grande Valley has been waiting for.
+          <p class="text-lg leading-relaxed mb-5">
+            <strong class="text-text font-semibold">He built RankRGV to change that.</strong>
+            <span class="text-text-muted"> No generic templates. No deliverables that don't move the needle. Fast systems, real rankings, and the kind of results-obsessed approach that the Rio Grande Valley has been waiting for.</span>
           </p>
-          <p class="text-text-muted text-lg leading-relaxed">
-            The RGV is his market. Not managed from a spreadsheet in Dallas. Not another out-of-market agency checking a South Texas box. He's here — and he's building local businesses into the dominant presence in their market.
+          <p class="text-lg leading-relaxed">
+            <strong class="text-text font-semibold">The RGV is his market.</strong>
+            <span class="text-text-muted"> Not managed from a spreadsheet in Dallas. Not another out-of-market agency checking a South Texas box. He's here — and he's building local businesses into the dominant presence in their market.</span>
           </p>
         </div>
 
@@ -174,7 +177,7 @@ const schema = [
   </section>
 
   <!-- Our approach -->
-  <section class="py-20 bg-bg-surface">
+  <section class="py-20 bg-bg-surface" id="how-we-work">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-14">
         <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">How we actually work</h2>
