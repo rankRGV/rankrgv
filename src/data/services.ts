@@ -22,7 +22,7 @@ export const services: Service[] = [
     primaryKeyword: 'local seo mcallen tx',
     titleTag: 'Local SEO McAllen TX | Get to the Top 3 Map Pack | RankRGV',
     metaDescription:
-      'Rank in the top 3 Google Maps results for McAllen searches. RankRGV builds local SEO strategies that drive real calls and customers — not just rankings.',
+      'Rank in the top 3 on Google Maps for McAllen searches. RankRGV builds local SEO that drives real calls — not just rankings. Call (956) 391-5991.',
   },
   {
     slug: 'web-design',
@@ -35,7 +35,7 @@ export const services: Service[] = [
     primaryKeyword: 'web design mcallen tx',
     titleTag: 'Web Design McAllen TX | 99+ PageSpeed, Built to Convert | RankRGV',
     metaDescription:
-      'Professional web design in McAllen TX built for speed, SEO, and conversions. RankRGV sites score 99+ on Lighthouse and are built to rank from day one.',
+      'Professional web design McAllen TX — fast-loading, built to rank and convert. 99+ Lighthouse scores from day one. Call (956) 391-5991.',
   },
   {
     slug: 'business-automation',
@@ -48,7 +48,7 @@ export const services: Service[] = [
     primaryKeyword: 'business automation mcallen tx',
     titleTag: 'Business Automation McAllen TX | Never Miss a Lead Again | RankRGV',
     metaDescription:
-      'Automate follow-up, review requests, and lead response for your McAllen business. RankRGV sets up the systems that work while you sleep.',
+      'Automate follow-up, review requests, and lead response for your McAllen business. Systems that work 24/7 — call RankRGV at (956) 391-5991.',
   },
 ];
 

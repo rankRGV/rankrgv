@@ -3,6 +3,7 @@ import { site } from '@/config/site';
 import SEOHead from '@/components/SEOHead.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+import StickyCallCTA from '@/components/StickyCallCTA.astro';
 
 interface Props {
   title: string;
@@ -11,6 +12,8 @@ interface Props {
   ogImage?: string;
   noindex?: boolean;
   schema?: object | object[];
+  geoRegion?: string;
+  geoPlacename?: string;
 }
 
 const {
@@ -20,6 +23,8 @@ const {
   ogImage = site.defaultOgImage,
   noindex = false,
   schema,
+  geoRegion,
+  geoPlacename,
 } = Astro.props;
 
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
@@ -35,6 +40,8 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
       ogImage={ogImage}
       noindex={noindex}
       schema={schema}
+      geoRegion={geoRegion}
+      geoPlacename={geoPlacename}
     />
   </head>
   <body class="bg-bg text-text font-sans antialiased">
@@ -43,6 +50,7 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
       <slot />
     </main>
     <Footer />
+    <StickyCallCTA />
 
     <!-- GA4 — only loads when ga4Id is set -->
     {site.ga4Id && (

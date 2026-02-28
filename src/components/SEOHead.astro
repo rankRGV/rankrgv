@@ -9,6 +9,8 @@ interface Props {
   ogImage?: string;
   noindex?: boolean;
   schema?: object | object[];
+  geoRegion?: string;
+  geoPlacename?: string;
 }
 
 const {
@@ -18,6 +20,8 @@ const {
   ogImage = site.defaultOgImage,
   noindex = false,
   schema,
+  geoRegion = 'US-TX',
+  geoPlacename = 'McAllen, Texas',
 } = Astro.props;
 
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, site.url).href;
@@ -41,8 +45,8 @@ const schemas = schema
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 
 <!-- Geo targeting -->
-<meta name="geo.region" content="US-TX" />
-<meta name="geo.placename" content="McAllen, Texas" />
+<meta name="geo.region" content={geoRegion} />
+<meta name="geo.placename" content={geoPlacename} />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />

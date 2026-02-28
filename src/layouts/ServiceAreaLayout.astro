@@ -26,9 +26,12 @@ const breadcrumbs = service
       { label: 'Service Areas', href: '/service-areas/' },
       { label: area.name, href: `/service-areas/${area.slug}/` },
     ];
+
+const geoPlacename = `${area.name}, Texas`;
+const geoRegion = area.geoRegion;
 ---
 
-<BaseLayout title={title} description={description} schema={schema}>
+<BaseLayout title={title} description={description} schema={schema} geoRegion={geoRegion} geoPlacename={geoPlacename}>
   <Breadcrumbs items={breadcrumbs} />
   <slot />
 </BaseLayout>
