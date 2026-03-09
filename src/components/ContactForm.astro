@@ -95,6 +95,33 @@ const {
       </div>
     </div>
 
+    <!-- SMS Consent Block -->
+    <div class="rounded-xl border border-brand-blue/20 bg-brand-blue/5 px-5 py-4 space-y-3">
+      <label class="flex items-start gap-3 cursor-pointer group">
+        <div class="relative mt-0.5 flex-shrink-0 w-5 h-5">
+          <input
+            type="checkbox"
+            id="sms_consent"
+            name="sms_consent"
+            value="yes"
+            class="absolute inset-0 opacity-0 w-full h-full cursor-pointer z-10"
+            aria-label="Consent to receive SMS messages from RankRGV"
+          />
+          <div id="sms-checkbox-visual" class="w-5 h-5 rounded border-2 border-border bg-bg-surface transition-colors duration-150 group-hover:border-brand-blue/60 flex items-center justify-center">
+            <svg id="sms-checkmark" class="w-3 h-3 text-white hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+        </div>
+        <span class="text-sm font-medium text-text leading-snug">
+          Yes — allow RankRGV's assistant to text me answers and updates about my request.
+        </span>
+      </label>
+      <p class="text-xs text-text-muted leading-relaxed pl-8">
+        By providing your phone number you consent to receive SMS messages from RankRGV related to your inquiry or requested services. Message frequency may vary. Message and data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for assistance. Your mobile information will not be sold or shared with third parties for promotional or marketing purposes.
+      </p>
+    </div>
+
     <div>
       <label for="city" class="block text-sm font-medium text-text mb-1.5">City <span class="text-red-500">*</span></label>
       <select
@@ -147,13 +174,36 @@ const {
       </svg>
     </button>
 
-    <p class="text-xs text-text-muted text-center">
-      No spam, no obligations. Just a straight answer about your opportunities.
+    <p class="text-xs text-text-muted text-center leading-relaxed">
+      No spam, no obligations. Just a straight answer about your opportunities.<br />
+      <a href="/privacy-policy/" class="text-brand-blue hover:underline">Privacy Policy</a>
+      <span class="mx-1.5 opacity-40">·</span>
+      <a href="/terms/" class="text-brand-blue hover:underline">Terms of Service</a>
     </p>
   </form>
 </div>
 
 <script>
+  (() => {
+    // SMS consent checkbox visual state
+    const smsInput = document.getElementById('sms_consent') as HTMLInputElement | null;
+    const smsVisual = document.getElementById('sms-checkbox-visual');
+    const smsCheck = document.getElementById('sms-checkmark');
+    if (smsInput && smsVisual && smsCheck) {
+      smsInput.addEventListener('change', () => {
+        if (smsInput.checked) {
+          smsVisual.classList.add('bg-brand-blue', 'border-brand-blue');
+          smsVisual.classList.remove('border-border');
+          smsCheck.classList.remove('hidden');
+        } else {
+          smsVisual.classList.remove('bg-brand-blue', 'border-brand-blue');
+          smsVisual.classList.add('border-border');
+          smsCheck.classList.add('hidden');
+        }
+      });
+    }
+  })();
+
   (() => {
     const params = new URLSearchParams(window.location.search);
     const plan = params.get('plan');

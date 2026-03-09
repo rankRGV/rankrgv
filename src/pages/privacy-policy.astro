@@ -4,7 +4,7 @@ import { site } from '@/config/site';
 
 const title = 'Privacy Policy | RankRGV';
 const description = 'Privacy policy for RankRGV — how we collect, use, and protect your information.';
-const lastUpdated = 'February 2026';
+const lastUpdated = 'March 2026';
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
@@ -103,7 +103,25 @@ const lastUpdated = 'February 2026';
         </div>
 
         <div>
-          <h2 class="text-xl font-bold text-text mb-3">11. Contact us</h2>
+          <h2 class="text-xl font-bold text-text mb-3">11. SMS communications</h2>
+          <p class="text-text-muted leading-relaxed mb-3">
+            If you provide your phone number through a form on our website and check the SMS consent box, RankRGV may send SMS messages related to your inquiry, requested services, or account notifications.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-text-muted mb-3">
+            <li>Message frequency may vary. Message and data rates may apply.</li>
+            <li>You may opt out at any time by replying <strong class="text-text">STOP</strong> to any SMS message you receive.</li>
+            <li>Reply <strong class="text-text">HELP</strong> for assistance.</li>
+          </ul>
+          <p class="text-text-muted leading-relaxed mb-3">
+            Your mobile information will not be sold or shared with third parties for promotional or marketing purposes.
+          </p>
+          <p class="text-text-muted leading-relaxed">
+            We may share information with vendors or service providers who help deliver messaging services — such as telecommunications providers or messaging platforms — solely for the purpose of delivering SMS communications to you.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-text mb-3">12. Contact us</h2>
           <p class="text-text-muted leading-relaxed">
             Questions about this privacy policy? Contact us:<br />
             Email: <a href={`mailto:${site.email}`} class="text-brand-blue hover:underline">{site.email}</a><br />
