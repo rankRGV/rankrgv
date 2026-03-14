@@ -10,7 +10,7 @@ export const site = {
   primaryCity: 'McAllen',
   primaryState: 'TX',
   primaryRegion: 'Rio Grande Valley',
-  defaultOgImage: '/images/RankRGV_compact_logoLarge.png',
+  defaultOgImage: '/images/og-default.png',
   twitterHandle: '@rankrgv',
   // SAB — no physical address
   areaServed: ['McAllen', 'Brownsville', 'Edinburg', 'Harlingen', 'Mission', 'Pharr'],

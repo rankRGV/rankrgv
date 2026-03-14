@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RankRGV — OG Image Preview (1200×630)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #080d17;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 24px;
+    padding: 40px;
+  }
+  canvas {
+    display: block;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .meta {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+<canvas id="og" width="1200" height="630"></canvas>
+<div class="meta">1200 × 630 · rankrgv.com · Open Graph Image</div>
+
+<script>
+document.fonts.ready.then(draw);
+
+function draw() {
+  const canvas = document.getElementById('og');
+  const ctx = canvas.getContext('2d');
+  const W = 1200, H = 630;
+
+  // ── BACKGROUND ───────────────────────────────────────────────
+  ctx.fillStyle = '#0f172a';
+  ctx.fillRect(0, 0, W, H);
+
+  // ── DOT GRID ─────────────────────────────────────────────────
+  for (let x = 12; x < W; x += 24) {
+    for (let y = 12; y < H; y += 24) {
+      ctx.fillStyle = 'rgba(59,130,246,0.18)';
+      ctx.beginPath();
+      ctx.arc(x, y, 1, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // ── AMBIENT GLOW — left (behind wordmark) ────────────────────
+  const glowL = ctx.createRadialGradient(220, 290, 0, 220, 290, 380);
+  glowL.addColorStop(0, 'rgba(29,78,216,0.18)');
+  glowL.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = glowL;
+  ctx.fillRect(0, 0, W, H);
+
+  // ── AMBIENT GLOW — right (behind card) ───────────────────────
+  const glowR = ctx.createRadialGradient(895, 310, 0, 895, 310, 290);
+  glowR.addColorStop(0, 'rgba(29,78,216,0.28)');
+  glowR.addColorStop(0.6, 'rgba(124,58,237,0.08)');
+  glowR.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = glowR;
+  ctx.fillRect(0, 0, W, H);
+
+  // ── VERTICAL DIVIDER ─────────────────────────────────────────
+  const divG = ctx.createLinearGradient(624, 48, 624, H - 48);
+  divG.addColorStop(0,   'rgba(255,255,255,0)');
+  divG.addColorStop(0.3, 'rgba(255,255,255,0.07)');
+  divG.addColorStop(0.7, 'rgba(255,255,255,0.07)');
+  divG.addColorStop(1,   'rgba(255,255,255,0)');
+  ctx.strokeStyle = divG;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(624, 48);
+  ctx.lineTo(624, H - 48);
+  ctx.stroke();
+
+  // ── LEFT — LOCATION BADGE ────────────────────────────────────
+  const lx = 68;
+  ctx.fillStyle = 'rgba(29,78,216,0.28)';
+  rrect(ctx, lx, 76, 246, 34, 17);
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(59,130,246,0.45)';
+  ctx.lineWidth = 1;
+  rrect(ctx, lx, 76, 246, 34, 17);
+  ctx.stroke();
+
+  // Badge — pulse dot
+  ctx.fillStyle = '#3b82f6';
+  ctx.beginPath();
+  ctx.arc(lx + 18, 93, 4.5, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = 'rgba(255,255,255,0.72)';
+  ctx.font = '600 12.5px Inter';
+  ctx.fillText('McAllen  ·  Rio Grande Valley, TX', lx + 31, 97.5);
+
+  // ── LEFT — WORDMARK ──────────────────────────────────────────
+  // "Rank" — pure white
+  ctx.font = '900 98px Inter';
+  ctx.fillStyle = '#ffffff';
+  ctx.fillText('Rank', lx - 4, 232);
+  const rankW = ctx.measureText('Rank').width;
+
+  // "RGV" — blue→purple gradient
+  const rgvG = ctx.createLinearGradient(lx + rankW, 148, lx + rankW + 240, 234);
+  rgvG.addColorStop(0, '#60a5fa');
+  rgvG.addColorStop(1, '#a78bfa');
+  ctx.fillStyle = rgvG;
+  ctx.fillText('RGV', lx + rankW - 5, 232);
+
+  // ── LEFT — TAGLINE ───────────────────────────────────────────
+  ctx.font = '500 21px Inter';
+  ctx.fillStyle = 'rgba(255,255,255,0.52)';
+  ctx.fillText('Local SEO & Digital Marketing', lx, 282);
+
+  ctx.font = '400 15px Inter';
+  ctx.fillStyle = 'rgba(255,255,255,0.28)';
+  ctx.fillText('Real results for RGV businesses', lx, 312);
+
+  // ── LEFT — RULE ──────────────────────────────────────────────
+  const ruleG = ctx.createLinearGradient(lx, 342, lx + 490, 342);
+  ruleG.addColorStop(0, 'rgba(255,255,255,0.14)');
+  ruleG.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.strokeStyle = ruleG;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(lx, 342);
+  ctx.lineTo(lx + 490, 342);
+  ctx.stroke();
+
+  // ── LEFT — FEATURE PILLS ─────────────────────────────────────
+  const pills = ['Google Maps', 'Web Design', 'Automation'];
+  let px = lx;
+  ctx.font = '500 13px Inter';
+  pills.forEach(label => {
+    const tw = ctx.measureText(label).width;
+    const pw = tw + 30, ph = 30, pr = 15;
+    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+    rrect(ctx, px, 360, pw, ph, pr);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+    ctx.lineWidth = 1;
+    rrect(ctx, px, 360, pw, ph, pr);
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,0.48)';
+    ctx.fillText(label, px + 15, 379.5);
+    px += pw + 10;
+  });
+
+  // ── LEFT — DOMAIN ────────────────────────────────────────────
+  ctx.font = '600 16.5px Inter';
+  ctx.fillStyle = '#60a5fa';
+  ctx.fillText('rankrgv.com', lx, 442);
+
+  // ── RIGHT — MAP PACK CARD ────────────────────────────────────
+  const cx = 654, cy = 48, cw = 492, ch = 534, cr = 14;
+
+  // Card drop shadow
+  ctx.shadowColor = 'rgba(0,0,0,0.6)';
+  ctx.shadowBlur = 56;
+  ctx.shadowOffsetY = 14;
+  ctx.fillStyle = '#ffffff';
+  rrect(ctx, cx, cy, cw, ch, cr);
+  ctx.fill();
+  ctx.shadowColor = 'transparent';
+  ctx.shadowBlur = 0;
+  ctx.shadowOffsetY = 0;
+
+  // ── MAP AREA ─────────────────────────────────────────────────
+  const mapH = 162;
+  ctx.save();
+  rrectTopClip(ctx, cx, cy, cw, mapH, cr);
+  ctx.clip();
+
+  // Map gradient base
+  const mapG = ctx.createLinearGradient(cx, cy, cx + cw, cy + mapH);
+  mapG.addColorStop(0, '#c7e0ff');
+  mapG.addColorStop(0.5, '#d1fae5');
+  mapG.addColorStop(1, '#ddd6fe');
+  ctx.fillStyle = mapG;
+  ctx.fillRect(cx, cy, cw, mapH);
+
+  // Map grid lines
+  ctx.strokeStyle = 'rgba(100,116,139,0.22)';
+  ctx.lineWidth = 1;
+  for (let gx = cx + 22; gx < cx + cw; gx += 40) {
+    ctx.beginPath(); ctx.moveTo(gx, cy); ctx.lineTo(gx, cy + mapH); ctx.stroke();
+  }
+  for (let gy = cy + 20; gy < cy + mapH; gy += 38) {
+    ctx.beginPath(); ctx.moveTo(cx, gy); ctx.lineTo(cx + cw, gy); ctx.stroke();
+  }
+
+  // Map roads
+  ctx.strokeStyle = 'rgba(255,255,255,0.65)';
+  ctx.lineWidth = 3.5;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(cx + 90, cy); ctx.lineTo(cx + 90, cy + mapH);
+  ctx.moveTo(cx, cy + 82); ctx.lineTo(cx + cw, cy + 82);
+  ctx.stroke();
+  ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(cx + 220, cy); ctx.lineTo(cx + 220, cy + mapH);
+  ctx.moveTo(cx, cy + 120); ctx.lineTo(cx + cw, cy + 120);
+  ctx.stroke();
+
+  // Map pins
+  drawPin(ctx, cx + 168, cy + 68, '#1d4ed8', '1', 32);
+  drawPin(ctx, cx + 300, cy + 100, '#94a3b8', '2', 22);
+  drawPin(ctx, cx + 405, cy + 56, '#94a3b8', '3', 22);
+
+  ctx.restore();
+
+  // Map bottom border
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy + mapH);
+  ctx.lineTo(cx + cw, cy + mapH);
+  ctx.stroke();
+
+  // ── RESULT ROWS ───────────────────────────────────────────────
+  const rows = [
+    { rank: '1', name: 'Your Business Here', sub: '★★★★★  4.8  ·  McAllen, TX', hi: true },
+    { rank: '2', name: 'Competitor A',       sub: '★★★★  4.1  ·  Marketing',    hi: false },
+    { rank: '3', name: 'Competitor B',       sub: '★★★  3.8  ·  Services',      hi: false },
+  ];
+
+  const rowH = Math.floor((ch - mapH) / 3);
+
+  rows.forEach((r, i) => {
+    const ry = cy + mapH + i * rowH;
+
+    // Row highlight
+    if (r.hi) {
+      ctx.fillStyle = '#f0f7ff';
+      if (i === rows.length - 1) {
+        // last row — clip to card bottom corners
+        ctx.save();
+        rrect(ctx, cx, cy, cw, ch, cr);
+        ctx.clip();
+        ctx.fillRect(cx, ry, cw, rowH);
+        ctx.restore();
+      } else {
+        ctx.fillRect(cx, ry, cw, rowH);
+      }
+    }
+
+    // Row separator
+    if (i > 0) {
+      ctx.strokeStyle = '#f1f5f9';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(cx + 20, ry);
+      ctx.lineTo(cx + cw - 20, ry);
+      ctx.stroke();
+    }
+
+    const mid = ry + rowH / 2;
+    const circR = r.hi ? 25 : 19;
+    const circX = cx + 50;
+
+    // Rank circle
+    ctx.fillStyle = r.hi ? '#1d4ed8' : '#cbd5e1';
+    ctx.beginPath();
+    ctx.arc(circX, mid, circR, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Rank number
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `${r.hi ? 'bold 17px' : 'bold 13px'} Inter`;
+    ctx.textAlign = 'center';
+    ctx.fillText(r.rank, circX, mid + 5.5);
+    ctx.textAlign = 'left';
+
+    // Name
+    ctx.font = `${r.hi ? '700 18px' : '500 15px'} Inter`;
+    ctx.fillStyle = r.hi ? '#1e40af' : '#64748b';
+    ctx.fillText(r.name, cx + 90, mid - 10);
+
+    // Sub
+    ctx.font = `${r.hi ? '400 13px' : '400 12px'} Inter`;
+    ctx.fillStyle = r.hi ? '#475569' : '#94a3b8';
+    ctx.fillText(r.sub, cx + 90, mid + 14);
+
+    // #1 badge
+    if (r.hi) {
+      const bw = 52, bh = 26, bx = cx + cw - bw - 20, by = mid - 13;
+      ctx.fillStyle = '#dcfce7';
+      rrect(ctx, bx, by, bw, bh, 13);
+      ctx.fill();
+      ctx.font = '700 12px Inter';
+      ctx.fillStyle = '#16a34a';
+      ctx.textAlign = 'center';
+      ctx.fillText('#1', bx + bw / 2, by + 17);
+      ctx.textAlign = 'left';
+    }
+  });
+
+  // Card border
+  ctx.strokeStyle = 'rgba(226,232,240,0.8)';
+  ctx.lineWidth = 1;
+  rrect(ctx, cx, cy, cw, ch, cr);
+  ctx.stroke();
+
+  // ── BOTTOM GRADIENT STRIP ────────────────────────────────────
+  const stripG = ctx.createLinearGradient(0, 0, W, 0);
+  stripG.addColorStop(0, '#1d4ed8');
+  stripG.addColorStop(0.5, '#4f46e5');
+  stripG.addColorStop(1, '#7c3aed');
+  ctx.fillStyle = stripG;
+  ctx.fillRect(0, H - 12, W, 12);
+}
+
+// ── HELPERS ──────────────────────────────────────────────────────
+function rrect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.arcTo(x + w, y,     x + w, y + r,     r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h);
+  ctx.arcTo(x,     y + h, x,     y + h - r, r);
+  ctx.lineTo(x,     y + r);
+  ctx.arcTo(x,     y,     x + r, y,         r);
+  ctx.closePath();
+}
+
+// Clip path for just the top-rounded portion of a card
+function rrectTopClip(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h);
+  ctx.lineTo(x, y + h);
+  ctx.lineTo(x, y + r);
+  ctx.arcTo(x, y, x + r, y, r);
+  ctx.closePath();
+}
+
+function drawPin(ctx, x, y, color, label, size) {
+  const r = size / 2;
+  // Stem (teardrop bottom)
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.moveTo(x - r * 0.38, y + r * 0.72);
+  ctx.lineTo(x, y + r * 1.55);
+  ctx.lineTo(x + r * 0.38, y + r * 0.72);
+  ctx.fill();
+  // Circle
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fill();
+  // White ring
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = size > 26 ? 2.5 : 2;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.stroke();
+  // Inner shadow on large pin
+  if (size > 26) {
+    const pinShadow = ctx.createRadialGradient(x - r * 0.2, y - r * 0.25, 0, x, y, r);
+    pinShadow.addColorStop(0, 'rgba(255,255,255,0.2)');
+    pinShadow.addColorStop(1, 'rgba(0,0,0,0.12)');
+    ctx.fillStyle = pinShadow;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  // Label
+  ctx.fillStyle = '#ffffff';
+  ctx.font = `bold ${Math.round(size * 0.46)}px Inter`;
+  ctx.textAlign = 'center';
+  ctx.fillText(label, x, y + size * 0.17);
+  ctx.textAlign = 'left';
+}
+</script>
+</body>
+</html>
