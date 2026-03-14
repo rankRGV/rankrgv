@@ -16,8 +16,8 @@ export function buildOrgSchema() {
     url: site.url,
     telephone: site.phone,
     email: site.email,
-    logo: `${site.url}/images/logo.png`,
-    image: `${site.url}/images/og-default.webp`,
+    logo: `${site.url}/images/RankRGV_compact_logo.png`,
+    image: `${site.url}/images/RankRGV_compact_logoLarge.png`,
     description: site.tagline,
     areaServed: site.areaServed.map((city) => ({
       '@type': 'City',
@@ -31,6 +31,13 @@ export function buildOrgSchema() {
         longitude: -98.2300,
       },
       geoRadius: '80000', // ~50 miles covering full RGV
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '6',
+      bestRating: '5',
+      worstRating: '1',
     },
     sameAs: Object.values(site.social),
     openingHoursSpecification: [
