@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '@/layouts/BlogLayout.astro';
+import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const { title, description, pubDate, updatedDate, author, category, targetKeyword } = post.data;
+
+// Build schema — Article + Breadcrumb + WebPage
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    author: { '@type': 'Organization', name: site.name, url: site.url },
+    publisher: {
+      '@type': 'Organization',
+      name: site.name,
+      url: site.url,
+      logo: { '@type': 'ImageObject', url: `${site.url}/images/RankRGV_compact_logo.png` },
+    },
+    datePublished: pubDate.toISOString(),
+    dateModified: (updatedDate ?? pubDate).toISOString(),
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}/blog/${post.slug}/` },
+  },
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Blog', href: '/blog/' },
+    { label: title, href: `/blog/${post.slug}/` },
+  ]),
+  buildWebPageSchema(title, description, `/blog/${post.slug}/`),
+];
+---
+
+<BlogLayout
+  title={title}
+  description={description}
+  pubDate={pubDate}
+  updatedDate={updatedDate}
+  author={author}
+  category={category}
+  targetKeyword={targetKeyword}
+  slug={post.slug}
+  schema={schema}
+>
+  <Content />
+</BlogLayout>

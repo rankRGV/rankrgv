@@ -1,0 +1,120 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { buildWebPageSchema, buildBreadcrumbSchema, buildOrgSchema } from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const categoryLabels: Record<string, string> = {
+  'local-seo': 'Local SEO',
+  'web-design': 'Web Design',
+  'business-automation': 'Business Automation',
+  'google-maps': 'Google Maps',
+};
+
+const categoryColors: Record<string, string> = {
+  'local-seo': 'bg-brand-blue/10 text-brand-blue',
+  'web-design': 'bg-brand-purple/10 text-brand-purple',
+  'business-automation': 'bg-emerald-500/10 text-emerald-600',
+  'google-maps': 'bg-amber-500/10 text-amber-600',
+};
+
+const title = 'Local SEO & Marketing Blog for RGV Business Owners | RankRGV';
+const description =
+  'Practical guides on local SEO, Google Maps ranking, web design, and digital marketing — written specifically for McAllen and Rio Grande Valley business owners.';
+
+const schema = [
+  buildOrgSchema(),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Blog', href: '/blog/' },
+  ]),
+  buildWebPageSchema(title, description, '/blog/'),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <!-- Hero -->
+  <section class="bg-bg-surface border-b border-border py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-semibold mb-5">
+          RankRGV Blog
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text leading-tight mb-4">
+          Local SEO & marketing tips — <span class="gradient-text">built for the RGV.</span>
+        </h1>
+        <p class="text-lg text-text-muted">
+          No fluff. Practical guides on how McAllen and RGV businesses get found on Google, get more calls, and grow.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Posts grid -->
+  <section class="py-16 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {posts.length === 0 ? (
+        <p class="text-text-muted text-center py-20">Articles coming soon — check back shortly.</p>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {posts.map((post) => (
+            <a
+              href={`/blog/${post.slug}/`}
+              class="group block bg-bg-surface rounded-2xl border border-border hover:border-brand-blue/30 hover:shadow-md transition-all overflow-hidden no-underline"
+            >
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${categoryColors[post.data.category] ?? 'bg-gray-100 text-gray-600'}`}>
+                    {categoryLabels[post.data.category] ?? post.data.category}
+                  </span>
+                  <time
+                    datetime={post.data.pubDate.toISOString()}
+                    class="text-xs text-text-muted"
+                  >
+                    {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </time>
+                </div>
+                <h2 class="text-lg font-bold text-text mb-2 group-hover:text-brand-blue transition-colors leading-snug">
+                  {post.data.title}
+                </h2>
+                <p class="text-sm text-text-muted leading-relaxed line-clamp-3">
+                  {post.data.description}
+                </p>
+                <div class="mt-4 flex items-center gap-1 text-brand-blue text-sm font-semibold">
+                  Read article
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Blog CTA -->
+  <section class="py-16 bg-bg-surface border-t border-border">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-text mb-3">
+        Want us to handle this for your business?
+      </h2>
+      <p class="text-text-muted mb-6">
+        Reading about SEO is one thing. Having it done for you is another. Get a free audit and we'll show you exactly where your McAllen business stands.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/get-started/" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg hover:opacity-90 transition-opacity">
+          Get free audit
+        </a>
+        <a href={site.phoneHref} class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-bg border border-border text-text font-semibold text-base hover:border-brand-blue/30 transition-colors">
+          {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

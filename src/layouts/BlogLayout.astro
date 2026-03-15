@@ -1,0 +1,189 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { site } from '@/config/site';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author: string;
+  category: string;
+  targetKeyword: string;
+  slug: string;
+  schema?: object | object[];
+}
+
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  author,
+  category,
+  slug,
+  schema,
+} = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  'local-seo': 'Local SEO',
+  'web-design': 'Web Design',
+  'business-automation': 'Business Automation',
+  'google-maps': 'Google Maps',
+};
+
+const categoryLabel = categoryLabels[category] ?? category;
+
+const pubDateFormatted = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const updatedDateFormatted = updatedDate?.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const canonicalUrl = `${site.url}/blog/${slug}/`;
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Blog', href: '/blog/' },
+  { label: title, href: `/blog/${slug}/` },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonicalUrl} schema={schema}>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="lg:grid lg:grid-cols-[1fr_320px] lg:gap-16">
+
+      <!-- Main article -->
+      <article>
+        <!-- Category + meta -->
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-semibold uppercase tracking-wide">
+            {categoryLabel}
+          </span>
+          <time datetime={pubDate.toISOString()} class="text-sm text-text-muted">
+            {pubDateFormatted}
+          </time>
+          {updatedDate && (
+            <span class="text-sm text-text-muted">
+              · Updated <time datetime={updatedDate.toISOString()}>{updatedDateFormatted}</time>
+            </span>
+          )}
+          <span class="text-sm text-text-muted">· By {author}</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text leading-tight mb-6">
+          {title}
+        </h1>
+
+        <!-- Description lead -->
+        <p class="text-xl text-text-muted leading-relaxed mb-10 border-l-4 border-brand-blue pl-5">
+          {description}
+        </p>
+
+        <!-- Post content -->
+        <div class="prose">
+          <slot />
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="mt-16 rounded-2xl bg-bg-dark p-8 relative overflow-hidden">
+          <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+          <div class="relative">
+            <p class="text-white/70 text-sm font-semibold uppercase tracking-widest mb-2">Done reading?</p>
+            <h2 class="text-2xl font-extrabold text-white mb-3">
+              Let us handle it for your McAllen business.
+            </h2>
+            <p class="text-white/70 mb-6">
+              Free audit — we'll show you exactly where you stand on Google and what it takes to move up.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a
+                href="/get-started/"
+                class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg hover:opacity-90 transition-opacity"
+              >
+                Get free audit
+              </a>
+              <a
+                href={site.phoneHref}
+                class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-base hover:bg-white/15 transition-colors"
+              >
+                {site.phone}
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="mt-12 lg:mt-0">
+        <div class="lg:sticky lg:top-8 space-y-6">
+
+          <!-- Free audit CTA card -->
+          <div class="rounded-2xl border border-brand-blue/20 bg-brand-blue/5 p-6">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-blue mb-2">Free — No Obligation</p>
+            <h3 class="text-lg font-bold text-text mb-2">Get a Free SEO Audit</h3>
+            <p class="text-sm text-text-muted mb-4 leading-relaxed">
+              See exactly where your McAllen business ranks on Google and what it takes to move up. No pitch — just the numbers.
+            </p>
+            <a
+              href="/get-started/"
+              class="block w-full text-center px-4 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-sm hover:opacity-90 transition-opacity"
+            >
+              Get free audit →
+            </a>
+            <a
+              href={site.phoneHref}
+              class="block w-full text-center mt-2 px-4 py-3 rounded-xl bg-bg-surface border border-border text-text-muted font-semibold text-sm hover:border-brand-blue/30 transition-colors"
+            >
+              Call {site.phone}
+            </a>
+          </div>
+
+          <!-- Services links -->
+          <div class="rounded-2xl border border-border bg-bg-surface p-6">
+            <h3 class="text-sm font-semibold uppercase tracking-widest text-text-muted mb-4">Our Services</h3>
+            <ul class="space-y-2">
+              {[
+                { label: 'Local SEO', href: '/local-seo/', icon: '📍' },
+                { label: 'Web Design', href: '/web-design/', icon: '🖥️' },
+                { label: 'Business Automation', href: '/business-automation/', icon: '⚙️' },
+              ].map(({ label, href, icon }) => (
+                <li>
+                  <a
+                    href={href}
+                    class="flex items-center gap-3 text-sm text-text-muted hover:text-brand-blue transition-colors py-1.5 no-underline"
+                  >
+                    <span>{icon}</span>
+                    <span>{label}</span>
+                    <svg class="w-3 h-3 ml-auto opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Blog link -->
+          <div class="rounded-2xl border border-border p-5 text-center">
+            <p class="text-xs text-text-muted mb-2">More from the RankRGV blog</p>
+            <a href="/blog/" class="text-sm font-semibold text-brand-blue hover:underline">
+              View all articles →
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</BaseLayout>
