@@ -1,0 +1,248 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema, buildOrgSchema } from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const title = 'Agencia SEO Local McAllen TX | Marketing Digital | RankRGV';
+const description =
+  'RankRGV ayuda a negocios de McAllen a aparecer en Google y el Map Pack. SEO local, diseño web y automatización — para el Valle. Auditoría gratis (956) 391-5991.';
+const canonicalUrl = `${site.url}/es/areas-de-servicio/mcallen/`;
+
+const faqs = [
+  {
+    question: '¿Cuánto tiempo tarda el SEO local en funcionar en McAllen?',
+    answer:
+      'La mayoría de los negocios de McAllen ven sus primeros movimientos en Google Maps en 60 a 90 días. Para categorías con menos competencia, hay negocios que llegan al top 3 del Map Pack en 30 a 45 días. McAllen tiene menos competencia digital que Austin, Houston o San Antonio — eso significa que los resultados llegan más rápido aquí en el Valle.',
+  },
+  {
+    question: '¿Por qué contratar una agencia de McAllen y no una nacional?',
+    answer:
+      'Las agencias nacionales manejan cientos de clientes en todo el país. No saben cómo funciona el mercado bilingüe del Valle, ni qué palabras clave mueven negocios en McAllen vs. Edinburg. Nosotros trabajamos exclusivamente en el RGV — este es nuestro único mercado. Eso se traduce en estrategias más precisas y resultados más rápidos para tu negocio.',
+  },
+  {
+    question: '¿Qué industrias de McAllen se benefician más del SEO local?',
+    answer:
+      'Cualquier negocio donde el cliente busca antes de llamar: médicos, abogados, HVAC, plomería, techos, restaurantes, tiendas, y servicios profesionales. En McAllen específicamente, salud, legal y servicios para el hogar son las categorías con mayor volumen de búsqueda.',
+  },
+  {
+    question: '¿Trabajan con negocios bilingües en McAllen?',
+    answer:
+      'Sí. El Valle tiene una dinámica única — los clientes buscan en inglés y en español dependiendo del servicio. Tomamos eso en cuenta al hacer investigación de palabras clave y estrategia de contenido. Podemos ayudarte a capturar búsquedas en ambos idiomas.',
+  },
+];
+
+const schema = [
+  buildOrgSchema(),
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Inicio', href: '/es/' },
+    { label: 'Áreas de Servicio', href: '/es/' },
+    { label: 'McAllen', href: '/es/areas-de-servicio/mcallen/' },
+  ]),
+  buildWebPageSchema(title, description, '/es/areas-de-servicio/mcallen/'),
+];
+---
+
+<BaseLayout lang="es"
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  lang="es"
+>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href={`${site.url}/service-areas/mcallen/`} />
+    <link rel="alternate" hreflang="es" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={`${site.url}/service-areas/mcallen/`} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative bg-bg-dark overflow-hidden py-24 sm:py-32">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark/60 via-bg-dark to-brand-purple/20"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-semibold mb-6">
+          <span>Sirviendo McAllen, TX y el Condado de Hidalgo</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+          SEO local en McAllen — <span class="gradient-text">hecho para el Valle.</span>
+        </h1>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl">
+          Ayudamos a negocios de McAllen a aparecer en Google y el Google Map Pack. Sin contratos largos. Sin runaround. Auditoría gratis para empezar.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/es/#contacto" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg hover:opacity-90 transition-opacity">
+            Pide tu auditoría gratis
+          </a>
+          <a href="tel:9563915991" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-base hover:bg-white/15 transition-colors">
+            (956) 391-5991
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust signals -->
+  <section class="py-12 bg-bg-surface border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { value: 'McAllen', label: 'Mercado Principal' },
+          { value: '90 días', label: 'Primeros resultados promedio' },
+          { value: '#1', label: 'Meta en el Map Pack' },
+          { value: 'RGV', label: 'Nuestro único mercado' },
+        ].map(({ value, label }) => (
+          <div>
+            <div class="text-2xl font-extrabold gradient-text mb-1">{value}</div>
+            <div class="text-sm text-text-muted">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Market context -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Marketing digital en McAllen — por qué importa conocer el mercado
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            McAllen es el centro económico del Valle de Texas — uno de los metros de más rápido crecimiento en el estado, con un sector sólido de salud, comercio y servicios profesionales. Los clientes aquí buscan en inglés y en español, usan el celular, y toman decisiones rápido.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Una agencia de fuera no entiende esa dinámica. Hacen páginas genéricas que mencionan McAllen pero no están optimizadas para cómo realmente busca la gente de aquí. Nosotros somos RGV-only — cada estrategia que construimos está diseñada para este mercado.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            El mercado digital de McAllen tiene menos competencia que otros metros de Texas. Los negocios que construyan una base sólida de SEO local ahora van a dominar estos resultados por años.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1 space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-bg-dark relative flex items-end">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark via-bg-dark to-brand-purple/40"></div>
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+            <div class="relative z-10 p-6 w-full">
+              <div class="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">Rio Grande Valley</div>
+              <div class="text-white text-2xl font-extrabold tracking-tight">McAllen, Texas</div>
+              <div class="text-white/60 text-sm mt-1">Hub económico del RGV · Condado de Hidalgo</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { value: '145K+', label: 'Población de McAllen' },
+              { value: '#1', label: 'Ciudad de mayor crecimiento en el RGV' },
+              { value: 'Baja', label: 'Competencia SEO vs. otros metros de Texas' },
+              { value: '90 días', label: 'Tiempo promedio a primeros rankings' },
+            ].map(({ value, label }) => (
+              <div class="bg-bg-surface rounded-xl p-4 border border-border text-center">
+                <div class="text-xl font-extrabold gradient-text mb-0.5">{value}</div>
+                <div class="text-xs text-text-muted leading-tight">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Servicios de marketing digital para negocios en McAllen
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Tres servicios enfocados. Un solo objetivo: más clientes de McAllen encontrando tu negocio en Google.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: '📍',
+            name: 'SEO Local',
+            desc: 'Aparece en el top 3 del Google Map Pack cuando alguien en McAllen busca lo que tú ofreces. Optimización de GBP, citas locales y contenido para el Valle.',
+            href: '/es/seo-local/',
+          },
+          {
+            icon: '🖥️',
+            name: 'Diseño Web',
+            desc: 'Sitios web que convierten visitantes en clientes. Rápidos, en celular, y optimizados para los buscadores desde el primer día.',
+            href: '/web-design/',
+          },
+          {
+            icon: '⚙️',
+            name: 'Automatización',
+            desc: 'Respuestas automáticas a leads, seguimiento de clientes y flujos de trabajo que ahorran tiempo — para que te enfoques en hacer crecer tu negocio.',
+            href: '/business-automation/',
+          },
+        ].map(({ icon, name, desc, href }) => (
+          <a href={href} class="block bg-bg rounded-2xl border border-border p-8 hover:border-brand-blue/40 hover:shadow-md transition-all reveal group">
+            <div class="text-4xl mb-4">{icon}</div>
+            <h3 class="text-xl font-bold text-text mb-3 group-hover:text-brand-blue transition-colors">{name}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  <section class="py-16 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-text mb-4 reveal">Servimos todo McAllen</h2>
+      <p class="text-text-muted mb-8 reveal reveal-delay-1">
+        Desde el norte de McAllen hasta Sharyland, Downtown hasta La Paloma — si tus clientes están en el área de McAllen, te ayudamos a que te encuentren.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {['North McAllen', 'South McAllen', 'Downtown McAllen', 'La Paloma', 'Sharyland', 'y más...'].map((n) => (
+          <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">{n}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-text mb-10 text-center reveal">
+        Preguntas sobre marketing digital en McAllen
+      </h2>
+      <div class="space-y-4">
+        {faqs.map(({ question, answer }) => (
+          <details class="group bg-bg rounded-2xl border border-border p-6 reveal">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-text list-none">
+              {question}
+              <span class="text-brand-blue ml-4 flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-4 text-text-muted leading-relaxed">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-bg-dark relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 reveal">
+        ¿Listo para dominar las búsquedas en McAllen?
+      </h2>
+      <p class="text-white/70 text-lg mb-8 reveal reveal-delay-1">
+        Llámanos y hablamos de tu negocio en 15 minutos — o pide una auditoría escrita gratis.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center reveal reveal-delay-2">
+        <a href="/es/#contacto" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-lg shadow-lg hover:opacity-90 transition-opacity">
+          Auditoría gratis
+        </a>
+        <a href="tel:9563915991" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-lg hover:bg-white/15 transition-colors">
+          (956) 391-5991
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

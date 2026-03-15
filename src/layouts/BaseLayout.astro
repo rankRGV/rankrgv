@@ -14,6 +14,7 @@ interface Props {
   schema?: object | object[];
   geoRegion?: string;
   geoPlacename?: string;
+  lang?: 'en' | 'es';
 }
 
 const {
@@ -25,13 +26,14 @@ const {
   schema,
   geoRegion,
   geoPlacename,
+  lang = 'en',
 } = Astro.props;
 
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <SEOHead
       title={title}
@@ -45,11 +47,11 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
     />
   </head>
   <body class="bg-bg text-text font-sans antialiased">
-    <Header />
+    <Header lang={lang} />
     <main id="main-content">
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
     <StickyCallCTA />
 
     <!-- GA4 — only loads when ga4Id is set -->

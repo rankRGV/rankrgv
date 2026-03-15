@@ -2,6 +2,12 @@
 import { site } from '@/config/site';
 import { services } from '@/data/services';
 import { serviceAreas } from '@/data/serviceAreas';
+
+interface Props {
+  lang?: 'en' | 'es';
+}
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
 ---
 
 <footer class="bg-bg-dark text-white/60 border-t border-white/10">
@@ -16,7 +22,7 @@ import { serviceAreas } from '@/data/serviceAreas';
           </span>
         </a>
         <p class="text-sm leading-relaxed mb-6">
-          Local SEO & digital marketing for Rio Grande Valley businesses. We help you get found, get called, and grow.
+          {es ? 'SEO local y marketing digital para negocios del Valle. Te ayudamos a que te encuentren, te llamen y crezcas.' : 'Local SEO & digital marketing for Rio Grande Valley businesses. We help you get found, get called, and grow.'}
         </p>
         <div class="flex flex-wrap gap-3">
           <!-- Facebook -->
@@ -60,12 +66,12 @@ import { serviceAreas } from '@/data/serviceAreas';
 
       <!-- Services -->
       <div>
-        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Services</h3>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">{es ? 'Servicios' : 'Services'}</h3>
         <ul class="space-y-2">
           {services.map((s) => (
             <li>
               <a
-                href={`/${s.slug}/`}
+                href={es ? `/es/seo-local/` : `/${s.slug}/`}
                 class="text-sm text-white/60 hover:text-white transition-colors no-underline"
               >
                 {s.name}
@@ -74,7 +80,7 @@ import { serviceAreas } from '@/data/serviceAreas';
           ))}
           <li class="pt-2">
             <a href="/get-started/" class="text-sm text-brand-blue-light hover:text-white transition-colors no-underline font-medium">
-              Free SEO Audit →
+              {es ? 'Auditoría Gratis →' : 'Free SEO Audit →'}
             </a>
           </li>
         </ul>
@@ -82,12 +88,12 @@ import { serviceAreas } from '@/data/serviceAreas';
 
       <!-- Service Areas -->
       <div>
-        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Service Areas</h3>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">{es ? 'Áreas de Servicio' : 'Service Areas'}</h3>
         <ul class="space-y-2">
           {serviceAreas.map((a) => (
             <li>
               <a
-                href={`/service-areas/${a.slug}/`}
+                href={es ? `/es/areas-de-servicio/${a.slug}/` : `/service-areas/${a.slug}/`}
                 class="text-sm text-white/60 hover:text-white transition-colors no-underline"
               >
                 {a.name}, TX
@@ -95,8 +101,8 @@ import { serviceAreas } from '@/data/serviceAreas';
             </li>
           ))}
           <li class="pt-2">
-            <a href="/service-areas/" class="text-sm text-brand-blue-light hover:text-white transition-colors no-underline font-medium">
-              All Service Areas →
+            <a href={es ? '/es/areas-de-servicio/' : '/service-areas/'} class="text-sm text-brand-blue-light hover:text-white transition-colors no-underline font-medium">
+              {es ? 'Todas las Áreas →' : 'All Service Areas →'}
             </a>
           </li>
         </ul>
@@ -104,14 +110,14 @@ import { serviceAreas } from '@/data/serviceAreas';
 
       <!-- Company + Contact -->
       <div>
-        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Company</h3>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">{es ? 'Empresa' : 'Company'}</h3>
         <ul class="space-y-2 mb-6">
-          <li><a href="/about/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">About</a></li>
+          <li><a href="/about/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">{es ? 'Nosotros' : 'About'}</a></li>
           <li><a href="/blog/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">Blog</a></li>
-          <li><a href="/pricing/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">Pricing</a></li>
-          <li><a href="/contact/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">Contact</a></li>
-          <li><a href="/privacy-policy/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">Privacy Policy</a></li>
-          <li><a href="/terms/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">Terms of Service</a></li>
+          <li><a href="/pricing/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">{es ? 'Precios' : 'Pricing'}</a></li>
+          <li><a href="/contact/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">{es ? 'Contacto' : 'Contact'}</a></li>
+          <li><a href="/privacy-policy/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">{es ? 'Privacidad' : 'Privacy Policy'}</a></li>
+          <li><a href="/terms/" class="text-sm text-white/60 hover:text-white transition-colors no-underline">{es ? 'Términos' : 'Terms of Service'}</a></li>
         </ul>
         <div class="space-y-2">
           <a href={site.phoneHref} class="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors no-underline">
@@ -133,7 +139,7 @@ import { serviceAreas } from '@/data/serviceAreas';
     <!-- Bottom bar -->
     <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-xs text-white/60">
-        © {new Date().getFullYear()} {site.name}. All rights reserved. Serving the Rio Grande Valley, Texas.
+        © {new Date().getFullYear()} {site.name}. {es ? 'Todos los derechos reservados. Atendemos el Valle del Río Grande, Texas.' : 'All rights reserved. Serving the Rio Grande Valley, Texas.'}
       </p>
       <p class="text-xs text-white/50">
         McAllen · Brownsville · Edinburg · Harlingen · Mission · Pharr

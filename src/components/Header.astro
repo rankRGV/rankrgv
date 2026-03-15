@@ -1,6 +1,21 @@
 ---
 import { site } from '@/config/site';
 import { mainNav } from '@/data/navigation';
+
+interface Props {
+  lang?: 'en' | 'es';
+}
+const { lang = 'en' } = Astro.props;
+
+const es = lang === 'es';
+
+const navEs = [
+  { label: 'Servicios', href: '/es/seo-local/', dropdown: null },
+  { label: 'Áreas de Servicio', href: '/es/areas-de-servicio/', dropdown: null },
+  { label: 'Blog', href: '/blog/', dropdown: null },
+  { label: 'Nosotros', href: '/about/', dropdown: null },
+  { label: 'Contacto', href: '/contact/', dropdown: null },
+];
 ---
 
 <header
@@ -24,7 +39,7 @@ import { mainNav } from '@/data/navigation';
         </a>
         <!-- Service area coverage — crawlable local signal -->
         <span class="text-xs text-white/70 hidden lg:block">
-          Serving McAllen · Brownsville · Edinburg · Harlingen · Mission · Pharr
+          {es ? 'Atendemos McAllen · Brownsville · Edinburg · Harlingen · Mission · Pharr' : 'Serving McAllen · Brownsville · Edinburg · Harlingen · Mission · Pharr'}
         </span>
       </div>
     </div>
@@ -47,7 +62,7 @@ import { mainNav } from '@/data/navigation';
 
       <!-- Desktop nav -->
       <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
-        {mainNav.map((item) => (
+        {(es ? navEs : mainNav).map((item) => (
           item.dropdown ? (
             <div class="relative group">
               <button
@@ -89,7 +104,7 @@ import { mainNav } from '@/data/navigation';
       <!-- CTA — standalone tap-to-call -->
       <div class="hidden lg:flex items-center">
         <a href={site.phoneHref} class="btn-primary text-sm py-2 px-4">
-          Free Consultation
+          {es ? 'Consulta Gratis' : 'Free Consultation'}
         </a>
       </div>
 
@@ -113,12 +128,12 @@ import { mainNav } from '@/data/navigation';
   <!-- Mobile menu — always dark bg regardless of scroll -->
   <div id="mobile-menu" class="lg:hidden hidden border-t border-white/10 bg-bg-dark">
     <div class="px-4 py-4 space-y-1">
-      {mainNav.map((item) => (
+      {(es ? navEs : mainNav).map((item) => (
         <>
-          {item.dropdown ? (
+          {(item as any).dropdown ? (
             <div>
               <p class="px-3 py-1 text-xs font-semibold text-white/40 uppercase tracking-wider">{item.label}</p>
-              {item.dropdown.map((child) => (
+              {((item as any).dropdown as any[]).map((child: any) => (
                 <a
                   href={child.href}
                   class="block px-3 py-2 text-sm text-white/70 hover:text-white rounded-md transition-colors no-underline"
@@ -139,7 +154,7 @@ import { mainNav } from '@/data/navigation';
       ))}
       <div class="pt-3 border-t border-white/10 flex flex-col gap-3">
         <a href={site.phoneHref} class="text-sm text-white/70 px-3 no-underline">{site.phone}</a>
-        <a href={site.phoneHref} class="btn-primary text-sm text-center">Free Consultation</a>
+        <a href={site.phoneHref} class="btn-primary text-sm text-center">{es ? 'Consulta Gratis' : 'Free Consultation'}</a>
       </div>
     </div>
   </div>

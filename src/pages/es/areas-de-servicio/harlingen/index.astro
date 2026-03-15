@@ -1,0 +1,248 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema, buildOrgSchema } from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const title = 'Agencia SEO Local Harlingen TX | Marketing Digital | RankRGV';
+const description =
+  'RankRGV ayuda a negocios de Harlingen a aparecer en Google y el Map Pack. SEO local y diseño web para el centro del Valle. Auditoría gratis — (956) 391-5991.';
+const canonicalUrl = `${site.url}/es/areas-de-servicio/harlingen/`;
+
+const faqs = [
+  {
+    question: '¿Funciona el SEO local para clínicas y médicos en Harlingen?',
+    answer:
+      'Harlingen es uno de los mercados de salud más activos en el Valle — con Valley Baptist, UTRGV Health Sciences y decenas de clínicas privadas. Los pacientes buscan médicos, especialistas y clínicas en Google todos los días. El SEO local para salud en Harlingen tiene uno de los mayores retornos que vemos en el RGV.',
+  },
+  {
+    question: '¿Qué tan diferente es el mercado de Harlingen vs. McAllen?',
+    answer:
+      'Harlingen es más pequeño y más enfocado en salud y servicios profesionales. La competencia digital es si cabe aún más baja que en McAllen, y las palabras clave tienen menos dificultad. Para categorías de salud, legal y servicios del hogar, Harlingen es uno de los mercados con mejores oportunidades de posicionamiento en todo el RGV.',
+  },
+  {
+    question: '¿Pueden ayudar a negocios cerca del aeropuerto en Harlingen?',
+    answer:
+      'Sí. El Valley International Airport genera tráfico de negocios, turismo y logística. Si tu negocio sirve a viajeros, empresas de transporte, hospitalidad o servicios aeroportuarios, podemos crear estrategias de contenido y SEO local específicas para capturar esas búsquedas.',
+  },
+  {
+    question: '¿Necesito tener sitio web para empezar con SEO local en Harlingen?',
+    answer:
+      'Puedes empezar con solo optimizar tu Google Business Profile — eso solo puede moverte al Map Pack. Pero para resultados más sólidos y duraderos, combinar un GBP optimizado con un sitio web bien estructurado es lo que da los mejores resultados. Podemos ayudarte con ambas cosas.',
+  },
+];
+
+const schema = [
+  buildOrgSchema(),
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Inicio', href: '/es/' },
+    { label: 'Áreas de Servicio', href: '/es/' },
+    { label: 'Harlingen', href: '/es/areas-de-servicio/harlingen/' },
+  ]),
+  buildWebPageSchema(title, description, '/es/areas-de-servicio/harlingen/'),
+];
+---
+
+<BaseLayout lang="es"
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  lang="es"
+>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href={`${site.url}/service-areas/harlingen/`} />
+    <link rel="alternate" hreflang="es" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={`${site.url}/service-areas/harlingen/`} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative bg-bg-dark overflow-hidden py-24 sm:py-32">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark/60 via-bg-dark to-brand-purple/20"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-semibold mb-6">
+          <span>Sirviendo Harlingen, TX y el Condado de Cameron</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+          SEO local en Harlingen — <span class="gradient-text">más pacientes, más clientes.</span>
+        </h1>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl">
+          Harlingen es el hub de salud del Valle. Si tienes una clínica, consultorio o negocio de servicios, tus clientes te están buscando en Google ahora mismo. Te ayudamos a que te encuentren.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/es/#contacto" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg hover:opacity-90 transition-opacity">
+            Pide tu auditoría gratis
+          </a>
+          <a href="tel:9563915991" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-base hover:bg-white/15 transition-colors">
+            (956) 391-5991
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust signals -->
+  <section class="py-12 bg-bg-surface border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { value: 'Harlingen', label: 'Hub de salud del RGV' },
+          { value: '75K+', label: 'Residentes' },
+          { value: 'Valley Baptist', label: 'Mayor hospital del área' },
+          { value: 'Baja', label: 'Competencia SEO local' },
+        ].map(({ value, label }) => (
+          <div>
+            <div class="text-2xl font-extrabold gradient-text mb-1">{value}</div>
+            <div class="text-sm text-text-muted">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Market context -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Harlingen tiene el mercado de salud más activo del Valle — ¿está tu negocio ahí?
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Harlingen ancla la economía del Condado de Cameron con Valley Baptist Medical Center, UTRGV Health Sciences Campus y una comunidad empresarial fuerte de tamaño mediano. Los pacientes y consumidores de Harlingen buscan activamente proveedores en Google antes de llamar o visitar.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Sin embargo, la competencia digital en Harlingen sigue siendo sorprendentemente baja. La mayoría de los consultorios médicos, clínicas y negocios de servicios en la ciudad no están en el Map Pack — o ni siquiera tienen un Google Business Profile completo.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            Eso es una oportunidad enorme para cualquier negocio que se mueva ahora con una estrategia seria. RankRGV conoce Harlingen y el mercado del Valle — no somos una agencia genérica de otra ciudad.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1 space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-bg-dark relative flex items-end">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark via-bg-dark to-brand-purple/40"></div>
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+            <div class="relative z-10 p-6 w-full">
+              <div class="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">Centro del Valle</div>
+              <div class="text-white text-2xl font-extrabold tracking-tight">Harlingen, Texas</div>
+              <div class="text-white/60 text-sm mt-1">Hub de salud del RGV · Condado de Cameron</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { value: '75K+', label: 'Residentes en Harlingen' },
+              { value: 'Salud', label: 'Sector #1 del mercado local' },
+              { value: 'Baja', label: 'Competencia SEO local' },
+              { value: '60-90d', label: 'Tiempo a primeros rankings' },
+            ].map(({ value, label }) => (
+              <div class="bg-bg-surface rounded-xl p-4 border border-border text-center">
+                <div class="text-xl font-extrabold gradient-text mb-0.5">{value}</div>
+                <div class="text-xs text-text-muted leading-tight">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Servicios de marketing digital para negocios en Harlingen
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Estrategias reales para el mercado de Harlingen — no soluciones de talla única.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: '📍',
+            name: 'SEO Local',
+            desc: 'Top 3 en el Google Map Pack para búsquedas en Harlingen. Especializados en salud, legal y servicios profesionales — los sectores más activos de la ciudad.',
+            href: '/es/seo-local/',
+          },
+          {
+            icon: '🖥️',
+            name: 'Diseño Web',
+            desc: 'Sitios web que generan citas y llamadas. HIPAA-aware para consultorios médicos, optimizados para móvil, y listos para Google desde el primer día.',
+            href: '/web-design/',
+          },
+          {
+            icon: '⚙️',
+            name: 'Automatización',
+            desc: 'Confirmaciones de citas, seguimiento de leads y respuestas automáticas — para que no pierdas ningún paciente o cliente por falta de respuesta rápida.',
+            href: '/business-automation/',
+          },
+        ].map(({ icon, name, desc, href }) => (
+          <a href={href} class="block bg-bg rounded-2xl border border-border p-8 hover:border-brand-blue/40 hover:shadow-md transition-all reveal group">
+            <div class="text-4xl mb-4">{icon}</div>
+            <h3 class="text-xl font-bold text-text mb-3 group-hover:text-brand-blue transition-colors">{name}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  <section class="py-16 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-text mb-4 reveal">Servimos toda el área de Harlingen</h2>
+      <p class="text-text-muted mb-8 reveal reveal-delay-1">
+        Desde el Downtown de Harlingen hasta Stuart Place, Treasure Hills y North Harlingen — cubrimos el Condado de Cameron completo.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {['Downtown Harlingen', 'North Harlingen', 'Stuart Place', 'Treasure Hills', 'y más...'].map((n) => (
+          <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">{n}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-text mb-10 text-center reveal">
+        Preguntas sobre SEO local en Harlingen
+      </h2>
+      <div class="space-y-4">
+        {faqs.map(({ question, answer }) => (
+          <details class="group bg-bg rounded-2xl border border-border p-6 reveal">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-text list-none">
+              {question}
+              <span class="text-brand-blue ml-4 flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-4 text-text-muted leading-relaxed">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-bg-dark relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 reveal">
+        ¿Listo para aparecer primero en Harlingen?
+      </h2>
+      <p class="text-white/70 text-lg mb-8 reveal reveal-delay-1">
+        Pide tu auditoría gratis y te decimos exactamente dónde estás y qué hace falta para llegar al top.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center reveal reveal-delay-2">
+        <a href="/es/#contacto" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-lg shadow-lg hover:opacity-90 transition-opacity">
+          Auditoría gratis
+        </a>
+        <a href="tel:9563915991" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-lg hover:bg-white/15 transition-colors">
+          (956) 391-5991
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

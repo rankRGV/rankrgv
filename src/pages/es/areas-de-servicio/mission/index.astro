@@ -1,0 +1,248 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema, buildOrgSchema } from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const title = 'Agencia SEO Local Mission TX | Marketing Digital | RankRGV';
+const description =
+  'RankRGV ayuda a negocios de Mission a aparecer en Google y el Map Pack. SEO local y diseño web para Mission y el oeste del Valle. Auditoría gratis — (956) 391-5991.';
+const canonicalUrl = `${site.url}/es/areas-de-servicio/mission/`;
+
+const faqs = [
+  {
+    question: '¿Qué negocios en Mission se benefician más del SEO local?',
+    answer:
+      'Cualquier negocio donde el cliente busca antes de llamar: HVAC, plomería, techos, restaurantes, talleres, clínicas, abogados. Mission tiene un corredor de negocios activo en Mile 2 Road y una comunidad en crecimiento que busca servicios locales constantemente. Si alguien en Mission busca lo que tú ofreces, debería encontrarte a ti — no a la competencia.',
+  },
+  {
+    question: '¿Cómo es la competencia digital en Mission vs. McAllen?',
+    answer:
+      'Menor. Mission es un suburbio en crecimiento con una base de negocios sólida pero con poca competencia digital. Eso significa que es más fácil llegar al top del Map Pack aquí que en el centro de McAllen. Un negocio bien optimizado en Mission puede dominar su categoría local con menos esfuerzo que en mercados más grandes.',
+  },
+  {
+    question: '¿Puedo aparecer en búsquedas de McAllen desde Mission?',
+    answer:
+      'Sí. Google usa la ubicación del buscador y la proximidad del negocio, pero también puede mostrarte para búsquedas en áreas cercanas si tu presencia digital está bien construida. Con una estrategia correcta, muchos negocios de Mission aparecen también en búsquedas del área de McAllen.',
+  },
+  {
+    question: '¿Cuánto cuesta empezar con SEO local en Mission?',
+    answer:
+      'El SEO local empieza en $500/mes. Hacemos una auditoría gratuita primero para que veas exactamente en qué posición estás, qué oportunidades hay, y qué haría falta para mejorar — sin ningún compromiso de contratar.',
+  },
+];
+
+const schema = [
+  buildOrgSchema(),
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Inicio', href: '/es/' },
+    { label: 'Áreas de Servicio', href: '/es/' },
+    { label: 'Mission', href: '/es/areas-de-servicio/mission/' },
+  ]),
+  buildWebPageSchema(title, description, '/es/areas-de-servicio/mission/'),
+];
+---
+
+<BaseLayout lang="es"
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  lang="es"
+>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href={`${site.url}/service-areas/mission/`} />
+    <link rel="alternate" hreflang="es" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={`${site.url}/service-areas/mission/`} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative bg-bg-dark overflow-hidden py-24 sm:py-32">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark/60 via-bg-dark to-brand-purple/20"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-semibold mb-6">
+          <span>Sirviendo Mission, TX y el Condado de Hidalgo</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+          SEO local en Mission — <span class="gradient-text">domina tu mercado en el Valle.</span>
+        </h1>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl">
+          Mission está creciendo rápido y tiene un corredor de negocios activo. Te ayudamos a que tu negocio aparezca primero cuando alguien en Mission busque lo que tú ofreces.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/es/#contacto" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg hover:opacity-90 transition-opacity">
+            Pide tu auditoría gratis
+          </a>
+          <a href="tel:9563915991" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-base hover:bg-white/15 transition-colors">
+            (956) 391-5991
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust signals -->
+  <section class="py-12 bg-bg-surface border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { value: 'Mission', label: 'Suburbio en expansión del RGV' },
+          { value: '85K+', label: 'Residentes' },
+          { value: 'Mile 2', label: 'Corredor de negocios principal' },
+          { value: 'Baja', label: 'Competencia digital local' },
+        ].map(({ value, label }) => (
+          <div>
+            <div class="text-2xl font-extrabold gradient-text mb-1">{value}</div>
+            <div class="text-sm text-text-muted">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Market context -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Mission está creciendo — y los negocios que se posicionen primero van a ganar
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Conocida históricamente como la tierra de los cítricos, Mission se ha convertido en uno de los suburbios de más rápido crecimiento de McAllen, con un corredor de negocios expandiéndose por Mile 2 Road y nuevas comunidades residenciales en todo el oeste del Condado de Hidalgo.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Con ese crecimiento viene más búsquedas locales — residentes nuevos buscando servicios, negocios establecidos buscando crecer, y una competencia digital que todavía no ha despertado del todo. Es el momento ideal para construir una presencia sólida en Google.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            RankRGV opera exclusivamente en el Valle — Mission incluida. Sabemos cómo posicionar negocios en este mercado para que los clientes correctos te encuentren.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1 space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-bg-dark relative flex items-end">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark via-bg-dark to-brand-purple/40"></div>
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+            <div class="relative z-10 p-6 w-full">
+              <div class="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">Oeste del Valle</div>
+              <div class="text-white text-2xl font-extrabold tracking-tight">Mission, Texas</div>
+              <div class="text-white/60 text-sm mt-1">Suburbio en crecimiento · Condado de Hidalgo</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { value: '85K+', label: 'Residentes en Mission' },
+              { value: 'Mile 2', label: 'Corredor comercial principal' },
+              { value: 'Baja', label: 'Competencia SEO vs. tamaño' },
+              { value: '60-90d', label: 'Tiempo a primeros rankings' },
+            ].map(({ value, label }) => (
+              <div class="bg-bg-surface rounded-xl p-4 border border-border text-center">
+                <div class="text-xl font-extrabold gradient-text mb-0.5">{value}</div>
+                <div class="text-xs text-text-muted leading-tight">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Servicios de marketing digital para negocios en Mission
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Todo lo que necesita tu negocio de Mission para aparecer en Google y convertir visitas en clientes.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: '📍',
+            name: 'SEO Local',
+            desc: 'Top 3 en el Map Pack cuando alguien en Mission busca tu servicio. Estrategia completa: GBP, citas locales y contenido para el corredor de Mile 2 y el oeste del Valle.',
+            href: '/es/seo-local/',
+          },
+          {
+            icon: '🖥️',
+            name: 'Diseño Web',
+            desc: 'Un sitio web que trabaja para tu negocio 24/7 — rápido, en celular, y construido para generar llamadas desde el primer día.',
+            href: '/web-design/',
+          },
+          {
+            icon: '⚙️',
+            name: 'Automatización',
+            desc: 'Captura leads, manda follow-ups automáticos y programa citas sin trabajo manual — para que tu negocio funcione más eficientemente.',
+            href: '/business-automation/',
+          },
+        ].map(({ icon, name, desc, href }) => (
+          <a href={href} class="block bg-bg rounded-2xl border border-border p-8 hover:border-brand-blue/40 hover:shadow-md transition-all reveal group">
+            <div class="text-4xl mb-4">{icon}</div>
+            <h3 class="text-xl font-bold text-text mb-3 group-hover:text-brand-blue transition-colors">{name}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  <section class="py-16 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-text mb-4 reveal">Servimos toda el área de Mission</h2>
+      <p class="text-text-muted mb-8 reveal reveal-delay-1">
+        Desde el Downtown de Mission hasta Bentsen Grove, Los Ebanos y comunidades del norte — si tus clientes están en Mission, te ayudamos a que te encuentren.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {['Downtown Mission', 'North Mission', 'Bentsen Grove', 'Los Ebanos', 'La Joya', 'y más...'].map((n) => (
+          <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">{n}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-text mb-10 text-center reveal">
+        Preguntas sobre SEO local en Mission
+      </h2>
+      <div class="space-y-4">
+        {faqs.map(({ question, answer }) => (
+          <details class="group bg-bg rounded-2xl border border-border p-6 reveal">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-text list-none">
+              {question}
+              <span class="text-brand-blue ml-4 flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-4 text-text-muted leading-relaxed">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-bg-dark relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 reveal">
+        ¿Listo para dominar las búsquedas en Mission?
+      </h2>
+      <p class="text-white/70 text-lg mb-8 reveal reveal-delay-1">
+        Habla con nosotros gratis. Te decimos dónde estás y qué hace falta — sin rodeos.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center reveal reveal-delay-2">
+        <a href="/es/#contacto" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-lg shadow-lg hover:opacity-90 transition-opacity">
+          Auditoría gratis
+        </a>
+        <a href="tel:9563915991" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-lg hover:bg-white/15 transition-colors">
+          (956) 391-5991
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

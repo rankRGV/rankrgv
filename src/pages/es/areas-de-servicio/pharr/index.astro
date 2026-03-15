@@ -1,0 +1,248 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema, buildOrgSchema } from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const title = 'Agencia SEO Local Pharr TX | Marketing Digital | RankRGV';
+const description =
+  'RankRGV ayuda a negocios de Pharr a aparecer en Google y el Map Pack. SEO local para el gateway internacional del Valle. Auditoría gratis — (956) 391-5991.';
+const canonicalUrl = `${site.url}/es/areas-de-servicio/pharr/`;
+
+const faqs = [
+  {
+    question: '¿Cómo ayuda el SEO local a negocios de comercio internacional en Pharr?',
+    answer:
+      'Pharr tiene uno de los puertos comerciales más activos de Texas — el Pharr International Bridge. Los negocios de logística, almacenaje, importación, exportación y servicios de transporte en el área tienen clientes que buscan proveedores locales en Google. Una presencia digital sólida captura esas búsquedas antes de que el cliente llame a la competencia.',
+  },
+  {
+    question: '¿Puede un negocio en Pharr aparecer en búsquedas de McAllen también?',
+    answer:
+      'Sí. Pharr y McAllen son ciudades adyacentes y Google las trata como parte del mismo mercado para muchas búsquedas. Con una estrategia bien construida — incluyendo páginas de área de servicio y contenido local — puedes aparecer tanto para búsquedas de Pharr como para búsquedas del área de McAllen en general.',
+  },
+  {
+    question: '¿Hay oportunidad de SEO en español para negocios en Pharr?',
+    answer:
+      'Absolutamente. Pharr tiene una de las poblaciones más bilingües del Valle. Las búsquedas en español para servicios locales están significativamente sin atender — la mayoría de los negocios locales solo tienen presencia en inglés. Eso es una ventana abierta para cualquier negocio que quiera capturar búsquedas en español.',
+  },
+  {
+    question: '¿Cómo funciona el proceso de auditoría gratis?',
+    answer:
+      'La auditoría cubre cuatro áreas: tu Google Business Profile, el SEO técnico de tu sitio web, tus rankings actuales en Google, y lo que está haciendo tu competencia. Te entregamos el diagnóstico completo por escrito — sin pitch de ventas, sin obligación de contratar. Solo información real.',
+  },
+];
+
+const schema = [
+  buildOrgSchema(),
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Inicio', href: '/es/' },
+    { label: 'Áreas de Servicio', href: '/es/' },
+    { label: 'Pharr', href: '/es/areas-de-servicio/pharr/' },
+  ]),
+  buildWebPageSchema(title, description, '/es/areas-de-servicio/pharr/'),
+];
+---
+
+<BaseLayout lang="es"
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  lang="es"
+>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href={`${site.url}/service-areas/pharr/`} />
+    <link rel="alternate" hreflang="es" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={`${site.url}/service-areas/pharr/`} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative bg-bg-dark overflow-hidden py-24 sm:py-32">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark/60 via-bg-dark to-brand-purple/20"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-semibold mb-6">
+          <span>Sirviendo Pharr, TX y el Condado de Hidalgo</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+          SEO local en Pharr — <span class="gradient-text">el gateway del Valle te necesita visible.</span>
+        </h1>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl">
+          Pharr es el gateway internacional del RGV — con el Puerto Internacional, logística activa y una comunidad empresarial en crecimiento. Te ayudamos a que tu negocio aparezca cuando te buscan.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/es/#contacto" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg hover:opacity-90 transition-opacity">
+            Pide tu auditoría gratis
+          </a>
+          <a href="tel:9563915991" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-base hover:bg-white/15 transition-colors">
+            (956) 391-5991
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust signals -->
+  <section class="py-12 bg-bg-surface border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { value: 'Pharr', label: 'Gateway internacional del RGV' },
+          { value: '80K+', label: 'Residentes' },
+          { value: 'Puerto', label: 'Puerto Internacional más activo de TX' },
+          { value: 'Baja', label: 'Competencia SEO local' },
+        ].map(({ value, label }) => (
+          <div>
+            <div class="text-2xl font-extrabold gradient-text mb-1">{value}</div>
+            <div class="text-sm text-text-muted">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Market context -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Pharr tiene oportunidades únicas de SEO local — especialmente en español
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Pharr es un gateway clave entre Estados Unidos y México — con el Pharr International Bridge siendo uno de los puertos comerciales más activos de Texas. La ciudad tiene una economía de logística y almacenaje en crecimiento, junto con una comunidad empresarial diversa.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Pharr también tiene una de las poblaciones más bilingües del Valle, lo que significa que las búsquedas en español para servicios locales están significativamente sin atender. La mayoría de los competidores locales solo tienen presencia en inglés — eso deja territorio libre en búsquedas en español.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            RankRGV construye estrategias bilingüe-aware para el mercado del Valle. Si tu negocio en Pharr sirve a clientes bilingües, podemos ayudarte a capturar ambos mercados.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1 space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-bg-dark relative flex items-end">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark via-bg-dark to-brand-purple/40"></div>
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+            <div class="relative z-10 p-6 w-full">
+              <div class="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">Gateway Internacional</div>
+              <div class="text-white text-2xl font-extrabold tracking-tight">Pharr, Texas</div>
+              <div class="text-white/60 text-sm mt-1">Puerto Internacional · Condado de Hidalgo</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { value: '80K+', label: 'Residentes en Pharr' },
+              { value: '#1', label: 'Puerto comercial más activo del sur de TX' },
+              { value: 'Bilingüe', label: 'Mercado con alta demanda en español' },
+              { value: '60-90d', label: 'Tiempo a primeros rankings' },
+            ].map(({ value, label }) => (
+              <div class="bg-bg-surface rounded-xl p-4 border border-border text-center">
+                <div class="text-xl font-extrabold gradient-text mb-0.5">{value}</div>
+                <div class="text-xs text-text-muted leading-tight">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Servicios de marketing digital para negocios en Pharr
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Estrategias diseñadas para el mercado bilingüe e internacional de Pharr.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: '📍',
+            name: 'SEO Local',
+            desc: 'Top 3 en el Map Pack para búsquedas en Pharr y el área de McAllen. Estrategia bilingüe disponible para capturar búsquedas en inglés y español.',
+            href: '/es/seo-local/',
+          },
+          {
+            icon: '🖥️',
+            name: 'Diseño Web',
+            desc: 'Sitios web bilingüe-ready, rápidos en móvil y optimizados para generar llamadas y formularios de contacto desde el primer día.',
+            href: '/web-design/',
+          },
+          {
+            icon: '⚙️',
+            name: 'Automatización',
+            desc: 'Flujos de seguimiento de leads, respuestas automáticas y sistemas de captura para que tu negocio no pierda oportunidades por falta de respuesta rápida.',
+            href: '/business-automation/',
+          },
+        ].map(({ icon, name, desc, href }) => (
+          <a href={href} class="block bg-bg rounded-2xl border border-border p-8 hover:border-brand-blue/40 hover:shadow-md transition-all reveal group">
+            <div class="text-4xl mb-4">{icon}</div>
+            <h3 class="text-xl font-bold text-text mb-3 group-hover:text-brand-blue transition-colors">{name}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  <section class="py-16 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-text mb-4 reveal">Servimos toda el área de Pharr</h2>
+      <p class="text-text-muted mb-8 reveal reveal-delay-1">
+        Desde el Downtown de Pharr hasta North Pharr, Sharyland Plantation y Las Milpas — si tu cliente está en Pharr, te ayudamos a que te encuentre.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {['Downtown Pharr', 'North Pharr', 'Sharyland Plantation', 'Las Milpas', 'y más...'].map((n) => (
+          <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">{n}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-text mb-10 text-center reveal">
+        Preguntas sobre SEO local en Pharr
+      </h2>
+      <div class="space-y-4">
+        {faqs.map(({ question, answer }) => (
+          <details class="group bg-bg rounded-2xl border border-border p-6 reveal">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-text list-none">
+              {question}
+              <span class="text-brand-blue ml-4 flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-4 text-text-muted leading-relaxed">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-bg-dark relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 reveal">
+        ¿Listo para crecer en Pharr?
+      </h2>
+      <p class="text-white/70 text-lg mb-8 reveal reveal-delay-1">
+        Pide tu auditoría gratis. Te decimos exactamente dónde está tu negocio en Google y qué hace falta para mejorar.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center reveal reveal-delay-2">
+        <a href="/es/#contacto" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-lg shadow-lg hover:opacity-90 transition-opacity">
+          Auditoría gratis
+        </a>
+        <a href="tel:9563915991" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-lg hover:bg-white/15 transition-colors">
+          (956) 391-5991
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

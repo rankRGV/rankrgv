@@ -1,0 +1,248 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema, buildOrgSchema } from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const title = 'Agencia SEO Local Edinburg TX | Marketing Digital | RankRGV';
+const description =
+  'RankRGV ayuda a negocios de Edinburg a aparecer en Google y el Map Pack. SEO local y diseño web para Edinburg y el norte del Valle. Auditoría gratis — (956) 391-5991.';
+const canonicalUrl = `${site.url}/es/areas-de-servicio/edinburg/`;
+
+const faqs = [
+  {
+    question: '¿Qué tan competitivo es el SEO local en Edinburg?',
+    answer:
+      'Menos competitivo de lo que esperarías para una ciudad de 100,000 personas. La mayoría de los negocios de Edinburg no tienen una estrategia de SEO seria. Eso significa que con el enfoque correcto, puedes entrar al top 3 del Map Pack más rápido aquí que en otros mercados de Texas. La demanda de búsqueda está ahí — la competencia no.',
+  },
+  {
+    question: '¿El mercado universitario de UTRGV afecta el SEO local?',
+    answer:
+      'Sí. La comunidad universitaria genera demanda para servicios locales — desde comida y transporte hasta servicios profesionales y salud. Si tu negocio puede servir a estudiantes, egresados o al personal de UTRGV, hay términos de búsqueda específicos que podemos trabajar para capturar esa audiencia.',
+  },
+  {
+    question: '¿Cuánto cuesta el SEO local para un negocio en Edinburg?',
+    answer:
+      'El SEO local empieza en $500/mes. Para la mayoría de los negocios en Edinburg, eso es suficiente para construir una presencia dominante en el Map Pack y en búsquedas orgánicas. Ofrecemos una auditoría gratis para darte un diagnóstico claro antes de que tomes cualquier decisión.',
+  },
+  {
+    question: '¿Trabajan con negocios de servicios profesionales en Edinburg?',
+    answer:
+      'Sí — y son algunos de nuestros clientes ideales. Abogados, contadores, médicos, dentistas y otros profesionales en Edinburg tienen alta demanda de búsqueda y excelente retorno de SEO porque cada cliente nuevo vale mucho. Sabemos cómo optimizar para servicios profesionales en el mercado del Valle.',
+  },
+];
+
+const schema = [
+  buildOrgSchema(),
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Inicio', href: '/es/' },
+    { label: 'Áreas de Servicio', href: '/es/' },
+    { label: 'Edinburg', href: '/es/areas-de-servicio/edinburg/' },
+  ]),
+  buildWebPageSchema(title, description, '/es/areas-de-servicio/edinburg/'),
+];
+---
+
+<BaseLayout lang="es"
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  lang="es"
+>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href={`${site.url}/service-areas/edinburg/`} />
+    <link rel="alternate" hreflang="es" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={`${site.url}/service-areas/edinburg/`} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative bg-bg-dark overflow-hidden py-24 sm:py-32">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark/60 via-bg-dark to-brand-purple/20"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-semibold mb-6">
+          <span>Sirviendo Edinburg, TX y el Condado de Hidalgo</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+          SEO local en Edinburg — <span class="gradient-text">aparece primero en el Valle.</span>
+        </h1>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl">
+          Edinburg tiene 100,000 residentes, UTRGV, y la sede del Condado de Hidalgo. Tu negocio merece estar en el top cuando te busquen. Nosotros hacemos que eso pase.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/es/#contacto" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg hover:opacity-90 transition-opacity">
+            Pide tu auditoría gratis
+          </a>
+          <a href="tel:9563915991" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-base hover:bg-white/15 transition-colors">
+            (956) 391-5991
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust signals -->
+  <section class="py-12 bg-bg-surface border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { value: 'Edinburg', label: 'Sede del Condado de Hidalgo' },
+          { value: '100K+', label: 'Residentes' },
+          { value: 'UTRGV', label: 'Motor económico universitario' },
+          { value: 'Baja', label: 'Competencia digital local' },
+        ].map(({ value, label }) => (
+          <div>
+            <div class="text-2xl font-extrabold gradient-text mb-1">{value}</div>
+            <div class="text-sm text-text-muted">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Market context -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Edinburg tiene demanda — pero pocos negocios están optimizados para capturarla
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Edinburg es la sede del Condado de Hidalgo y el hogar de UTRGV — una ciudad universitaria con economía diversa y un sector de servicios profesionales en crecimiento. Los residentes aquí buscan activamente servicios locales en Google.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            El problema es que la mayoría de los negocios en Edinburg no tienen presencia digital seria. Muchos ni aparecen en el Map Pack para sus propias categorías. Eso es una oportunidad enorme para el negocio que se mueva primero.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            RankRGV se enfoca exclusivamente en el Valle — conocemos Edinburg, sus sectores, y cómo posicionar negocios aquí para que los clientes correctos los encuentren.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1 space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-border shadow-sm aspect-video bg-bg-dark relative flex items-end">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-dark via-bg-dark to-brand-purple/40"></div>
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+            <div class="relative z-10 p-6 w-full">
+              <div class="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">Norte del Valle</div>
+              <div class="text-white text-2xl font-extrabold tracking-tight">Edinburg, Texas</div>
+              <div class="text-white/60 text-sm mt-1">Sede del Condado de Hidalgo · UTRGV</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { value: '100K+', label: 'Residentes en Edinburg' },
+              { value: 'UTRGV', label: 'Universidad principal del RGV' },
+              { value: 'Baja', label: 'Competencia digital local' },
+              { value: '60-90d', label: 'Tiempo a primeros rankings' },
+            ].map(({ value, label }) => (
+              <div class="bg-bg-surface rounded-xl p-4 border border-border text-center">
+                <div class="text-xl font-extrabold gradient-text mb-0.5">{value}</div>
+                <div class="text-xs text-text-muted leading-tight">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Servicios de marketing digital para negocios en Edinburg
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Estrategias diseñadas para el mercado de Edinburg — no plantillas genéricas.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: '📍',
+            name: 'SEO Local',
+            desc: 'Top 3 en el Google Map Pack cuando alguien en Edinburg busca lo que tú ofreces. GBP optimizado, citas locales y contenido para el Condado de Hidalgo.',
+            href: '/es/seo-local/',
+          },
+          {
+            icon: '🖥️',
+            name: 'Diseño Web',
+            desc: 'Sitios web que generan llamadas. Rápidos, en celular, con llamadas a la acción claras y SEO integrado desde el principio.',
+            href: '/web-design/',
+          },
+          {
+            icon: '⚙️',
+            name: 'Automatización',
+            desc: 'Captura leads automáticamente, haz seguimiento sin esfuerzo manual, y nunca pierdas un cliente potencial por falta de respuesta.',
+            href: '/business-automation/',
+          },
+        ].map(({ icon, name, desc, href }) => (
+          <a href={href} class="block bg-bg rounded-2xl border border-border p-8 hover:border-brand-blue/40 hover:shadow-md transition-all reveal group">
+            <div class="text-4xl mb-4">{icon}</div>
+            <h3 class="text-xl font-bold text-text mb-3 group-hover:text-brand-blue transition-colors">{name}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  <section class="py-16 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-text mb-4 reveal">Servimos toda el área de Edinburg</h2>
+      <p class="text-text-muted mb-8 reveal reveal-delay-1">
+        Desde el Downtown de Edinburg hasta el área de UTRGV, North Edinburg y el corredor de Trenton Road — cubrimos todo.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {['Downtown Edinburg', 'North Edinburg', 'Área de UTRGV', 'Corredor Trenton Road', 'y más...'].map((n) => (
+          <span class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm text-text-muted font-medium">{n}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-bg-surface">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-text mb-10 text-center reveal">
+        Preguntas sobre SEO local en Edinburg
+      </h2>
+      <div class="space-y-4">
+        {faqs.map(({ question, answer }) => (
+          <details class="group bg-bg rounded-2xl border border-border p-6 reveal">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-text list-none">
+              {question}
+              <span class="text-brand-blue ml-4 flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-4 text-text-muted leading-relaxed">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-bg-dark relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 reveal">
+        ¿Listo para dominar las búsquedas en Edinburg?
+      </h2>
+      <p class="text-white/70 text-lg mb-8 reveal reveal-delay-1">
+        Habla con nosotros 15 minutos o pide una auditoría gratis escrita. Sin presión, sin obligación.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center reveal reveal-delay-2">
+        <a href="/es/#contacto" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-lg shadow-lg hover:opacity-90 transition-opacity">
+          Auditoría gratis
+        </a>
+        <a href="tel:9563915991" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-lg hover:bg-white/15 transition-colors">
+          (956) 391-5991
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

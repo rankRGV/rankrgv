@@ -1,0 +1,275 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
+
+const title = 'SEO Local McAllen TX | Llega al Top 3 en Google Maps | RankRGV';
+const description = 'Posicionamos negocios del RGV en el Top 3 de Google Maps. RankRGV construye SEO local que genera llamadas reales — no solo posiciones. Llama al (956) 391-5991.';
+
+const faqs = [
+  {
+    question: '¿Qué es el SEO local y por qué importa para negocios del Valle?',
+    answer: 'El SEO local es el proceso de optimizar tu negocio para que aparezca en Google cuando alguien en tu área busca lo que ofreces. Para negocios del RGV, eso significa aparecer en el Map Pack de Google (los 3 resultados con mapa) y en los resultados orgánicos para búsquedas como "plomero McAllen" o "dentista Edinburg". El Valle tiene búsqueda local alta y competencia baja — es uno de los mejores momentos para posicionarte.',
+  },
+  {
+    question: '¿Cuánto tiempo tarda en funcionar el SEO local en McAllen?',
+    answer: 'La mayoría de nuestros clientes en McAllen ven movimiento en Google Maps entre 60 y 90 días. En ciudades como Mission o Pharr, donde hay menos competencia, algunos negocios entran al Top 3 en 30 a 45 días. Las posiciones orgánicas completas toman de 3 a 6 meses. Lo importante: el RGV tiene menos competencia que casi cualquier otro metro de Texas — eso acelera los resultados.',
+  },
+  {
+    question: '¿Cuánto cuesta el SEO local con RankRGV?',
+    answer: 'Nuestros planes de SEO local empiezan desde $500 al mes. El costo depende del número de ciudades objetivo, la competencia de tu industria y los servicios incluidos. Siempre empezamos con un diagnóstico gratuito para que sepas exactamente qué necesitas antes de comprometer nada.',
+  },
+  {
+    question: '¿Necesito un Google Business Profile para hacer SEO local?',
+    answer: 'Sí, es el punto de partida. Tu perfil de Google Business (antes Google My Business) es lo que aparece en Google Maps y en el Map Pack. Si no tienes uno, lo creamos. Si ya tienes uno, lo auditamos y optimizamos — categoría, descripción, fotos, horarios, reseñas. Un perfil bien optimizado por sí solo puede subirte posiciones.',
+  },
+  {
+    question: '¿Tienen experiencia con negocios bilingües en el RGV?',
+    answer: 'Sí. El mercado del Valle es único — muchos clientes buscan en español, otros en inglés, y muchos en los dos. Tomamos eso en cuenta al investigar palabras clave y crear contenido. Para negocios donde el español es clave, podemos crear páginas en español con SEO propio para capturar esas búsquedas también.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'SEO Local',
+    description: 'Posicionamiento en Google Maps y resultados orgánicos para negocios del Rio Grande Valley.',
+    provider: { '@type': 'Organization', name: site.name, url: site.url },
+    areaServed: site.areaServed.map(city => ({ '@type': 'City', name: `${city}, TX` })),
+  },
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Inicio', href: '/es/' },
+    { label: 'SEO Local', href: '/es/seo-local/' },
+  ]),
+  buildWebPageSchema(title, description, '/es/seo-local/'),
+];
+---
+
+<BaseLayout lang="es"
+  title={title}
+  description={description}
+  canonical="https://rankrgv.com/es/seo-local/"
+  schema={schema}
+  geoPlacename="McAllen, Texas"
+>
+
+  <link slot="head" rel="alternate" hreflang="en" href="https://rankrgv.com/local-seo/" />
+  <link slot="head" rel="alternate" hreflang="es" href="https://rankrgv.com/es/seo-local/" />
+
+  <!-- Breadcrumb -->
+  <nav class="bg-bg-surface border-b border-border py-3" aria-label="Breadcrumb">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="flex items-center gap-2 text-sm text-text-muted">
+        <li><a href="/es/" class="hover:text-brand-blue no-underline">Inicio</a></li>
+        <li aria-hidden="true">/</li>
+        <li class="text-text font-medium">SEO Local</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-bg pt-10 pb-28 lg:py-36 relative overflow-hidden" aria-label="Hero SEO Local">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/20 via-transparent to-brand-purple/20 pointer-events-none" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-white/80">
+        <span class="w-2 h-2 rounded-full bg-brand-blue-light"></span>
+        SEO Local en el RGV
+      </div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+        Llega al Top 3 en Google Maps.<br />
+        <span class="gradient-text">Antes que tu competencia.</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
+        El Map Pack de Google captura el 40% de todos los clics en búsquedas locales. RankRGV posiciona negocios del Valle en esos 3 lugares — con estrategias que funcionan en el mercado del RGV.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href={site.phoneHref} class="btn-primary">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
+          </svg>
+          Llama al (956) 391-5991
+        </a>
+        <a href="/get-started/" class="btn-secondary">
+          Pide diagnóstico gratis
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ INCLUYE -->
+  <section class="py-20 bg-bg" aria-labelledby="que-incluye">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 id="que-incluye" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
+          Qué incluye el SEO local de RankRGV
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          No vendemos reportes bonitos. Construimos la infraestructura que Google necesita para posicionarte.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          { title: 'Optimización de Google Business Profile', body: 'Categoría correcta, descripción optimizada, fotos de calidad, atributos completos, horarios actualizados — todo lo que Google usa para decidir quién aparece en el Map Pack.' },
+          { title: 'Investigación de palabras clave locales', body: 'Encontramos exactamente cómo buscan tus clientes en McAllen, Brownsville, Edinburg y el resto del Valle. Buscamos en inglés y español.' },
+          { title: 'Optimización On-Page con señales locales', body: 'Títulos, descripciones, encabezados y contenido de tu sitio optimizados para que Google entienda a quién sirves y dónde.' },
+          { title: 'Schema markup local', body: 'Datos estructurados que le dicen a Google exactamente qué eres, a quién sirves, y cuándo estás disponible — en el formato que prefieren.' },
+          { title: 'Citas y consistencia NAP', body: 'Tu nombre, teléfono y dirección de servicio consistentes en Google, Yelp, Apple Maps, Bing, y las principales directorias — una de las señales de confianza más importantes para el Map Pack.' },
+          { title: 'Estrategia de reseñas', body: 'Te ayudamos a construir un flujo consistente de reseñas de Google — uno de los factores de posicionamiento más importantes que hay y el más ignorado por la mayoría de los negocios en el RGV.' },
+        ].map(({ title, body }) => (
+          <div class="bg-bg-surface border border-border rounded-xl p-6 reveal">
+            <h3 class="font-bold text-text mb-2">{title}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- MERCADO RGV -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="mercado-rgv">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <h2 id="mercado-rgv" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            El SEO en el Valle: campo abierto y moviéndose rápido
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            El Rio Grande Valley tiene búsqueda local real — negocios como el tuyo reciben búsquedas todos los días. Pero la competencia local en SEO es sorprendentemente débil. La mayoría de los negocios en el Valle ni siquiera tienen su Google Business Profile completo.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Eso significa que los negocios que construyan una base de SEO local ahora van a dominar estas posiciones por años. Los que esperen, van a tener que luchar contra los que ya estén establecidos.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            En industrias como salud, legal, construcción, HVAC, plomería y servicios profesionales — el que primero aparece en Google lleva la ventaja. Siempre.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4 reveal reveal-delay-1">
+          {[
+            { value: '60–90', label: 'días al primer movimiento', suffix: ' días' },
+            { value: 'Baja', label: 'competencia SEO vs. otros metros de TX', suffix: '' },
+            { value: '40%', label: 'de clics van al Map Pack de Google', suffix: '' },
+            { value: '6', label: 'ciudades del RGV que atendemos', suffix: '' },
+          ].map(({ value, label }) => (
+            <div class="bg-bg rounded-xl p-5 border border-border text-center">
+              <div class="text-2xl font-extrabold gradient-text mb-1">{value}</div>
+              <div class="text-xs text-text-muted leading-tight">{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="py-20 bg-bg" aria-labelledby="como-funciona">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="como-funciona" class="text-3xl font-bold text-text mb-10 text-center reveal">
+        Cómo llegamos a posicionarte en el Top 3
+      </h2>
+      <div class="space-y-6">
+        {[
+          { step: '01', title: 'Diagnóstico gratuito', body: 'Auditamos tu Google Business Profile, tu sitio web, tus posiciones actuales y los 3 competidores más fuertes de tu área. Sin costo, sin obligación.' },
+          { step: '02', title: 'Estrategia local personalizada', body: 'Construimos un plan basado en lo que encontramos — no en una plantilla genérica. Cada industria en el Valle es diferente.' },
+          { step: '03', title: 'Construcción y optimización', body: 'Optimizamos tu GBP, tu sitio web, tus citas locales y tu schema markup. Todo lo que Google necesita para posicionarte.' },
+          { step: '04', title: 'Seguimiento y crecimiento', body: 'Reportes mensuales con tus posiciones reales, tráfico y llamadas generadas. Ajustamos la estrategia mes a mes.' },
+        ].map(({ step, title, body }) => (
+          <div class="flex gap-6 items-start reveal">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center font-mono text-sm font-bold text-brand-blue">{step}</div>
+            <div>
+              <h3 class="font-bold text-text mb-1">{title}</h3>
+              <p class="text-text-muted text-sm leading-relaxed">{body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="precios-seo">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="precios-seo" class="text-3xl font-bold text-text mb-4 reveal">Precios de SEO local</h2>
+      <p class="text-text-muted text-lg mb-10 reveal reveal-delay-1">
+        Desde $500/mes. Sin contratos a largo plazo. Sin letra pequeña.
+      </p>
+      <a href="/pricing/" class="inline-flex items-center gap-2 text-brand-blue font-semibold hover:underline no-underline reveal reveal-delay-2">
+        Ver precios completos →
+      </a>
+    </div>
+  </section>
+
+  <!-- CIUDADES -->
+  <section class="py-20 bg-bg" aria-labelledby="ciudades-seo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 id="ciudades-seo" class="text-3xl font-bold text-text mb-4 reveal">
+          SEO local en todo el Valle
+        </h2>
+        <p class="text-text-muted reveal reveal-delay-1">Servimos negocios en las principales ciudades del Rio Grande Valley.</p>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-2">
+        {[
+          { city: 'McAllen', href: '/es/areas-de-servicio/mcallen/' },
+          { city: 'Brownsville', href: '/es/areas-de-servicio/brownsville/' },
+          { city: 'Edinburg', href: '/es/areas-de-servicio/edinburg/' },
+          { city: 'Harlingen', href: '/es/areas-de-servicio/harlingen/' },
+          { city: 'Mission', href: '/es/areas-de-servicio/mission/' },
+          { city: 'Pharr', href: '/es/areas-de-servicio/pharr/' },
+        ].map(({ city, href }) => (
+          <a href={href} class="px-5 py-2.5 rounded-full bg-bg-surface border border-border text-sm font-semibold text-text hover:border-brand-blue/50 hover:text-brand-blue transition-colors no-underline">
+            SEO local {city}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="faq-seo-local">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="faq-seo-local" class="text-3xl font-bold text-text mb-10 text-center reveal">
+        Preguntas sobre SEO local en el RGV
+      </h2>
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="bg-bg border border-border rounded-xl overflow-hidden group reveal">
+            <summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer font-semibold text-text list-none">
+              {faq.question}
+              <svg class="w-5 h-5 text-text-muted flex-shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="px-6 pb-5 text-text-muted leading-relaxed">{faq.answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-bg-dark" aria-label="CTA final">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 reveal">
+        ¿Listo para aparecer en Google Maps antes que tu competencia?
+      </h2>
+      <p class="text-white/60 text-lg mb-8 reveal reveal-delay-1">
+        Llama o pide tu diagnóstico gratuito. Sin compromiso.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-2">
+        <a href={site.phoneHref} class="btn-primary">Llama al {site.phone}</a>
+        <a href="/get-started/" class="btn-secondary">
+          Pide el diagnóstico gratis
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
