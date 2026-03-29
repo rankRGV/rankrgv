@@ -1,6 +1,6 @@
 export const site = {
   name: 'RankRGV',
-  tagline: 'Digital Marketing & Google Maps Optimization for the Rio Grande Valley',
+  tagline: 'Local SEO & Digital Marketing for the Rio Grande Valley',
   url: 'https://rankrgv.com',
   phone: '956-391-5991',
   phoneHref: 'tel:9563915991',

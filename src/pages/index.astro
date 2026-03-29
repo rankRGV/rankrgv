@@ -15,28 +15,28 @@ import { site } from '@/config/site';
 
 const faqs = [
   {
-    question: 'How long does it take to see results from Google Maps Optimization in McAllen?',
+    question: 'How long does it take to see results from local SEO in McAllen?',
     answer: 'Most McAllen businesses see their first meaningful movement in Google Maps rankings within 60–90 days. In lower-competition cities like Pharr and Mission, some categories reach the top 3 Map Pack in 30–45 days. Full organic rankings for competitive keywords typically take 3–6 months. The RGV market has weaker competition than most Texas metros — which means results come faster here than in Dallas, Houston, or San Antonio. We track and report progress monthly so you always know exactly where you stand.',
   },
   {
     question: 'Do I need to sign a long-term contract?',
-    answer: "No — we don't lock RGV businesses into long-term contracts. We operate month-to-month because we'd rather earn your business every month with results than hold you with paperwork. Most digital marketing clients stay 12+ months because rankings compound over time and the ROI grows — not because they're obligated to.",
+    answer: "No — we don't lock RGV businesses into long-term contracts. We operate month-to-month because we'd rather earn your business every month with results than hold you with paperwork. Most local SEO clients stay 12+ months because rankings compound over time and the ROI grows — not because they're obligated to.",
   },
   {
     question: 'What makes RankRGV different from other McAllen marketing agencies?',
     answer: "RankRGV is 100% focused on the Rio Grande Valley. We don't serve clients in Dallas, Houston, or nationally — the RGV is our specific market and we know it in detail. We know which keywords move in Edinburg vs. Brownsville, which industries are underserved in Pharr, and what real competition looks like in McAllen. That market-specific knowledge isn't something a national agency can replicate.",
   },
   {
-    question: 'What is included in the free digital marketing audit?',
-    answer: "The free audit covers four areas: your Google Business Profile (completeness, category accuracy, photo quality, review profile), your website's technical health (speed, mobile performance, schema markup, indexability), your current keyword rankings (where you appear now vs. where you could rank), and your top 3 competitors (what they're doing that you're not). You get a clear, honest assessment — no pitch deck, no obligation to move forward.",
+    question: 'What is included in the free SEO audit?',
+    answer: "The free audit covers four areas: your Google Business Profile (completeness, category accuracy, photo quality, review profile), your website's technical SEO (speed, mobile performance, schema markup, indexability), your current keyword rankings (where you appear now vs. where you could rank), and your top 3 competitors (what they're doing that you're not). You get a clear, honest assessment — no pitch deck, no obligation to move forward.",
   },
   {
     question: 'What is the Google Map Pack and how do I get my business into it?',
     answer: "The Google Map Pack is the block of 3 local business listings that appears at the top of Google search results for local queries — above all organic results. It captures roughly 40% of all clicks on the results page, making it the most valuable real estate in local search. Getting into the Map Pack requires a fully optimized Google Business Profile, consistent local citations, positive customer reviews, and keyword-optimized website content that signals local authority. For most RGV business categories, Map Pack placement is achievable within 60–90 days of proper optimization.",
   },
   {
-    question: 'Do I need digital marketing if I already have a website?',
-    answer: "Yes — having a website and being found on Google are two different things. Most McAllen business websites we audit have zero keyword rankings and zero Google Map Pack presence, despite having existed for years. A website alone doesn't generate search visibility. Google Maps Optimization and digital marketing is what connects your website and Google Business Profile to the specific searches your customers are making — and gets you in front of them at the exact moment they're ready to call.",
+    question: 'Do I need local SEO if I already have a website?',
+    answer: "Yes — having a website and being found on Google are two different things. Most McAllen business websites we audit have zero keyword rankings and zero Google Map Pack presence, despite having existed for years. A website alone doesn't generate search visibility. Local SEO is what connects your website and Google Business Profile to the specific searches your customers are making — and gets you in front of them at the exact moment they're ready to call.",
   },
 ];
 
@@ -44,22 +44,22 @@ const schema = [
   buildOrgSchema(),
   buildFAQSchema(faqs),
   buildWebPageSchema(
-    'Digital Marketing & Web Design McAllen TX | RankRGV',
-    'RankRGV helps McAllen and RGV businesses get found on Google. Google Maps Optimization, web design, and business automation built for the Rio Grande Valley market.',
+    'Local SEO & Web Design McAllen TX | RankRGV',
+    'RankRGV helps McAllen and RGV businesses get found on Google. Local SEO, web design, and business automation built for the Rio Grande Valley market.',
     '/'
   ),
 ];
 ---
 
 <BaseLayout
-  title="Digital Marketing & Web Design McAllen TX | RankRGV"
-  description="McAllen's digital marketing agency. We get RGV businesses found on Google and growing. Free audit — call (956) 391-5991."
+  title="Local SEO & Web Design McAllen TX | RankRGV"
+  description="McAllen's local SEO & digital marketing agency. We get RGV businesses found on Google and growing. Free audit — call (956) 391-5991."
   schema={schema}
 >
   <Hero
     badge="Serving the Rio Grande Valley"
     headline='Get found on Google.<br /><span class="gradient-text">Own your market.</span>'
-    subheadline="We help McAllen and RGV businesses rank higher, get more calls, and close more customers — without the runaround. Free audit to get started."
+    subheadline="We help McAllen and RGV businesses rank higher, get more calls, and close more customers — without the runaround. Free SEO audit to get started."
   />
 
   <TrustSignals />
@@ -86,7 +86,7 @@ const schema = [
       </div>
       <div class="mt-8 flex flex-wrap gap-6 justify-center reveal reveal-delay-4">
         <a href="/pricing/" class="text-sm font-semibold text-brand-blue hover:underline no-underline">
-          Google Maps Optimization from $500/mo · Web Design from $1,500 · See full pricing →
+          Local SEO from $500/mo · Web Design from $1,500 · See full pricing →
         </a>
       </div>
     </div>
@@ -98,7 +98,7 @@ const schema = [
 
   <Testimonials />
 
-  <FAQSection faqs={faqs} headline="Common questions about digital marketing and Google Maps in the RGV" />
+  <FAQSection faqs={faqs} headline="Common questions about local SEO and digital marketing in the RGV" />
 
   <CTASection />
 </BaseLayout>

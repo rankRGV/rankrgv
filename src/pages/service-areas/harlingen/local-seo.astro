@@ -20,9 +20,9 @@ import { site } from '@/config/site';
 const area = getAreaBySlug('harlingen')!;
 const service = getServiceBySlug('local-seo')!;
 
-const title = 'Google Maps Optimization Harlingen TX | Google Map Pack Rankings | RankRGV';
+const title = 'Local SEO Harlingen TX | Google Map Pack Rankings | RankRGV';
 const description =
-  'Harlingen Google Maps Optimization specialists. Top 3 Google Maps for Harlingen businesses — healthcare, home services, Cameron County. (956) 391-5991.';
+  'Harlingen local SEO specialists. Top 3 Google Maps for Harlingen businesses — healthcare, home services, Cameron County. (956) 391-5991.';
 
 const faqs = [
   {
@@ -31,12 +31,12 @@ const faqs = [
       "Valley Baptist Medical Center and the UTRGV Health Sciences campus make healthcare Harlingen's dominant search category. But the healthcare economy ripples out: medical-legal firms, medical equipment suppliers, home health agencies, rehabilitation services, and insurance businesses all benefit from the high-value patient and caregiver searches that flow through Harlingen. If you're adjacent to healthcare in any way, Harlingen has above-average search volume for your category.",
   },
   {
-    question: 'How long does Harlingen Google Maps Optimization take to show results?',
+    question: 'How long does Harlingen local SEO take to show results?',
     answer:
       "Most Harlingen businesses see initial Map Pack movement within 60–75 days. Harlingen has solid search volume but slightly less competition than McAllen, which means consistent forward movement once the foundation is in place. Healthcare-adjacent businesses often see faster movement because the search volume is so high — even a few positions gained translate immediately into more calls.",
   },
   {
-    question: 'Does Valley International Airport affect Google Maps Optimization for Harlingen businesses?',
+    question: 'Does Valley International Airport affect local SEO for Harlingen businesses?',
     answer:
       "It depends on your business. If you serve travelers, business visitors, or airport-adjacent industries (hotels, car rentals, transportation, restaurants), the airport creates a niche search category worth targeting. For most businesses in Harlingen, the airport is less relevant than the healthcare and residential economy. We flag this during your audit if it's a significant opportunity for your specific category.",
   },
@@ -46,7 +46,7 @@ const faqs = [
       "Yes. Harlingen sits at the geographic center of Cameron County, which makes it a natural hub for county-wide searches. We build a page architecture that covers Harlingen specifically while also targeting surrounding Cameron County cities — San Benito, Los Fresnos, La Feria — where your customers may also be searching.",
   },
   {
-    question: 'How much does Harlingen Google Maps Optimization cost?',
+    question: 'How much does Harlingen local SEO cost?',
     answer:
       "Harlingen SEO engagements run $500–$1,500/month depending on industry and how many search categories you're targeting. Healthcare-adjacent businesses may run higher due to the competitive nature of medical search. We start with a free audit, give you a specific number, and there are no long-term contracts.",
   },
@@ -85,14 +85,14 @@ const howToSteps = [
 ];
 
 const schema = [
-  buildServiceSchema('Google Maps Optimization Harlingen TX', 'RankRGV provides Google Maps Optimization services for Harlingen businesses — Google Business Profile optimization, city pages, and Map Pack rankings in the Cameron County healthcare hub.', 'Harlingen'),
+  buildServiceSchema('Local SEO Harlingen TX', 'RankRGV provides local SEO services for Harlingen businesses — Google Business Profile optimization, city pages, and Map Pack rankings in the Cameron County healthcare hub.', 'Harlingen'),
   buildFAQSchema(faqs),
   buildHowToSchema('How We Get Harlingen Businesses into the Google Map Pack', 'The process RankRGV uses to rank Harlingen businesses in the top 3 Google Maps results.', howToSteps),
   buildBreadcrumbSchema([
     { label: 'Home', href: '/' },
     { label: 'Service Areas', href: '/service-areas/' },
     { label: 'Harlingen', href: '/service-areas/harlingen/' },
-    { label: 'Google Maps Optimization', href: '/service-areas/harlingen/local-seo/' },
+    { label: 'Local SEO', href: '/service-areas/harlingen/local-seo/' },
   ]),
   buildWebPageSchema(title, description, '/service-areas/harlingen/local-seo/'),
 ];
@@ -100,11 +100,11 @@ const schema = [
 
 <ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
   <Hero
-    badge="Google Maps Optimization · Harlingen, TX"
+    badge="Local SEO · Harlingen, TX"
     headline='Top 3 Google Maps rankings<br /><span class="gradient-text">for Harlingen businesses.</span>'
     subheadline="Harlingen's healthcare economy drives above-average search demand for professional services. We get your Harlingen business into the Map Pack — and keep you there across all of Cameron County."
     secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
-    mockupQuery="Google Maps Optimization harlingen tx"
+    mockupQuery="local seo harlingen tx"
     mockupCategory="SEO Agency · Harlingen, TX"
   />
 
@@ -198,18 +198,18 @@ const schema = [
 
   <section class="py-16 bg-bg" aria-labelledby="other-cities-seo-hl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 id="other-cities-seo-hl" class="text-2xl font-bold text-text mb-8 text-center reveal">Also serving these RGV cities for Google Maps Optimization</h2>
+      <h2 id="other-cities-seo-hl" class="text-2xl font-bold text-text mb-8 text-center reveal">Also serving these RGV cities for local SEO</h2>
       <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
         {[
-          { label: 'Google Maps Optimization McAllen TX', href: '/service-areas/mcallen/local-seo/' },
-          { label: 'Google Maps Optimization Brownsville TX', href: '/service-areas/brownsville/local-seo/' },
-          { label: 'Google Maps Optimization Edinburg TX', href: '/service-areas/edinburg/local-seo/' },
-          { label: 'Google Maps Optimization Mission TX', href: '/service-areas/mission/local-seo/' },
-          { label: 'Google Maps Optimization Pharr TX', href: '/service-areas/pharr/local-seo/' },
+          { label: 'Local SEO McAllen TX', href: '/service-areas/mcallen/local-seo/' },
+          { label: 'Local SEO Brownsville TX', href: '/service-areas/brownsville/local-seo/' },
+          { label: 'Local SEO Edinburg TX', href: '/service-areas/edinburg/local-seo/' },
+          { label: 'Local SEO Mission TX', href: '/service-areas/mission/local-seo/' },
+          { label: 'Local SEO Pharr TX', href: '/service-areas/pharr/local-seo/' },
         ].map(({ label, href }) => (
           <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">{label}</a>
         ))}
-        <a href="/local-seo/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Google Maps Optimization Services →</a>
+        <a href="/local-seo/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">All Local SEO Services →</a>
       </div>
     </div>
   </section>

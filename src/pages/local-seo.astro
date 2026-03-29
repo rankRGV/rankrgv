@@ -22,24 +22,24 @@ const service = getServiceBySlug('local-seo')!;
 
 const faqs = [
   {
-    question: 'How long does Google Maps Optimization take to work in McAllen?',
+    question: 'How long does SEO take to work in McAllen?',
     answer:
       "Most McAllen businesses see their first meaningful movement in Google Maps within 60–90 days. Full organic rankings for competitive keywords typically take 3–6 months. The RGV market has weaker competition than most Texas metros, which means results come faster — but this is still a compounding strategy, not a quick fix. We report monthly so you always see exactly where you stand.",
   },
   {
-    question: 'How much do digital marketing services cost in the RGV?',
+    question: 'How much do SEO services cost in the RGV?',
     answer:
-      "Google Maps Optimization pricing in the RGV ranges widely — from $300/month for bare-minimum work to $2,000+/month for full-service campaigns. What matters more than the number is what's included. At RankRGV, we start with a free audit so you know exactly what needs fixing before you spend a dollar. We'll give you a straight number based on your specific situation — no packages, no upsells.",
+      "Local SEO pricing in the RGV ranges widely — from $300/month for bare-minimum work to $2,000+/month for full-service campaigns. What matters more than the number is what's included. At RankRGV, we start with a free audit so you know exactly what needs fixing before you spend a dollar. We'll give you a straight number based on your specific situation — no packages, no upsells.",
   },
   {
-    question: "What's the difference between Google Maps Optimization and regular digital marketing?",
+    question: "What's the difference between local SEO and regular SEO?",
     answer:
-      "Regular (organic) digital marketing targets people searching for information anywhere. Google Maps Optimization specifically targets people searching for businesses in a specific city or area — 'plumber in McAllen,' 'dentist near me,' 'digital marketing company McAllen TX.' Google Maps Optimization also includes Google Maps ranking, which is the top 3 results shown on a map above the regular search results. For most RGV businesses, Google Maps Optimization is what actually drives phone calls and customers.",
+      "Regular (organic) SEO targets people searching for information anywhere. Local SEO specifically targets people searching for businesses in a specific city or area — 'plumber in McAllen,' 'dentist near me,' 'SEO company McAllen TX.' Local SEO also includes Google Maps optimization, which is the top 3 results shown on a map above the regular search results. For most RGV businesses, local SEO is what actually drives phone calls and customers.",
   },
   {
-    question: 'Do I need Google Maps Optimization if I already have a Google Business Profile?',
+    question: 'Do I need local SEO if I already have a Google Business Profile?',
     answer:
-      "Yes — having a Google Business Profile is just the starting line. Most GBP profiles in the RGV are incomplete, unoptimized, and missing the signals Google uses to rank you. Google Maps Optimization covers optimizing your GBP, building your website to rank for city-specific searches, earning local citations and reviews, and creating service-area content. Your GBP is one piece; Google Maps Optimization is the whole system.",
+      "Yes — having a Google Business Profile is just the starting line. Most GBP profiles in the RGV are incomplete, unoptimized, and missing the signals Google uses to rank you. Local SEO covers optimizing your GBP, building your website to rank for city-specific searches, earning local citations and reviews, and creating service-area content. Your GBP is one piece; local SEO is the whole system.",
   },
   {
     question: 'What is the Google Map Pack and how do I get in it?',
@@ -47,7 +47,7 @@ const faqs = [
       "The Google Map Pack is the section at the top of local search results showing a map and three business listings. It appears for nearly every service-based search ('SEO company McAllen,' 'restaurant near me'). It gets roughly 3× the clicks of the organic results below it. Getting into the Map Pack requires a fully optimized Google Business Profile, consistent local citations, positive reviews, and a website Google trusts as a local authority. That's exactly what we build.",
   },
   {
-    question: 'Can digital marketing help my business show up in both McAllen and surrounding cities?',
+    question: 'Can SEO help my business show up in both McAllen and surrounding cities?',
     answer:
       "Absolutely — and this is one of the biggest advantages of the approach we use. We build dedicated pages for every city you serve. So if you serve McAllen, Edinburg, and Mission, you get three separate ranking pages, each targeting local searches for that city. This is how service area businesses (ones without a physical storefront in every city) dominate multiple markets simultaneously.",
   },
@@ -55,7 +55,7 @@ const faqs = [
 
 const howToSteps = [
   {
-    name: 'Free Digital Marketing Audit',
+    name: 'Free SEO Audit',
     text: 'We analyze your current Google presence, your Google Business Profile, your website technical health, and your top 3 local competitors. You get a clear picture of exactly where you stand and what needs to change.',
   },
   {
@@ -82,19 +82,19 @@ const howToSteps = [
 
 const schema = [
   buildServiceSchema(
-    'Google Maps Optimization McAllen TX',
-    'RankRGV provides Google Maps Optimization services for McAllen and Rio Grande Valley businesses. We optimize Google Business Profiles, build city-specific pages, and drive real phone calls and customers.',
+    'Local SEO McAllen TX',
+    'RankRGV provides local SEO services for McAllen and Rio Grande Valley businesses. We optimize Google Business Profiles, build city-specific pages, and drive real phone calls and customers.',
     site.areaServed
   ),
   buildFAQSchema(faqs),
   buildHowToSchema(
-    'How Google Maps Optimization Works for McAllen Businesses',
-    'A step-by-step look at how RankRGV implements Google Maps Optimization to get Rio Grande Valley businesses ranking on Google Maps and organic search.',
+    'How Local SEO Works for McAllen Businesses',
+    'A step-by-step look at how RankRGV implements local SEO to get Rio Grande Valley businesses ranking on Google Maps and organic search.',
     howToSteps
   ),
   buildBreadcrumbSchema([
     { label: 'Home', href: '/' },
-    { label: 'Google Maps Optimization', href: '/local-seo/' },
+    { label: 'Local SEO', href: '/local-seo/' },
   ]),
   buildWebPageSchema(service.titleTag, service.metaDescription, '/local-seo/'),
 ];
@@ -102,12 +102,12 @@ const schema = [
 
 <ServiceLayout service={service} schema={schema}>
   <Hero
-    badge="Google Maps Optimization & GBP Management"
+    badge="Local SEO & Google Maps Optimization"
     headline='Get to the Top 3 on Google Maps.<br /><span class="gradient-text">Before your competitors do.</span>'
     subheadline="When someone in McAllen or the RGV searches for your service, they call whoever shows up first. We build the rankings that make that business yours."
     secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
-    mockupQuery="digital marketing company mcallen tx"
-    mockupCategory="Digital Marketing · McAllen, TX"
+    mockupQuery="seo company mcallen tx"
+    mockupCategory="SEO Agency · McAllen, TX"
   />
 
   <TrustSignals
@@ -119,16 +119,16 @@ const schema = [
     ]}
   />
 
-  <!-- What is Google Maps Optimization — definition block (AEO/AI extractable) -->
+  <!-- What is local SEO — definition block (AEO/AI extractable) -->
   <section class="py-20 bg-bg" aria-labelledby="what-is-local-seo">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="reveal">
           <h2 id="what-is-local-seo" class="text-3xl sm:text-4xl font-bold text-text mb-6">
-            What is Google Maps Optimization — and why does it matter for McAllen businesses?
+            What is local SEO — and why does it matter for McAllen businesses?
           </h2>
           <p class="text-text-muted text-lg leading-relaxed mb-6">
-            Google Maps Optimization is the process of optimizing your online presence so your business appears when people nearby search for what you offer. Not general searches — the ones that matter: <strong>"plumber in McAllen,"</strong> <strong>"dentist near me,"</strong> <strong>"best digital marketing company McAllen TX."</strong>
+            Local SEO is the process of optimizing your online presence so your business appears when people nearby search for what you offer. Not general searches — the ones that matter: <strong>"plumber in McAllen,"</strong> <strong>"dentist near me,"</strong> <strong>"best SEO company McAllen TX."</strong>
           </p>
           <p class="text-text-muted text-lg leading-relaxed mb-6">
             The most valuable real estate in local search is the <strong>Google Map Pack</strong> — the three businesses shown with a map at the top of results. Studies consistently show that the Map Pack captures over 40% of all clicks for local searches. Being in it means the phone rings. Being out of it means you're invisible.
@@ -141,7 +141,7 @@ const schema = [
         <!-- Map Pack visualization -->
         <div class="reveal reveal-delay-1">
           <div class="bg-bg-surface rounded-2xl border border-border p-8">
-            <div class="text-xs text-text-muted font-medium uppercase tracking-wider mb-4">Google search: "digital marketing mcallen"</div>
+            <div class="text-xs text-text-muted font-medium uppercase tracking-wider mb-4">Google search: "seo company mcallen"</div>
 
             <!-- Fake map pack -->
             <div class="space-y-3">
@@ -193,7 +193,7 @@ const schema = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16">
         <h2 id="seo-services" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
-          What's included in RankRGV's Google Maps Optimization service
+          What's included in RankRGV's local SEO service
         </h2>
         <p class="text-text-muted text-lg reveal reveal-delay-1">
           Everything that moves the needle on Google Maps and organic search — nothing you don't need.
@@ -271,11 +271,11 @@ const schema = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto">
         <h2 id="rgv-market" class="text-3xl sm:text-4xl font-bold text-text mb-6 reveal">
-          Digital marketing in the Rio Grande Valley: wide open and moving fast.
+          SEO in the Rio Grande Valley: wide open and moving fast.
         </h2>
         <div class="space-y-5 text-text-muted text-lg leading-relaxed">
           <p class="reveal reveal-delay-1">
-            Most Texas metros are brutally competitive for digital marketing. Not the Rio Grande Valley. Google Maps Optimization services in McAllen, Brownsville, and Edinburg serve markets with meaningful search demand and surprisingly weak competition — the businesses ranking today have thin content, incomplete GBPs, and no dedicated city-service pages.
+            Most Texas metros are brutally competitive for local SEO. Not the Rio Grande Valley. SEO services in McAllen, Brownsville, and Edinburg serve markets with meaningful search demand and surprisingly weak competition — the businesses ranking today have thin content, incomplete GBPs, and no dedicated city-service pages.
           </p>
           <p class="reveal reveal-delay-2">
             That creates an unusual opportunity: a professionally built, technically optimized site can outrank established competitors in 90–120 days. Not because we have a magic trick, but because the bar to clear is low.
@@ -287,7 +287,7 @@ const schema = [
 
         <!-- Competitor gap visual -->
         <div class="mt-10 bg-bg-surface rounded-2xl border border-border p-6 reveal reveal-delay-4">
-          <div class="text-sm font-semibold text-text mb-4">Current competition for top McAllen digital marketing keywords</div>
+          <div class="text-sm font-semibold text-text mb-4">Current competition for top McAllen SEO keywords</div>
           <div class="space-y-3">
             {[
               { label: 'National directories (Clutch, Yelp)', fill: 85, color: 'bg-text-muted/20' },
@@ -313,7 +313,7 @@ const schema = [
 
   <PricingSection
     id="local-seo-pricing"
-    headline="Google Maps Optimization pricing"
+    headline="Local SEO pricing"
     subheadline="Month-to-month. No setup fees. No long-term contracts."
     bg="bg-surface"
     cards={[
@@ -343,7 +343,7 @@ const schema = [
         badge: 'Most Popular',
         price: '$850',
         period: '/month',
-        description: 'Full Google Maps Optimization — built to own your category across every RGV city you serve.',
+        description: 'Full local SEO — built to own your category across every RGV city you serve.',
         features: [
           'Everything in Visibility',
           '4 content pieces per month',
@@ -378,11 +378,11 @@ const schema = [
   <Testimonials />
 
   <ServiceAreaGrid
-    headline="Google Maps Optimization services across the Rio Grande Valley"
+    headline="Local SEO services across the Rio Grande Valley"
     serviceSlug="local-seo"
   />
 
-  <FAQSection faqs={faqs} headline="Google Maps Optimization questions from RGV business owners" />
+  <FAQSection faqs={faqs} headline="Local SEO questions from RGV business owners" />
 
   <CTASection
     headline="Ready to show up when McAllen customers search?"
