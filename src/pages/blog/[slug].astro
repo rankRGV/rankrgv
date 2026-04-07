@@ -5,7 +5,9 @@ import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema } from '@/com
 import { site } from '@/config/site';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const today = new Date();
+  const posts = (await getCollection('blog'))
+    .filter(post => !post.data.draft && new Date(post.data.pubDate) <= today);
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },

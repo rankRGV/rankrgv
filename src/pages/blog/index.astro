@@ -4,9 +4,10 @@ import { getCollection } from 'astro:content';
 import { buildWebPageSchema, buildBreadcrumbSchema, buildOrgSchema } from '@/components/SchemaMarkup.astro';
 import { site } from '@/config/site';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const today = new Date();
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft && new Date(post.data.pubDate) <= today)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const categoryLabels: Record<string, string> = {
   'local-seo': 'Local SEO',

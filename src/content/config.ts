@@ -11,6 +11,7 @@ const blog = defineCollection({
     category: z.enum(['local-seo', 'web-design', 'business-automation', 'google-maps']),
     targetKeyword: z.string(),
     ogImage: z.string().optional(),
+    draft: z.boolean().default(false),
   }),
 });
 

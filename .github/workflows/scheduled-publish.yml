@@ -1,0 +1,13 @@
+name: Scheduled Publish
+
+on:
+  schedule:
+    - cron: '0 13 * * *'  # 8 AM CT (UTC-5) daily
+  workflow_dispatch:       # Allow manual trigger from GitHub Actions UI
+
+jobs:
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Deploy
+        run: curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
