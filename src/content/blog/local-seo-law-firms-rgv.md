@@ -1,7 +1,7 @@
 ---
 title: "Local SEO Strategy for Rio Grande Valley Law Firms"
 description: "Legal is one of the few competitive verticals in the RGV — but smaller firms can still win map pack spots. Here's how."
-pubDate: 2026-06-02
+pubDate: 2026-05-07
 author: "RankRGV Team"
 category: "local-seo"
 targetKeyword: "law firm SEO McAllen"
