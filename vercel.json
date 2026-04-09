@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/home/", "destination": "/", "permanent": true },
+    { "source": "/brownsville", "destination": "/service-areas/brownsville/", "permanent": true },
+    { "source": "/brownsville/", "destination": "/service-areas/brownsville/", "permanent": true },
+    { "source": "/mcallen/seo", "destination": "/service-areas/mcallen/local-seo/", "permanent": true },
+    { "source": "/mcallen/seo/", "destination": "/service-areas/mcallen/local-seo/", "permanent": true },
+    { "source": "/mcallen/automation", "destination": "/service-areas/mcallen/business-automation/", "permanent": true },
+    { "source": "/mcallen/automation/", "destination": "/service-areas/mcallen/business-automation/", "permanent": true },
+    { "source": "/google-business-profile-optimization", "destination": "/google-maps-optimization/", "permanent": true },
+    { "source": "/google-business-profile-optimization/", "destination": "/google-maps-optimization/", "permanent": true },
+    { "source": "/local-seo-ready-website-build", "destination": "/web-design/", "permanent": true },
+    { "source": "/local-seo-ready-website-build/", "destination": "/web-design/", "permanent": true },
+    { "source": "/website-chat-to-text-capture", "destination": "/business-automation/", "permanent": true },
+    { "source": "/website-chat-to-text-capture/", "destination": "/business-automation/", "permanent": true },
+    { "source": "/services/digital-marketing-strategy", "destination": "/local-seo/", "permanent": true },
+    { "source": "/services/digital-marketing-strategy/", "destination": "/local-seo/", "permanent": true },
+    { "source": "/services/sales-development-and-training", "destination": "/", "permanent": true },
+    { "source": "/services/sales-development-and-training/", "destination": "/", "permanent": true },
+    { "source": "/case-study/:path*", "destination": "/", "permanent": true },
+    { "source": "/seo", "destination": "/local-seo/", "permanent": true },
+    { "source": "/seo/", "destination": "/local-seo/", "permanent": true },
+    { "source": "/locations", "destination": "/service-areas/", "permanent": true },
+    { "source": "/locations/", "destination": "/service-areas/", "permanent": true },
+    { "source": "/pharr/seo", "destination": "/service-areas/pharr/local-seo/", "permanent": true },
+    { "source": "/pharr/seo/", "destination": "/service-areas/pharr/local-seo/", "permanent": true }
+  ]
+}

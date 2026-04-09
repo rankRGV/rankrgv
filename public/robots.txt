@@ -22,4 +22,6 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+Disallow: /comments/feed/
+
 Sitemap: https://rankrgv.com/sitemap-index.xml
