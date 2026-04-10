@@ -1,7 +1,7 @@
 ---
 title: "How to Set Up Google Business Profile for Your McAllen Business (Step-by-Step)"
 description: "Google Business Profile is the single most powerful free tool for local businesses in McAllen. Here's how to set it up right — and what most RGV businesses get wrong."
-pubDate: 2026-03-28
+pubDate: 2026-04-03
 author: "RankRGV Team"
 category: "local-seo"
 targetKeyword: "google business profile"
