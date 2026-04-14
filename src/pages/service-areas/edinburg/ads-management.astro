@@ -1,0 +1,189 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+
+const area = getAreaBySlug('edinburg')!;
+const service = getServiceBySlug('ads-management')!;
+
+const title = 'Google Ads Edinburg TX | Google & Meta Ads Management | RankRGV';
+const description =
+  'Flat-fee Google Ads and Meta Ads management for Edinburg businesses. Reach students, families, healthcare demand, and professional service searches with tighter campaigns. Call (956) 391-5991.';
+
+const faqs = [
+  {
+    question: 'What kinds of Edinburg businesses benefit most from paid ads?',
+    answer:
+      'Professional services, healthcare, home services, and businesses that can target students or young families all tend to perform well. Edinburg has a mix of institutional demand, residential demand, and student-driven movement that creates multiple advertising angles.',
+  },
+  {
+    question: 'Can Meta Ads work well in Edinburg because of UTRGV?',
+    answer:
+      'Yes, depending on the offer. Meta can be especially useful when you need repeated exposure, a younger audience mix, or strong retargeting. Google Ads still tends to be the first move when direct search intent is high.',
+  },
+  {
+    question: 'How should an Edinburg business split budget between Google and Meta?',
+    answer:
+      'Usually we start where intent is strongest. For many service businesses, that means more budget to Google first. Meta becomes valuable when we want to layer retargeting, local awareness, or audience-based offers on top.',
+  },
+  {
+    question: 'Do Edinburg campaigns need different messaging from McAllen campaigns?',
+    answer:
+      'Often, yes. Edinburg has different audience pockets and different demand drivers. Messaging that works in McAllen may not be the best fit for a student-heavy or healthcare-oriented Edinburg segment.',
+  },
+  {
+    question: 'How do you track whether Edinburg ads are actually working?',
+    answer:
+      'We track calls, forms, and key conversion actions, then review search terms, lead sources, and cost per lead. The point is to see which campaigns create qualified opportunities, not just which ones generate traffic.',
+  },
+];
+
+const howToSteps = [
+  { name: 'Edinburg Demand Audit', text: 'We review your current ad setup, your landing pages, and the demand pockets that matter most in Edinburg.' },
+  { name: 'Audience & Intent Strategy', text: 'We map campaigns around Edinburg search intent, student-market opportunities, healthcare demand, or professional service demand as needed.' },
+  { name: 'Launch With Tracking', text: 'Campaigns go live with clean conversion tracking so the account starts learning from real outcomes instead of shallow metrics.' },
+  { name: 'Message Testing', text: 'We test copy and offers against different Edinburg audience segments to improve conversion rate, not just click-through rate.' },
+  { name: 'Refine & Expand', text: 'Winning searches and audiences get expanded while weak segments are trimmed back before they burn budget.' },
+  { name: 'Report & Iterate', text: 'Every month, you see what converted, what cost per lead looks like, and what we are doing next.' },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Google Ads Edinburg TX',
+    'RankRGV manages Google Ads and Meta Ads campaigns for Edinburg businesses with flat-fee pricing and lead-focused optimization.',
+    'Edinburg'
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How We Run Google Ads for Edinburg Businesses',
+    'The process RankRGV uses to build and optimize Google Ads and Meta Ads campaigns for businesses in Edinburg, Texas.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Edinburg', href: '/service-areas/edinburg/' },
+    { label: 'Ads Management', href: '/service-areas/edinburg/ads-management/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/edinburg/ads-management/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Google & Meta Ads · Edinburg, TX"
+    headline='Paid ads for Edinburg businesses<br /><span class="gradient-text">that need smarter audience targeting.</span>'
+    subheadline="Edinburg is not just another Valley market. Between UTRGV, healthcare demand, and growing professional services, the audience mix is different. Your campaigns should reflect that."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="google ads edinburg tx"
+    mockupCategory="Ads Management · Edinburg, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'Edinburg', label: 'Student + family market' },
+      { value: 'UTRGV', label: 'Audience driver' },
+      { value: 'Google + Meta', label: 'Channel mix' },
+      { value: 'Flat fee', label: 'Management pricing' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="edinburg-ads-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="edinburg-ads-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Edinburg campaigns work better when you respect how mixed the local audience really is
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Edinburg blends student demand, family demand, county-seat professional traffic, and healthcare movement. That gives advertisers opportunity, but it also means lazy targeting burns budget quickly.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            A campaign aimed at broad Valley traffic often misses the nuance. We structure ads around the specific demand pockets that match how Edinburg actually works.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            Sometimes that means tighter Google search coverage. Sometimes it means pairing search with Meta retargeting or local awareness. Either way, the account has to be built around real audience behavior.
+          </p>
+        </div>
+
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              title: 'UTRGV changes the audience mix',
+              body: 'Edinburg has a younger and more dynamic audience segment than many Valley advertisers account for.',
+            },
+            {
+              title: 'Healthcare and professional demand matter',
+              body: 'Search intent around clinics, legal services, and specialized providers is meaningful here and should be structured intentionally.',
+            },
+            {
+              title: 'Segmentation matters more than average',
+              body: 'Edinburg often rewards better audience and message segmentation rather than one-size-fits-all campaigns.',
+            },
+          ].map(({ title, body }) => (
+            <div class="p-5 rounded-xl border bg-bg-surface border-border">
+              <div class="font-bold text-text mb-2">{title}</div>
+              <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we manage ads for Edinburg businesses"
+    subheadline="Built for a city where audience segmentation matters more than average."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities" class="text-2xl font-bold text-text mb-8 text-center reveal">
+        Also serving these RGV cities for ads management
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'McAllen Ads Management', href: '/service-areas/mcallen/ads-management/' },
+          { label: 'Brownsville Ads Management', href: '/service-areas/brownsville/ads-management/' },
+          { label: 'Harlingen Ads Management', href: '/service-areas/harlingen/ads-management/' },
+          { label: 'Mission Ads Management', href: '/service-areas/mission/ads-management/' },
+          { label: 'Pharr Ads Management', href: '/service-areas/pharr/ads-management/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">
+            {label}
+          </a>
+        ))}
+        <a href="/ads-management/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">
+          All Ads Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Edinburg ads management questions answered" />
+
+  <CTASection
+    headline="Need better paid targeting in Edinburg?"
+    subheadline="We will map where Edinburg demand is coming from and build campaigns around the audience segments most likely to convert."
+  />
+</ServiceAreaLayout>

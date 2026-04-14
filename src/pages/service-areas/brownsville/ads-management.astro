@@ -1,0 +1,189 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+
+const area = getAreaBySlug('brownsville')!;
+const service = getServiceBySlug('ads-management')!;
+
+const title = 'Google Ads Brownsville TX | Google & Meta Ads Management | RankRGV';
+const description =
+  'Flat-fee Google Ads and Meta Ads management for Brownsville businesses. Capture growing local demand with tighter campaigns and better tracking. Call (956) 391-5991.';
+
+const faqs = [
+  {
+    question: 'Is Brownsville a good market for Google Ads right now?',
+    answer:
+      'Yes. Brownsville is changing fast, and the growth around Starbase, logistics, and new local business formation is creating fresh demand. Many advertisers still have not adjusted to that opportunity, which means disciplined campaigns can still move efficiently.',
+  },
+  {
+    question: 'Should Brownsville businesses focus on Google Ads or Meta Ads first?',
+    answer:
+      'If the business depends on active search demand, Google Ads should usually come first. If you also need retargeting, more local awareness, or an offer that benefits from repeated exposure, Meta Ads can work alongside it well.',
+  },
+  {
+    question: 'Will ad costs in Brownsville keep rising?',
+    answer:
+      'Probably over time. That is what happens when a market grows and more businesses compete for the same attention. The practical takeaway is simple: businesses that build competent campaigns earlier usually gain the strongest advantage.',
+  },
+  {
+    question: 'Can you manage ads for service-area businesses in Brownsville?',
+    answer:
+      'Yes. Many Brownsville businesses serve customers across surrounding areas without depending on a storefront walk-in model. We structure campaigns around services, intent, and geography so the account reflects how the business actually sells.',
+  },
+  {
+    question: 'Do Brownsville businesses need landing pages for ads?',
+    answer:
+      'Almost always. Good ads sent to weak pages waste budget. A focused landing page or tightly matched service page usually improves conversion rates and makes optimization decisions much clearer.',
+  },
+];
+
+const howToSteps = [
+  { name: 'Brownsville Market Audit', text: 'We review your demand sources, your current tracking, and what competitors in Brownsville are doing poorly enough for you to exploit.' },
+  { name: 'Growth Opportunity Mapping', text: 'We identify where Brownsville search demand and Meta audiences can produce real leads now, not just cheap traffic.' },
+  { name: 'Build & Launch', text: 'Campaigns, audiences, tracking, and landing page alignment are set up cleanly so the first month produces usable signal.' },
+  { name: 'Optimize Lead Quality', text: 'We trim waste aggressively and keep watch on terms, placements, and messaging so spend stays tied to qualified opportunities.' },
+  { name: 'Scale Into What Works', text: 'Once a service line is converting, we expand budget, retargeting, and test coverage without losing control of efficiency.' },
+  { name: 'Report With Clarity', text: 'You see spend, conversion volume, cost per lead, and what the next optimization cycle looks like.' },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Google Ads Brownsville TX',
+    'RankRGV manages Google Ads and Meta Ads campaigns for Brownsville businesses with flat-fee pricing and lead-focused optimization.',
+    'Brownsville'
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How We Run Google Ads for Brownsville Businesses',
+    'The process RankRGV uses to launch and improve Google Ads and Meta Ads campaigns for businesses in Brownsville, Texas.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Brownsville', href: '/service-areas/brownsville/' },
+    { label: 'Ads Management', href: '/service-areas/brownsville/ads-management/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/brownsville/ads-management/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Google & Meta Ads · Brownsville, TX"
+    headline='Capture Brownsville demand<br /><span class="gradient-text">before the market catches up.</span>'
+    subheadline="Brownsville is growing, and a lot of local advertisers still are not running paid campaigns well. That creates an opening for businesses willing to move early with cleaner Google Ads and Meta Ads execution."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="google ads brownsville tx"
+    mockupCategory="Ads Management · Brownsville, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'Brownsville', label: 'Growth market' },
+      { value: 'Early', label: 'Paid media window' },
+      { value: 'Flat fee', label: 'Management model' },
+      { value: 'Google + Meta', label: 'Platform mix' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="brownsville-ads-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="brownsville-ads-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Brownsville paid ads are less about brute force and more about getting in early with discipline
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Brownsville is one of the most interesting markets in the Valley right now. Economic activity is rising, new businesses are showing up, and demand patterns are shifting. That usually creates opportunity before it creates mature competition.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Businesses that start building proper paid acquisition systems now can lock in better data, better offers, and better audience learning before the market gets more expensive.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We focus on staying efficient while the window is still favorable: tighter search targeting, usable tracking, and offers matched to the local demand that is actually forming.
+          </p>
+        </div>
+
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              title: 'Market growth is changing demand',
+              body: 'Brownsville is not static. New economic activity means more search and more competition over time, especially for service businesses.',
+            },
+            {
+              title: 'Most local advertisers are still behind',
+              body: 'That is the opportunity. Many accounts are under-structured, poorly tracked, and not built for lead quality.',
+            },
+            {
+              title: 'Early data compounds',
+              body: 'The sooner you learn which keywords, offers, and audiences work in Brownsville, the easier it is to scale later without guessing.',
+            },
+          ].map(({ title, body }) => (
+            <div class="p-5 rounded-xl border bg-bg-surface border-border">
+              <div class="font-bold text-text mb-2">{title}</div>
+              <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we manage ads for Brownsville businesses"
+    subheadline="Built for a market that is growing before most local competition is ready."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities" class="text-2xl font-bold text-text mb-8 text-center reveal">
+        Also serving these RGV cities for ads management
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'McAllen Ads Management', href: '/service-areas/mcallen/ads-management/' },
+          { label: 'Edinburg Ads Management', href: '/service-areas/edinburg/ads-management/' },
+          { label: 'Harlingen Ads Management', href: '/service-areas/harlingen/ads-management/' },
+          { label: 'Mission Ads Management', href: '/service-areas/mission/ads-management/' },
+          { label: 'Pharr Ads Management', href: '/service-areas/pharr/ads-management/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">
+            {label}
+          </a>
+        ))}
+        <a href="/ads-management/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">
+          All Ads Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Brownsville ads management questions answered" />
+
+  <CTASection
+    headline="Want to build paid lead flow in Brownsville before it gets more expensive?"
+    subheadline="We will show you where Brownsville demand is strongest and whether Google Ads, Meta Ads, or both fit your next move."
+  />
+</ServiceAreaLayout>

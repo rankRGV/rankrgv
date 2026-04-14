@@ -38,6 +38,19 @@ export const services: Service[] = [
       'Professional web design McAllen TX — fast-loading, built to rank and convert. 99+ Lighthouse scores from day one. Call (956) 391-5991.',
   },
   {
+    slug: 'ads-management',
+    name: 'Google & Meta Ads',
+    shortName: 'Ads Management',
+    headline: 'More Leads Now — While SEO Keeps Compounding',
+    description:
+      'Flat-fee Google Ads and Meta Ads management for Rio Grande Valley businesses. No setup fees, no commissions on spend, and no long-term contracts.',
+    icon: 'M20 2v3h-2.586l-6 4H7v6h4.414l6 4H20v3h2V2h-2zM5 9H2v6h3V9zm1 8v2h5v-2H6z',
+    primaryKeyword: 'google ads management mcallen tx',
+    titleTag: 'Google & Meta Ads Management McAllen TX | RankRGV',
+    metaDescription:
+      'Flat-fee Google Ads and Meta Ads management for McAllen and RGV businesses. No setup fees. No long-term contracts. Call (956) 391-5991.',
+  },
+  {
     slug: 'business-automation',
     name: 'Business Automation',
     shortName: 'Automation',

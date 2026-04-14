@@ -1,0 +1,189 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+
+const area = getAreaBySlug('pharr')!;
+const service = getServiceBySlug('ads-management')!;
+
+const title = 'Google Ads Pharr TX | Google & Meta Ads Management | RankRGV';
+const description =
+  'Flat-fee Google Ads and Meta Ads management for Pharr businesses. Reach logistics, trade, and cross-border demand with tighter search targeting and better tracking. Call (956) 391-5991.';
+
+const faqs = [
+  {
+    question: 'Can Google Ads work for logistics and trade-related businesses in Pharr?',
+    answer:
+      'Yes, especially when campaigns are built around high-intent commercial searches and clear service differentiation. Pharr has a strong trade and logistics identity, which creates valuable search demand for the right business categories.',
+  },
+  {
+    question: 'What makes Pharr ad strategy different from Mission or McAllen?',
+    answer:
+      'Pharr often requires a more commercial and operational angle. The market has strong cross-border and logistics relevance, so messaging and keyword structure can need a different tone than a purely residential service market.',
+  },
+  {
+    question: 'Should Pharr businesses use Meta Ads too?',
+    answer:
+      'Sometimes. Google Ads is often the first choice for direct commercial search demand. Meta can still help with retargeting, visibility, and offer reinforcement, especially when decision cycles are not instant.',
+  },
+  {
+    question: 'Do Pharr campaigns need tighter keyword control?',
+    answer:
+      'Usually yes. Because the commercial intent can be specific, broad targeting often creates low-quality clicks. Tight keyword themes and stronger negative keyword management matter a lot here.',
+  },
+  {
+    question: 'How do you know whether a Pharr campaign is producing qualified leads?',
+    answer:
+      'We track calls, forms, and conversion events, then compare those against the search terms and audiences generating them. The goal is to understand the quality of demand, not just the quantity of traffic.',
+  },
+];
+
+const howToSteps = [
+  { name: 'Pharr Market Audit', text: 'We assess the commercial demand around Pharr and review how your current ad setup aligns with logistics, trade, or local service intent.' },
+  { name: 'Commercial Search Mapping', text: 'We identify the searches and audience angles most likely to produce qualified business opportunities in the Pharr market.' },
+  { name: 'Campaign Launch', text: 'Campaigns and tracking are launched with account structure designed for tighter keyword control and better attribution.' },
+  { name: 'Intent Filtering', text: 'We remove weak traffic aggressively so the account stays focused on searches and audiences with real business value.' },
+  { name: 'Scale the Winners', text: 'Once we know which segments convert, we expand those areas without diluting lead quality.' },
+  { name: 'Monthly Reporting', text: 'You get a clear report on spend, conversions, cost per lead, and next actions.' },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Google Ads Pharr TX',
+    'RankRGV manages Google Ads and Meta Ads campaigns for Pharr businesses with flat-fee pricing and lead-focused optimization.',
+    'Pharr'
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How We Run Google Ads for Pharr Businesses',
+    'The process RankRGV uses to manage Google Ads and Meta Ads campaigns for businesses in Pharr, Texas.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Pharr', href: '/service-areas/pharr/' },
+    { label: 'Ads Management', href: '/service-areas/pharr/ads-management/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/pharr/ads-management/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Google & Meta Ads · Pharr, TX"
+    headline='Paid ads for Pharr businesses<br /><span class="gradient-text">with commercial intent behind them.</span>'
+    subheadline="Pharr sits in one of the Valley's most commercially important corridors. That creates opportunity for businesses that need tighter keyword control, stronger tracking, and a more operational ad strategy."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="google ads pharr tx"
+    mockupCategory="Ads Management · Pharr, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'Pharr', label: 'Trade corridor' },
+      { value: 'Commercial', label: 'Search intent' },
+      { value: 'Tighter', label: 'Keyword control' },
+      { value: 'Flat fee', label: 'Management pricing' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="pharr-ads-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="pharr-ads-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Pharr campaigns perform best when they are built for commercial search intent, not generic traffic
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Pharr has a different demand profile than a purely residential market. Logistics, trade, warehouse activity, and commercial movement shape how businesses are searched and how buyers make decisions.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            That means broad campaign targeting tends to underperform. Pharr usually rewards accounts that stay tighter on keyword themes, stronger on negative control, and clearer on the commercial value of the offer.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We structure campaigns around that reality so budget follows qualified intent instead of drifting toward unhelpful click volume.
+          </p>
+        </div>
+
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              title: 'Commercial search intent is stronger here',
+              body: 'Pharr often produces demand patterns tied to operations, logistics, and commercially driven decision-making.',
+            },
+            {
+              title: 'Broad targeting gets expensive fast',
+              body: 'Accounts usually need tighter search themes and more aggressive negatives to stay efficient.',
+            },
+            {
+              title: 'Tracking has to be clean',
+              body: 'When the search intent is more specific, it becomes even more important to know which campaigns are producing qualified conversations.',
+            },
+          ].map(({ title, body }) => (
+            <div class="p-5 rounded-xl border bg-bg-surface border-border">
+              <div class="font-bold text-text mb-2">{title}</div>
+              <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we manage ads for Pharr businesses"
+    subheadline="Built for a market where commercial intent and keyword control matter."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities" class="text-2xl font-bold text-text mb-8 text-center reveal">
+        Also serving these RGV cities for ads management
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'McAllen Ads Management', href: '/service-areas/mcallen/ads-management/' },
+          { label: 'Brownsville Ads Management', href: '/service-areas/brownsville/ads-management/' },
+          { label: 'Edinburg Ads Management', href: '/service-areas/edinburg/ads-management/' },
+          { label: 'Harlingen Ads Management', href: '/service-areas/harlingen/ads-management/' },
+          { label: 'Mission Ads Management', href: '/service-areas/mission/ads-management/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">
+            {label}
+          </a>
+        ))}
+        <a href="/ads-management/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">
+          All Ads Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Pharr ads management questions answered" />
+
+  <CTASection
+    headline="Need tighter paid acquisition in Pharr?"
+    subheadline="We will show you which Pharr search and audience segments justify budget and how to keep the account focused on qualified intent."
+  />
+</ServiceAreaLayout>

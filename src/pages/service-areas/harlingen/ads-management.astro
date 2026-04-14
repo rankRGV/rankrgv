@@ -1,0 +1,189 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+
+const area = getAreaBySlug('harlingen')!;
+const service = getServiceBySlug('ads-management')!;
+
+const title = 'Google Ads Harlingen TX | Google & Meta Ads Management | RankRGV';
+const description =
+  'Flat-fee Google Ads and Meta Ads management for Harlingen businesses. Reach local healthcare, mid-size business, and service demand with tighter campaign control. Call (956) 391-5991.';
+
+const faqs = [
+  {
+    question: 'Do Google Ads work well for healthcare-related businesses in Harlingen?',
+    answer:
+      'They can, especially when the campaign is built carefully around service intent, location relevance, and compliant messaging. Harlingen has meaningful healthcare gravity, and that creates real search demand for related services.',
+  },
+  {
+    question: 'What makes Harlingen different from other RGV ad markets?',
+    answer:
+      'Harlingen sits in a useful middle ground. It has strong institutional and healthcare presence, but it is not as broad a market as McAllen. That often rewards tighter service-line campaigns instead of trying to advertise everything at once.',
+  },
+  {
+    question: 'Should Harlingen businesses use Meta Ads too?',
+    answer:
+      'Often yes, especially for retargeting or offers that benefit from repeated exposure. Google Ads is usually the first step for direct intent. Meta helps reinforce visibility and recover non-converting traffic.',
+  },
+  {
+    question: 'Can smaller Harlingen businesses compete with bigger advertisers?',
+    answer:
+      'Yes, if the campaign is more disciplined. Smaller businesses often win when they stay focused on their best services, best geography, and fastest response workflow instead of trying to outspend everyone.',
+  },
+  {
+    question: 'How do you keep Harlingen ad budgets efficient?',
+    answer:
+      'We cut waste aggressively through search-term review, tighter geographic intent, audience control, and better landing-page alignment. Efficiency usually comes more from account discipline than from clever tricks.',
+  },
+];
+
+const howToSteps = [
+  { name: 'Harlingen Opportunity Audit', text: 'We assess how Harlingen demand lines up with your services, current account setup, and local competition.' },
+  { name: 'Service-Line Prioritization', text: 'We decide which services deserve budget first so the campaign starts where qualified demand is strongest.' },
+  { name: 'Structured Launch', text: 'Campaigns and tracking are built cleanly so the account can be optimized from real conversion data.' },
+  { name: 'Efficiency Optimization', text: 'We tighten search terms, placements, and messaging to keep Harlingen budgets focused on qualified opportunities.' },
+  { name: 'Retargeting & Expansion', text: 'Once the base campaign performs, we layer retargeting and broader coverage where it improves total lead flow.' },
+  { name: 'Reporting', text: 'You get a clear read on spend, leads, cost efficiency, and what changes are coming next.' },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Google Ads Harlingen TX',
+    'RankRGV manages Google Ads and Meta Ads campaigns for Harlingen businesses with flat-fee pricing and lead-focused optimization.',
+    'Harlingen'
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How We Run Google Ads for Harlingen Businesses',
+    'The process RankRGV uses to manage Google Ads and Meta Ads campaigns for businesses in Harlingen, Texas.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Harlingen', href: '/service-areas/harlingen/' },
+    { label: 'Ads Management', href: '/service-areas/harlingen/ads-management/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/harlingen/ads-management/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Google & Meta Ads · Harlingen, TX"
+    headline='Ads management for Harlingen businesses<br /><span class="gradient-text">that need tighter budget control.</span>'
+    subheadline="Harlingen rewards focused campaigns. Between healthcare demand, mid-size businesses, and regional service traffic, the opportunity is strong if the account stays disciplined."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="google ads harlingen tx"
+    mockupCategory="Ads Management · Harlingen, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'Harlingen', label: 'Healthcare hub' },
+      { value: 'Focused', label: 'Service-line strategy' },
+      { value: 'Flat fee', label: 'Management model' },
+      { value: 'Tracked', label: 'Lead reporting' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="harlingen-ads-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="harlingen-ads-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Harlingen campaigns usually win by staying focused, not by trying to be everywhere
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Harlingen has meaningful demand, especially around healthcare, regional services, and established mid-size business activity. But it is not the kind of market where broad, unfocused campaigns perform well for long.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The accounts that hold up here usually have tighter service priorities, cleaner geographic control, and better landing-page alignment. That is where efficiency comes from.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build Harlingen campaigns around your strongest revenue opportunities first, then scale once the data shows where budget should actually go.
+          </p>
+        </div>
+
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              title: 'Healthcare demand is a real advantage',
+              body: "Harlingen's healthcare concentration creates high-intent search patterns that can support well-built paid campaigns.",
+            },
+            {
+              title: 'Mid-size business market favors discipline',
+              body: 'This is often a better market for focused campaigns than for broad awareness-heavy spend.',
+            },
+            {
+              title: 'Waste shows up quickly',
+              body: 'Loose keyword targeting or weak pages can make Harlingen budgets underperform fast, which is why account structure matters.',
+            },
+          ].map(({ title, body }) => (
+            <div class="p-5 rounded-xl border bg-bg-surface border-border">
+              <div class="font-bold text-text mb-2">{title}</div>
+              <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we manage ads for Harlingen businesses"
+    subheadline="Built for a market where focused service-line strategy matters."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities" class="text-2xl font-bold text-text mb-8 text-center reveal">
+        Also serving these RGV cities for ads management
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'McAllen Ads Management', href: '/service-areas/mcallen/ads-management/' },
+          { label: 'Brownsville Ads Management', href: '/service-areas/brownsville/ads-management/' },
+          { label: 'Edinburg Ads Management', href: '/service-areas/edinburg/ads-management/' },
+          { label: 'Mission Ads Management', href: '/service-areas/mission/ads-management/' },
+          { label: 'Pharr Ads Management', href: '/service-areas/pharr/ads-management/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">
+            {label}
+          </a>
+        ))}
+        <a href="/ads-management/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">
+          All Ads Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Harlingen ads management questions answered" />
+
+  <CTASection
+    headline="Need a tighter paid ads strategy in Harlingen?"
+    subheadline="We will show you which Harlingen demand pockets justify budget and how to structure campaigns around them cleanly."
+  />
+</ServiceAreaLayout>

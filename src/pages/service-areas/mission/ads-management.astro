@@ -1,0 +1,189 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+
+const area = getAreaBySlug('mission')!;
+const service = getServiceBySlug('ads-management')!;
+
+const title = 'Google Ads Mission TX | Google & Meta Ads Management | RankRGV';
+const description =
+  'Flat-fee Google Ads and Meta Ads management for Mission businesses. Reach growing suburban demand with tighter service targeting and better retargeting. Call (956) 391-5991.';
+
+const faqs = [
+  {
+    question: 'Is Mission large enough to justify Google Ads?',
+    answer:
+      'Yes, especially for home services, healthcare, local retail-adjacent services, and businesses serving growing suburban demand. Mission keeps expanding, which makes local search and paid traffic more valuable over time.',
+  },
+  {
+    question: 'What makes ads strategy in Mission different from McAllen?',
+    answer:
+      'Mission often rewards a slightly more residential and suburb-oriented approach. Search demand can be very strong, but campaign messaging often works better when it feels local, direct, and service-driven rather than broad.',
+  },
+  {
+    question: 'Can Meta Ads work well in Mission?',
+    answer:
+      'Yes. Mission can be a strong fit for Meta retargeting and localized offers, especially when the business wants repeated visibility in a growing suburban audience.',
+  },
+  {
+    question: 'Should a Mission business start with Google Ads or Meta Ads?',
+    answer:
+      'Usually Google Ads first if direct search intent exists. Meta becomes strong when paired with retargeting, seasonal offers, or demand-generation campaigns around the neighborhoods you want to stay visible in.',
+  },
+  {
+    question: 'How do you keep Mission campaigns local enough?',
+    answer:
+      'We control geography carefully, keep campaigns tied to the right service lines, and make sure landing pages and messaging reflect what Mission customers are actually looking for.',
+  },
+];
+
+const howToSteps = [
+  { name: 'Mission Demand Review', text: 'We assess your current ad position, the growth patterns in Mission, and where local demand is strongest for your services.' },
+  { name: 'Neighborhood & Service Strategy', text: 'We map campaigns around the service lines and local audience segments most likely to convert in Mission.' },
+  { name: 'Launch With Tracking', text: 'Campaigns and conversion tracking are built cleanly so budget decisions can be made from actual lead data.' },
+  { name: 'Local Message Testing', text: 'We test copy and offers that fit a growing suburban audience instead of recycling generic Valley messaging.' },
+  { name: 'Retargeting & Scaling', text: 'Once the core campaign works, we expand with retargeting and stronger local coverage without losing efficiency.' },
+  { name: 'Monthly Review', text: 'You see spend, leads, cost per lead, and what we are tightening or expanding next.' },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Google Ads Mission TX',
+    'RankRGV manages Google Ads and Meta Ads campaigns for Mission businesses with flat-fee pricing and lead-focused optimization.',
+    'Mission'
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How We Run Google Ads for Mission Businesses',
+    'The process RankRGV uses to build and optimize Google Ads and Meta Ads campaigns for businesses in Mission, Texas.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Mission', href: '/service-areas/mission/' },
+    { label: 'Ads Management', href: '/service-areas/mission/ads-management/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/mission/ads-management/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Google & Meta Ads · Mission, TX"
+    headline='Paid ads for Mission businesses<br /><span class="gradient-text">serving a fast-growing suburb.</span>'
+    subheadline="Mission keeps growing, and that means more local demand for the businesses positioned to capture it. We build Google Ads and Meta Ads campaigns around the service searches and local audiences that matter most."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="google ads mission tx"
+    mockupCategory="Ads Management · Mission, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'Mission', label: 'Growing suburb' },
+      { value: 'Residential', label: 'Demand profile' },
+      { value: 'Google + Meta', label: 'Channel mix' },
+      { value: 'Flat fee', label: 'Management model' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="mission-ads-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="mission-ads-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            Mission rewards campaigns that feel local, service-driven, and built for residential growth
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            Mission is growing as both a residential market and a business corridor. That creates steady demand for home services, healthcare-adjacent services, and local businesses that need to stay visible where families actually live.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            In markets like this, advertisers usually do best when the message is tight and local. Broad campaign language often underperforms compared with offers that feel specific to the area and the service need.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build around that reality with tighter geographic intent, clearer local messaging, and retargeting that helps Mission businesses stay visible after the first visit.
+          </p>
+        </div>
+
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              title: 'Suburban growth creates demand',
+              body: 'Mission keeps adding the kind of residential demand that supports strong local paid campaigns for the right services.',
+            },
+            {
+              title: 'Local feel matters',
+              body: 'Messaging that sounds generic often underperforms here compared with ads that feel grounded in the local service need.',
+            },
+            {
+              title: 'Retargeting can be especially useful',
+              body: 'Mission is a strong market for staying visible after the first site visit, especially on Meta.',
+            },
+          ].map(({ title, body }) => (
+            <div class="p-5 rounded-xl border bg-bg-surface border-border">
+              <div class="font-bold text-text mb-2">{title}</div>
+              <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we manage ads for Mission businesses"
+    subheadline="Built for a market where residential growth and local messaging matter."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities" class="text-2xl font-bold text-text mb-8 text-center reveal">
+        Also serving these RGV cities for ads management
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'McAllen Ads Management', href: '/service-areas/mcallen/ads-management/' },
+          { label: 'Brownsville Ads Management', href: '/service-areas/brownsville/ads-management/' },
+          { label: 'Edinburg Ads Management', href: '/service-areas/edinburg/ads-management/' },
+          { label: 'Harlingen Ads Management', href: '/service-areas/harlingen/ads-management/' },
+          { label: 'Pharr Ads Management', href: '/service-areas/pharr/ads-management/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">
+            {label}
+          </a>
+        ))}
+        <a href="/ads-management/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">
+          All Ads Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Mission ads management questions answered" />
+
+  <CTASection
+    headline="Need more local lead flow in Mission?"
+    subheadline="We will show you how to structure Google Ads and Meta Ads around the Mission demand pockets most likely to convert."
+  />
+</ServiceAreaLayout>

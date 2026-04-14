@@ -5,9 +5,9 @@ import PricingSection from '@/components/PricingSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import { buildWebPageSchema, buildBreadcrumbSchema } from '@/components/SchemaMarkup.astro';
 
-const title = 'Transparent Pricing | Local SEO, Web Design & GBP Management | RankRGV';
+const title = 'Transparent Pricing | Local SEO, Ads Management, Web Design & GBP Management | RankRGV';
 const description =
-  'Transparent pricing for local SEO, web design, and business automation in the Rio Grande Valley. No hidden fees. No long-term contracts. (956) 391-5991.';
+  'Transparent pricing for local SEO, Google Ads and Meta Ads management, web design, and business automation in the Rio Grande Valley. No hidden fees. No long-term contracts. (956) 391-5991.';
 
 const schema = [
   buildWebPageSchema(title, description, '/pricing/'),
@@ -157,6 +157,58 @@ const webCards = [
   },
 ];
 
+const adsCards = [
+  {
+    name: 'Starter',
+    price: '$350',
+    period: '/month',
+    description:
+      'Up to $1,000/mo in ad spend. Google Ads, Meta Ads, or both.',
+    features: [
+      'Campaign setup and structure',
+      'Ongoing bid and audience optimization',
+      'Conversion tracking setup',
+      'Basic ad copy support',
+      'Monthly performance report',
+    ],
+    cta: { label: 'Get started', href: '/get-started/?service=ads-management&plan=Starter' },
+  },
+  {
+    name: 'Growth',
+    badge: 'Most Popular',
+    highlighted: true,
+    price: '$500',
+    period: '/month',
+    description:
+      '$1,000 to $3,000/mo in ad spend. Built to scale lead volume consistently.',
+    features: [
+      'Everything in Starter',
+      'Multi-campaign management',
+      'A/B ad copy testing',
+      'Audience segmentation',
+      'Retargeting setup',
+      'Bi-weekly optimization check',
+    ],
+    cta: { label: 'Get started', href: '/get-started/?service=ads-management&plan=Growth' },
+  },
+  {
+    name: 'Scale',
+    price: '$750',
+    period: '/month',
+    description:
+      '$3,000 to $10,000/mo in ad spend. Full account management for serious volume.',
+    features: [
+      'Everything in Growth',
+      'Cross-platform strategy (Google + Meta)',
+      'Landing page recommendations',
+      'Advanced audience and lookalike targeting',
+      'Weekly optimization check',
+      'Priority support',
+    ],
+    cta: { label: "Let's talk scope", href: '/contact/' },
+  },
+];
+
 const automationCards = [
   {
     name: 'Business Automation',
@@ -245,6 +297,15 @@ const pricingFaqs = [
     subheadline="Monthly retainers built to rank you across every RGV city your customers search from."
     cards={seoCards}
     note="All plans are month-to-month. No setup fees. Starts with a free audit so you know exactly where you stand."
+    bg="bg-surface"
+  />
+
+  <PricingSection
+    id="ads-management-pricing"
+    headline="Google & Meta Ads management"
+    subheadline="For businesses that want leads faster. Flat monthly fee based on your ad budget — no setup fees, no commissions on spend."
+    cards={adsCards}
+    note="Spending more than $10,000/month? We scope those accounts individually — usually a base fee plus a percentage of spend. Reach out for a custom quote."
     bg="bg-surface"
   />
 

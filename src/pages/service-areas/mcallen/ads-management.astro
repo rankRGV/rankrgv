@@ -1,0 +1,189 @@
+---
+import ServiceAreaLayout from '@/layouts/ServiceAreaLayout.astro';
+import Hero from '@/components/Hero.astro';
+import TrustSignals from '@/components/TrustSignals.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { getAreaBySlug } from '@/data/serviceAreas';
+import { getServiceBySlug } from '@/data/services';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+
+const area = getAreaBySlug('mcallen')!;
+const service = getServiceBySlug('ads-management')!;
+
+const title = 'Google Ads McAllen TX | Google & Meta Ads Management | RankRGV';
+const description =
+  'Flat-fee Google Ads and Meta Ads management for McAllen businesses. More qualified leads, better tracking, no commissions on ad spend. Call (956) 391-5991.';
+
+const faqs = [
+  {
+    question: 'How much should a McAllen business spend on Google Ads?',
+    answer:
+      'For many McAllen service businesses, a practical starting point is $1,000 to $3,000 per month in ad spend. That is usually enough to gather clean data and see where cost per lead settles. The right number depends on your margin, your urgency, and how competitive your category is around McAllen.',
+  },
+  {
+    question: 'Are Google Ads in McAllen too competitive?',
+    answer:
+      'Some categories are tightening, but McAllen is still far less expensive than larger Texas metros. The bigger issue is not competition by volume. It is sloppy campaign setup. A lot of local accounts waste budget on weak match types, poor landing pages, and no negative keyword control.',
+  },
+  {
+    question: 'Should my McAllen business run Google Ads, Meta Ads, or both?',
+    answer:
+      'If you need high-intent leads quickly, Google Ads is usually the first move. If you want stronger retargeting, audience building, or more demand creation, Meta Ads becomes valuable too. Many McAllen businesses end up using Google for demand capture and Meta for follow-up and reinforcement.',
+  },
+  {
+    question: 'Do you charge a percentage of ad spend for McAllen accounts?',
+    answer:
+      'No. Standard accounts are managed on a flat monthly fee. That keeps the relationship cleaner because your budget decisions stay tied to performance, not to whether your agency gets paid more when spend goes up.',
+  },
+  {
+    question: 'How fast can McAllen ads start generating leads?',
+    answer:
+      'Usually within the first week you will start seeing real search-term and conversion data. The first 30 days tell us what the market is responding to. From there, we tighten the account, improve lead quality, and push the cost per lead in the right direction.',
+  },
+];
+
+const howToSteps = [
+  { name: 'McAllen Ads Audit', text: 'We review your current campaigns, tracking, landing pages, and the search demand around McAllen so we know exactly where lead waste is happening.' },
+  { name: 'McAllen Search & Audience Map', text: 'We identify the keywords, service lines, and audience segments most likely to generate qualified calls in McAllen.' },
+  { name: 'Campaign Build', text: 'We structure campaigns cleanly, install conversion tracking, and launch with account architecture built for optimization instead of guesswork.' },
+  { name: 'Lead Quality Review', text: 'We watch search terms, placements, and actual lead quality so the account does not drift toward cheap but useless conversions.' },
+  { name: 'Retargeting & Expansion', text: 'Once the core campaign proves itself, we expand into retargeting, stronger ad copy tests, and broader coverage inside the McAllen market.' },
+  { name: 'Monthly Reporting', text: 'You see what was spent, what converted, what cost per lead looks like, and what we are changing next.' },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Google Ads McAllen TX',
+    'RankRGV manages Google Ads and Meta Ads campaigns for McAllen businesses with flat monthly pricing and lead-focused optimization.',
+    'McAllen'
+  ),
+  buildFAQSchema(faqs),
+  buildHowToSchema(
+    'How We Run Google Ads for McAllen Businesses',
+    'The process RankRGV uses to build and optimize Google Ads and Meta Ads campaigns for businesses in McAllen, Texas.',
+    howToSteps
+  ),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'McAllen', href: '/service-areas/mcallen/' },
+    { label: 'Ads Management', href: '/service-areas/mcallen/ads-management/' },
+  ]),
+  buildWebPageSchema(title, description, '/service-areas/mcallen/ads-management/'),
+];
+---
+
+<ServiceAreaLayout area={area} service={service} title={title} description={description} schema={schema}>
+  <Hero
+    badge="Google & Meta Ads · McAllen, TX"
+    headline='Google Ads management built for<br /><span class="gradient-text">McAllen lead volume.</span>'
+    subheadline="McAllen is the biggest paid search market in the Valley. That means more demand, more competition, and more wasted budget for businesses running loose campaigns. We tighten the account so the leads are worth paying for."
+    secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
+    mockupQuery="google ads mcallen tx"
+    mockupCategory="Ads Management · McAllen, TX"
+  />
+
+  <TrustSignals
+    stats={[
+      { value: 'McAllen', label: 'Primary ad market' },
+      { value: 'High intent', label: 'Service search demand' },
+      { value: 'Flat fee', label: 'Management model' },
+      { value: '0%', label: 'Spend commissions' },
+    ]}
+  />
+
+  <section class="py-20 bg-bg" aria-labelledby="mcallen-ads-intro">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+          <h2 id="mcallen-ads-intro" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            McAllen has the most search volume in the RGV, which makes clean campaign structure matter more
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            McAllen is where a lot of Valley search demand concentrates. More people, more businesses, more service intent. That is good news if your account is built correctly. It is expensive news if it is not.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            The businesses winning McAllen paid search usually are not winning because they spend dramatically more. They are winning because they filter bad searches faster, match offers to intent better, and follow up with leads immediately.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            We build around that reality: tighter keywords, stronger conversion tracking, and campaign decisions tied to qualified lead flow instead of click volume.
+          </p>
+        </div>
+
+        <div class="space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              title: 'Largest market in the Valley',
+              body: 'McAllen usually delivers the deepest pool of high-intent service searches, which makes it the best place to scale a disciplined Google Ads account.',
+            },
+            {
+              title: 'Competition is real, but often sloppy',
+              body: 'Many local advertisers still rely on broad targeting, weak landing pages, and poor tracking. That leaves room for cleaner operators.',
+            },
+            {
+              title: 'Lead speed matters here',
+              body: 'If your team is slow to answer calls or forms, McAllen ad spend gets expensive fast. We care about the response system, not just the traffic source.',
+            },
+          ].map(({ title, body }) => (
+            <div class="p-5 rounded-xl border bg-bg-surface border-border">
+              <div class="font-bold text-text mb-2">{title}</div>
+              <div class="text-text-muted text-sm leading-relaxed">{body}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="How we manage ads for McAllen businesses"
+    subheadline="Built for the biggest and most competitive paid media market in the RGV."
+    steps={howToSteps.map((s, i) => ({
+      number: String(i + 1).padStart(2, '0'),
+      title: s.name,
+      body: s.text,
+    }))}
+  />
+
+  <Testimonials />
+
+  <section class="py-16 bg-bg" aria-labelledby="other-cities">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="other-cities" class="text-2xl font-bold text-text mb-8 text-center reveal">
+        Also serving these RGV cities for ads management
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center reveal reveal-delay-1">
+        {[
+          { label: 'Brownsville Ads Management', href: '/service-areas/brownsville/ads-management/' },
+          { label: 'Edinburg Ads Management', href: '/service-areas/edinburg/ads-management/' },
+          { label: 'Harlingen Ads Management', href: '/service-areas/harlingen/ads-management/' },
+          { label: 'Mission Ads Management', href: '/service-areas/mission/ads-management/' },
+          { label: 'Pharr Ads Management', href: '/service-areas/pharr/ads-management/' },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-200 no-underline">
+            {label}
+          </a>
+        ))}
+        <a href="/ads-management/" class="px-4 py-2 rounded-full bg-bg-surface border border-border text-sm font-medium text-text-muted hover:text-brand-blue transition-colors duration-200 no-underline">
+          All Ads Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="McAllen ads management questions answered" />
+
+  <CTASection
+    headline="Need more qualified leads in McAllen?"
+    subheadline="We will tell you whether Google Ads, Meta Ads, or a combined approach makes the most sense for your McAllen market."
+  />
+</ServiceAreaLayout>
