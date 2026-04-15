@@ -5,7 +5,9 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://rankrgv.com',
   integrations: [
-    sitemap(),
+    sitemap({
+      filter: (page) => page !== 'https://rankrgv.com/thank-you/',
+    }),
   ],
   vite: {
     plugins: [tailwindcss()],

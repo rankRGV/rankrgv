@@ -8,6 +8,30 @@ interface Props {
 }
 const { lang = 'en' } = Astro.props;
 const es = lang === 'es';
+
+const footerServiceLinkBySlug = {
+  'local-seo': {
+    href: es ? '/es/seo-local/' : '/local-seo/',
+    label: es ? 'SEO Local y Google Maps' : 'Local SEO & Google Maps',
+  },
+  'web-design': {
+    href: '/web-design/',
+    label: es ? 'Diseño Web' : 'Web Design',
+  },
+  'ads-management': {
+    href: '/ads-management/',
+    label: es ? 'Google y Meta Ads' : 'Google & Meta Ads',
+  },
+  'business-automation': {
+    href: '/business-automation/',
+    label: es ? 'Automatización' : 'Business Automation',
+  },
+} as const;
+
+function getFooterServiceLink(slug: string, fallbackLabel: string) {
+  const serviceLink = footerServiceLinkBySlug[slug as keyof typeof footerServiceLinkBySlug];
+  return serviceLink ?? { href: `/${slug}/`, label: fallbackLabel };
+}
 ---
 
 <footer class="bg-bg-dark text-white/60 border-t border-white/10">
@@ -70,12 +94,17 @@ const es = lang === 'es';
         <ul class="space-y-2">
           {services.map((s) => (
             <li>
-              <a
-                href={es ? `/es/seo-local/` : `/${s.slug}/`}
-                class="text-sm text-white/60 hover:text-white transition-colors no-underline"
-              >
-                {s.name}
-              </a>
+              {(() => {
+                const serviceLink = getFooterServiceLink(s.slug, s.name);
+                return (
+                  <a
+                    href={serviceLink.href}
+                    class="text-sm text-white/60 hover:text-white transition-colors no-underline"
+                  >
+                    {serviceLink.label}
+                  </a>
+                );
+              })()}
             </li>
           ))}
           <li class="pt-2">

@@ -10,6 +10,7 @@ interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
+  ogLocale?: string;
   noindex?: boolean;
   schema?: object | object[];
   geoRegion?: string;
@@ -22,6 +23,7 @@ const {
   description,
   canonical,
   ogImage = site.defaultOgImage,
+  ogLocale,
   noindex = false,
   schema,
   geoRegion,
@@ -30,6 +32,7 @@ const {
 } = Astro.props;
 
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
+const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
 ---
 
 <!doctype html>
@@ -40,11 +43,13 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
       description={description}
       canonical={canonicalUrl}
       ogImage={ogImage}
+      ogLocale={resolvedOgLocale}
       noindex={noindex}
       schema={schema}
       geoRegion={geoRegion}
       geoPlacename={geoPlacename}
     />
+    <slot name="head" />
   </head>
   <body class="bg-bg text-text font-sans antialiased">
     <Header lang={lang} />
