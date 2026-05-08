@@ -2,6 +2,7 @@
 title: "How to Set Up Google Business Profile for Your McAllen Business (Step-by-Step)"
 description: "Google Business Profile is the single most powerful free tool for local businesses in McAllen. Here's how to set it up right — and what most RGV businesses get wrong."
 pubDate: 2026-04-03
+updatedDate: 2026-05-08
 author: "RankRGV Team"
 category: "local-seo"
 targetKeyword: "google business profile"
@@ -123,6 +124,45 @@ The RGV market is genuinely less competitive than most Texas metros. Build the f
 
 ---
 
+## GBP Audit Checklist for McAllen Businesses
+
+Before you do anything else, go through this list. Every unchecked item is a ranking signal you're leaving on the table.
+
+**Profile completeness**
+- Business name matches exactly what's on your signage and business license (no added keywords)
+- Primary category is specific — not "contractor" or "doctor," but "General Contractor" or "Family Medicine Physician"
+- 3–5 secondary categories added, all genuinely relevant
+- Description is 500+ characters, location-specific, no keyword stuffing
+- Phone number is a local (956) area code
+- Website URL is correct and loading
+- Business hours are current — including holiday hours
+
+**Service area and location**
+- If service-area business: street address hidden, service area covers all cities you actually serve
+- If physical location: address is verified and matches your website exactly (same abbreviations, same format)
+- NAP matches identically across your website, Yelp, Facebook, and Apple Maps
+
+**Photos**
+- Logo uploaded at correct resolution
+- Cover photo is strong — not blurry, not a stock photo
+- At least 10 total photos
+- At least one photo added in the last 30 days
+
+**Reviews**
+- At least 10 reviews total
+- Average rating 4.5 or above
+- Every review has a response (positive and negative)
+- A review received within the last 90 days
+
+**Active signals**
+- At least one GBP post published in the last 7 days
+- Services section lists individual services (not just your business category)
+- Q&A section has at least 3 questions pre-answered
+
+If you're missing more than three items on this list, that's almost certainly why you're not in the McAllen Map Pack yet. The businesses ranking at the top have all of these covered — not because they did something complicated, but because they did the fundamentals completely.
+
+---
+
 ## Frequently Asked Questions
 
 **Is Google Business Profile free?**
@@ -139,3 +179,11 @@ Don't panic, but move quickly. Suspensions are often triggered by sudden changes
 
 **Do I need a website to rank in the Map Pack?**
 No — a well-optimized GBP alone can rank. But a website strengthens your Map Pack ranking and is essential for appearing in the organic results below it. The two together give you maximum visibility on every Google results page.
+
+---
+
+## Related Reading
+
+- [How to Rank Your Business on Google Maps in McAllen (2026 Guide)](/blog/how-to-rank-google-maps-mcallen/) — Once your GBP is built right, this is how you push it into the top 3.
+- [Local SEO McAllen TX](/service-areas/mcallen/local-seo/) — How RankRGV handles Map Pack rankings for McAllen businesses.
+- [Google Maps Optimization](/google-maps-optimization/) — Our GBP management and optimization service.

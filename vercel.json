@@ -24,6 +24,55 @@
     { "source": "/locations", "destination": "/service-areas/", "permanent": true },
     { "source": "/locations/", "destination": "/service-areas/", "permanent": true },
     { "source": "/pharr/seo", "destination": "/service-areas/pharr/local-seo/", "permanent": true },
-    { "source": "/pharr/seo/", "destination": "/service-areas/pharr/local-seo/", "permanent": true }
+    { "source": "/pharr/seo/", "destination": "/service-areas/pharr/local-seo/", "permanent": true },
+
+    { "source": "/harlingen", "destination": "/service-areas/harlingen/", "permanent": true },
+    { "source": "/harlingen/", "destination": "/service-areas/harlingen/", "permanent": true },
+    { "source": "/harlingen/seo", "destination": "/service-areas/harlingen/local-seo/", "permanent": true },
+    { "source": "/harlingen/seo/", "destination": "/service-areas/harlingen/local-seo/", "permanent": true },
+    { "source": "/harlingen/automation", "destination": "/service-areas/harlingen/business-automation/", "permanent": true },
+    { "source": "/harlingen/automation/", "destination": "/service-areas/harlingen/business-automation/", "permanent": true },
+    { "source": "/harlingen/web-design", "destination": "/service-areas/harlingen/web-design/", "permanent": true },
+    { "source": "/harlingen/web-design/", "destination": "/service-areas/harlingen/web-design/", "permanent": true },
+
+    { "source": "/mission", "destination": "/service-areas/mission/", "permanent": true },
+    { "source": "/mission/", "destination": "/service-areas/mission/", "permanent": true },
+    { "source": "/mission/seo", "destination": "/service-areas/mission/local-seo/", "permanent": true },
+    { "source": "/mission/seo/", "destination": "/service-areas/mission/local-seo/", "permanent": true },
+    { "source": "/mission/automation", "destination": "/service-areas/mission/business-automation/", "permanent": true },
+    { "source": "/mission/automation/", "destination": "/service-areas/mission/business-automation/", "permanent": true },
+    { "source": "/mission/web-design", "destination": "/service-areas/mission/web-design/", "permanent": true },
+    { "source": "/mission/web-design/", "destination": "/service-areas/mission/web-design/", "permanent": true },
+
+    { "source": "/edinburg", "destination": "/service-areas/edinburg/", "permanent": true },
+    { "source": "/edinburg/", "destination": "/service-areas/edinburg/", "permanent": true },
+    { "source": "/edinburg/seo", "destination": "/service-areas/edinburg/local-seo/", "permanent": true },
+    { "source": "/edinburg/seo/", "destination": "/service-areas/edinburg/local-seo/", "permanent": true },
+    { "source": "/edinburg/automation", "destination": "/service-areas/edinburg/business-automation/", "permanent": true },
+    { "source": "/edinburg/automation/", "destination": "/service-areas/edinburg/business-automation/", "permanent": true },
+    { "source": "/edinburg/web-design", "destination": "/service-areas/edinburg/web-design/", "permanent": true },
+    { "source": "/edinburg/web-design/", "destination": "/service-areas/edinburg/web-design/", "permanent": true },
+
+    { "source": "/pharr", "destination": "/service-areas/pharr/", "permanent": true },
+    { "source": "/pharr/", "destination": "/service-areas/pharr/", "permanent": true },
+    { "source": "/pharr/automation", "destination": "/service-areas/pharr/business-automation/", "permanent": true },
+    { "source": "/pharr/automation/", "destination": "/service-areas/pharr/business-automation/", "permanent": true },
+    { "source": "/pharr/web-design", "destination": "/service-areas/pharr/web-design/", "permanent": true },
+    { "source": "/pharr/web-design/", "destination": "/service-areas/pharr/web-design/", "permanent": true },
+
+    { "source": "/mcallen", "destination": "/service-areas/mcallen/", "permanent": true },
+    { "source": "/mcallen/", "destination": "/service-areas/mcallen/", "permanent": true },
+    { "source": "/mcallen/web-design", "destination": "/service-areas/mcallen/web-design/", "permanent": true },
+    { "source": "/mcallen/web-design/", "destination": "/service-areas/mcallen/web-design/", "permanent": true },
+
+    { "source": "/brownsville/seo", "destination": "/service-areas/brownsville/local-seo/", "permanent": true },
+    { "source": "/brownsville/seo/", "destination": "/service-areas/brownsville/local-seo/", "permanent": true },
+    { "source": "/brownsville/automation", "destination": "/service-areas/brownsville/business-automation/", "permanent": true },
+    { "source": "/brownsville/automation/", "destination": "/service-areas/brownsville/business-automation/", "permanent": true },
+    { "source": "/brownsville/web-design", "destination": "/service-areas/brownsville/web-design/", "permanent": true },
+    { "source": "/brownsville/web-design/", "destination": "/service-areas/brownsville/web-design/", "permanent": true },
+
+    { "source": "/case-studies", "destination": "/", "permanent": true },
+    { "source": "/case-studies/", "destination": "/", "permanent": true }
   ]
 }
