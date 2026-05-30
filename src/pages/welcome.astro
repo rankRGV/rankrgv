@@ -1,0 +1,71 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+
+const title = "Welcome to RankRGV — Let's get started";
+const description = "You're in. Here's what happens next — invoice details, your kickoff call, and how we'll keep you in the loop.";
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+  <section class="min-h-[80vh] flex items-center justify-center py-20 bg-bg">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <!-- Success icon -->
+      <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-8">
+        <svg class="w-10 h-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-text mb-4">
+        Welcome to RankRGV.
+      </h1>
+      <p class="text-text-muted text-lg leading-relaxed mb-8">
+        You made the call. Now we go to work. Here's exactly what happens next — no guesswork, no waiting in the dark.
+      </p>
+      <p class="text-text-muted mb-10">
+        <strong class="text-text">First contact:</strong> Within one business day, usually the same day.
+        <br />
+        Questions before then? Call or text <a href={site.phoneHref} class="text-brand-blue font-semibold hover:underline">{site.phone}</a>.
+      </p>
+
+      <!-- What happens next -->
+      <div class="bg-bg-surface rounded-2xl border border-border p-8 mb-10 text-left">
+        <h2 class="font-bold text-text mb-5 text-lg">What happens next</h2>
+        <div class="space-y-4">
+          {[
+            { step: '01', text: "An invoice with full payment details goes to the email you provided at checkout. Keep it for your records — that's your receipt and your line-item breakdown." },
+            { step: '02', text: "We'll reach out to schedule your 30-minute kickoff call. We use this call to align on Month 1 priorities, confirm access, and lock the cadence." },
+            { step: '03', text: 'Your bi-weekly Loom updates begin. Short video walk-throughs — what we did, what moved, what\'s next. Watch on your phone between jobs.' },
+            { step: '04', text: 'Week 1 deliverables hit your inbox within seven days of kickoff. Foundation work first, momentum from day one.' },
+          ].map(({ step, text }) => (
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-9 h-9 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span class="text-brand-blue font-bold text-xs">{step}</span>
+              </div>
+              <p class="text-text-muted text-sm leading-relaxed pt-1.5">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Need anything? -->
+      <div class="bg-bg-surface rounded-2xl border border-border p-6 mb-10">
+        <h2 class="font-bold text-text mb-2">Need anything before kickoff?</h2>
+        <p class="text-text-muted text-sm mb-4">
+          We're already pulling together your audit and prep work. If you want to flag something for the kickoff call — a priority, a deadline, a system we should know about — send it over now.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={`mailto:${site.email}`} class="inline-flex items-center justify-center px-5 py-2.5 bg-brand-blue text-white font-semibold text-sm rounded-lg hover:opacity-90 transition-opacity">
+            Email {site.email}
+          </a>
+          <a href={site.phoneHref} class="inline-flex items-center justify-center px-5 py-2.5 bg-white border border-border text-text font-semibold text-sm rounded-lg hover:border-brand-blue hover:text-brand-blue transition-colors">
+            Call {site.phone}
+          </a>
+        </div>
+      </div>
+
+      <a href="/" class="text-sm text-brand-blue font-semibold hover:underline">← Back to home</a>
+    </div>
+  </section>
+</BaseLayout>
