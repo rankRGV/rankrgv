@@ -1,0 +1,27 @@
+name: IndexNow Submit
+
+# Structure-ready, manual for now. Run from the Actions tab.
+# Leave "urls" blank to submit the whole sitemap, or paste space-separated URLs.
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Space-separated URLs to submit (blank = full sitemap)'
+        required: false
+        default: ''
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Submit to IndexNow
+        run: |
+          if [ -z "${{ github.event.inputs.urls }}" ]; then
+            node scripts/indexnow.mjs --sitemap
+          else
+            node scripts/indexnow.mjs ${{ github.event.inputs.urls }}
+          fi
