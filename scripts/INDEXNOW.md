@@ -9,8 +9,21 @@ sitemaps to Google Search Console as usual.
 | Piece | Path | Purpose |
 |-------|------|---------|
 | Key file | `public/d19c27e36c735779a34908bece0a145b.txt` | Proves domain ownership. Astro copies it to `rankrgv.com/d19c27e36c735779a34908bece0a145b.txt` on build. |
-| Submitter | `scripts/indexnow.mjs` | Zero-dep Node script that POSTs URLs to IndexNow. |
-| Workflow | `.github/workflows/indexnow.yml` | Manual `workflow_dispatch` trigger (structure ready for full automation). |
+| Submitter | `scripts/indexnow.mjs` | Zero-dep Node script that POSTs URLs to IndexNow (manual / ad-hoc). |
+| Auto-diff | `scripts/indexnow-diff.mjs` | Compares live sitemap to a snapshot and submits only NEW URLs. |
+| Snapshot | `scripts/.indexnow-snapshot.json` | Last-seen sitemap URL set. Committed by CI — don't hand-edit. |
+| Manual workflow | `.github/workflows/indexnow.yml` | `workflow_dispatch` to submit URLs or the full sitemap on demand. |
+| Auto workflow | `.github/workflows/indexnow-diff.yml` | Scheduled 8:30 AM CT (30 min after publish cron). Runs the diff, commits the snapshot. |
+
+## How the automation works
+
+1. `Scheduled Publish` fires 8 AM CT → Vercel rebuilds → new blog posts go live in the sitemap.
+2. `IndexNow Auto-Submit` fires 8:30 AM CT → fetches the live sitemap → diffs against
+   `.indexnow-snapshot.json` → POSTs only the added URLs → commits the refreshed snapshot.
+
+It's deploy-agnostic: any change that adds a URL to the sitemap gets caught on the next run,
+no matter how it was deployed. **Edits to existing pages aren't detected** (the sitemap has no
+`<lastmod>`) — ping those manually with `indexnow.mjs <url>`.
 
 ## Use it
 

@@ -1,0 +1,35 @@
+name: IndexNow Auto-Submit
+
+# Runs after the daily publish deploy, diffs the live sitemap against the
+# committed snapshot, and pings IndexNow with only the new URLs.
+on:
+  schedule:
+    - cron: '30 13 * * *'  # 8:30 AM CT — 30 min after Scheduled Publish (gives Vercel time to deploy)
+  workflow_dispatch:
+
+permissions:
+  contents: write  # to commit the updated snapshot back
+
+jobs:
+  diff-submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Diff sitemap & submit new URLs
+        run: node scripts/indexnow-diff.mjs
+
+      - name: Commit updated snapshot
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet scripts/.indexnow-snapshot.json; then
+            git add scripts/.indexnow-snapshot.json
+            git commit -m "chore: update IndexNow snapshot [skip ci]"
+            git push
+          else
+            echo "Snapshot unchanged — nothing to commit."
+          fi

@@ -24,12 +24,12 @@ import { dirname, join } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = join(__dirname, '..', 'public');
 const ENDPOINT = 'https://api.indexnow.org/IndexNow';
-const MAX_URLS = 10000; // IndexNow per-request limit
+export const MAX_URLS = 10000; // IndexNow per-request limit
 
-const HOST = process.env.INDEXNOW_HOST || 'rankrgv.com';
-const ORIGIN = process.env.INDEXNOW_ORIGIN || `https://${HOST}`;
+export const HOST = process.env.INDEXNOW_HOST || 'rankrgv.com';
+export const ORIGIN = process.env.INDEXNOW_ORIGIN || `https://${HOST}`;
 
-async function resolveKey() {
+export async function resolveKey() {
   if (process.env.INDEXNOW_KEY) return process.env.INDEXNOW_KEY.trim();
   // Auto-discover the key file dropped in /public (named <key>.txt, contents === key).
   const files = await readdir(PUBLIC_DIR);
@@ -40,7 +40,7 @@ async function resolveKey() {
   return (await readFile(join(PUBLIC_DIR, keyFile), 'utf8')).trim();
 }
 
-async function urlsFromSitemap() {
+export async function urlsFromSitemap() {
   const indexUrl = `${ORIGIN}/sitemap-index.xml`;
   const indexXml = await (await fetch(indexUrl)).text();
   const subMaps = [...indexXml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
@@ -55,7 +55,7 @@ async function urlsFromSitemap() {
   return [...urls];
 }
 
-async function submit(urlList, key, dryRun) {
+export async function submit(urlList, key, dryRun) {
   const body = {
     host: HOST,
     key,
@@ -96,7 +96,10 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(err.message);
-  process.exit(1);
-});
+// Only run the CLI when executed directly, not when imported (e.g. by indexnow-diff.mjs).
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error(err.message);
+    process.exit(1);
+  });
+}
