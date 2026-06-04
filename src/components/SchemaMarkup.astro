@@ -32,13 +32,8 @@ export function buildOrgSchema() {
       },
       geoRadius: '80000', // ~50 miles covering full RGV
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '6',
-      bestRating: '5',
-      worstRating: '1',
-    },
+    // aggregateRating intentionally omitted: we publish honest review counts only.
+    // Re-add when we have 3+ verifiable Google reviews available via API/data source.
     sameAs: Object.values(site.social),
     openingHoursSpecification: [
       {

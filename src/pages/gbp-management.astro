@@ -1,0 +1,321 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const faqs = [
+  {
+    question: 'What is Google Business Profile management and why does it matter in McAllen?',
+    answer:
+      "Google Business Profile (GBP) management is the ongoing work of keeping your Google listing optimized so it appears for local searches and converts the people who find it. For McAllen and RGV businesses, your GBP is often the single most important asset you have on Google — it's what shows up in the Map Pack, in 'near me' searches, and in branded searches when someone Googles your business name. A poorly managed GBP costs you calls every week without you ever knowing.",
+  },
+  {
+    question: "What's the difference between GBP Management and full Local SEO?",
+    answer:
+      "GBP Management is profile-only: weekly posts, review responses, photo updates, Q&A monitoring, and category/service-area maintenance. It keeps your existing GBP active and healthy. Full Local SEO ($500–$850/mo) adds the ranking work behind it — citations, content, on-page optimization, and rank tracking — to push your business higher in the Map Pack and organic results. GBP Management is for businesses with a working profile that just need it kept active. Local SEO is for businesses that want to actually rank higher.",
+  },
+  {
+    question: 'How much does GBP Management cost in McAllen?',
+    answer:
+      "RankRGV GBP Management is $300/month, month-to-month, no long-term contract. That includes weekly Google Business Profile posts, monitored review responses within 24 hours, photo uploads, Q&A updates, monthly category and service-area checks, and a monthly performance snapshot. GBP Management is also included with every Local SEO plan at no additional cost — so if you upgrade to a Local SEO package later, you're not paying twice.",
+  },
+  {
+    question: 'How often should you post on Google Business Profile?',
+    answer:
+      "At minimum, post weekly. Google rewards active profiles in local rankings, and businesses that post regularly get measurably more profile views, clicks, and calls than businesses that don't. Each post should be specific to your business — a recent job, a seasonal offer, a question your customers actually ask. Generic posts work less well than ones with real photos and real local context. We handle this for you and tie posts to what's actually moving the needle in your market.",
+  },
+  {
+    question: 'What does Google Business Profile setup include?',
+    answer:
+      "If your business is new or unclaimed on Google, full GBP setup includes claiming the listing, verifying ownership, choosing the right primary and secondary categories, defining your service area, writing the business description, uploading initial photos, setting hours and contact details, and configuring services and products. Setup is a one-time foundation; ongoing GBP Management starts after the profile is live and healthy.",
+  },
+  {
+    question: 'Why is my Google Business Profile not showing up in the McAllen Map Pack?',
+    answer:
+      "There are usually three reasons: your profile is incomplete or inactive (no recent posts, missing categories, low photo count), your business has too few reviews compared to competitors (under 25 in most RGV categories), or your profile lacks the local SEO signals Google uses to rank — local citations, a website that supports the categories you've chosen, and ranking content for the searches your customers are making. GBP Management addresses the profile-side problems; Local SEO addresses the ranking-side ones.",
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'GBP Audit',
+    text: 'We review your current Google Business Profile — categories, services, photos, posts, reviews, Q&A — and identify what is hurting your visibility and what is missing entirely.',
+  },
+  {
+    name: 'Profile Optimization',
+    text: 'We fix the foundational issues: correct primary and secondary categories, service area accuracy, business description, hours, attributes, and we make sure your website URL and phone match across every signal.',
+  },
+  {
+    name: 'Weekly Posts & Photo Updates',
+    text: 'Every week, we publish a Google Business Profile post tailored to your market and upload new photos. Active profiles get measurably more clicks and calls than dormant ones.',
+  },
+  {
+    name: 'Review & Q&A Monitoring',
+    text: 'We monitor for new reviews and questions every business day and respond on your behalf within 24 hours. Fast, on-brand responses are a ranking and trust signal Google reads directly.',
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Google Business Profile Management McAllen TX',
+    'RankRGV provides Google Business Profile (GBP) management for McAllen and Rio Grande Valley businesses. Weekly posts, review monitoring, photo updates, and monthly category audits to keep your GBP active and ranking.',
+    site.areaServed
+  ),
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'GBP Management', href: '/gbp-management/' },
+  ]),
+  buildWebPageSchema(
+    'Google Business Profile Management McAllen TX | GBP Optimization & Posts | RankRGV',
+    'McAllen Google Business Profile management — weekly posts, review responses, photo updates, and monthly profile audits. $300/month, month-to-month.',
+    '/gbp-management/'
+  ),
+];
+---
+
+<BaseLayout
+  title="Google Business Profile Management McAllen TX | GBP Optimization & Posts | RankRGV"
+  description="McAllen Google Business Profile management — weekly GBP posts, review responses within 24 hours, photo updates, and monthly category & service-area audits. $300/month, month-to-month, no long-term contract. Call (956) 391-5991."
+  schema={schema}
+>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero-bg pt-12 pb-20 lg:py-28 relative overflow-hidden" aria-label="Hero">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/20 via-transparent to-brand-purple/20 pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
+
+        <div>
+          <div class="inline-flex items-center gap-2 mb-6 text-sm font-medium text-white/70">
+            <svg class="w-5 h-5" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+              <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+              <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+              <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+              <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+            </svg>
+            Google Business Profile Management · McAllen, TX
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            Google Business Profile <br />
+            <span class="gradient-text">management built for McAllen businesses.</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
+            Your Google Business Profile is the single most important asset you have on Google — it's what shows up in the McAllen Map Pack, in "near me" searches, and when customers Google your name. We keep it active, optimized, and converting.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            <a href="/get-started/?service=gbp-management" class="btn-primary">
+              <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z" />
+              </svg>
+              Start GBP Management
+            </a>
+            <a href={site.phoneHref} class="btn-secondary">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
+              </svg>
+              Call {site.phone}
+            </a>
+          </div>
+
+          <p class="text-white/60 text-sm">
+            $300/month · Month-to-month · Included with every Local SEO plan
+          </p>
+        </div>
+
+        <!-- Right: stylized GBP card preview -->
+        <div class="hidden lg:block relative px-6 pt-6 pb-8">
+          <div class="absolute inset-0 bg-brand-blue/15 rounded-3xl blur-3xl" aria-hidden="true"></div>
+          <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="flex items-center gap-3 px-5 py-4 bg-gray-50 border-b border-gray-100">
+              <svg class="w-7 h-7" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+                <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+                <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+                <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+                <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+              </svg>
+              <div>
+                <div class="text-sm font-bold text-gray-900">Google Business Profile</div>
+                <div class="text-xs text-gray-500">Your McAllen business · Active</div>
+              </div>
+            </div>
+            <div class="px-5 py-4 space-y-3">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Weekly post</span>
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Published</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Review response</span>
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Within 24h</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Photos this month</span>
+                <span class="text-gray-900 font-bold">+4 new</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Categories</span>
+                <span class="text-gray-900 font-bold">Audited ✓</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Q&amp;A</span>
+                <span class="text-gray-900 font-bold">Monitored</span>
+              </div>
+            </div>
+            <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500 italic">
+              Illustrative · what active GBP management looks like
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Why GBP matters ===================== -->
+  <section class="py-20 bg-bg" aria-label="Why GBP Management matters in McAllen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6 text-center">Your GBP is your most-seen Google asset</h2>
+      <p class="text-text-muted text-lg leading-relaxed mb-5">
+        For most McAllen and Rio Grande Valley businesses, your Google Business Profile is seen more often than your website. It's what shows up in the Map Pack when someone searches "near me," it's what appears in branded searches when someone types your business name, and it's what every "best [service] in McAllen" search compares against.
+      </p>
+      <p class="text-text-muted text-lg leading-relaxed mb-5">
+        A neglected GBP costs you calls every week. Outdated categories, no recent posts, a single old photo, unanswered reviews, missing service areas — every one of those is a signal Google reads and a reason a prospect picks a competitor instead. The fix is consistent, weekly management. That's what this service is.
+      </p>
+      <p class="text-text-muted text-lg leading-relaxed">
+        We don't only set it up and walk away. We post weekly, respond to reviews and Q&amp;A within a business day, upload fresh photos, audit categories and service areas monthly, and report back on what moved.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== What's included ===================== -->
+  <section class="py-20 bg-bg-surface" aria-label="What's included in GBP Management">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">What's included every month</h2>
+        <p class="text-text-muted text-lg">Real ongoing work, not a one-time setup left to go stale.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Weekly GBP posts</h3>
+            <p class="text-text-muted text-sm leading-relaxed">A new post every week, written in your voice and tied to your market. Active profiles get measurably more clicks and calls than dormant ones.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Review monitoring &amp; responses</h3>
+            <p class="text-text-muted text-sm leading-relaxed">We monitor for new reviews every business day and reply on your behalf within 24 hours. Fast, on-brand replies are a direct ranking signal Google reads.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Photo management &amp; uploads</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Fresh photos uploaded regularly. Most RGV business profiles are stuck with stock or year-old shots — Google notices and so do prospects.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-purple/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Q&amp;A monitoring &amp; updates</h3>
+            <p class="text-text-muted text-sm leading-relaxed">We watch for new customer questions and answer them on your behalf. We also pre-seed common questions so your profile teaches Google what you do.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Category &amp; service-area checks</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Monthly audit of your primary and secondary categories, services, and service areas. Wrong categories are one of the most common silent ranking killers we see.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Monthly performance snapshot</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Each month you get a plain-English report: profile views, search appearances, calls and direction requests, what moved, and what we're working on next.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== How it works ===================== -->
+  <section class="py-20 bg-bg" id="how-we-work" aria-label="How we work">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">How GBP Management works</h2>
+        <p class="text-text-muted text-lg">A repeatable monthly system — not "set it and forget it."</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {howToSteps.map((step, i) => (
+          <div class="bg-bg-surface border border-border rounded-2xl p-6">
+            <div class="text-3xl font-extrabold text-brand-blue mb-3">{String(i + 1).padStart(2, '0')}</div>
+            <h3 class="text-lg font-bold text-text mb-2">{step.name}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{step.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Pricing ===================== -->
+  <section class="py-20 bg-bg-surface" aria-label="GBP Management pricing">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-border rounded-3xl p-8 sm:p-10 shadow-sm text-center">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wide">
+          Standalone plan
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-text mb-3">GBP Management — $300/month</h2>
+        <p class="text-text-muted text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          Everything above, every month. No long-term contract. Month-to-month so we earn your business with results, not paperwork.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="/get-started/?service=gbp-management" class="btn-primary">Get started</a>
+          <a href="/pricing/" class="btn-secondary">See full pricing</a>
+        </div>
+        <p class="text-xs text-text-muted mt-6">
+          GBP Management is also included free in every Local SEO plan ($500–$1,200+/mo). If you're after rankings — not just profile maintenance — start with Local SEO.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <FAQSection faqs={faqs} headline="Google Business Profile questions, answered for McAllen" />
+
+  <!-- ===================== CTA ===================== -->
+  <CTASection />
+
+</BaseLayout>
