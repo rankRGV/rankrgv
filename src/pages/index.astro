@@ -1,15 +1,10 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Hero from '@/components/Hero.astro';
-import TrustSignals from '@/components/TrustSignals.astro';
 import PainPoints from '@/components/PainPoints.astro';
-import ServiceCard from '@/components/ServiceCard.astro';
 import HowWeWork from '@/components/HowWeWork.astro';
-import Testimonials from '@/components/Testimonials.astro';
-import CTASection from '@/components/CTASection.astro';
 import ComparisonTable from '@/components/ComparisonTable.astro';
 import FAQSection from '@/components/FAQSection.astro';
-import { services } from '@/data/services';
+import CTASection from '@/components/CTASection.astro';
 import { buildOrgSchema, buildFAQSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
 import { site } from '@/config/site';
 
@@ -56,49 +51,445 @@ const schema = [
   description="McAllen's local SEO & digital marketing agency. We get RGV businesses found on Google and growing. Free audit — call (956) 391-5991."
   schema={schema}
 >
-  <Hero
-    badge="Serving the Rio Grande Valley"
-    headline='Get found on Google.<br /><span class="gradient-text">Own your market.</span>'
-    subheadline="We help McAllen and RGV businesses rank higher, get more calls, and close more customers — without the runaround. Free SEO audit to get started."
-  />
 
-  <TrustSignals />
+  <!-- ===================== HERO ===================== -->
+  <section class="hero-bg pt-12 pb-20 lg:py-28 relative overflow-hidden" aria-label="Hero">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/20 via-transparent to-brand-purple/20 pointer-events-none" aria-hidden="true"></div>
 
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
+
+        <!-- Left: text -->
+        <div>
+          <!-- Location line -->
+          <div class="inline-flex items-center gap-2 mb-6 text-sm font-medium text-white/70">
+            <svg class="w-4 h-4 text-brand-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Serving McAllen, Brownsville, Edinburg, Harlingen, Mission &amp; Pharr
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            Local SEO in McAllen, TX <br />
+            <span class="gradient-text">that helps your business get more calls from Google.</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
+            RankRGV helps Rio Grande Valley businesses rank higher on Google Maps, turn more website visitors into leads, and stop losing calls to national agencies that don't know the market.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            <a href="/get-started/" class="btn-primary">
+              <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z" />
+              </svg>
+              Get My Free SEO Audit
+            </a>
+            <a href={site.phoneHref} class="btn-secondary">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
+              </svg>
+              Call {site.phone}
+            </a>
+          </div>
+
+          <!-- Honest microline (real things only) -->
+          <p class="text-white/60 text-sm">
+            Month-to-month · RGV-focused · First movement in 60–90 days
+          </p>
+        </div>
+
+        <!-- Right: visual stack -->
+        <div class="hidden lg:block relative px-6 pt-6 pb-8">
+          <div class="absolute inset-0 bg-brand-blue/15 rounded-3xl blur-3xl" aria-hidden="true"></div>
+
+          <!-- Main map-pack mockup card -->
+          <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-3 bg-gray-50 border-b border-gray-100">
+              <div class="w-3 h-3 rounded-full bg-red-400"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              <div class="flex-1 mx-3 bg-white border border-gray-200 rounded-full px-3 py-1">
+                <span class="text-xs text-gray-600">local seo mcallen tx</span>
+              </div>
+            </div>
+            <div class="relative h-28 overflow-hidden" style="background: linear-gradient(135deg, #d1fae5 0%, #bfdbfe 100%);" aria-hidden="true">
+              <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(#94a3b8 1px, transparent 1px), linear-gradient(90deg, #94a3b8 1px, transparent 1px); background-size: 36px 36px;"></div>
+              <div class="absolute top-4 left-[28%] flex flex-col items-center">
+                <div class="w-7 h-7 rounded-full bg-brand-blue border-2 border-white shadow-lg flex items-center justify-center text-white text-xs font-bold">1</div>
+              </div>
+              <div class="absolute top-9 left-[52%] flex flex-col items-center">
+                <div class="w-5 h-5 rounded-full bg-gray-400 border-2 border-white shadow flex items-center justify-center text-white text-xs font-bold">2</div>
+              </div>
+              <div class="absolute top-14 left-[68%] flex flex-col items-center">
+                <div class="w-5 h-5 rounded-full bg-gray-400 border-2 border-white shadow flex items-center justify-center text-white text-xs font-bold">3</div>
+              </div>
+            </div>
+            <div class="divide-y divide-gray-100">
+              <div class="flex items-center gap-3 px-4 py-3.5 bg-blue-50/70">
+                <div class="w-7 h-7 rounded-full bg-brand-blue flex items-center justify-center text-white text-xs font-bold flex-shrink-0">1</div>
+                <div class="flex-1 min-w-0">
+                  <div class="text-sm font-bold text-brand-blue">Your Business Here</div>
+                  <div class="text-xs text-gray-500">Marketing Agency · McAllen, TX</div>
+                </div>
+                <span class="flex-shrink-0 text-xs bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full">#1</span>
+              </div>
+              <div class="flex items-center gap-3 px-4 py-3 opacity-40">
+                <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">2</div>
+                <div class="flex-1 min-w-0">
+                  <div class="text-sm font-medium text-gray-600">Competitor A</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 px-4 py-3 opacity-20">
+                <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">3</div>
+                <div class="flex-1 min-w-0">
+                  <div class="text-sm font-medium text-gray-600">Competitor B</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating card — Google Reviews with real Google G -->
+          <div class="absolute -top-2 right-2 bg-white rounded-xl shadow-xl px-3.5 py-2.5 border border-gray-100 flex items-center gap-2.5 float" aria-hidden="true">
+            <div class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+                <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+                <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+                <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-extrabold text-gray-900 leading-none flex items-center gap-1">5.0 <span class="text-amber-400">★</span></div>
+              <div class="text-xs text-gray-500 mt-0.5">Google Reviews</div>
+            </div>
+          </div>
+
+          <!-- Floating card — illustrative 90-day trajectory -->
+          <div class="absolute -bottom-4 left-2 bg-white rounded-xl shadow-xl px-4 py-3 border border-gray-100 float" style="animation-delay: 1.5s;" aria-hidden="true">
+            <div class="flex items-center justify-between gap-3 mb-1.5">
+              <div class="text-xs font-bold text-gray-700">Typical Local SEO ramp</div>
+              <div class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">90 days</div>
+            </div>
+            <svg viewBox="0 0 140 36" class="w-32 h-9" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ramp-grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,32 L20,30 L40,27 L60,22 L80,17 L100,11 L120,6 L140,2 L140,36 L0,36 Z" fill="url(#ramp-grad)"/>
+              <path d="M0,32 L20,30 L40,27 L60,22 L80,17 L100,11 L120,6 L140,2" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="140" cy="2" r="2.5" fill="#3b82f6"/>
+            </svg>
+            <div class="text-[10px] text-gray-400 mt-1 italic">Illustrative · what we usually see</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRUST BADGE ROW ===================== -->
+  <section class="bg-bg border-b border-border py-6" aria-label="Trust badges">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+
+        <div class="flex items-center gap-3 bg-bg-surface border border-border rounded-xl px-4 py-3">
+          <div class="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+              <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+              <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+              <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+              <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-text leading-tight">Google Reviews</div>
+            <div class="text-xs text-text-muted">5.0 ★</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 bg-bg-surface border border-border rounded-xl px-4 py-3">
+          <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-text leading-tight">RGV-Only Agency</div>
+            <div class="text-xs text-text-muted">McAllen-based</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 bg-bg-surface border border-border rounded-xl px-4 py-3">
+          <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-text leading-tight">No Long-Term Contracts</div>
+            <div class="text-xs text-text-muted">Month-to-month</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 bg-bg-surface border border-border rounded-xl px-4 py-3">
+          <div class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-brand-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-text leading-tight">Serving 6 Cities</div>
+            <div class="text-xs text-text-muted">Across the RGV</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Pain points ===================== -->
   <PainPoints />
 
-  <!-- Services section -->
+  <!-- ===================== Services — Local SEO featured, others as supporting ===================== -->
   <section class="py-20 bg-bg" aria-label="Our services">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">
-          McAllen's digital marketing agency — built for the Rio Grande Valley
-        </h2>
-        <p class="text-text-muted text-lg reveal reveal-delay-1">
-          Three focused services. One goal: more RGV customers finding your business on Google.
-        </p>
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">We're a local SEO agency, first and foremost</h2>
+        <p class="text-text-muted text-lg">Built for RGV businesses that want to show up on Google — and stay there.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {services.map((service, i) => (
-          <div class={`reveal reveal-delay-${i + 1}`}>
-            <ServiceCard service={service} />
+
+      <!-- Featured: Local SEO -->
+      <a href="/local-seo/" class="group block relative bg-gradient-to-br from-brand-blue to-brand-purple rounded-3xl p-1 mb-10 hover:shadow-2xl transition-all">
+        <div class="bg-white rounded-[1.4rem] p-8 sm:p-10 lg:p-12">
+          <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 items-center">
+
+            <div class="lg:col-span-3">
+              <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wide">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                What we do best
+              </div>
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-text mb-4 leading-tight">
+                Local SEO &amp; Google Maps for the Rio Grande Valley
+              </h3>
+              <p class="text-text-muted text-lg leading-relaxed mb-6">
+                When a McAllen homeowner pulls out their phone and types "roofer near me," you should be the first name they see. We get RGV businesses into the Google Map Pack and ranking for the city-specific searches their customers are actually making — and we do it month-to-month, not on a 12-month lock-in.
+              </p>
+              <span class="inline-flex items-center gap-2 text-sm font-bold text-brand-blue group-hover:gap-3 transition-all">
+                See how Local SEO works
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </span>
+            </div>
+
+            <div class="lg:col-span-2 lg:pl-8 lg:border-l lg:border-border">
+              <div class="text-xs font-bold text-text-muted uppercase tracking-wide mb-4">What's included</div>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-5 h-5 mt-0.5 rounded-full bg-green-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
+                  </span>
+                  <span class="text-text text-sm leading-snug"><strong>Google Business Profile</strong> optimized for the right RGV categories and service areas</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-5 h-5 mt-0.5 rounded-full bg-green-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
+                  </span>
+                  <span class="text-text text-sm leading-snug"><strong>City &amp; service pages</strong> built to rank for McAllen, Edinburg, Mission, Brownsville, Harlingen, Pharr</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-5 h-5 mt-0.5 rounded-full bg-green-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
+                  </span>
+                  <span class="text-text text-sm leading-snug"><strong>Local citations &amp; review velocity</strong> — the two signals Google trusts most for ranking local businesses</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-5 h-5 mt-0.5 rounded-full bg-green-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
+                  </span>
+                  <span class="text-text text-sm leading-snug"><strong>Monthly reporting</strong> in plain English — what moved, what's next, no fluff</span>
+                </li>
+              </ul>
+              <div class="mt-5 pt-5 border-t border-border">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs text-text-muted">Domination plan</span>
+                  <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-brand-blue/10 text-brand-blue">Most popular</span>
+                </div>
+                <div class="text-2xl font-extrabold text-text">$850<span class="text-base font-medium text-text-muted">/month</span></div>
+                <div class="text-xs text-text-muted mt-1">Starter plan available from $500/mo</div>
+              </div>
+            </div>
+
           </div>
-        ))}
+        </div>
+      </a>
+
+      <!-- Supporting services -->
+      <div class="mb-6 flex items-center gap-4">
+        <h3 class="text-xl font-bold text-text">We also handle the rest</h3>
+        <div class="flex-1 h-px bg-border"></div>
       </div>
-      <div class="mt-8 flex flex-wrap gap-6 justify-center reveal reveal-delay-4">
-        <a href="/pricing/" class="text-sm font-semibold text-brand-blue hover:underline no-underline">
+      <p class="text-text-muted mb-8 max-w-3xl">
+        Local SEO is the engine. These three keep the leads flowing while it spins up — and after.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+        <a href="/web-design/" class="group block bg-bg-surface border border-border rounded-2xl p-6 hover:border-brand-blue hover:shadow-md transition-all">
+          <div class="w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-brand-blue" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H4V5h16v14zM6 7h2v2H6zm0 4h2v2H6zm0 4h2v2H6zm4-8h8v2h-8zm0 4h8v2h-8zm0 4h5v2h-5z" />
+            </svg>
+          </div>
+          <h4 class="text-base font-bold text-text mb-2">Web Design</h4>
+          <p class="text-text-muted text-sm leading-relaxed mb-3">
+            Fast, mobile-first sites that Google likes — and that actually get visitors to call.
+          </p>
+          <span class="text-xs font-semibold text-brand-blue group-hover:underline">See our work →</span>
+        </a>
+
+        <a href="/ads-management/" class="group block bg-bg-surface border border-border rounded-2xl p-6 hover:border-brand-blue hover:shadow-md transition-all">
+          <div class="flex items-center -space-x-1.5 mb-3">
+            <div class="w-9 h-9 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center relative z-10">
+              <svg class="w-5 h-5" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+                <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+                <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+                <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+                <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+              </svg>
+            </div>
+            <div class="w-9 h-9 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Meta">
+                <path fill="#0866FF" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+          </div>
+          <h4 class="text-base font-bold text-text mb-2">Google &amp; Meta Ads</h4>
+          <p class="text-text-muted text-sm leading-relaxed mb-3">
+            Leads tomorrow while SEO catches up. Flat monthly fee, no percentage-of-spend games.
+          </p>
+          <span class="text-xs font-semibold text-brand-blue group-hover:underline">See ad pricing →</span>
+        </a>
+
+        <a href="/business-automation/" class="group block bg-bg-surface border border-border rounded-2xl p-6 hover:border-brand-blue hover:shadow-md transition-all">
+          <div class="w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-brand-blue" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
+            </svg>
+          </div>
+          <h4 class="text-base font-bold text-text mb-2">Business Automation</h4>
+          <p class="text-text-muted text-sm leading-relaxed mb-3">
+            Missed-call texts, review requests, follow-up sequences — so leads don't slip past you.
+          </p>
+          <span class="text-xs font-semibold text-brand-blue group-hover:underline">See automation →</span>
+        </a>
+
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-6 justify-center">
+        <a href="/pricing/" class="text-sm font-semibold text-brand-blue hover:underline">
           Local SEO from $500/mo · Web Design from $1,500 · See full pricing →
         </a>
       </div>
     </div>
   </section>
 
+  <!-- ===================== How it works ===================== -->
   <HowWeWork />
 
+  <!-- ===================== Comparison table ===================== -->
   <ComparisonTable />
 
-  <Testimonials />
+  <!-- ===================== Real results (REAL proof only) ===================== -->
+  <section class="py-20 bg-bg-surface" aria-label="Real results">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-3">Real RGV businesses, real engagements</h2>
+        <p class="text-text-muted text-lg">No invented metrics. No stock testimonials. Just what's actually happening.</p>
+      </div>
 
-  <FAQSection faqs={faqs} headline="Common questions about local SEO and digital marketing in the RGV" />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
+        <!-- Real Google review — Delfino -->
+        <div class="relative bg-white border border-border rounded-2xl p-6 shadow-sm">
+          <div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-sm">
+            <svg class="w-4 h-4" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+              <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+              <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+              <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+              <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+            </svg>
+          </div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-amber-400 text-lg">★★★★★</span>
+            <span class="text-xs font-semibold text-text-muted">5.0 · Verified Google Review</span>
+          </div>
+          <p class="text-text leading-relaxed mb-4">
+            "I highly recommend RankRGV! Eddie is extremely knowledgeable and has provided great insights on how to grow my business and stand out amongst others. His tools, resources, and customer service alongside his genuine passion for what he does is unmatched. Thank you for all your help."
+          </p>
+          <div class="flex items-center gap-3 pt-3 border-t border-border">
+            <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center font-bold text-brand-blue">DC</div>
+            <div>
+              <div class="text-sm font-bold text-text">Delfino Cervantes</div>
+              <div class="text-xs text-text-muted">Realtor · McAllen, TX</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active client card — My American AC -->
+        <div class="bg-white border border-border rounded-2xl p-6 shadow-sm">
+          <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+            Active client
+          </div>
+          <p class="text-text leading-relaxed mb-4">
+            HVAC company on the Local SEO Dominator package. GBP optimization, organic service-area strategy, monthly reporting.
+          </p>
+          <div class="flex items-center gap-3 pt-3 border-t border-border">
+            <div class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center font-bold text-brand-purple">AC</div>
+            <div>
+              <div class="text-sm font-bold text-text">My American AC</div>
+              <div class="text-xs text-text-muted">HVAC · Harlingen, TX</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active client card — Edel Roofing -->
+        <div class="bg-white border border-border rounded-2xl p-6 shadow-sm">
+          <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+            Active client
+          </div>
+          <p class="text-text leading-relaxed mb-4">
+            Roofing contractor on SEO Domination. Schema markup, multi-city strategy, bilingual content roadmap.
+          </p>
+          <div class="flex items-center gap-3 pt-3 border-t border-border">
+            <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center font-bold text-brand-blue">ER</div>
+            <div>
+              <div class="text-sm font-bold text-text">Edel Roofing</div>
+              <div class="text-xs text-text-muted">Roofing · Edinburg, TX</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="text-center text-xs text-text-muted mt-8 italic">
+        Want to be the next case study? <a href="/get-started/" class="text-brand-blue font-semibold hover:underline">Get your free audit →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <FAQSection faqs={faqs} headline="Common questions about local SEO in the RGV" />
+
+  <!-- ===================== CTA ===================== -->
   <CTASection />
+
 </BaseLayout>
