@@ -78,12 +78,12 @@ Data Source: DataForSEO REST API (direct)
 
 | Keyword | Volume Tier | Current #1 Domain | Assigned Page |
 |---------|-------------|-------------------|---------------|
-| local seo mcallen tx | High | activatedigitalmedia.com | /local-seo/ |
-| seo company mcallen | High | activatedigitalmedia.com | /local-seo/ (secondary) |
+| local seo mcallen tx | High | activatedigitalmedia.com | / (homepage) |
+| seo company mcallen | High | activatedigitalmedia.com | /local-seo/ |
 | web design mcallen | High | thriveagency.com (national) | /web-design/ |
 | business automation mcallen | Steady | mation.com (industrial, not marketing!) | /business-automation/ |
-| digital marketing agency mcallen | Steady | imagineitstudios.com | / (homepage) |
-| seo services mcallen tx | High | activatedigitalmedia.com | /local-seo/ (tertiary) |
+| digital marketing agency mcallen | Steady | imagineitstudios.com | /service-areas/mcallen/ (secondary) |
+| seo services mcallen tx | High | activatedigitalmedia.com | /local-seo/ (secondary) |
 | mcallen seo | Steady | activatedigitalmedia.com | /service-areas/mcallen/ |
 | local seo brownsville tx | Steady | (no dedicated local agency page) | /service-areas/brownsville/local-seo/ |
 | web design brownsville tx | Steady | (no dedicated local page) | /service-areas/brownsville/web-design/ |
@@ -92,7 +92,7 @@ Data Source: DataForSEO REST API (direct)
 | seo company harlingen tx | Growing | (no dedicated local page) | /service-areas/harlingen/local-seo/ |
 | seo company mission tx | Growing | (no dedicated local page) | /service-areas/mission/local-seo/ |
 | seo company pharr tx | Growing | (no dedicated local page) | /service-areas/pharr/local-seo/ |
-| digital marketing agency mcallen tx | Steady | imagineitstudios.com | / (homepage) |
+| digital marketing agency mcallen tx | Steady | imagineitstudios.com | /service-areas/mcallen/ (secondary) |
 
 ### Secondary Keywords (support body content)
 
@@ -168,8 +168,8 @@ From top 5 results across all 6 seed keywords:
 
 | Page | URL | Primary Keyword | Secondary Keywords | Recommended Title Tag |
 |------|-----|----------------|-------------------|----------------------|
-| Homepage | / | digital marketing agency mcallen tx | local seo mcallen, seo agency rgv, web design mcallen | Local SEO & Web Design McAllen TX \| Real Results for RGV Businesses \| RankRGV |
-| Local SEO | /local-seo/ | local seo mcallen tx | seo company mcallen, seo services mcallen tx, google maps optimization | Local SEO McAllen TX \| Get to the Top 3 Map Pack \| RankRGV |
+| Homepage | / | local seo mcallen tx | local seo mcallen, seo agency rgv, digital marketing agency mcallen tx | Local SEO McAllen TX \| Get More Calls From Google \| RankRGV |
+| Local SEO | /local-seo/ | seo company mcallen | seo services mcallen tx, google business profile optimization, google maps optimization | SEO Company McAllen \| Local SEO Services for the RGV \| RankRGV |
 | Web Design | /web-design/ | web design mcallen | web design mcallen tx, website design mcallen, web developer mcallen | Web Design McAllen TX \| 99+ PageSpeed, Built to Convert \| RankRGV |
 | Business Automation | /business-automation/ | business automation mcallen | lead capture mcallen, missed call text back mcallen, ai automation mcallen | Business Automation McAllen TX \| Never Miss a Lead Again \| RankRGV |
 | Service Areas Hub | /service-areas/ | digital marketing service areas rgv | seo services rio grande valley, web design rgv | Digital Marketing Service Areas \| RGV-Wide Coverage \| RankRGV |

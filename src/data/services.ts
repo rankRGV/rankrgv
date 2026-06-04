@@ -19,10 +19,10 @@ export const services: Service[] = [
     description:
       'We optimize your Google Business Profile and build a website that ranks for every "near me" and city-specific search your customers make.',
     icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z',
-    primaryKeyword: 'local seo mcallen tx',
-    titleTag: 'Local SEO McAllen TX | Get to the Top 3 Map Pack | RankRGV',
+    primaryKeyword: 'seo company mcallen',
+    titleTag: 'SEO Company McAllen | Local SEO Services for the RGV | RankRGV',
     metaDescription:
-      'Rank in the top 3 on Google Maps for McAllen searches. RankRGV builds local SEO that drives real calls — not just rankings. Call (956) 391-5991.',
+      'McAllen SEO company building real Google Maps rankings and organic traffic for Rio Grande Valley businesses. Month-to-month, no long-term contracts. Call (956) 391-5991.',
   },
   {
     slug: 'web-design',
