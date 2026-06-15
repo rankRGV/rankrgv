@@ -4,7 +4,6 @@ import Hero from '@/components/Hero.astro';
 import TrustSignals from '@/components/TrustSignals.astro';
 import HowWeWork from '@/components/HowWeWork.astro';
 import Testimonials from '@/components/Testimonials.astro';
-import PricingSection from '@/components/PricingSection.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
@@ -315,30 +314,31 @@ const schema = [
     </div>
   </section>
 
-  <PricingSection
-    id="gbp-pricing"
-    headline="GBP Management pricing"
-    subheadline="We handle the posts, review responses, photos, and monthly optimization — you focus on running your business."
-    bg="bg-surface"
-    cards={[
-      {
-        name: 'GBP Management',
-        price: '$300',
-        period: '/month',
-        description: 'Google Business Profile upkeep. We keep your profile active, accurate, and conversion-ready — month after month.',
-        features: [
-          'Weekly GBP posts',
-          'Review monitoring & responses (within 24 hrs)',
-          'Photo management & uploads',
-          'Q&A monitoring & updates',
-          'Basic category & service area checks',
-          'Monthly performance snapshot',
-        ],
-        cta: { label: 'Get a free audit', href: '/get-started/?service=gbp-management&plan=GBP+Management' },
-      },
-    ]}
-    note="Want ranking work in addition to profile maintenance? See our Local SEO packages — GBP Management is included in every Local SEO plan."
-  />
+  <!-- Two ways to get started -->
+  <section class="py-20 bg-bg-surface" aria-label="Pricing options">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">Two ways to get started</h2>
+      <p class="text-text-muted text-lg mb-12 max-w-2xl mx-auto reveal reveal-delay-1">
+        Map Pack rankings come from a healthy, active Google Business Profile plus the ranking work behind it. Pick the level that fits where you are.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        <div class="bg-bg rounded-2xl border border-border p-8 reveal reveal-delay-2">
+          <h3 class="font-bold text-text text-lg mb-2">GBP Management — $300/mo</h3>
+          <p class="text-text-muted text-sm leading-relaxed mb-4">
+            Keep your existing profile active, accurate, and conversion-ready: weekly posts, review responses, photo updates, and monthly checks.
+          </p>
+          <a href="/gbp-management/" class="text-brand-blue font-semibold hover:underline">See GBP Management →</a>
+        </div>
+        <div class="bg-bg rounded-2xl border border-brand-blue/30 p-8 reveal reveal-delay-3">
+          <h3 class="font-bold text-text text-lg mb-2">Local SEO — from $500/mo</h3>
+          <p class="text-text-muted text-sm leading-relaxed mb-4">
+            Everything in GBP Management, plus the ranking work: citations, content, on-page optimization, and rank tracking — built to push you into the Map Pack.
+          </p>
+          <a href="/local-seo/" class="text-brand-blue font-semibold hover:underline">See Local SEO packages →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <Testimonials />
 
