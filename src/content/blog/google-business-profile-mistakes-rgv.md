@@ -2,7 +2,7 @@
 title: "Google Business Profile Mistakes That Are Costing RGV Businesses Calls"
 description: "Most McAllen businesses have a Google Business Profile — but most have it set up wrong. Here are the 7 mistakes we see most often, and how to fix them fast."
 pubDate: 2026-04-14
-author: "RankRGV Team"
+author: "Eddie Urbano"
 category: "local-seo"
 targetKeyword: "Google Business Profile McAllen"
 draft: false

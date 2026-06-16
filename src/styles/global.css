@@ -10,7 +10,7 @@
 
   /* Surface colors */
   --color-bg: #ffffff;
-  --color-bg-surface: #f8fafc;
+  --color-bg-surface: #f8f9fc;
   --color-bg-dark: #0f172a;
 
   /* Text */
@@ -139,14 +139,14 @@
 
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(29, 78, 216, 0.12);
+  box-shadow: 0 8px 30px rgba(29, 78, 216, 0.15);
   border-color: #1d4ed8;
 }
 
 /* ── Hero dot-grid background ────────────────────────────── */
 .hero-bg {
   background-color: #0f172a;
-  background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.18) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.22) 1px, transparent 0);
   background-size: 32px 32px;
 }
 

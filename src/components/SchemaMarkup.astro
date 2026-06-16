@@ -119,6 +119,28 @@ export function buildBreadcrumbSchema(items: { label: string; href: string }[]) 
   };
 }
 
+// ── City-specific LocalBusiness schema ──────────────────────────────────────
+// Use on city service-area pages to signal a focused areaServed + service catalog.
+export function buildCityLocalBusinessSchema(city: string, services: string[] = ['SEO Local', 'Diseño Web', 'Marketing Digital']) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: site.name,
+    url: site.url,
+    telephone: site.phone,
+    email: site.email,
+    areaServed: { '@type': 'City', name: `${city}, TX` },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `Servicios de Marketing Digital en ${city}, TX`,
+      itemListElement: services.map((svc) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: svc },
+      })),
+    },
+  };
+}
+
 // ── WebPage schema ───────────────────────────────────────────────────────────
 // Note: breadcrumbs are handled via a standalone BreadcrumbList schema — do NOT
 // pass them here to avoid duplicate BreadcrumbList schemas on the same page.

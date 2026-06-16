@@ -3,7 +3,7 @@ title: "How to Rank Your Business on Google Maps in McAllen (2026 Guide)"
 description: "If your McAllen business isn't showing up in the Google Map Pack, you're invisible to the customers who are ready to buy right now. Here's exactly how to change that."
 pubDate: 2026-03-14
 updatedDate: 2026-05-08
-author: "RankRGV Team"
+author: "Eddie Urbano"
 category: "google-maps"
 targetKeyword: "google maps ranking"
 ---

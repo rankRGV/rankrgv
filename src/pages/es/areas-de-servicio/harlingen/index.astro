@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema, buildOrgSchema } from '@/components/SchemaMarkup.astro';
+import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema, buildOrgSchema, buildCityLocalBusinessSchema } from '@/components/SchemaMarkup.astro';
 import { site } from '@/config/site';
 
 const title = 'Agencia SEO Local Harlingen TX | Marketing Digital | RankRGV';
@@ -33,6 +33,7 @@ const faqs = [
 
 const schema = [
   buildOrgSchema(),
+  buildCityLocalBusinessSchema('Harlingen'),
   buildFAQSchema(faqs),
   buildBreadcrumbSchema([
     { label: 'Inicio', href: '/es/' },
