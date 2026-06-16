@@ -4,7 +4,7 @@ description: "Verification is what makes your Google Business Profile go live an
 pubDate: 2026-06-25
 updatedDate: 2026-06-25
 author: "Eddie Urbano"
-category: "google-business-profile"
+category: "google-maps"
 targetKeyword: "how to verify google business profile"
 draft: false
 ---

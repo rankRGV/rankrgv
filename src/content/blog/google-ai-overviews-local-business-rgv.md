@@ -4,7 +4,7 @@ description: "Google AI Overviews are changing how search results look. For most
 pubDate: 2026-06-29
 updatedDate: 2026-06-29
 author: "Eddie Urbano"
-category: "seo"
+category: "local-seo"
 targetKeyword: "google search ai overviews"
 draft: false
 ---

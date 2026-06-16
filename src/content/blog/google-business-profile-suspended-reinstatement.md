@@ -4,7 +4,7 @@ description: "A suspended Google Business Profile disappears from Maps and local
 pubDate: 2026-07-07
 updatedDate: 2026-07-07
 author: "Eddie Urbano"
-category: "google-business-profile"
+category: "google-maps"
 targetKeyword: "google business profile reinstatement"
 draft: false
 ---
