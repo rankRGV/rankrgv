@@ -25,6 +25,10 @@ Small and medium businesses in the Rio Grande Valley (RGV), Texas — particular
 - Contact: https://rankrgv.com/contact/
 - Get Started: https://rankrgv.com/get-started/
 
+## Machine-Readable Content
+
+- OKF bundle (Open Knowledge Format v0.1): https://rankrgv.com/okf/index.md
+
 ## Contact
 
 - Phone: (956) 391-5991
