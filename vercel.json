@@ -21,6 +21,8 @@
     { "source": "/case-study/:path*", "destination": "/", "permanent": true },
     { "source": "/seo", "destination": "/local-seo/", "permanent": true },
     { "source": "/seo/", "destination": "/local-seo/", "permanent": true },
+    { "source": "/automation", "destination": "/business-automation/", "permanent": true },
+    { "source": "/automation/", "destination": "/business-automation/", "permanent": true },
     { "source": "/locations", "destination": "/service-areas/", "permanent": true },
     { "source": "/locations/", "destination": "/service-areas/", "permanent": true },
     { "source": "/pharr/seo", "destination": "/service-areas/pharr/local-seo/", "permanent": true },
