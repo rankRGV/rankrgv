@@ -285,6 +285,39 @@ const schema = [
     </div>
   </section>
 
+  <!-- Guarantee, bonuses, scarcity -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="web-design-guarantee">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wide reveal">
+          Verified before it's turned on
+        </div>
+        <h2 id="web-design-guarantee" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal reveal-delay-1">
+          Our guarantee
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-2">
+          Every site ships at 99+ Google PageSpeed — verifiable yourself the same day it launches. If it doesn't hit 99, we keep optimizing free until it does.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12 max-w-3xl mx-auto">
+        {[
+          { title: '30 Days Post-Launch Support', body: "Included with every build. Bugs, tweaks, and questions after launch are covered — no separate support contract needed." },
+          { title: 'Competitor Site Audit', body: "Part of discovery on every project. We look at what your top 3 competitors are doing technically before we design a single page." },
+        ].map((item, i) => (
+          <div class={`bg-bg rounded-2xl p-6 border border-border reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+            <h3 class="font-bold text-text mb-2 text-sm">{item.title}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-text-muted text-sm max-w-2xl mx-auto reveal">
+        We only take on 2 new website builds a month — by design. Every build gets a full discovery process, custom copy, and our 99+ PageSpeed guarantee. We'd rather turn away a fast yes than rush your launch.
+      </p>
+    </div>
+  </section>
+
   <PricingSection
     id="web-design-pricing"
     headline="Web design pricing"

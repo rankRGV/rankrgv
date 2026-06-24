@@ -320,6 +320,39 @@ const schema = [
     </div>
   </section>
 
+  <!-- Guarantee, bonuses, scarcity -->
+  <section class="py-20 bg-bg-surface" aria-labelledby="ads-guarantee">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wide reveal">
+          We never benefit from you spending more
+        </div>
+        <h2 id="ads-guarantee" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal reveal-delay-1">
+          Our guarantee
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-2">
+          Flat monthly fee, zero commission on ad spend — your budget decisions stay yours. And before a single dollar goes live, we verify your conversion tracking is actually firing correctly, not just assumed to be.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12 max-w-3xl mx-auto">
+        {[
+          { title: 'Free Account Audit', body: "Step one, even if you're not a client yet. We review your current campaigns, tracking, and the competitive landscape before you commit to anything." },
+          { title: 'Tracking Verified Before Launch', body: "We confirm calls and form fills are tracked correctly before budget goes live — not discovered as a gap a month in." },
+        ].map((item, i) => (
+          <div class={`bg-bg rounded-2xl p-6 border border-border reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+            <h3 class="font-bold text-text mb-2 text-sm">{item.title}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-text-muted text-sm max-w-2xl mx-auto reveal">
+        We intentionally keep our retainer roster small enough that every client gets real, hands-on attention — not a templated report and a rotating account manager.
+      </p>
+    </div>
+  </section>
+
   <PricingSection
     id="ads-management-pricing"
     headline="Google & Meta Ads pricing"

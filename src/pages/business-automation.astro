@@ -258,6 +258,40 @@ const schema = [
     }))}
   />
 
+  <!-- Guarantee, bonuses, scarcity -->
+  <section class="py-20 bg-bg" aria-labelledby="automation-guarantee">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wide reveal">
+          Verified before it's turned on
+        </div>
+        <h2 id="automation-guarantee" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal reveal-delay-1">
+          Our guarantee
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-2">
+          Every automation we build gets tested against every real scenario — missed call, form fill, no-show — before it ever goes live. If something misfires in your first 30 days, we fix it free.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-12">
+        {[
+          { title: 'Free Lead Flow Audit', body: 'Before you pay anything, we map exactly where your leads are falling through the cracks — already step one of our process.' },
+          { title: '30-Minute Team Training', body: "Included with every setup. Your team knows what's automated and what to expect before we hand it off." },
+          { title: 'Monthly Dashboard', body: 'See every missed call, text sent, and review requested — included, every month, no extra charge.' },
+        ].map((item, i) => (
+          <div class={`bg-bg-surface rounded-2xl p-6 border border-border reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+            <h3 class="font-bold text-text mb-2 text-sm">{item.title}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-text-muted text-sm max-w-2xl mx-auto reveal">
+        We intentionally keep our retainer roster small enough that every client gets real, hands-on attention — not a templated report and a rotating account manager.
+      </p>
+    </div>
+  </section>
+
   <PricingSection
     id="automation-pricing"
     headline="Business automation pricing"

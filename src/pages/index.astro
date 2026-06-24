@@ -406,6 +406,56 @@ const schema = [
   <!-- ===================== Comparison table ===================== -->
   <ComparisonTable />
 
+  <!-- ===================== Ranking proof — we compete too ===================== -->
+  <section class="py-20 bg-bg" aria-labelledby="ranking-proof">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wide">
+            We compete too
+          </div>
+          <h2 id="ranking-proof" class="text-3xl sm:text-4xl font-bold text-text mb-6">
+            We're a local SEO agency. So we ranked our own site first.
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
+            We launched rankrgv.com from zero this year and ranked it <strong>#3 for "local seo mcallen"</strong> — ahead of agencies who've been making that same promise for years.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed">
+            If we can't rank our own site against agencies who sell the same service, we have no business ranking yours.
+          </p>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <div class="bg-bg-surface rounded-2xl border border-border p-8">
+            <div class="text-xs text-text-muted font-medium uppercase tracking-wider mb-5">
+              Google ranking for "local seo mcallen" — rankrgv.com
+            </div>
+            <div class="space-y-4">
+              {[
+                { label: 'Feb 2026 (launch baseline)', value: '#23', pct: 15 },
+                { label: 'Jun 4, 2026', value: '#10', pct: 55 },
+                { label: 'Jun 23, 2026', value: '#3', pct: 90 },
+              ].map(({ label, value, pct }) => (
+                <div>
+                  <div class="flex justify-between text-sm mb-1.5">
+                    <span class="text-text-muted">{label}</span>
+                    <span class="font-bold text-brand-blue">{value}</span>
+                  </div>
+                  <div class="h-2 bg-bg rounded-full overflow-hidden">
+                    <div class="h-full bg-brand-blue rounded-full" style={`width: ${pct}%`}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div class="mt-5 pt-4 border-t border-border text-xs text-text-muted">
+              Currently beating Imagine It Studios (#8) and Cobalt Digital (#14) — agencies who sell this same service — on this exact term.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== Real results (REAL proof only) ===================== -->
   <section class="py-20 bg-bg-surface" aria-label="Real results">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -442,20 +492,20 @@ const schema = [
           </div>
         </div>
 
-        <!-- Active client card — My American AC -->
+        <!-- Active client card — Tekton Home Solutions -->
         <div class="bg-white border border-border rounded-2xl p-6 shadow-sm">
           <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold">
             <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
             Active client
           </div>
           <p class="text-text leading-relaxed mb-4">
-            HVAC company on the Local SEO Dominator package. GBP optimization, organic service-area strategy, monthly reporting.
+            Roofing contractor — SEO and Spanish-language site localization, plus Meta ad campaigns for storm-damage lead generation.
           </p>
           <div class="flex items-center gap-3 pt-3 border-t border-border">
-            <div class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center font-bold text-brand-purple">AC</div>
+            <div class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center font-bold text-brand-purple">TH</div>
             <div>
-              <div class="text-sm font-bold text-text">My American AC</div>
-              <div class="text-xs text-text-muted">HVAC · Harlingen, TX</div>
+              <div class="text-sm font-bold text-text">Tekton Home Solutions</div>
+              <div class="text-xs text-text-muted">Roofing · Rio Grande City, TX</div>
             </div>
           </div>
         </div>
