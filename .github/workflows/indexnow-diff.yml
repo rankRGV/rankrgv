@@ -1,7 +1,8 @@
 name: IndexNow Auto-Submit
 
 # Runs after the daily publish deploy, diffs the live sitemap against the
-# committed snapshot, and pings IndexNow with only the new URLs.
+# committed snapshot, and pings IndexNow (Bing/Yandex) plus Google's Indexing
+# API with only the new URLs.
 on:
   schedule:
     - cron: '30 13 * * *'  # 8:30 AM CT — 30 min after Scheduled Publish (gives Vercel time to deploy)
@@ -19,7 +20,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Diff sitemap & submit new URLs
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: node scripts/indexnow-diff.mjs
 
       - name: Commit updated snapshot
