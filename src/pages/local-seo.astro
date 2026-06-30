@@ -388,6 +388,55 @@ const schema = [
     note="Not sure which tier fits? Start with a free audit — we'll tell you exactly what we'd recommend."
   />
 
+  <!-- Guarantee, scarcity, who this isn't for -->
+  <section class="py-20 bg-bg" aria-labelledby="seo-guarantee">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wide reveal">
+          No surprises
+        </div>
+        <h2 id="seo-guarantee" class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal reveal-delay-1">
+          Our guarantee
+        </h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-2">
+          We track your rankings from day one and send you a monthly report showing exactly where you moved — and where you didn't. If we don't show meaningful movement within 90 days, we'll work an extra month free to find what's holding it back.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-12">
+        {[
+          { title: 'Free SEO Audit First', body: "Before you pay anything, we audit your current Google presence — GBP, rankings, site health, competitor gaps — and tell you exactly what's holding you back." },
+          { title: 'Monthly Rank Reports', body: 'Every month you get a ranking report showing movement across every target keyword. Not a summary — the actual numbers, city by city.' },
+          { title: 'Month-to-Month', body: "No contracts. If you're not seeing results by month 3, you can walk. We'd rather earn your business every month than lock you in." },
+        ].map((item, i) => (
+          <div class={`bg-bg-surface rounded-2xl p-6 border border-border reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+            <h3 class="font-bold text-text mb-2 text-sm">{item.title}</h3>
+            <p class="text-text-muted text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="max-w-2xl mx-auto space-y-4">
+        <div class="bg-bg-surface rounded-2xl border border-border p-6 reveal">
+          <h3 class="font-bold text-text mb-2 text-sm">Who this isn't for</h3>
+          <p class="text-text-muted text-sm leading-relaxed">
+            If you need page-1 results in 30 days, we're not your agency. Local SEO moves in 60–90 day cycles — that's not a RankRGV limitation, that's how Google's index works. We'll give you a realistic timeline upfront, including if your category is competitive enough that 6 months is the honest answer.
+          </p>
+        </div>
+        <div class="bg-bg-surface rounded-2xl border border-border p-6 reveal reveal-delay-1">
+          <h3 class="font-bold text-text mb-2 text-sm">We ran this on our own site first</h3>
+          <p class="text-text-muted text-sm leading-relaxed">
+            When we launched rankrgv.com, our own GBP pin was registered 30 miles from McAllen center. We ranked anyway: <strong class="text-brand-blue">#3 for "local seo mcallen"</strong> from a brand-new domain in under a year. We know what the process takes because we went through it with the same constraints our clients have.
+          </p>
+        </div>
+      </div>
+
+      <p class="text-center text-text-muted text-sm max-w-2xl mx-auto mt-10 reveal">
+        We take on 3–4 new Local SEO retainer clients a month — set by how many clients we can actually move, not by how many we can invoice.
+      </p>
+    </div>
+  </section>
+
   <Testimonials />
 
   <ServiceAreaGrid
