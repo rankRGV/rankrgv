@@ -1,0 +1,80 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+
+const title = 'Google Ads Reporting Tool | RankRGV';
+const description =
+  'RankRGV internal Google Ads reporting and account management tool — how it works and what Google user data it accesses.';
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+  <section class="py-20 bg-bg">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="mb-10">
+        <h1 class="text-3xl font-extrabold text-text mb-2">RankRGV Google Ads Reporting Tool</h1>
+        <p class="text-text-muted text-sm">Internal application overview</p>
+      </div>
+
+      <div class="prose prose-slate max-w-none space-y-8">
+
+        <div>
+          <h2 class="text-xl font-bold text-text mb-3">What this application is</h2>
+          <p class="text-text-muted leading-relaxed">
+            RankRGV is a digital marketing agency based in McAllen, Texas. We manage Google Ads accounts on behalf of our retainer clients across the Rio Grande Valley. This page describes an internal tool built and used by RankRGV — a command-line application that connects to the Google Ads API under our Google Ads manager (MCC) account.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-text mb-3">Purpose</h2>
+          <p class="text-text-muted leading-relaxed">
+            The tool lets our team pull campaign, ad group, and keyword performance data for client accounts into the reports we deliver, and make routine account changes — pausing or enabling a campaign, adjusting a budget — without logging into the Google Ads interface separately for every client. It replaces manual, repetitive work with a single reporting workflow across all client accounts we manage.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-text mb-3">What Google user data it accesses, and why</h2>
+          <p class="text-text-muted leading-relaxed mb-3">
+            The tool requests access to Google Ads account data through the Google Ads API, scoped to accounts that have been linked to RankRGV's manager account with the client's consent, as part of our existing service agreement with each client. Specifically, it accesses:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-text-muted">
+            <li>Campaign, ad group, and keyword performance metrics (impressions, clicks, cost, conversions) — used to build client performance reports</li>
+            <li>Campaign budget amounts — used to monitor and update budget pacing</li>
+            <li>Campaign status — used to pause or enable campaigns at a client's request</li>
+          </ul>
+          <p class="text-text-muted leading-relaxed mt-3">
+            No data retrieved through this tool is sold, shared with unrelated third parties, or used for any purpose beyond managing and reporting on the specific client accounts we are contracted to manage.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-text mb-3">Who uses it</h2>
+          <p class="text-text-muted leading-relaxed">
+            This tool is for internal RankRGV use only. It is used exclusively by RankRGV staff to manage and report on our own linked client accounts. It is not distributed, resold, or made available to any external party.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-text mb-3">Data handling</h2>
+          <p class="text-text-muted leading-relaxed">
+            For how we handle data generally, see our <a href="/privacy-policy/" class="text-brand-blue hover:underline">Privacy Policy</a>. Credentials used by this tool are stored as environment variables and are never shared or committed to any public location.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-text mb-3">Contact</h2>
+          <p class="text-text-muted leading-relaxed">
+            Questions about this application? Contact us:<br />
+            Email: <a href={`mailto:${site.email}`} class="text-brand-blue hover:underline">{site.email}</a><br />
+            Phone: <a href={site.phoneHref} class="text-brand-blue hover:underline">{site.phone}</a>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-border">
+        <a href="/" class="text-sm text-brand-blue font-semibold hover:underline">← Back to home</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
