@@ -95,7 +95,15 @@ const schema = [
 ];
 ---
 
-<ServiceLayout service={service} schema={schema}>
+<ServiceLayout
+  service={service}
+  schema={schema}
+  hreflang={[
+    { lang: 'en', href: 'https://rankrgv.com/local-seo/' },
+    { lang: 'es', href: 'https://rankrgv.com/es/seo-local/' },
+    { lang: 'x-default', href: 'https://rankrgv.com/local-seo/' },
+  ]}
+>
   <Hero
     badge="Local SEO for McAllen & the RGV"
     headline='Rank everywhere your customers search.<br /><span class="gradient-text">Maps. Organic. Every city you serve.</span>'

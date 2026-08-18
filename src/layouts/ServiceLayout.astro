@@ -6,9 +6,10 @@ import type { Service } from '@/data/services';
 interface Props {
   service: Service;
   schema?: object | object[];
+  hreflang?: { lang: string; href: string }[];
 }
 
-const { service, schema } = Astro.props;
+const { service, schema, hreflang } = Astro.props;
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
@@ -20,6 +21,7 @@ const breadcrumbs = [
   title={service.titleTag}
   description={service.metaDescription}
   schema={schema}
+  hreflang={hreflang}
 >
   <Breadcrumbs items={breadcrumbs} />
   <slot />

@@ -10,9 +10,10 @@ interface Props {
   title: string;
   description: string;
   schema?: object | object[];
+  hreflang?: { lang: string; href: string }[];
 }
 
-const { area, service, title, description, schema } = Astro.props;
+const { area, service, title, description, schema, hreflang } = Astro.props;
 
 const breadcrumbs = service
   ? [
@@ -31,7 +32,7 @@ const geoPlacename = `${area.name}, Texas`;
 const geoRegion = area.geoRegion;
 ---
 
-<BaseLayout title={title} description={description} schema={schema} geoRegion={geoRegion} geoPlacename={geoPlacename}>
+<BaseLayout title={title} description={description} schema={schema} geoRegion={geoRegion} geoPlacename={geoPlacename} hreflang={hreflang}>
   <Breadcrumbs items={breadcrumbs} />
   <slot />
 </BaseLayout>

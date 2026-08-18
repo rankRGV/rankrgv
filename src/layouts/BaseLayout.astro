@@ -16,6 +16,7 @@ interface Props {
   geoRegion?: string;
   geoPlacename?: string;
   lang?: 'en' | 'es';
+  hreflang?: { lang: string; href: string }[];
 }
 
 const {
@@ -29,6 +30,7 @@ const {
   geoRegion,
   geoPlacename,
   lang = 'en',
+  hreflang,
 } = Astro.props;
 
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
@@ -49,6 +51,9 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
       geoRegion={geoRegion}
       geoPlacename={geoPlacename}
     />
+    {hreflang?.map((h) => (
+      <link rel="alternate" hreflang={h.lang} href={h.href} />
+    ))}
     <slot name="head" />
   </head>
   <body class="bg-bg text-text font-sans antialiased">

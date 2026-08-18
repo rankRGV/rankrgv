@@ -64,7 +64,17 @@ const schema = [
 ];
 ---
 
-<ServiceAreaLayout area={area} title={title} description={description} schema={schema}>
+<ServiceAreaLayout
+  area={area}
+  title={title}
+  description={description}
+  schema={schema}
+  hreflang={[
+    { lang: 'en', href: 'https://rankrgv.com/service-areas/mission/' },
+    { lang: 'es', href: 'https://rankrgv.com/es/areas-de-servicio/mission/' },
+    { lang: 'x-default', href: 'https://rankrgv.com/service-areas/mission/' },
+  ]}
+>
   <Hero
     badge="Serving Mission, TX & Hidalgo County"
     headline={`Mission's local SEO & digital marketing agency.<br /><span class="gradient-text">Fastest window in the RGV.</span>`}

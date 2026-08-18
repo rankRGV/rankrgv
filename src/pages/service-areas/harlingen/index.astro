@@ -64,7 +64,17 @@ const schema = [
 ];
 ---
 
-<ServiceAreaLayout area={area} title={title} description={description} schema={schema}>
+<ServiceAreaLayout
+  area={area}
+  title={title}
+  description={description}
+  schema={schema}
+  hreflang={[
+    { lang: 'en', href: 'https://rankrgv.com/service-areas/harlingen/' },
+    { lang: 'es', href: 'https://rankrgv.com/es/areas-de-servicio/harlingen/' },
+    { lang: 'x-default', href: 'https://rankrgv.com/service-areas/harlingen/' },
+  ]}
+>
   <Hero
     badge="Serving Harlingen, TX & Cameron County"
     headline={`Harlingen's local SEO & digital marketing agency.<br /><span class="gradient-text">Healthcare hub, real results.</span>`}
