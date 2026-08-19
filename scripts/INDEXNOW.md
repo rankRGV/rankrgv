@@ -85,6 +85,22 @@ GOOGLE_SERVICE_ACCOUNT_JSON="$(cat /path/to/service-account.json)" \
   node scripts/google-index.mjs https://rankrgv.com/blog/some-post/
 ```
 
+## Search Console reporting (read-only)
+
+`scripts/search-console-report.mjs` reuses the same service account (Owner
+already covers the Search Analytics read scope, no new OAuth grant needed) to
+pull a performance report — totals, top queries, top pages, and a
+period-over-period comparison that surfaces the biggest clicks drops/gains
+per page.
+
+```bash
+GOOGLE_SERVICE_ACCOUNT_JSON="$(cat /path/to/service-account.json)" \
+  node scripts/search-console-report.mjs --days 90 --out scripts/.gsc-report.json
+```
+
+If the property is verified as a Domain property rather than URL-prefix, pass
+`--site sc-domain:rankrgv.com` instead of the default `https://rankrgv.com/`.
+
 ## Reuse on another client site
 
 1. Generate a key: `node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"`
