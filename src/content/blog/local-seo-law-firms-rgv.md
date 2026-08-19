@@ -12,7 +12,7 @@ Legal is one of the few genuinely competitive verticals in the Rio Grande Valley
 
 The good news is that most law firms in the Valley haven't built their SEO properly — and the ones that have built it are often doing only half of what works. A small firm willing to put in the right work can still win meaningful positions without the budget of a large regional practice.
 
-Here's the honest version of what works.
+Here's the honest version of what works — the same approach behind our [local SEO service](/local-seo/), applied to a more competitive vertical.
 
 ## What Makes Legal SEO in the Rio Grande Valley Competitive?
 

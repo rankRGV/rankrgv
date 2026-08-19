@@ -56,7 +56,7 @@ A redesign is the best opportunity you'll have to fix SEO problems without disru
 
 <div class="callout">
 
-**Redesigning your RGV business website?** We do a pre-launch SEO review that identifies the URLs and rankings worth protecting before you go live — so you don't find out what you lost after the fact. [Get a pre-launch review →](/get-started/)
+**Redesigning your RGV business website?** We do a pre-launch SEO review that identifies the URLs and rankings worth protecting before you go live — so you don't find out what you lost after the fact. [Get a pre-launch review →](/get-started/) Or see how we build SEO in from day one on our [web design service page](/web-design/).
 
 </div>
 

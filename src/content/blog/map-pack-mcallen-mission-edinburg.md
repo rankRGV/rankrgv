@@ -10,7 +10,7 @@ draft: false
 
 If you've ever Googled a local service and seen that box with three businesses and a map pinned above the regular search results, that's the Google Map Pack. It's the most valuable real estate in local search — and in the Rio Grande Valley, it works differently in each city.
 
-McAllen, Mission, and Edinburg are distinct markets with their own search competition, proximity patterns, and business density. A strategy that gets you into the map pack in one city won't automatically carry over to another. Here's what actually moves the needle in each.
+McAllen, Mission, and Edinburg are distinct markets with their own search competition, proximity patterns, and business density. A strategy that gets you into the map pack in one city won't automatically carry over to another. Here's what actually moves the needle in each — starting with [our McAllen market overview](/service-areas/mcallen/) if that's your primary city.
 
 ## Why Proximity Is Everything — and Why It Limits You
 

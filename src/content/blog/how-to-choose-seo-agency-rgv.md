@@ -1,5 +1,5 @@
 ---
-title: "Choosing a Local SEO Agency in the RGV: A No-Fluff Buyer's Guide"
+title: "How to Choose a Local SEO Agency in the RGV"
 description: "Most SEO agencies will take your money and send you reports. Here's how to tell the difference — and what to ask before you sign anything."
 pubDate: 2026-04-17
 author: "Eddie Urbano"
@@ -10,7 +10,7 @@ draft: false
 
 The hardest part about hiring an SEO agency in the Rio Grande Valley is that you usually don't know if it's working until months in. By then, you've already paid several thousand dollars and the person selling you the service has moved on to the next client. 
 
-This guide is about what to look for before you sign anything — and what to watch for after.
+This guide is about what to look for before you sign anything — and what to watch for after. (For reference, here's exactly [what our local SEO service includes](/local-seo/) and what it costs — no gatekeeping.)
 
 ## The Core Problem With Most SEO Agencies
 

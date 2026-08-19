@@ -452,6 +452,27 @@ const schema = [
     serviceSlug="local-seo"
   />
 
+  <!-- Related reading — hub links to spokes -->
+  <section class="py-16 bg-bg-surface" aria-labelledby="local-seo-reading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="local-seo-reading" class="text-2xl font-bold text-text mb-6">More on local SEO for the RGV</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { href: '/blog/how-to-choose-seo-agency-rgv/', label: 'How to Choose a Local SEO Agency in the RGV' },
+          { href: '/blog/rgv-local-seo-keyword-opportunity/', label: 'Why Local SEO Is Easier to Win in the RGV' },
+          { href: '/blog/local-seo-home-services-rgv/', label: 'Local SEO Playbook for RGV Home Service Businesses' },
+          { href: '/blog/local-seo-healthcare-rgv/', label: 'Local SEO for Doctors, Dentists & Clinics in the RGV' },
+          { href: '/blog/local-seo-law-firms-rgv/', label: 'Local SEO Strategy for RGV Law Firms' },
+          { href: '/service-areas/mcallen/', label: 'Digital Marketing in McAllen, TX' },
+        ].map((link) => (
+          <a href={link.href} class="block bg-bg rounded-xl border border-border p-4 text-sm font-semibold text-text hover:border-brand-blue/30 hover:text-brand-blue transition-colors no-underline">
+            {link.label} →
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <FAQSection faqs={faqs} headline="Local SEO questions from RGV business owners" />
 
   <CTASection

@@ -1,5 +1,5 @@
 ---
-title: "How to Rank Your Business on Google Maps in McAllen (2026 Guide)"
+title: "How to Rank on Google Maps in McAllen (2026 Guide)"
 description: "If your McAllen business isn't showing up in the Google Map Pack, you're invisible to the customers who are ready to buy right now. Here's exactly how to change that."
 pubDate: 2026-03-14
 updatedDate: 2026-05-08
@@ -12,7 +12,7 @@ When someone in McAllen searches "HVAC repair near me" or "dentist McAllen TX," 
 
 If your business isn't in that box, you're not losing to better competitors. You're just invisible.
 
-We audit a lot of McAllen business listings. The overwhelming pattern: solid businesses with years of experience, zero online presence, wondering why the phone isn't ringing. The good news is the McAllen market is significantly less competitive than other Texas metros — a business with the right foundation can reach the top 3 in 60 to 90 days for most local categories. Here's how.
+We audit a lot of McAllen business listings. The overwhelming pattern: solid businesses with years of experience, zero online presence, wondering why the phone isn't ringing. The good news is the McAllen market is significantly less competitive than other Texas metros — a business with the right foundation can reach the top 3 in 60 to 90 days for most local categories. Here's how. (For the full picture of what we do in this market, see our [McAllen overview →](/service-areas/mcallen/).)
 
 ## What is the Google Map Pack?
 

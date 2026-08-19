@@ -1,5 +1,5 @@
 ---
-title: "Google Business Profile Mistakes That Are Costing RGV Businesses Calls"
+title: "7 Google Business Profile Mistakes Costing You Calls"
 description: "Most McAllen businesses have a Google Business Profile — but most have it set up wrong. Here are the 7 mistakes we see most often, and how to fix them fast."
 pubDate: 2026-04-14
 author: "Eddie Urbano"
@@ -12,7 +12,7 @@ Most RGV business owners know they need a Google Business Profile. So they set o
 
 The problem is that "existing" and "working" are two very different things.
 
-When we audit Google Business Profiles for McAllen businesses, we see the same mistakes over and over. These aren't obscure technical issues. They're fixable things that are actively hiding your business from people who are looking for exactly what you offer — right now, on their phones, in your city.
+When we audit Google Business Profiles for McAllen businesses, we see the same mistakes over and over. These aren't obscure technical issues. They're fixable things that are actively hiding your business from people who are looking for exactly what you offer — right now, on their phones, in your city. GBP cleanup is one piece of a bigger system — see how our [local SEO service](/local-seo/) covers all of it.
 
 Here are the seven we see most often, and what to do about each one.
 

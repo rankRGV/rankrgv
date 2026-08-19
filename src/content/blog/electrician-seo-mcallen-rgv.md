@@ -11,7 +11,7 @@ draft: false
 
 Electricians in the Rio Grande Valley have a visibility problem that has nothing to do with their work. The searches that drive the most valuable calls — "electrician near me," "electrician McAllen TX," "electrical panel upgrade Edinburg" — are sitting with single-digit difficulty scores and almost no serious local competition. Most RGV electricians are invisible for those terms not because ranking is hard, but because nobody has done the work.
 
-Search difficulty for "electrician McAllen" sits below 15. For comparison, the same search in Houston or San Antonio is 40 to 60. If you're a licensed electrician operating in the Valley right now, a focused 90-day SEO effort can put you in the top three local results for searches that convert directly to jobs.
+Search difficulty for "electrician McAllen" sits below 15. For comparison, the same search in Houston or San Antonio is 40 to 60. If you're a licensed electrician operating in the Valley right now, a focused 90-day SEO effort — the kind our [local SEO service](/local-seo/) runs — can put you in the top three local results for searches that convert directly to jobs.
 
 ## Why do electrician searches convert directly into calls?
 

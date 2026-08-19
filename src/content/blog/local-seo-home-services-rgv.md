@@ -12,7 +12,7 @@ The Rio Grande Valley home services market has a problem that most business owne
 
 That gap is closing. But right now, for an HVAC company, a plumber, or a roofing contractor operating in the Valley, ranking on page one for the searches that drive emergency calls is a realistic 60 to 90 day project — not a multi-year one.
 
-Here's how to do it.
+Here's how to do it — and it's exactly what our [local SEO service](/local-seo/) is built around.
 
 ## Home Services SEO Is Different From Every Other Category
 

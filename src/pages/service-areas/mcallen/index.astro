@@ -243,6 +243,24 @@ const schema = [
     </div>
   </section>
 
+  <!-- Related reading — hub links to spokes -->
+  <section class="py-16 bg-bg-surface" aria-labelledby="mcallen-reading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="mcallen-reading" class="text-2xl font-bold text-text mb-6">More on ranking in McAllen</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { href: '/blog/how-to-rank-google-maps-mcallen/', label: 'How to Rank on Google Maps in McAllen (2026 Guide)' },
+          { href: '/blog/google-business-profile-mcallen/', label: 'Set Up Google Business Profile for Your McAllen Business' },
+          { href: '/blog/map-pack-mcallen-mission-edinburg/', label: 'Map Pack Ranking Guide for McAllen, Mission & Edinburg' },
+        ].map((link) => (
+          <a href={link.href} class="block bg-bg rounded-xl border border-border p-4 text-sm font-semibold text-text hover:border-brand-blue/30 hover:text-brand-blue transition-colors no-underline">
+            {link.label} →
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <FAQSection
     faqs={faqs}
     headline="Questions about digital marketing in McAllen"

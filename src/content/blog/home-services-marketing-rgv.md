@@ -11,7 +11,7 @@ draft: false
 
 Home service contractors in the Rio Grande Valley face a marketing challenge most national agencies don't account for. The market is bilingual. Most jobs are booked on the phone, not online. The weather creates demand spikes that punish businesses without visibility already in place. And the competition — while real — is significantly weaker than in major Texas metros.
 
-The contractors doing well in the RGV right now haven't found some advanced marketing tactic. They've done the basic things well and consistently: a strong Google Business Profile, a review collection system that works, and a website structure that tells Google what they do and where they do it. Most of their competitors have done none of these things.
+The contractors doing well in the RGV right now haven't found some advanced marketing tactic. They've done the basic things well and consistently: a strong Google Business Profile, a review collection system that works, and a website structure that tells Google what they do and where they do it. Most of their competitors have done none of these things — which is the gap our [local SEO service](/local-seo/) is built to close.
 
 ## What digital marketing channels work best for RGV home service contractors?
 

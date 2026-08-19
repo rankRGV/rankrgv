@@ -9,7 +9,7 @@ targetKeyword: "google business profile vs website"
 draft: false
 ---
 
-For local service businesses, Google Business Profile drives more immediate revenue than a website does. But the businesses that dominate local search have both, and they work together. The real question is sequencing, not either-or. Getting the order wrong costs months of visibility.
+For local service businesses, Google Business Profile drives more immediate revenue than a website does. But the businesses that dominate local search have both, and they work together. The real question is sequencing, not either-or. Getting the order wrong costs months of visibility — see how our [web design service](/web-design/) is built to work with your GBP, not around it.
 
 ## The honest breakdown
 

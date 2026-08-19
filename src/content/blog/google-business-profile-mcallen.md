@@ -1,5 +1,5 @@
 ---
-title: "How to Set Up Google Business Profile for Your McAllen Business (Step-by-Step)"
+title: "Set Up Google Business Profile for Your McAllen Business"
 description: "Google Business Profile is the single most powerful free tool for local businesses in McAllen. Here's how to set it up right — and what most RGV businesses get wrong."
 pubDate: 2026-04-03
 updatedDate: 2026-05-08
@@ -12,7 +12,7 @@ If someone searches for your type of business in McAllen right now, there are tw
 
 Both are driven — directly or indirectly — by your Google Business Profile.
 
-When we audit local businesses in the RGV, the same situation keeps coming up: a legitimate, established business that's been operating for years, with zero Google presence because nobody ever set up their GBP properly. Sometimes the profile is unclaimed. Sometimes it exists but has the wrong category, outdated hours, and three photos from 2019. A GBP that's incomplete or ignored is worse than useless — it actively misrepresents your business to anyone who finds it.
+When we audit local businesses in the RGV, the same situation keeps coming up: a legitimate, established business that's been operating for years, with zero Google presence because nobody ever set up their GBP properly. Sometimes the profile is unclaimed. Sometimes it exists but has the wrong category, outdated hours, and three photos from 2019. A GBP that's incomplete or ignored is worse than useless — it actively misrepresents your business to anyone who finds it. If you want the full picture of what it takes to compete in this city, see our [McAllen digital marketing overview →](/service-areas/mcallen/).
 
 Here's how to build it right.
 
