@@ -67,6 +67,14 @@ const schema = [
               href={`/blog/${post.slug}/`}
               class="group block bg-bg-surface rounded-2xl border border-border hover:border-brand-blue/30 hover:shadow-md transition-all overflow-hidden no-underline"
             >
+              <img
+                src={post.data.ogImage ?? `/images/blog/${post.slug}.png`}
+                alt={post.data.title}
+                width="1200"
+                height="630"
+                class="w-full h-auto aspect-[1200/630] object-cover"
+                loading="lazy"
+              />
               <div class="p-6">
                 <div class="flex items-center gap-2 mb-4">
                   <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${categoryColors[post.data.category] ?? 'bg-gray-100 text-gray-600'}`}>

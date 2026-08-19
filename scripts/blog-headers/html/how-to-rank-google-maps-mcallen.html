@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #0f172a;
+    background-image: radial-gradient(circle at 1px 1px, rgba(59,130,246,0.22) 1px, transparent 0);
+    background-size: 32px 32px;
+    position: relative;
+  }
+  .glow {
+    position: absolute;
+    top: -140px;
+    right: -140px;
+    width: 620px;
+    height: 620px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.40) 0%, transparent 70%);
+    filter: blur(10px);
+  }
+  .motif {
+    position: absolute;
+    right: 20px;
+    bottom: -20px;
+    opacity: 0.9;
+  }
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 72px 64px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    padding: 9px 20px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid #f59e0b66;
+    color: #fbbf24;
+    font-weight: 800;
+    font-size: 19px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .dot {
+    width: 9px; height: 9px; border-radius: 50%; background: #f59e0b;
+  }
+  h1 {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1.14;
+    max-width: 600px;
+    letter-spacing: -0.01em;
+  }
+  .footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo {
+    font-weight: 900;
+    font-size: 24px;
+    color: #ffffff;
+  }
+  .logo span { color: #fbbf24; }
+  .tagline {
+    color: rgba(255,255,255,0.55);
+    font-size: 16px;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="motif">
+    <svg width="560" height="520" viewBox="0 0 560 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="380" width="500" height="6" rx="3" fill="#fbbf24" fill-opacity="0.2"/>
+      <g transform="translate(150,60)">
+        <path d="M70 0C31.3 0 0 31.3 0 70c0 52.5 70 122.5 70 122.5S140 122.5 140 70C140 31.3 108.7 0 70 0z" fill="#f59e0b"/>
+        <circle cx="70" cy="70" r="28" fill="#0f172a"/>
+        <text x="70" y="80" font-family="Inter, sans-serif" font-weight="800" font-size="30" fill="#f59e0b" text-anchor="middle">1</text>
+      </g>
+      <g transform="translate(20,180)" opacity="0.72">
+        <path d="M55 0C24.6 0 0 24.6 0 55c0 41.3 55 96.3 55 96.3S110 96.3 110 55C110 24.6 85.4 0 55 0z" fill="#fbbf24"/>
+        <circle cx="55" cy="55" r="22" fill="#0f172a"/>
+        <text x="55" y="63" font-family="Inter, sans-serif" font-weight="800" font-size="24" fill="#fbbf24" text-anchor="middle">2</text>
+      </g>
+      <g transform="translate(340,200)" opacity="0.5">
+        <path d="M50 0C22.4 0 0 22.4 0 50c0 37.5 50 87.5 50 87.5S100 87.5 100 50C100 22.4 77.6 0 50 0z" fill="#fbbf24"/>
+        <circle cx="50" cy="50" r="20" fill="#0f172a"/>
+        <text x="50" y="58" font-family="Inter, sans-serif" font-weight="800" font-size="22" fill="#fbbf24" text-anchor="middle">3</text>
+      </g>
+    </svg>
+    </div>
+  <div class="content">
+    <div class="badge"><span class="dot"></span>Google Maps</div>
+    <h1>How to Rank Your Business on Google Maps in McAllen (2026 Guide)</h1>
+    <div class="footer">
+      <div class="logo">Rank<span>RGV</span></div>
+      <div class="tagline">rankrgv.com</div>
+    </div>
+  </div>
+</body>
+</html>

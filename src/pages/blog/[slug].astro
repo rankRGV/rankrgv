@@ -17,7 +17,10 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const { title, description, pubDate, updatedDate, author, category, targetKeyword } = post.data;
+const { title, description, pubDate, updatedDate, author, category, targetKeyword, ogImage } = post.data;
+
+const heroImage = ogImage ?? `/images/blog/${post.slug}.png`;
+const heroImageUrl = `${site.url}${heroImage}`;
 
 // Build schema — Article + Breadcrumb + WebPage
 const schema = [
@@ -26,6 +29,7 @@ const schema = [
     '@type': 'Article',
     headline: title,
     description,
+    image: [heroImageUrl],
     author: { '@type': 'Organization', name: site.name, url: site.url },
     publisher: {
       '@type': 'Organization',
@@ -56,6 +60,8 @@ const schema = [
   targetKeyword={targetKeyword}
   slug={post.slug}
   schema={schema}
+  heroImage={heroImage}
+  ogImage={heroImage}
 >
   <Content />
 </BlogLayout>

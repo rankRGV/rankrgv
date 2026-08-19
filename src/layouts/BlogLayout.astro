@@ -13,6 +13,8 @@ interface Props {
   targetKeyword: string;
   slug: string;
   schema?: object | object[];
+  heroImage?: string;
+  ogImage?: string;
 }
 
 const {
@@ -24,6 +26,8 @@ const {
   category,
   slug,
   schema,
+  heroImage,
+  ogImage,
 } = Astro.props;
 
 const categoryLabels: Record<string, string> = {
@@ -56,7 +60,7 @@ const breadcrumbs = [
 ];
 ---
 
-<BaseLayout title={title} description={description} canonical={canonicalUrl} schema={schema}>
+<BaseLayout title={title} description={description} canonical={canonicalUrl} schema={schema} ogImage={ogImage}>
   <Breadcrumbs items={breadcrumbs} />
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -64,6 +68,17 @@ const breadcrumbs = [
 
       <!-- Main article -->
       <article>
+        {heroImage && (
+          <img
+            src={heroImage}
+            alt={title}
+            width="1200"
+            height="630"
+            class="w-full h-auto rounded-2xl mb-8 border border-border"
+            loading="eager"
+          />
+        )}
+
         <!-- Category + meta -->
         <div class="flex flex-wrap items-center gap-3 mb-6">
           <span class="inline-flex items-center px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-semibold uppercase tracking-wide">
