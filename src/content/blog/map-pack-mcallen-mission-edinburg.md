@@ -40,7 +40,7 @@ Reviews mentioning Mission by name are also a stronger signal than generic revie
 
 Edinburg is the surprise market in the RGV right now. Population is growing steadily, search volume is increasing, and most of the businesses that would compete for map pack spots haven't optimized their GBP beyond the basics. That gap is closing, but it hasn't closed yet.
 
-The Edinburg map pack for most service categories is winnable with the fundamentals: a verified GBP with a real Edinburg address, a complete profile with the right primary category, 15 or more reviews with a 4.5+ average, and regular posting activity. The businesses currently holding those positions in most categories don't have exceptional SEO — they just show up.
+The Edinburg map pack for most service categories is winnable with the fundamentals: a verified GBP with a real Edinburg address, a complete profile with the right primary category, 15 or more reviews with a 4.5+ average, and regular posting activity. The businesses currently holding those positions in most categories don't have exceptional SEO — they just show up. See our [Edinburg market overview](/service-areas/edinburg/) for the full picture of what we do in this city.
 
 One pattern that matters specifically in Edinburg: searchers there tend to include the city name in their query more consistently than McAllen searchers, who often just search the service and rely on Google's "near me" detection. This means your GBP business name, description, and posts should include "Edinburg" explicitly — not just "RGV" or "Rio Grande Valley."
 

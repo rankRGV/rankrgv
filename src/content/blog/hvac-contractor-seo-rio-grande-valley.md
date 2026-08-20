@@ -31,7 +31,7 @@ Your GBP is the single most important digital asset you own as an HVAC contracto
 
 A profile with 15 services competes for 15 types of searches. Most RGV HVAC contractors list their primary category and stop — which means they only show up for the broadest "HVAC" search.
 
-Post new photos weekly from job sites and geotag them to the city where the job happened. A photo from an install in Pharr, tagged to Pharr, tells Google your business is actively working in that city — a relevance signal that helps with proximity calculations for searchers there.
+Post new photos weekly from job sites and geotag them to the city where the job happened. A photo from an install in Pharr, tagged to Pharr, tells Google your business is actively working in that city — a relevance signal that helps with proximity calculations for searchers there. (See our [Pharr market overview](/service-areas/pharr/) if that's a city you're targeting.)
 
 <div class="callout">
 

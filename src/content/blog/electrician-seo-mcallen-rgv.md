@@ -54,7 +54,7 @@ Your TDLR license number and insurance status are trust signals that directly af
 Yes. A single homepage mentioning McAllen, Edinburg, Mission, and Harlingen once each is not enough to rank in all four cities. Google needs to see a dedicated page for each location. The structure that works for RGV electricians:
 
 - **Homepage:** Your credibility anchor — license, years in business, service overview, primary city
-- **City pages:** One per market — McAllen, Edinburg, Mission, Harlingen, Pharr. Each page should mention something location-specific: a common local issue, a recent storm event, or neighborhoods you've served
+- **City pages:** One per market — [McAllen](/service-areas/mcallen/), [Edinburg](/service-areas/edinburg/), Mission, Harlingen, [Pharr](/service-areas/pharr/). Each page should mention something location-specific: a common local issue, a recent storm event, or neighborhoods you've served
 - **Service pages:** Panel upgrades, generator installation, commercial electrical, EV charger installation — each targeting a specific high-value search independently
 
 This architecture is what separates RGV electricians getting 10 leads a month from the ones with a full dispatch schedule.
