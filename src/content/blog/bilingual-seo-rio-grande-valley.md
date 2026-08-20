@@ -48,7 +48,7 @@ You don't need to maintain an entirely separate Spanish website. What you need i
 
 For most RGV businesses, the highest-leverage approach is this: optimize your GBP for both languages first, then build one or two key service pages with genuine bilingual content — not translated versions of the English pages, but pages written in natural, conversational Spanish as a first language. The difference is obvious to anyone who grew up speaking Spanish in the Valley. Machine-translated Spanish reads like a legal document. Native Spanish reads like a neighbor talking.
 
-The content doesn't have to be long. A 400-word service page in Spanish that speaks naturally to someone in Mission or Pharr will outrank a 1,500-word translated page every time — because Google can tell the difference, and so can the person reading it.
+The content doesn't have to be long. A 400-word service page in Spanish that speaks naturally to someone in Mission or Pharr will outrank a 1,500-word translated page every time — because Google can tell the difference, and so can the person reading it. Our own [Spanish-language SEO page](/es/seo-local/) is written this way, not machine-translated, if you want to see the difference in practice.
 
 ## Reviews Are Your Biggest Bilingual Signal
 
