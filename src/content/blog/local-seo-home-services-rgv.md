@@ -66,7 +66,7 @@ This doesn't mean you need 20 identical pages with the city name swapped out. Th
 
 For an HVAC company, a page structure like this works well in the RGV:
 - Homepage: general credibility, service overview, and primary city (where your GBP is)
-- City pages: one per market you serve — McAllen, Mission, Edinburg, Harlingen — each with a specific mention of that city's climate patterns, common AC issues, or neighborhoods you've served
+- City pages: one per market you serve — [McAllen](/service-areas/mcallen/), [Mission](/service-areas/mission/), [Edinburg](/service-areas/edinburg/), [Harlingen](/service-areas/harlingen/) — each with a specific mention of that city's climate patterns, common AC issues, or neighborhoods you've served
 - Service pages: AC repair, AC installation, furnace service, etc. — these let you rank for "AC installation McAllen" separately from "AC repair McAllen"
 
 The businesses ranking on page one for multiple cities in the Valley almost always have this structure. The ones stuck on page two have a homepage and nothing else.

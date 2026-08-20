@@ -198,6 +198,23 @@ const schema = [
     </div>
   </section>
 
+  <!-- Related reading — hub links to spokes -->
+  <section class="py-16 bg-bg-surface" aria-labelledby="harlingen-reading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="harlingen-reading" class="text-2xl font-bold text-text mb-6">More on ranking in Harlingen</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { href: '/blog/local-seo-home-services-rgv/', label: 'Local SEO Playbook for RGV Home Service Businesses' },
+          { href: '/blog/rgv-local-search-trends-2026/', label: "RGV Local Search in 2026: What Changed, What's Next" },
+        ].map((link) => (
+          <a href={link.href} class="block bg-bg rounded-xl border border-border p-4 text-sm font-semibold text-text hover:border-brand-blue/30 hover:text-brand-blue transition-colors no-underline">
+            {link.label} →
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <FAQSection faqs={faqs} headline="Questions about digital marketing in Harlingen" />
 
   <CTASection

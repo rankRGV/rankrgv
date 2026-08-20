@@ -30,7 +30,7 @@ If you're in McAllen and not in the map pack, the first diagnostic question is: 
 
 ## Mission — Less Competition, Easier to Win
 
-Mission is undersearched relative to its population, which means the map pack is easier to crack than McAllen but also less rewarding per position. That's not a reason to ignore it — it's a reason to own it first and use it as a foundation.
+Mission is undersearched relative to its population, which means the map pack is easier to crack than McAllen but also less rewarding per position. That's not a reason to ignore it — it's a reason to own it first and use it as a foundation. See our [Mission market overview](/service-areas/mission/) for more.
 
 The business categories that consistently hold Mission map pack spots tend to have one thing in common: their GBP description actually mentions Mission by name, in a specific way. "Serving Mission, TX families since 2008" is not the same as "serving the Rio Grande Valley." Google's relevance scoring responds to specificity. A GBP that explicitly names Mission in the description and posts regular Mission-specific content — a service call photo geotagged in Mission, a post about a project completed in Mission — signals to Google that this business is genuinely local to that city.
 
