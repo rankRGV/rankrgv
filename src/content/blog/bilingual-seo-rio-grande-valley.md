@@ -8,7 +8,7 @@ targetKeyword: "bilingual SEO McAllen"
 draft: false
 ---
 
-Most of the advice about bilingual SEO was written for national brands trying to reach Hispanic markets they've never served before. The RGV is different. You're not trying to reach a bilingual audience — you are already in the middle of one. About 90% of the Rio Grande Valley speaks Spanish, and most of those people move between English and Spanish depending on who they're talking to, what they're searching for, and which language comes out first.
+Most of the advice about bilingual SEO was written for national brands trying to reach Hispanic markets they've never served before. The RGV is different. You're not trying to reach a bilingual audience — you are already in the middle of one. [Census Bureau data puts Hidalgo County at over 80% Spanish spoken at home](https://www.census.gov/quickfacts/fact/table/hidalgocountytexas,cameroncountytexas/BZA010219), and most of those people move between English and Spanish depending on who they're talking to, what they're searching for, and which language comes out first.
 
 That switching behavior is what makes bilingual SEO in the Valley genuinely different from anywhere else — and why copying national best practices doesn't always work here.
 

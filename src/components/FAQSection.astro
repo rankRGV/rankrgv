@@ -33,7 +33,7 @@ if (faqs.length < 4) {
             </svg>
           </summary>
           <div class="px-6 pb-5">
-            <p class="text-text-muted leading-relaxed">{faq.answer}</p>
+            <p class="text-text-muted leading-relaxed" set:html={faq.answer} />
           </div>
         </details>
       ))}

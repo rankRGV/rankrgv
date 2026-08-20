@@ -28,6 +28,11 @@ export const mainNav = [
     })),
   },
   {
+    label: 'Pricing',
+    href: '/pricing/',
+    dropdown: null,
+  },
+  {
     label: 'Blog',
     href: '/blog/',
     dropdown: null,

@@ -79,7 +79,9 @@ export function buildFAQSchema(faqs: { question: string; answer: string }[]) {
       name: faq.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer,
+        // Strip any inline HTML (e.g. citation links) — schema.org answer
+        // text should be plain text, not markup.
+        text: faq.answer.replace(/<[^>]+>/g, ''),
       },
     })),
   };
