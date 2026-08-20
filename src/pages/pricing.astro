@@ -248,7 +248,16 @@ const pricingFaqs = [
 ];
 ---
 
-<BaseLayout title={title} description={description} schema={schema}>
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  hreflang={[
+    { lang: 'en', href: 'https://rankrgv.com/pricing/' },
+    { lang: 'es', href: 'https://rankrgv.com/es/precios/' },
+    { lang: 'x-default', href: 'https://rankrgv.com/pricing/' },
+  ]}
+>
   <!-- Hero -->
   <section
     class="relative py-20 overflow-hidden"
@@ -338,7 +347,7 @@ const pricingFaqs = [
             'Missed call text-back — automated SMS within 60 seconds of a missed call',
             'Lead nurture sequence — 5–7 touchpoints over 2–3 weeks',
             'Review request automation — sent after every completed job',
-            'Appointment reminders — reduce no-shows by 40–60%',
+            'Appointment reminders — meaningfully cut no-shows (a peer-reviewed RCT found rates dropped from 38% to 24% with text reminders)',
           ].map((item) => (
             <li class="flex items-start gap-2.5">
               <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

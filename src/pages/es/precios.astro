@@ -1,0 +1,395 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PricingCard from '@/components/PricingCard.astro';
+import PricingSection from '@/components/PricingSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { buildWebPageSchema, buildBreadcrumbSchema } from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+
+const title = 'Precios Transparentes | SEO Local, Anuncios, Diseño Web y GBP | RankRGV';
+const description =
+  'Precios claros para SEO local, anuncios de Google y Meta, diseño web, y automatización de negocios en el Valle del Río Grande. Sin cargos ocultos. Sin contratos forzados. (956) 391-5991.';
+const canonicalUrl = `${site.url}/es/precios/`;
+
+const schema = [
+  buildWebPageSchema(title, description, '/es/precios/'),
+  buildBreadcrumbSchema([
+    { label: 'Inicio', href: '/es/' },
+    { label: 'Precios', href: '/es/precios/' },
+  ]),
+];
+
+const gbpCards = [
+  {
+    name: 'Gestión de GBP',
+    price: '$300',
+    period: '/mes',
+    description:
+      'Mantenimiento de tu Perfil de Negocio de Google — publicaciones, respuestas a reseñas, fotos, y optimización mensual. Esto mantiene tu perfil activo; el trabajo completo de posicionamiento vive en SEO Local.',
+    features: [
+      'Publicaciones semanales en GBP',
+      'Monitoreo y respuesta a reseñas (dentro de 24 hrs)',
+      'Manejo y carga de fotos',
+      'Monitoreo de la sección de Preguntas y Respuestas',
+      'Revisión básica de categoría y área de servicio',
+      'Reporte mensual de rendimiento',
+    ],
+    cta: { label: 'Ver Gestión de GBP →', href: '/gbp-management/' },
+  },
+];
+
+const seoCards = [
+  {
+    name: 'Visibilidad',
+    price: '$500',
+    period: '/mes',
+    description:
+      'La base. Optimizamos tu presencia en Google y empezamos a construir posicionamiento real en tu mercado principal.',
+    features: [
+      'Optimización y gestión de GBP',
+      '1 pieza de contenido al mes',
+      'Limpieza de citaciones locales',
+      'Seguimiento de posiciones en tus palabras clave',
+      'Reporte mensual de posicionamiento',
+    ],
+    lockedFeatures: [
+      '2 piezas de contenido al mes',
+      'Reportes de posicionamiento por zona (geo-grid)',
+      'Análisis de brechas frente a competidores',
+      'Expansión de páginas por ciudad',
+      'Llamada de estrategia trimestral',
+    ],
+    cta: { label: 'Solicitar diagnóstico gratis', href: '/get-started/?service=local-seo&plan=Visibilidad' },
+  },
+  {
+    name: 'Dominación',
+    badge: 'Más Popular',
+    price: '$850',
+    period: '/mes',
+    description:
+      'SEO local completo — construido para dominar tu categoría en cada ciudad del Valle donde tienes clientes.',
+    features: [
+      'Todo lo de Visibilidad',
+      '2 piezas de contenido al mes',
+      'Expansión de páginas por ciudad (las 6 ciudades)',
+      'Reportes de posicionamiento por zona',
+      'Análisis de brechas frente a competidores',
+      'Llamada de estrategia trimestral',
+      'Publicaciones en GBP y gestión de reseñas',
+    ],
+    cta: { label: 'Solicitar diagnóstico gratis', href: '/get-started/?service=local-seo&plan=Dominacion' },
+    highlighted: true,
+  },
+  {
+    name: 'Líder del Mercado',
+    price: '$1,200+',
+    period: '/mes',
+    description:
+      'Servicio completo para categorías competitivas — legal, salud, negocios con varias sucursales. Máximo esfuerzo, acceso prioritario.',
+    features: [
+      'Todo lo de Dominación',
+      '4 piezas de contenido al mes',
+      'Soporte para múltiples ubicaciones',
+      'Categorías competitivas (legal, médico)',
+      'Seguimiento cada dos semanas',
+      'Soporte prioritario',
+      'Sesiones de estrategia personalizadas',
+    ],
+    cta: { label: 'Hablemos del proyecto', href: '/contact/' },
+  },
+];
+
+const webCards = [
+  {
+    name: 'Fundación',
+    price: '$1,500',
+    period: 'pago único',
+    description:
+      'Un sitio web rápido y profesional que posiciona y convierte. Construido para el mercado del Valle desde el primer día.',
+    features: [
+      '5–7 páginas',
+      'Calificación 99+ en Google PageSpeed',
+      'Diseño mobile-first',
+      'Conectado a GBP y listo para schema markup',
+      'Formulario de contacto con captura de clientes',
+      'Base de SEO local incluida',
+    ],
+    lockedFeatures: [
+      'Páginas por servicio y por ciudad',
+      'Arquitectura lista para automatización',
+      'Suite completa de schema markup',
+    ],
+    cta: { label: 'Solicitar diagnóstico gratis', href: '/get-started/?service=web-design&plan=Fundacion' },
+  },
+  {
+    name: 'Crecimiento',
+    badge: 'Más Popular',
+    price: '$2,500',
+    period: 'pago único',
+    description:
+      'Un sitio web completo, construido para posicionar en cada servicio y cada ciudad que atiendes.',
+    features: [
+      'Todo lo de Fundación',
+      '10–15 páginas',
+      'Páginas de servicio y ciudad construidas',
+      'Arquitectura lista para automatización',
+      'Suite completa de schema markup',
+      'Diseño optimizado para conversión',
+      'Configuración de Google Analytics 4',
+    ],
+    cta: { label: 'Solicitar diagnóstico gratis', href: '/get-started/?service=web-design&plan=Crecimiento' },
+    highlighted: true,
+  },
+  {
+    name: 'Autoridad',
+    price: 'Personalizado',
+    period: 'cotizado',
+    description:
+      'Matriz completa de ciudad × servicio, integraciones complejas, y construcción premium para negocios serios sobre dominar su mercado.',
+    features: [
+      'Todo lo de Crecimiento',
+      'Matriz completa de ciudad × servicio',
+      'Diseño premium personalizado',
+      'Integraciones complejas',
+      'Arquitectura rica en contenido',
+      'Desarrollo prioritario',
+      'Paquete de soporte continuo',
+    ],
+    cta: { label: 'Pedir cotización', href: '/contact/' },
+  },
+];
+
+const adsCards = [
+  {
+    name: 'Inicial',
+    price: '$350',
+    period: '/mes',
+    description:
+      'Hasta $1,000/mes en gasto publicitario. Google Ads, Meta Ads, o ambos.',
+    features: [
+      'Configuración y estructura de campaña',
+      'Optimización continua de pujas y audiencias',
+      'Configuración de seguimiento de conversiones',
+      'Apoyo básico con textos publicitarios',
+      'Reporte mensual de rendimiento',
+    ],
+    cta: { label: 'Empezar', href: '/get-started/?service=ads-management&plan=Inicial' },
+  },
+  {
+    name: 'Crecimiento',
+    badge: 'Más Popular',
+    highlighted: true,
+    price: '$500',
+    period: '/mes',
+    description:
+      'De $1,000 a $3,000/mes en gasto publicitario. Construido para escalar el volumen de clientes potenciales de forma constante.',
+    features: [
+      'Todo lo de Inicial',
+      'Gestión de múltiples campañas',
+      'Pruebas A/B de textos publicitarios',
+      'Segmentación de audiencias',
+      'Configuración de retargeting',
+      'Revisión de optimización cada dos semanas',
+    ],
+    cta: { label: 'Empezar', href: '/get-started/?service=ads-management&plan=Crecimiento' },
+  },
+  {
+    name: 'Escala',
+    price: '$750',
+    period: '/mes',
+    description:
+      'De $3,000 a $10,000/mes en gasto publicitario. Gestión completa de cuenta para volumen serio.',
+    features: [
+      'Todo lo de Crecimiento',
+      'Estrategia entre plataformas (Google + Meta)',
+      'Recomendaciones de página de destino',
+      'Segmentación avanzada y públicos similares',
+      'Revisión de optimización semanal',
+      'Soporte prioritario',
+    ],
+    cta: { label: 'Hablemos del proyecto', href: '/contact/' },
+  },
+];
+
+const automationCards = [
+  {
+    name: 'Automatización de Negocios',
+    price: 'Personalizado',
+    period: 'cotizado por proyecto',
+    description:
+      'Respuesta automática a llamadas perdidas, secuencias de seguimiento, automatización de reseñas, y sistemas de citas — diseñados para tu negocio y tu forma de trabajar.',
+    features: [
+      'Respuesta a llamadas perdidas (menos de 60 seg)',
+      'Secuencias automatizadas de seguimiento de clientes',
+      'Automatización de solicitud de reseñas',
+      'Recordatorios de citas',
+      'Configuración de pipeline en CRM',
+      'Monitoreo mensual de rendimiento',
+    ],
+    cta: { label: 'Agendar llamada gratis', href: '/contact/' },
+  },
+];
+
+const pricingFaqs = [
+  {
+    q: '¿Piden contrato a largo plazo?',
+    a: 'No — trabajamos mes a mes en todos los servicios de renovación. Preferimos ganarnos tu confianza con resultados cada mes, no amarrarte con papeleo.',
+  },
+  {
+    q: '¿Puedo empezar solo con Gestión de GBP y subir a SEO completo después?',
+    a: 'Claro que sí. Gestión de GBP es un buen punto de entrada — y cuando estés listo para posicionamiento completo, subir a un paquete de SEO Local es directo, sin complicaciones.',
+  },
+  {
+    q: '¿Qué incluye el diagnóstico gratis?',
+    a: 'Revisamos la salud de tu Perfil de Negocio de Google, el SEO técnico de tu sitio web, tus posiciones actuales en las palabras clave importantes, y una comparación con tus 3 competidores principales. Sin presentación de venta — solo un diagnóstico honesto de dónde estás parado.',
+  },
+  {
+    q: '¿Puedo combinar servicios?',
+    a: 'Sí. La mayoría de nuestros clientes combinan SEO Local + Diseño Web al inicio, y después agregan automatización una vez que su sitio y posicionamiento ya están establecidos. Podemos armar un paquete que tenga sentido para la etapa en la que estás.',
+  },
+  {
+    q: '¿Atienden en español todo el proceso, o solo la página?',
+    a: 'Todo el proceso — llamadas, reportes, y soporte los podemos manejar en español o inglés, lo que prefieras. El Valle es un mercado bilingüe y así trabajamos nosotros también.',
+  },
+];
+---
+
+<BaseLayout
+  lang="es"
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  hreflang={[
+    { lang: 'en', href: 'https://rankrgv.com/pricing/' },
+    { lang: 'es', href: 'https://rankrgv.com/es/precios/' },
+    { lang: 'x-default', href: 'https://rankrgv.com/pricing/' },
+  ]}
+>
+  <!-- Hero -->
+  <section
+    class="relative py-20 overflow-hidden"
+    style="background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 60%, #312e81 100%);"
+  >
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0); background-size: 28px 28px;"
+      aria-hidden="true"
+    ></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+        Sin cargos ocultos · Sin contratos forzados
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
+        Precios claros,<br />sin sorpresas.
+      </h1>
+      <p class="text-xl text-white/80 max-w-2xl mx-auto">
+        Muchas agencias en el Valle no publican sus precios hasta que agendas una llamada de ventas. Nosotros los ponemos aquí porque confiamos en lo que hacemos — y porque usted merece saber en qué está invirtiendo desde el primer momento.
+      </p>
+    </div>
+  </section>
+
+  <!-- GBP Management -->
+  <section class="py-20 bg-bg" aria-label="Precios de Gestión de GBP">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <div class="inline-flex items-center gap-2 bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4 reveal">
+          El mejor punto de entrada
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">Gestión de GBP</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          ¿Todavía no está listo para SEO completo? Empiece aquí. Mantenemos su Perfil de Negocio de Google activo — publicaciones, reseñas, fotos, y optimización básica — sin una campaña completa de posicionamiento.
+        </p>
+      </div>
+      <div class="max-w-sm mx-auto reveal reveal-delay-2">
+        <PricingCard {...gbpCards[0]} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Local SEO -->
+  <PricingSection
+    id="local-seo-pricing"
+    headline="Paquetes de SEO Local"
+    subheadline="Planes mensuales diseñados para posicionarlo en cada ciudad del Valle donde busca su cliente."
+    cards={seoCards}
+    note="Gestión de GBP está incluida en todos los planes de SEO Local. Elija el plan de GBP por separado solo si quiere mantenimiento de perfil sin una campaña completa."
+    bg="bg-surface"
+  />
+
+  <PricingSection
+    id="ads-management-pricing"
+    headline="Gestión de anuncios en Google y Meta"
+    subheadline="Para negocios que quieren clientes más rápido. Tarifa mensual fija según su presupuesto publicitario — sin cargos de configuración, sin comisión sobre el gasto."
+    cards={adsCards}
+    note="¿Gasta más de $10,000 al mes en anuncios? Esas cuentas las cotizamos individualmente — normalmente una tarifa base más un porcentaje del gasto. Contáctenos para una cotización personalizada."
+    bg="bg-surface"
+  />
+
+  <!-- Web Design -->
+  <PricingSection
+    id="web-design-pricing"
+    headline="Paquetes de diseño web"
+    subheadline="Proyectos de pago único. Construidos en Astro para 99+ en PageSpeed, listos para SEO desde el primer día, diseñados para convertir visitantes en clientes."
+    cards={webCards}
+    note="Todos los sitios incluyen 30 días de soporte después del lanzamiento. Hospedaje en Vercel — rápido, confiable, incluido en el precio cotizado."
+    bg="bg"
+  />
+
+  <!-- Business Automation -->
+  <section class="py-20 bg-bg-surface" aria-label="Precios de Automatización de Negocios" id="automation-pricing">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">Automatización de Negocios</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Cada negocio tiene sistemas, procesos, y herramientas diferentes. Cotizamos los proyectos de automatización de forma individual para que pague solo por lo que realmente necesita.
+        </p>
+      </div>
+      <div class="max-w-sm mx-auto reveal reveal-delay-2">
+        <PricingCard {...automationCards[0]} />
+      </div>
+      <div class="mt-8 max-w-xl mx-auto bg-bg border border-border rounded-2xl p-6 reveal reveal-delay-3">
+        <div class="text-sm font-bold text-text mb-3">Lo que normalmente incluye una automatización:</div>
+        <ul class="space-y-2 text-sm text-text-muted">
+          {[
+            'Respuesta a llamada perdida — SMS automático en menos de 60 segundos',
+            'Secuencia de seguimiento — 5 a 7 contactos durante 2 a 3 semanas',
+            'Automatización de solicitud de reseñas — enviada después de cada trabajo terminado',
+            'Recordatorios de citas — un estudio revisado por pares encontró que las citas perdidas bajaron de 38% a 24% con recordatorios por texto',
+          ].map((item) => (
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing FAQ strip -->
+  <section class="py-20 bg-bg" aria-label="Preguntas sobre precios">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-text mb-8 text-center reveal">Preguntas frecuentes sobre precios</h2>
+      <div class="space-y-6">
+        {
+          pricingFaqs.map(({ q, a }, i) => (
+            <div class={`reveal reveal-delay-${i % 3}`}>
+              <div class="font-bold text-text mb-2">{q}</div>
+              <p class="text-text-muted leading-relaxed">{a}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    headline="¿No está seguro cuál paquete le conviene?"
+    subheadline="Una llamada de 15 minutos — revisamos dónde está parado su negocio y le decimos exactamente qué le recomendaríamos. Sin presentación de venta, sin presión."
+    primaryCTA={{ label: `Llamar al ${site.phone}`, href: site.phoneHref }}
+    secondaryCTA={{ label: 'Solicitar un Diagnóstico Gratis', href: '/get-started/' }}
+  />
+</BaseLayout>
