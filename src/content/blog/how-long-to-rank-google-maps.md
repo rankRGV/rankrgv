@@ -1,6 +1,6 @@
 ---
-title: "How Long Does It Take to Rank on Google Maps? (Realistic Timeline)"
-description: "Most local businesses see measurable map pack movement within 60 to 90 days of real optimization. Reaching position one on competitive terms takes longer. Here's the honest timeline."
+title: "How Long to Rank on Google Maps? Real Timeline by Week"
+description: "Week 2, week 6, month 3: here's what actually happens at each stage, based on what we track across RGV clients."
 pubDate: 2026-07-01
 updatedDate: 2026-07-01
 author: "Eddie Urbano"

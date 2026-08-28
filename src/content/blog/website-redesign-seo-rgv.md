@@ -1,6 +1,6 @@
 ---
-title: "RGV Website Redesigns That Actually Improve Local SEO"
-description: "A new website can tank your rankings overnight if you're not careful. Here's what to protect and what to fix before you launch."
+title: "Redesign Your Website Without Losing Google Rankings"
+description: "Redesigns break more RGV rankings than any other single mistake we see. Here's the exact checklist to run before you launch a new site."
 pubDate: 2026-05-11
 author: "Eddie Urbano"
 category: "web-design"

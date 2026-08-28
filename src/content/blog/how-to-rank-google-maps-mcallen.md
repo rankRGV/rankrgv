@@ -1,6 +1,6 @@
 ---
-title: "How to Rank on Google Maps in McAllen (2026 Guide)"
-description: "If your McAllen business isn't showing up in the Google Map Pack, you're invisible to the customers who are ready to buy right now. Here's exactly how to change that."
+title: "How to Rank on Google Maps in McAllen: A 90-Day Plan"
+description: "McAllen businesses can hit the map pack top 3 in 60 to 90 days with the right setup. Here's the exact process, step by step."
 pubDate: 2026-03-14
 updatedDate: 2026-05-08
 author: "Eddie Urbano"
