@@ -5,7 +5,7 @@
   /* Brand colors — blue is primary, purple is accent only */
   --color-brand-blue: #1d4ed8;        /* richer, vibrant blue — matches current site */
   --color-brand-blue-dark: #1e3a8a;   /* deep blue for hover states */
-  --color-brand-purple: #7c3aed;      /* purple — accent/gradient only, not primary */
+  --color-brand-purple: #d97706;      /* warm amber accent — replaces the generic violet/purple AI-default */
   --color-brand-blue-light: #3b82f6;  /* lighter blue for highlights */
 
   /* Surface colors */
@@ -41,27 +41,9 @@
 .reveal-delay-3 { transition-delay: 300ms; }
 .reveal-delay-4 { transition-delay: 400ms; }
 
-/* ── Gradient text — blue dominant, purple as accent ────── */
+/* ── Accent text — solid amber, not a gradient clip ──────── */
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 40%, #7c3aed 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 6s ease infinite;
-}
-
-@keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@media (max-width: 768px) {
-  .gradient-text {
-    animation: none;
-    background-position: 0% 50%;
-  }
+  color: #fbbf24;
 }
 
 /* ── Floating badge animation ────────────────────────────── */
@@ -143,11 +125,9 @@
   border-color: #1d4ed8;
 }
 
-/* ── Hero dot-grid background ────────────────────────────── */
+/* ── Hero surface — flat navy, no dot-grid/glow overlay ──── */
 .hero-bg {
   background-color: #0f172a;
-  background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.22) 1px, transparent 0);
-  background-size: 32px 32px;
 }
 
 /* ── Scroll-activated frosted header ─────────────────────── */
