@@ -209,6 +209,24 @@ const adsCards = [
   },
 ];
 
+const lsaCards = [
+  {
+    name: 'Local Services Ads',
+    price: '$350',
+    period: '/month',
+    description:
+      'Pay-per-lead ads with the Google Verified badge — a different product from standard Google Ads, with its own setup and ongoing lead management.',
+    features: [
+      'LSA profile setup & job type configuration',
+      'Guidance through Google\'s license & background check verification',
+      'Weekly budget and lead volume management',
+      'Lead quality review & dispute filing for invalid leads',
+      'Monthly performance report',
+    ],
+    cta: { label: 'Get started', href: '/get-started/?service=ads-management&plan=LSA' },
+  },
+];
+
 const automationCards = [
   {
     name: 'Business Automation',
@@ -317,6 +335,21 @@ const pricingFaqs = [
     note="Spending more than $10,000/month? We scope those accounts individually — usually a base fee plus a percentage of spend. Reach out for a custom quote."
     bg="bg-surface"
   />
+
+  <!-- Local Services Ads -->
+  <section class="py-20 bg-bg" aria-label="Local Services Ads pricing" id="lsa-pricing">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">Local Services Ads</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          Not the same as Google Ads. LSA is pay-per-lead, requires Google's own verification process for your business, and shows above regular search and Google Ads results with the Google Verified badge.
+        </p>
+      </div>
+      <div class="max-w-sm mx-auto reveal reveal-delay-2">
+        <PricingCard {...lsaCards[0]} />
+      </div>
+    </div>
+  </section>
 
   <!-- Web Design -->
   <PricingSection
