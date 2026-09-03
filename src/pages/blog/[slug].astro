@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BlogLayout from '@/layouts/BlogLayout.astro';
 import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
 import { site } from '@/config/site';
@@ -9,17 +9,17 @@ export async function getStaticPaths() {
   const posts = (await getCollection('blog'))
     .filter(post => !post.data.draft && new Date(post.data.pubDate) <= today);
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 const { title, description, pubDate, updatedDate, author, category, targetKeyword, ogImage } = post.data;
 
-const heroImage = ogImage ?? `/images/blog/${post.slug}.png`;
+const heroImage = ogImage ?? `/images/blog/${post.id}.png`;
 const heroImageUrl = `${site.url}${heroImage}`;
 
 // Build schema — Article + Breadcrumb + WebPage
@@ -39,14 +39,14 @@ const schema = [
     },
     datePublished: pubDate.toISOString(),
     dateModified: (updatedDate ?? pubDate).toISOString(),
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}/blog/${post.slug}/` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}/blog/${post.id}/` },
   },
   buildBreadcrumbSchema([
     { label: 'Home', href: '/' },
     { label: 'Blog', href: '/blog/' },
-    { label: title, href: `/blog/${post.slug}/` },
+    { label: title, href: `/blog/${post.id}/` },
   ]),
-  buildWebPageSchema(title, description, `/blog/${post.slug}/`),
+  buildWebPageSchema(title, description, `/blog/${post.id}/`),
 ];
 ---
 
@@ -58,7 +58,7 @@ const schema = [
   author={author}
   category={category}
   targetKeyword={targetKeyword}
-  slug={post.slug}
+  slug={post.id}
   schema={schema}
   heroImage={heroImage}
   ogImage={heroImage}

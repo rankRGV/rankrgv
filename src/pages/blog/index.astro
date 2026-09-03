@@ -64,11 +64,11 @@ const schema = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
             <a
-              href={`/blog/${post.slug}/`}
+              href={`/blog/${post.id}/`}
               class="group block bg-bg-surface rounded-2xl border border-border hover:border-brand-blue/30 hover:shadow-md transition-all overflow-hidden no-underline"
             >
               <img
-                src={post.data.ogImage ?? `/images/blog/${post.slug}.png`}
+                src={post.data.ogImage ?? `/images/blog/${post.id}.png`}
                 alt={post.data.title}
                 width="1200"
                 height="630"
