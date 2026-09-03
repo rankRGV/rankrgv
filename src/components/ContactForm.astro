@@ -185,6 +185,28 @@ const {
 
 <script>
   (() => {
+    // Fire a GA4 lead event before the form navigates away to FormSpark.
+    // Registered on document in the capture phase — GA4's own Enhanced
+    // Measurement auto-listener sits on document too and calls
+    // stopPropagation(), which would swallow a listener attached directly
+    // to the form before it ever ran. A sibling capture listener on the
+    // same node still fires regardless.
+    // transport_type: 'beacon' so the hit is queued via sendBeacon and
+    // survives the immediate page unload from the form POST.
+    document.addEventListener('submit', (e) => {
+      const target = e.target as HTMLElement | null;
+      if (!target || target.id !== 'contact-form') return;
+      if (typeof (window as any).gtag !== 'function') return;
+      (window as any).gtag('event', 'generate_lead', {
+        event_category: 'engagement',
+        event_label: (document.getElementById('plan_interest') as HTMLInputElement | null)?.value || 'contact_form',
+        page_path: window.location.pathname,
+        transport_type: 'beacon',
+      });
+    }, true);
+  })();
+
+  (() => {
     // SMS consent checkbox visual state
     const smsInput = document.getElementById('sms_consent') as HTMLInputElement | null;
     const smsVisual = document.getElementById('sms-checkbox-visual');

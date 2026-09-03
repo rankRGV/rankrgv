@@ -78,6 +78,20 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
           gtag('js', new Date());
           gtag('config', ga4Id);
         </script>
+
+        <!-- Click-to-call tracking — every tel: link fires a GA4 event -->
+        <script is:inline>
+          document.addEventListener('click', function (e) {
+            var link = e.target.closest('a[href^="tel:"]');
+            if (!link) return;
+            gtag('event', 'phone_click', {
+              event_category: 'engagement',
+              event_label: link.href,
+              page_path: window.location.pathname,
+              transport_type: 'beacon',
+            });
+          });
+        </script>
       </>
     )}
 
