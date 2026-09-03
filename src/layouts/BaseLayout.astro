@@ -74,7 +74,13 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
         ></script>
         <script is:inline define:vars={{ ga4Id: site.ga4Id }}>
           window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
+          // Assigned directly to window (not a bare function declaration) —
+          // Astro's production build scopes is:inline scripts such that a
+          // plain `function gtag(){}` never becomes a real window property,
+          // so later script blocks calling gtag() throw a silent
+          // ReferenceError that dies inside the event listener. Explicit
+          // window.gtag assignment survives that scoping regardless.
+          window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
           gtag('js', new Date());
           gtag('config', ga4Id);
         </script>
@@ -84,7 +90,7 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
           document.addEventListener('click', function (e) {
             var link = e.target.closest('a[href^="tel:"]');
             if (!link) return;
-            gtag('event', 'phone_click', {
+            window.gtag('event', 'phone_click', {
               event_category: 'engagement',
               event_label: link.href,
               page_path: window.location.pathname,
