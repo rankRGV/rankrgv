@@ -83,7 +83,7 @@ const schema = [
           </h1>
 
           <p class="text-lg sm:text-xl text-white/85 leading-relaxed mb-8 max-w-xl">
-            RankRGV helps Rio Grande Valley businesses rank higher on Google Maps, turn more website visitors into leads, and stop losing calls to national agencies that don't know the market.
+            RankRGV helps Rio Grande Valley businesses rank higher on Google Maps, turn more website visitors into leads, and stop paying a national agency that's never set foot in the Valley.
           </p>
 
           <!-- CTAs -->
@@ -92,7 +92,7 @@ const schema = [
               <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z" />
               </svg>
-              Grade My Business Free
+              Get My Free Business Grade
             </a>
             <a href={site.phoneHref} class="btn-secondary">
               <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -101,6 +101,11 @@ const schema = [
               Call {site.phone}
             </a>
           </div>
+
+          <!-- Speed contrast line -->
+          <p class="text-white/90 text-sm font-medium mb-1">
+            About 60 seconds. Not 48 hours. Not a call you have to make first.
+          </p>
 
           <!-- Honest microline (real things only) -->
           <p class="text-white/80 text-sm">
@@ -287,7 +292,7 @@ const schema = [
                 Local SEO &amp; Google Maps for the Rio Grande Valley
               </h3>
               <p class="text-text-muted text-lg leading-relaxed mb-6">
-                When a McAllen homeowner pulls out their phone and types "roofer near me," you should be the first name they see. We get RGV businesses into the Google Map Pack and ranking for the city-specific searches their customers are actually making — and we do it month-to-month, not on a 12-month lock-in.
+                When someone in McAllen pulls out their phone and searches for what you do, you should be the first name they see. We get RGV businesses into the Google Map Pack and ranking for the city-specific searches their customers are actually making — and we do it month-to-month, not on a 12-month lock-in.
               </p>
               <span class="inline-flex items-center gap-2 text-sm font-bold text-brand-blue group-hover:gap-3 transition-all">
                 See how Local SEO works
@@ -455,7 +460,18 @@ const schema = [
               ))}
             </div>
             <div class="mt-5 pt-4 border-t border-border text-xs text-text-muted">
-              Currently beating Imagine It Studios (#8) and Cobalt Digital (#14) — agencies who sell this same service — on this exact term.
+              We check this ranking monthly — same as we do for clients.
+            </div>
+          </div>
+
+          <div class="mt-4 space-y-2.5">
+            <div class="flex items-start gap-2.5 text-sm text-text-muted">
+              <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+              <span>We couldn't find another RGV agency that publishes its prices. So we publish ours.</span>
+            </div>
+            <div class="flex items-start gap-2.5 text-sm text-text-muted">
+              <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+              <span>As far as we've found, no other RGV-focused agency offers an instant, no-signup business grade. We built one anyway.</span>
             </div>
           </div>
         </div>
@@ -550,7 +566,7 @@ const schema = [
   <CTASection
     headline="See what customers find when they Google your business."
     subheadline="Get an instant grade across your Google profile, reviews, website, and local competition. Then choose whether you want our help fixing it."
-    primaryCTA={{ label: 'Grade My Business Free', href: graderHref('homepage-final') }}
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('homepage-final') }}
     secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 
