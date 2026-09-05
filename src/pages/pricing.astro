@@ -4,6 +4,7 @@ import PricingCard from '@/components/PricingCard.astro';
 import PricingSection from '@/components/PricingSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import { buildWebPageSchema, buildBreadcrumbSchema } from '@/components/SchemaMarkup.astro';
+import { graderHref, site } from '@/config/site';
 
 const title = 'Transparent Pricing | Local SEO, Ads Management, Web Design & GBP Management | RankRGV';
 const description =
@@ -57,7 +58,7 @@ const seoCards = [
       'Location page expansion',
       'Quarterly strategy call',
     ],
-    cta: { label: 'Get a free audit', href: '/get-started/?service=local-seo&plan=Visibility' },
+    cta: { label: 'Grade my business free', href: graderHref('pricing-seo-visibility') },
   },
   {
     name: 'Domination',
@@ -75,7 +76,7 @@ const seoCards = [
       'Quarterly strategy call',
       'GBP posts & review management',
     ],
-    cta: { label: 'Get a free audit', href: '/get-started/?service=local-seo&plan=Domination' },
+    cta: { label: 'Grade my business free', href: graderHref('pricing-seo-domination') },
     highlighted: true,
   },
   {
@@ -413,6 +414,8 @@ const pricingFaqs = [
 
   <CTASection
     headline="Not sure which package fits?"
-    subheadline="15-minute call — we'll look at where you stand and tell you exactly what we'd recommend. No pitch deck, no pressure."
+    subheadline="Start with an instant business grade, or call us if you already know what you need."
+    primaryCTA={{ label: 'Grade My Business Free', href: graderHref('pricing-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </BaseLayout>

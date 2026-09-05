@@ -6,7 +6,9 @@ import ComparisonTable from '@/components/ComparisonTable.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import { buildOrgSchema, buildFAQSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
+
+const homepageGraderUrl = graderHref('homepage');
 
 const faqs = [
   {
@@ -86,11 +88,11 @@ const schema = [
 
           <!-- CTAs -->
           <div class="flex flex-col sm:flex-row gap-4 mb-6">
-            <a href="/get-started/" class="btn-primary">
+            <a href={homepageGraderUrl} class="btn-primary">
               <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z" />
               </svg>
-              Get My Free SEO Audit
+              Grade My Business Free
             </a>
             <a href={site.phoneHref} class="btn-secondary">
               <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -536,7 +538,7 @@ const schema = [
       </div>
 
       <p class="text-center text-xs text-text-muted mt-8 italic">
-        Want to be the next case study? <a href="/get-started/" class="text-brand-blue font-semibold hover:underline">Get your free audit →</a>
+        Want to be the next case study? <a href={graderHref('homepage-case-study')} class="text-brand-blue font-semibold hover:underline">See your free business grade →</a>
       </p>
     </div>
   </section>
@@ -545,6 +547,11 @@ const schema = [
   <FAQSection faqs={faqs} headline="Common questions about local SEO in the RGV" />
 
   <!-- ===================== CTA ===================== -->
-  <CTASection />
+  <CTASection
+    headline="See what customers find when they Google your business."
+    subheadline="Get an instant grade across your Google profile, reviews, website, and local competition. Then choose whether you want our help fixing it."
+    primaryCTA={{ label: 'Grade My Business Free', href: graderHref('homepage-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
+  />
 
 </BaseLayout>

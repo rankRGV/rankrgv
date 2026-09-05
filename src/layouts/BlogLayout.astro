@@ -1,7 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 interface Props {
   title: string;
@@ -119,14 +119,14 @@ const breadcrumbs = [
               Let us handle it for your McAllen business.
             </h2>
             <p class="text-white/70 mb-6">
-              Free audit — we'll show you exactly where you stand on Google and what it takes to move up.
+              Get an instant business grade across Google, your reviews, your website, and local competition.
             </p>
             <div class="flex flex-wrap gap-3">
               <a
-                href="/get-started/"
+                href={graderHref(`blog-${slug}-inline`)}
                 class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg hover:opacity-90 transition-opacity"
               >
-                Get free audit
+                Grade my business free
               </a>
               <a
                 href={site.phoneHref}
@@ -145,16 +145,16 @@ const breadcrumbs = [
 
           <!-- Free audit CTA card -->
           <div class="rounded-2xl border border-brand-blue/20 bg-brand-blue/5 p-6">
-            <p class="text-xs font-semibold uppercase tracking-widest text-brand-blue mb-2">Free — No Obligation</p>
-            <h3 class="text-lg font-bold text-text mb-2">Get a Free SEO Audit</h3>
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-blue mb-2">Free · Instant · No Obligation</p>
+            <h3 class="text-lg font-bold text-text mb-2">See Your Business Grade</h3>
             <p class="text-sm text-text-muted mb-4 leading-relaxed">
-              See exactly where your McAllen business ranks on Google and what it takes to move up. No pitch — just the numbers.
+              Check your Google profile, reviews, website, and local competition before you decide what to fix first.
             </p>
             <a
-              href="/get-started/"
+              href={graderHref(`blog-${slug}-sidebar`)}
               class="block w-full text-center px-4 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-sm hover:opacity-90 transition-opacity"
             >
-              Get free audit →
+              Grade my business free →
             </a>
             <a
               href={site.phoneHref}

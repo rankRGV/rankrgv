@@ -4,7 +4,7 @@ import PricingCard from '@/components/PricingCard.astro';
 import PricingSection from '@/components/PricingSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import { buildWebPageSchema, buildBreadcrumbSchema } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const title = 'Precios Transparentes | SEO Local, Anuncios, Diseño Web y GBP | RankRGV';
 const description =
@@ -59,7 +59,7 @@ const seoCards = [
       'Expansión de páginas por ciudad',
       'Llamada de estrategia trimestral',
     ],
-    cta: { label: 'Solicitar diagnóstico gratis', href: '/get-started/?service=local-seo&plan=Visibilidad' },
+    cta: { label: 'Califica mi negocio gratis', href: graderHref('precios-seo-visibilidad', 'es') },
   },
   {
     name: 'Dominación',
@@ -77,7 +77,7 @@ const seoCards = [
       'Llamada de estrategia trimestral',
       'Publicaciones en GBP y gestión de reseñas',
     ],
-    cta: { label: 'Solicitar diagnóstico gratis', href: '/get-started/?service=local-seo&plan=Dominacion' },
+    cta: { label: 'Califica mi negocio gratis', href: graderHref('precios-seo-dominacion', 'es') },
     highlighted: true,
   },
   {
@@ -388,8 +388,8 @@ const pricingFaqs = [
 
   <CTASection
     headline="¿No está seguro cuál paquete le conviene?"
-    subheadline="Una llamada de 15 minutos — revisamos dónde está parado su negocio y le decimos exactamente qué le recomendaríamos. Sin presentación de venta, sin presión."
-    primaryCTA={{ label: `Llamar al ${site.phone}`, href: site.phoneHref }}
-    secondaryCTA={{ label: 'Solicitar un Diagnóstico Gratis', href: '/get-started/' }}
+    subheadline="Empiece con una calificación instantánea de su negocio, o llámenos si ya sabe lo que necesita."
+    primaryCTA={{ label: 'Califica Mi Negocio Gratis', href: graderHref('precios-final', 'es') }}
+    secondaryCTA={{ label: `Llamar al ${site.phone}`, href: site.phoneHref }}
   />
 </BaseLayout>

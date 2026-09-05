@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema, buildOrgSchema } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const title = 'Agencia SEO Local McAllen TX | Marketing Digital | RankRGV';
 const description =
@@ -72,8 +72,8 @@ const schema = [
           Ayudamos a negocios de McAllen a aparecer en Google y el Google Map Pack. Sin contratos largos. Sin runaround. Auditoría gratis para empezar.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="/es/#contacto" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg hover:opacity-90 transition-opacity">
-            Pide tu auditoría gratis
+          <a href={graderHref('mcallen-hero', 'es')} class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg hover:opacity-90 transition-opacity">
+            Califica tu negocio gratis
           </a>
           <a href="tel:9563915991" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-base hover:bg-white/15 transition-colors">
             (956) 391-5991
@@ -236,8 +236,8 @@ const schema = [
         Llámanos y hablamos de tu negocio en 15 minutos — o pide una auditoría escrita gratis.
       </p>
       <div class="flex flex-wrap gap-4 justify-center reveal reveal-delay-2">
-        <a href="/es/#contacto" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-lg shadow-lg hover:opacity-90 transition-opacity">
-          Auditoría gratis
+        <a href={graderHref('mcallen-final', 'es')} class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-lg shadow-lg hover:opacity-90 transition-opacity">
+          Califica tu negocio gratis
         </a>
         <a href="tel:9563915991" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-semibold text-lg hover:bg-white/15 transition-colors">
           (956) 391-5991

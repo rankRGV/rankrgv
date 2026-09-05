@@ -15,7 +15,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const area = getAreaBySlug('brownsville')!;
 const service = getServiceBySlug('local-seo')!;
@@ -103,6 +103,7 @@ const schema = [
     badge="Local SEO · Brownsville, TX"
     headline='Top 3 Google Maps rankings<br /><span class="gradient-text">for Brownsville businesses.</span>'
     subheadline="When Brownsville customers search for your service, they call whoever shows up first. We get your business into that top 3 — in both English and Spanish search markets."
+    primaryCTA={{ label: 'Grade My Business Free', href: graderHref('brownsville-local-seo-hero') }}
     secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
     mockupQuery="local seo brownsville tx"
     mockupCategory="SEO Agency · Brownsville, TX"
@@ -218,6 +219,8 @@ const schema = [
 
   <CTASection
     headline="Let's get your Brownsville business to the top of Google"
-    subheadline="15 minutes on a call and we'll tell you exactly how to rank in Brownsville — or get a free written audit."
+    subheadline="See how your Google presence compares in Brownsville, then call us if you want help improving it."
+    primaryCTA={{ label: 'Grade My Business Free', href: graderHref('brownsville-local-seo-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </ServiceAreaLayout>

@@ -14,7 +14,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const title = 'Google Maps Optimization McAllen TX | Get Into the Map Pack | RankRGV';
 const description =
@@ -117,6 +117,7 @@ const schema = [
     badge="Google Map Pack · McAllen & the RGV"
     headline='Three spots. Most of the calls.<br /><span class="gradient-text">Here’s how the Map Pack works.</span>'
     subheadline="For local searches in McAllen and the RGV, the Map Pack — those three listings above every organic result — captures the majority of clicks and calls. Getting in isn't luck. It's a specific set of signals Google weighs for every search. We fix the signals."
+    primaryCTA={{ label: 'Grade My Business Free', href: graderHref('google-maps-hero') }}
     secondaryCTA={{ label: 'See how it works', href: '#how-we-work' }}
     mockupQuery="best dentist near mcallen tx"
     mockupCategory="Dentist · McAllen, TX"
@@ -359,6 +360,8 @@ const schema = [
 
   <CTASection
     headline="Ready to show up where your customers are searching?"
-    subheadline="Get a free audit of your Google Business Profile — we'll show you exactly what's holding you back from the Map Pack."
+    subheadline="Get an instant grade of your Google profile, reviews, website, and local competition."
+    primaryCTA={{ label: 'Grade My Business Free', href: graderHref('google-maps-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </ServiceLayout>

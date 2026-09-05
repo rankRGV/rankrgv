@@ -85,14 +85,27 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
           gtag('config', ga4Id);
         </script>
 
-        <!-- Click-to-call tracking — every tel: link fires a GA4 event -->
+        <!-- Primary conversion tracking -->
         <script is:inline>
           document.addEventListener('click', function (e) {
-            var link = e.target.closest('a[href^="tel:"]');
+            var link = e.target.closest('a');
             if (!link) return;
-            window.gtag('event', 'phone_click', {
+
+            if (link.href.startsWith('tel:')) {
+              window.gtag('event', 'phone_click', {
+                event_category: 'engagement',
+                event_label: link.href,
+                page_path: window.location.pathname,
+                transport_type: 'beacon',
+              });
+              return;
+            }
+
+            if (!link.href.startsWith('https://grader.rankrgv.com')) return;
+            window.gtag('event', 'grader_click', {
               event_category: 'engagement',
               event_label: link.href,
+              link_text: link.textContent.trim(),
               page_path: window.location.pathname,
               transport_type: 'beacon',
             });

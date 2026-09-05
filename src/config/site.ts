@@ -7,6 +7,7 @@ export const site = {
   email: 'hello@rankrgv.com',
   formsparkId: 'CTzJGJckq',
   ga4Id: 'G-ZLFQ1WH6MN',
+  graderUrl: 'https://grader.rankrgv.com',
   primaryCity: 'McAllen',
   primaryState: 'TX',
   primaryRegion: 'Rio Grande Valley',
@@ -23,3 +24,16 @@ export const site = {
     gbp:       'https://share.google/iUQjPkarhCgqbYHuE',
   },
 };
+
+export function graderHref(content: string, lang: 'en' | 'es' = 'en') {
+  const params = new URLSearchParams({
+    utm_source: 'rankrgv.com',
+    utm_medium: 'website',
+    utm_campaign: 'business-grader',
+    utm_content: content,
+  });
+
+  if (lang === 'es') params.set('lang', 'es');
+
+  return `${site.graderUrl}/?${params.toString()}`;
+}

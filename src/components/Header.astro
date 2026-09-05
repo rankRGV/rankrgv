@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logoSrc from '../assets/RankRGV_compact_logo.png';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 import { mainNav } from '@/data/navigation';
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 
 const es = lang === 'es';
+const graderUrl = graderHref('header', lang);
 
 const navEs = [
   { label: 'Servicios', href: '/es/seo-local/', dropdown: null },
@@ -106,10 +107,10 @@ const navEs = [
         ))}
       </nav>
 
-      <!-- CTA — standalone tap-to-call -->
+      <!-- Primary conversion CTA; phone remains available in the utility bar -->
       <div class="hidden lg:flex items-center">
-        <a href={site.phoneHref} class="btn-primary text-sm py-2 px-4">
-          {es ? 'Consulta Gratis' : 'Free Consultation'}
+        <a href={graderUrl} class="btn-primary text-sm py-2 px-4">
+          {es ? 'Califica Mi Negocio Gratis' : 'Grade My Business Free'}
         </a>
       </div>
 
@@ -159,7 +160,7 @@ const navEs = [
       ))}
       <div class="pt-3 border-t border-white/10 flex flex-col gap-3">
         <a href={site.phoneHref} class="text-sm text-white/70 px-3 no-underline">{site.phone}</a>
-        <a href={site.phoneHref} class="btn-primary text-sm text-center">{es ? 'Consulta Gratis' : 'Free Consultation'}</a>
+        <a href={graderUrl} class="btn-primary text-sm text-center">{es ? 'Califica Mi Negocio Gratis' : 'Grade My Business Free'}</a>
       </div>
     </div>
   </div>
