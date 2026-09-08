@@ -25,10 +25,10 @@ if (faqs.length < 4) {
 
     <div class="space-y-3">
       {faqs.map((faq, i) => (
-        <details class={`bg-bg rounded-xl border border-border overflow-hidden reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+        <details class={`js-accordion bg-bg rounded-xl border border-border overflow-hidden reveal reveal-delay-${Math.min(i + 1, 4)}`}>
           <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer hover:bg-bg-surface transition-colors duration-150">
             <span class="font-semibold text-text">{faq.question}</span>
-            <svg class="faq-icon w-5 h-5 text-brand-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="faq-icon w-5 h-5 text-brand-blue flex-shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
           </summary>
@@ -40,3 +40,75 @@ if (faqs.length < 4) {
     </div>
   </div>
 </section>
+
+<style>
+  details[open] > summary .faq-icon {
+    transform: rotate(45deg);
+  }
+</style>
+
+<script>
+  // Native <details> snaps open instantly; animate height via WAAPI instead,
+  // measuring the summary + content so it works with any amount of text.
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('details.js-accordion').forEach((el) => {
+      const summary = el.querySelector(':scope > summary');
+      const content = el.querySelector(':scope > summary + div');
+      if (!summary || !content) return;
+      let animation: Animation | null = null;
+      let isClosing = false;
+      let isExpanding = false;
+
+      summary.addEventListener('click', (e) => {
+        e.preventDefault();
+        (el as HTMLElement).style.overflow = 'hidden';
+        if (isClosing || !(el as HTMLDetailsElement).open) {
+          openAccordion();
+        } else if (isExpanding || (el as HTMLDetailsElement).open) {
+          closeAccordion();
+        }
+      });
+
+      function openAccordion() {
+        (el as HTMLElement).style.height = `${(el as HTMLElement).offsetHeight}px`;
+        (el as HTMLDetailsElement).open = true;
+        window.requestAnimationFrame(runExpand);
+      }
+
+      function runExpand() {
+        isExpanding = true;
+        const startHeight = `${(el as HTMLElement).offsetHeight}px`;
+        const endHeight = `${(summary as HTMLElement).offsetHeight + (content as HTMLElement).offsetHeight}px`;
+        if (animation) animation.cancel();
+        animation = (el as HTMLElement).animate(
+          { height: [startHeight, endHeight] },
+          { duration: 200, easing: 'cubic-bezier(0.23, 1, 0.32, 1)' }
+        );
+        animation.onfinish = () => onFinish(true);
+        animation.oncancel = () => { isExpanding = false; };
+      }
+
+      function closeAccordion() {
+        isClosing = true;
+        const startHeight = `${(el as HTMLElement).offsetHeight}px`;
+        const endHeight = `${(summary as HTMLElement).offsetHeight}px`;
+        if (animation) animation.cancel();
+        animation = (el as HTMLElement).animate(
+          { height: [startHeight, endHeight] },
+          { duration: 160, easing: 'ease-out' }
+        );
+        animation.onfinish = () => onFinish(false);
+        animation.oncancel = () => { isClosing = false; };
+      }
+
+      function onFinish(open: boolean) {
+        (el as HTMLDetailsElement).open = open;
+        animation = null;
+        isClosing = false;
+        isExpanding = false;
+        (el as HTMLElement).style.height = '';
+        (el as HTMLElement).style.overflow = '';
+      }
+    });
+  }
+</script>
