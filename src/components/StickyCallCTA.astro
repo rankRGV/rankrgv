@@ -13,7 +13,7 @@ const stickyGraderUrl = graderHref('sticky-mobile');
 >
   <div
     class="flex items-center justify-between gap-3 px-4 py-3 shadow-2xl"
-    style="background: linear-gradient(90deg, #1e40af 0%, #7e22ce 100%); padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));"
+    style="background: #0f172a; border-top: 1px solid rgba(255,255,255,0.1); padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));"
   >
     <!-- Label -->
     <div class="flex-1 min-w-0">
@@ -91,6 +91,7 @@ const stickyGraderUrl = graderHref('sticky-mobile');
 
     function onScroll() {
       if (dismissed) return;
+      if (formInView) return;
       if (window.scrollY > SCROLL_THRESHOLD) {
         show();
       } else {
@@ -99,6 +100,25 @@ const stickyGraderUrl = graderHref('sticky-mobile');
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Step aside once the contact form is on screen — the bar was competing
+    // with the form for the same thumb-reach space at the bottom of the screen.
+    var formInView = false;
+    var form = document.querySelector('form');
+    if (form && 'IntersectionObserver' in window) {
+      var formObserver = new IntersectionObserver(
+        function (entries) {
+          formInView = entries[0].isIntersecting;
+          if (formInView) {
+            hide();
+          } else {
+            onScroll();
+          }
+        },
+        { rootMargin: '0px 0px -20% 0px' }
+      );
+      formObserver.observe(form);
+    }
 
     if (dismissBtn) {
       dismissBtn.addEventListener('click', function () {

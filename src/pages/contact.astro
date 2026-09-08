@@ -40,8 +40,9 @@ const schema = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-        <!-- Left: contact info + what to expect -->
-        <div class="reveal">
+        <!-- Left: contact info + what to expect. order-2 puts this below the form on mobile
+             so the form isn't buried ~1700px down after all this copy; desktop keeps it left. -->
+        <div class="reveal order-2 lg:order-1">
           <h2 class="text-2xl font-bold text-text mb-6">What happens when you reach out</h2>
 
           <div class="space-y-6 mb-10">
@@ -134,8 +135,8 @@ const schema = {
           </p>
         </div>
 
-        <!-- Right: form -->
-        <div class="reveal reveal-delay-1">
+        <!-- Right: form. order-1 on mobile so it's the first thing after the intro. -->
+        <div class="reveal reveal-delay-1 order-1 lg:order-2">
           <ContactForm
             headline="Request a free audit"
             subheadline="Tell us about your business and we'll come prepared with exactly where you stand on Google."

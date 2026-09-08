@@ -26,12 +26,12 @@ const {
 } = Astro.props;
 ---
 
-<section class="hero-bg pt-10 pb-28 lg:py-36 relative overflow-hidden" aria-label="Hero">
+<section class="hero-bg pt-10 pb-20 lg:pt-20 lg:pb-28 relative overflow-hidden" aria-label="Hero">
   <!-- Depth gradient overlay -->
   <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/20 via-transparent to-brand-purple/20 pointer-events-none" aria-hidden="true"></div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class={showVisual ? 'grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center' : 'max-w-3xl'}>
+    <div class={showVisual ? 'grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 xl:gap-20 items-center' : 'max-w-3xl'}>
 
       <!-- Left: Text content -->
       <div>
@@ -44,7 +44,7 @@ const {
         )}
 
         <!-- Headline -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight lg:leading-[1.1] mb-6">
           <span set:html={headline} />
         </h1>
 

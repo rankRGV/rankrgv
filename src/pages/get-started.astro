@@ -73,8 +73,9 @@ const benefits = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-        <!-- Left: what you get -->
-        <div>
+        <!-- Left: what you get. order-2 puts this below the form on mobile so the
+             form isn't buried after all the benefit copy and trust stats. -->
+        <div class="order-2 lg:order-1">
           <h2 class="text-2xl font-bold text-text mb-8 reveal">What your free audit includes</h2>
           <div class="space-y-6">
             {benefits.map(({ icon, heading, body }, i) => (
@@ -125,8 +126,8 @@ const benefits = [
           </div>
         </div>
 
-        <!-- Right: form -->
-        <div class="reveal reveal-delay-1">
+        <!-- Right: form. order-1 on mobile so it's the first thing after the hero. -->
+        <div class="reveal reveal-delay-1 order-1 lg:order-2">
           <ContactForm
             headline="Request your free audit"
             subheadline="We review your business before we call — so your 15 minutes counts."
