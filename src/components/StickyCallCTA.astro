@@ -17,28 +17,18 @@ const stickyGraderUrl = graderHref('sticky-mobile');
   >
     <!-- Label -->
     <div class="flex-1 min-w-0">
-      <div class="text-white/70 text-xs font-medium leading-none mb-1">See your score or talk to us</div>
+      <div class="text-white/70 text-xs font-medium leading-none mb-1">Free grade, or call us</div>
       <a
         href={site.phoneHref}
         data-track="sticky-cta-number"
-        class="text-white font-bold text-sm leading-tight no-underline"
+        class="text-white/90 text-xs leading-tight no-underline hover:underline"
         aria-label={`Call RankRGV at ${site.phone}`}
       >
         {site.phone}
       </a>
     </div>
 
-    <!-- Call (secondary) -->
-    <a
-      href={site.phoneHref}
-      data-track="sticky-cta-call"
-      class="border border-white/40 text-white font-semibold text-xs px-3 py-2.5 rounded-xl no-underline flex-shrink-0 active:scale-95 transition-transform duration-100"
-      aria-label="Call RankRGV now"
-    >
-      Call
-    </a>
-
-    <!-- Grade Free (primary) -->
+    <!-- Grade Free (single primary action — the hero already offers the call link) -->
     <a
       href={stickyGraderUrl}
       data-track="sticky-cta-grader"

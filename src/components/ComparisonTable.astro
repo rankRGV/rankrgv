@@ -85,7 +85,46 @@ const rows = [
       </p>
     </div>
 
-    <div class="reveal reveal-delay-2 overflow-x-auto rounded-2xl border border-border shadow-sm">
+    <!-- Mobile: stacked comparison cards (the 3-column table clips off-screen below sm) -->
+    <div class="reveal reveal-delay-2 sm:hidden space-y-4">
+      {rows.map((row) => (
+        <div class="rounded-2xl border border-border shadow-sm p-5 bg-bg">
+          <div class="font-semibold text-text mb-1">{row.feature}</div>
+          {row.note && <div class="text-xs text-text-muted mb-4 leading-relaxed">{row.note}</div>}
+          <div class="grid grid-cols-3 gap-2 pt-3 border-t border-border">
+            {[
+              { label: 'RankRGV', value: row.rankrgv, accent: true },
+              { label: 'National', value: row.national },
+              { label: 'DIY', value: row.diy },
+            ].map(({ label, value, accent }) => (
+              <div class="flex flex-col items-center gap-1.5">
+                <span class={`text-[11px] font-semibold uppercase tracking-wide ${accent ? 'text-brand-blue' : 'text-text-muted'}`}>{label}</span>
+                {value === true ? (
+                  <div class={`w-6 h-6 rounded-full flex items-center justify-center ${accent ? 'bg-brand-blue' : 'bg-green-100'}`}>
+                    <svg class={`w-3.5 h-3.5 ${accent ? 'text-white' : 'text-green-600'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                ) : value === 'partial' || value === 'minimal' ? (
+                  <span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 text-center leading-tight">
+                    {value === 'minimal' ? 'Minimal' : 'Partial'}
+                  </span>
+                ) : (
+                  <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center">
+                    <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- sm+: full comparison table -->
+    <div class="reveal reveal-delay-2 hidden sm:block overflow-x-auto rounded-2xl border border-border shadow-sm">
       <table class="w-full text-sm">
         <thead>
           <tr class="border-b border-border">

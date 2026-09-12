@@ -86,19 +86,19 @@ const schema = [
             RankRGV helps Rio Grande Valley businesses rank higher on Google Maps, turn more website visitors into leads, and stop paying a national agency that's never set foot in the Valley.
           </p>
 
-          <!-- CTAs -->
-          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+          <!-- CTA — single dominant action; the grader is the funnel this page is built around -->
+          <div class="mb-6">
             <a href={homepageGraderUrl} class="btn-primary">
               <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z" />
               </svg>
               Get My Free Business Grade
             </a>
-            <a href={site.phoneHref} class="btn-secondary">
+            <a href={site.phoneHref} class="ml-1 inline-flex items-center gap-1.5 mt-4 sm:mt-0 sm:ml-5 text-white/80 hover:text-white text-sm font-medium underline-offset-4 hover:underline transition-colors">
               <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
               </svg>
-              Call {site.phone}
+              or call {site.phone}
             </a>
           </div>
 
@@ -119,6 +119,10 @@ const schema = [
 
           <!-- Main map-pack mockup card (illustrative, not real data) -->
           <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden" aria-hidden="true">
+            <!-- Explicit "example" marker so this doesn't read as a real result next to the genuine Google Reviews badge -->
+            <div class="absolute top-2.5 left-2.5 z-10 bg-gray-900/80 text-white text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-full">
+              Example
+            </div>
             <div class="flex items-center gap-1.5 px-4 py-3 bg-gray-50 border-b border-gray-100">
               <div class="w-3 h-3 rounded-full bg-red-400"></div>
               <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
@@ -183,7 +187,7 @@ const schema = [
           <div class="absolute -bottom-12 left-2 bg-white rounded-xl shadow-xl px-4 py-3 border border-gray-100 float" style="animation-delay: 1.5s;" aria-hidden="true">
             <div class="flex items-center justify-between gap-3 mb-1.5">
               <div class="text-xs font-bold text-gray-700">Typical Local SEO ramp</div>
-              <div class="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">90 days</div>
+              <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-100 text-gray-500">Example</span>
             </div>
             <svg viewBox="0 0 140 36" class="w-32 h-9" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -196,7 +200,7 @@ const schema = [
               <path d="M0,32 L20,30 L40,27 L60,22 L80,17 L100,11 L120,6 L140,2" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <circle cx="140" cy="2" r="2.5" fill="#3b82f6"/>
             </svg>
-            <div class="text-[11px] text-gray-500 mt-1 italic">Illustrative · what we usually see</div>
+            <div class="text-[11px] text-gray-500 mt-1">What we usually see, not a guarantee</div>
           </div>
         </div>
 
@@ -333,8 +337,8 @@ const schema = [
                   <span class="text-xs text-text-muted">Domination plan</span>
                   <span class="text-[11px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-brand-blue/10 text-brand-blue">Most popular</span>
                 </div>
-                <div class="text-2xl font-extrabold text-text">$850<span class="text-base font-medium text-text-muted">/month</span></div>
-                <div class="text-xs text-text-muted mt-1">Starter plan available from $500/mo</div>
+                <div class="text-2xl font-extrabold text-text">$850<span class="text-base font-medium text-text-muted">/mo</span></div>
+                <div class="text-xs text-text-muted mt-1">Plans start at $500/mo</div>
               </div>
             </div>
 
