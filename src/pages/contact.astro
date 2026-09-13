@@ -18,15 +18,8 @@ const schema = {
 
 <BaseLayout title={title} description={description} schema={schema}>
   <!-- Page header -->
-  <section
-    class="relative py-20 overflow-hidden"
-    style="background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 60%, #312e81 100%);"
-  >
-    <div
-      class="absolute inset-0 pointer-events-none"
-      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0); background-size: 28px 28px;"
-      aria-hidden="true"
-    ></div>
+  <section class="hero-bg relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/20 via-transparent to-brand-purple/20 pointer-events-none" aria-hidden="true"></div>
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Get in touch</h1>
       <p class="text-xl text-white/80 max-w-xl mx-auto">
