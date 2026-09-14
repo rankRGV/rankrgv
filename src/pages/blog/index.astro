@@ -84,7 +84,7 @@ const schema = [
                     datetime={post.data.pubDate.toISOString()}
                     class="text-xs text-text-muted"
                   >
-                    {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                    {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
                   </time>
                 </div>
                 <h2 class="text-lg font-bold text-text mb-2 group-hover:text-brand-blue transition-colors leading-snug">

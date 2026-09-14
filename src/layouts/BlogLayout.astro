@@ -43,12 +43,14 @@ const pubDateFormatted = pubDate.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
+  timeZone: 'UTC',
 });
 
 const updatedDateFormatted = updatedDate?.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
+  timeZone: 'UTC',
 });
 
 const canonicalUrl = `${site.url}/blog/${slug}/`;
