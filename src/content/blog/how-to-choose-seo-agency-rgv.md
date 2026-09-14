@@ -2,6 +2,7 @@
 title: "How to Choose a Local SEO Agency in the RGV"
 description: "Most SEO agencies will take your money and send you reports. Here's how to tell the difference — and what to ask before you sign anything."
 pubDate: 2026-04-17
+updatedDate: 2026-09-14
 author: "Eddie Urbano"
 category: "local-seo"
 targetKeyword: "local SEO agency RGV"
@@ -77,7 +78,7 @@ What we can tell you is that the questions above are the same ones we'd want you
 ## Frequently Asked Questions
 
 **How much should local SEO cost for a small business in McAllen?**
-Credible local SEO for a small RGV business typically runs between $500 and $1,500 per month depending on the scope. Below $500/month, you're usually getting automated reports and minimal real work. Above $1,500, make sure the deliverables justify it — some businesses don't need that level of investment to rank well in this market.
+Credible local SEO for a small RGV business typically runs between $600 and $1,500 per month depending on the scope. Below $600/month, you're usually getting automated reports and minimal real work. Above $1,500, make sure the deliverables justify it — some businesses don't need that level of investment to rank well in this market.
 
 **What's the difference between local SEO and regular SEO?**
 Local SEO focuses specifically on showing up in Google's Map Pack and local organic results for searches tied to a city or region. It's driven primarily by your Google Business Profile, local citations, and location-specific website content. Regular or "national" SEO is about organic rankings regardless of location — a different set of tactics and a different competitive landscape.
