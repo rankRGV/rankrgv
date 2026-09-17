@@ -55,7 +55,7 @@ What's included
 - **Google Business Profile** optimized for the right RGV categories and service areas
 - **City &amp; service pages** built to rank for McAllen, Edinburg, Mission, Brownsville, Harlingen, Pharr
 - **Local citations &amp; review velocity** — the two signals Google trusts most for ranking local businesses
-- **Monthly reporting** in plain English — what moved, what's next, no fluff Domination plan Most popular $850/month Starter plan available from $500/mo ](/local-seo.md)
+- **Monthly reporting** in plain English — what moved, what's next, no fluff Domination plan Most popular $975/month Starter plan available from $600/mo ](/local-seo.md)
 
 ### We also handle the rest
 
@@ -80,7 +80,7 @@ See ad pricing → ](/ads-management.md) [
 Missed-call texts, review requests, follow-up sequences — so leads don't slip past you.
 
 See automation → ](/business-automation.md) [
-Local SEO from $500/mo · Web Design from $1,500 · See full pricing →
+Local SEO from $600/mo · Web Design from $1,500 · See full pricing →
 ](/pricing.md)
 
 ## How it works
@@ -157,11 +157,11 @@ Most McAllen businesses see their first meaningful movement in Google Maps ranki
 
 How much does local SEO cost in McAllen?
 
-Local SEO pricing in the RGV ranges from $300/month for bare-minimum Google Business Profile maintenance to $2,000+/month for full-service campaigns. RankRGV Local SEO starts at $500/month for the Visibility plan and scales to $850/month for the Domination plan — our most popular package, and what most of our active clients are on. Every plan includes GBP optimization, citations, content, rank tracking, and monthly reporting in plain English. We start with a free SEO audit so we can recommend the right package for your specific business and market. Full pricing is on the /pricing/ page.
+Local SEO pricing in the RGV ranges from $300/month for bare-minimum Google Business Profile maintenance to $2,000+/month for full-service campaigns. RankRGV Local SEO starts at $600/month for the Visibility plan and scales to $975/month for the Domination plan — our most popular package, and what most of our active clients are on. Every plan includes GBP optimization, citations, content, rank tracking, and monthly reporting in plain English. We start with a free SEO audit so we can recommend the right package for your specific business and market. Full pricing is on the /pricing/ page.
 
 Do I need to sign a long-term contract?
 
-No — we don&#39;t lock RGV businesses into long-term contracts. We operate month-to-month because we&#39;d rather earn your business every month with results than hold you with paperwork. Most local SEO clients stay 12+ months because rankings compound over time and the ROI grows — not because they&#39;re obligated to.
+No — we don&#39;t lock RGV businesses into long-term contracts. We operate month-to-month because we&#39;d rather earn your business every month with results than hold you with paperwork. Local SEO is a compounding play, so clients who stick with it tend to stay well past the first few months as rankings build and the ROI grows — not because they&#39;re obligated to.
 
 What makes RankRGV different from other McAllen marketing agencies?
 

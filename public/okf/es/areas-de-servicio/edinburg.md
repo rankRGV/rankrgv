@@ -75,7 +75,7 @@ Sí. La comunidad universitaria genera demanda para servicios locales — desde 
 
 ¿Cuánto cuesta el SEO local para un negocio en Edinburg? +
 
-El SEO local empieza en $500/mes. Para la mayoría de los negocios en Edinburg, eso es suficiente para construir una presencia dominante en el Map Pack y en búsquedas orgánicas. Ofrecemos una auditoría gratis para darte un diagnóstico claro antes de que tomes cualquier decisión.
+El SEO local empieza en $600/mes. Para la mayoría de los negocios en Edinburg, eso es suficiente para construir una presencia dominante en el Map Pack y en búsquedas orgánicas. Ofrecemos una auditoría gratis para darte un diagnóstico claro antes de que tomes cualquier decisión.
 
 ¿Trabajan con negocios de servicios profesionales en Edinburg? +
 

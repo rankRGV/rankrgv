@@ -122,7 +122,7 @@ Keep your existing profile active, accurate, and conversion-ready: weekly posts,
 
 [See GBP Management →](/gbp-management.md)
 
-### Local SEO — from $500/mo
+### Local SEO — from $600/mo
 
 Everything in GBP Management, plus the ranking work: citations, content, on-page optimization, and rank tracking — built to push you into the Map Pack.
 

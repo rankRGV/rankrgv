@@ -97,7 +97,7 @@ Everything above, every month. No long-term contract. Month-to-month so we earn 
 
 [Get started](https://rankrgv.com/get-started/?service=gbp-management) [See full pricing](/pricing.md)
 
-GBP Management is also included free in every Local SEO plan ($500–$1,200+/mo). If you're after rankings — not just profile maintenance — start with Local SEO.
+GBP Management is also included free in every Local SEO plan ($600–$1,500+/mo). If you're after rankings — not just profile maintenance — start with Local SEO.
 
 ## Google Business Profile questions, answered for McAllen
 
@@ -107,7 +107,7 @@ Google Business Profile (GBP) management is the ongoing work of keeping your Goo
 
 What&#39;s the difference between GBP Management and full Local SEO?
 
-GBP Management is profile-only: weekly posts, review responses, photo updates, Q&amp;A monitoring, and category/service-area maintenance. It keeps your existing GBP active and healthy. Full Local SEO ($500–$850/mo) adds the ranking work behind it — citations, content, on-page optimization, and rank tracking — to push your business higher in the Map Pack and organic results. GBP Management is for businesses with a working profile that just need it kept active. Local SEO is for businesses that want to actually rank higher.
+GBP Management is profile-only: weekly posts, review responses, photo updates, Q&amp;A monitoring, and category/service-area maintenance. It keeps your existing GBP active and healthy. Full Local SEO ($600–$975/mo) adds the ranking work behind it — citations, content, on-page optimization, and rank tracking — to push your business higher in the Map Pack and organic results. GBP Management is for businesses with a working profile that just need it kept active. Local SEO is for businesses that want to actually rank higher.
 
 How much does GBP Management cost in McAllen?
 

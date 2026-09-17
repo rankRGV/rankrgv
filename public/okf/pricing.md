@@ -37,7 +37,7 @@ Google Business Profile upkeep — posts, review responses, photos, and monthly 
 
 Monthly retainers built to rank you across every RGV city your customers search from.
 
-Visibility $500 /month
+Visibility $600 /month
 
 The foundation. Get your Google presence optimized and start building real rankings in your primary market.
 
@@ -52,7 +52,7 @@ The foundation. Get your Google presence optimized and start building real ranki
 - Geo-grid ranking reports
 - Competitor gap analysis
 - Location page expansion
-- Quarterly strategy call Domination Most Popular $850 /month
+- Quarterly strategy call Domination Most Popular $975 /month
 
 Full local SEO — built to own your category across every RGV city you serve.
 
@@ -63,7 +63,7 @@ Full local SEO — built to own your category across every RGV city you serve.
 - Geo-grid ranking reports
 - Competitor gap analysis
 - Quarterly strategy call
-- GBP posts &amp; review management Market Leader $1,200+ /month
+- GBP posts &amp; review management Market Leader $1,500+ /month
 
 Full-service for competitive verticals — legal, healthcare, multi-location. Maximum output, priority access.
 

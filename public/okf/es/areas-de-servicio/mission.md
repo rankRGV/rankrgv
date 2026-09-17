@@ -79,7 +79,7 @@ Sí. Google usa la ubicación del buscador y la proximidad del negocio, pero tam
 
 ¿Cuánto cuesta empezar con SEO local en Mission? +
 
-El SEO local empieza en $500/mes. Hacemos una auditoría gratuita primero para que veas exactamente en qué posición estás, qué oportunidades hay, y qué haría falta para mejorar — sin ningún compromiso de contratar.
+El SEO local empieza en $600/mes. Hacemos una auditoría gratuita primero para que veas exactamente en qué posición estás, qué oportunidades hay, y qué haría falta para mejorar — sin ningún compromiso de contratar.
 
 ##
 ¿Listo para dominar las búsquedas en Mission?

@@ -122,7 +122,7 @@ Relative optimization depth — not a ranking prediction
 
 Month-to-month. No setup fees. No long-term contracts.
 
-Visibility $500 /month
+Visibility $600 /month
 
 The foundation. Get your Google presence optimized and start building real rankings in your primary market.
 
@@ -137,7 +137,7 @@ The foundation. Get your Google presence optimized and start building real ranki
 - Geo-grid ranking reports
 - Competitor gap analysis
 - Location page expansion
-- Quarterly strategy call Domination Most Popular $850 /month
+- Quarterly strategy call Domination Most Popular $975 /month
 
 Full local SEO — built to own your category across every RGV city you serve.
 
@@ -148,7 +148,7 @@ Full local SEO — built to own your category across every RGV city you serve.
 - Geo-grid ranking reports
 - Competitor gap analysis
 - Quarterly strategy call
-- GBP posts &amp; review management Market Leader $1,200+ /month
+- GBP posts &amp; review management Market Leader $1,500+ /month
 
 Full-service for competitive verticals — legal, healthcare, multi-location.
 
@@ -183,7 +183,7 @@ Verified Google Review · April 2026
 
 How much do SEO services cost in the RGV?
 
-Local SEO pricing in the RGV ranges widely — from $300/month for bare-minimum profile maintenance to $2,000+/month for full-service campaigns. RankRGV Local SEO starts at $500/month and includes GBP Management plus the ranking work behind it: citations, content, tracking, reporting, and market-specific strategy. We start with a free audit so we can recommend the right package for your situation.
+Local SEO pricing in the RGV ranges widely — from $300/month for bare-minimum profile maintenance to $2,000+/month for full-service campaigns. RankRGV Local SEO starts at $600/month and includes GBP Management plus the ranking work behind it: citations, content, tracking, reporting, and market-specific strategy. We start with a free audit so we can recommend the right package for your situation.
 
 What&#39;s the difference between local SEO and regular SEO?
 

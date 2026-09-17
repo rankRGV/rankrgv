@@ -16,17 +16,17 @@ RankRGV offers transparent, flat-fee pricing with no long-term contracts and no 
 ## Local SEO
 
 ### Visibility
-- **Price**: $500/month
+- **Price**: $600/month
 - **Best for**: Single-location businesses starting from scratch
 - **Included**: GBP optimization and management, 1 content piece per month, local citation cleanup, rank tracking across target keywords, monthly ranking report
 
 ### Domination (Most Popular)
-- **Price**: $850/month
+- **Price**: $975/month
 - **Best for**: Businesses ready to own their category across the RGV
 - **Included**: Everything in Visibility + 2 content pieces per month, location page expansion (all 6 cities), geo-grid ranking reports, competitor gap analysis, quarterly strategy call, GBP posts and review management
 
 ### Market Leader
-- **Price**: $1,200+/month
+- **Price**: $1,500+/month
 - **Best for**: Competitive verticals (legal, healthcare) and multi-location businesses
 - **Included**: Everything in Domination + 4 content pieces per month, multi-location support, bi-weekly check-ins, priority support, custom strategy sessions
 
