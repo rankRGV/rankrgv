@@ -2,10 +2,21 @@
 title: "Set Up Google Business Profile for Your McAllen Business"
 description: "Google Business Profile is the single most powerful free tool for local businesses in McAllen. Here's how to set it up right — and what most RGV businesses get wrong."
 pubDate: 2026-04-03
-updatedDate: 2026-05-08
+updatedDate: 2026-09-23
 author: "Eddie Urbano"
 category: "local-seo"
 targetKeyword: "google business profile"
+faqs:
+  - question: "Is Google Business Profile free?"
+    answer: "Completely free. Google charges nothing to create, claim, or manage your GBP. Google Ads are a separate paid product — your organic GBP listing doesn't cost anything."
+  - question: "What's the difference between Google Business Profile and Google Maps?"
+    answer: "GBP is the tool you use to manage your business information. Google Maps is one of the places that information appears. Optimizing your GBP improves how you show up in both Google Search and Google Maps."
+  - question: "Can I have multiple GBP listings for the same business?"
+    answer: "Only if you have multiple physical locations with distinct operations. One business, one location = one GBP. Duplicate listings for the same business violate Google's terms and can result in suspension of both."
+  - question: "My GBP got suspended — now what?"
+    answer: "Don't panic, but move quickly. Suspensions are often triggered by sudden changes, unusual review activity, or flagged content. Go to support.google.com/business and file an appeal. You'll need documentation that proves your business is legitimate — business license, utility bills with your address, photos of your signage or equipment. The process is slow, but businesses that submit clean documentation usually get reinstated."
+  - question: "Do I need a website to rank in the Map Pack?"
+    answer: "No — a well-optimized GBP alone can rank. But a website strengthens your Map Pack ranking and is essential for appearing in the organic results below it. The two together give you maximum visibility on every Google results page."
 ---
 
 If someone searches for your type of business in McAllen right now, there are two places they'll look: the Google Map Pack at the top and the organic results below it.
@@ -15,6 +26,17 @@ Both are driven — directly or indirectly — by your Google Business Profile.
 When we audit local businesses in the RGV, the same situation keeps coming up: a legitimate, established business that's been operating for years, with zero Google presence because nobody ever set up their GBP properly. Sometimes the profile is unclaimed. Sometimes it exists but has the wrong category, outdated hours, and three photos from 2019. A GBP that's incomplete or ignored is worse than useless — it actively misrepresents your business to anyone who finds it. If you want the full picture of what it takes to compete in this city, see our [McAllen digital marketing overview →](/service-areas/mcallen/).
 
 Here's how to build it right.
+
+<div class="key-takeaways">
+
+**Key takeaways**
+
+- **Primary category is the single most influential field** — it decides which searches you're even eligible to show up in, not just where you rank. A Harlingen auto body shop fixed this and started appearing for the right searches within weeks.
+- NAP (name, address, phone) needs to be identical everywhere — GBP, website, Yelp, Facebook — even small formatting differences like "St." vs. "Street" register as discrepancies to Google.
+- Aim for steady review velocity (2 to 4 new reviews per month) and at least one new photo per week; consistency beats bursts for both.
+- Most McAllen businesses see meaningful Map Pack movement within 60 to 90 days, with some lower-competition businesses in Pharr and Mission cracking the top 3 in 30 to 45 days.
+
+</div>
 
 ## What is Google Business Profile?
 
@@ -88,7 +110,7 @@ Reviews are one of the top-three ranking factors for the Map Pack, and one of th
 
 The right approach is simple: ask every customer verbally right after a positive experience. Then send a follow-up text or email with a direct link to your review page. You get that link by going to your GBP dashboard, clicking "Get more reviews," and copying the URL. Put a QR code on your receipts, your business cards, or at your front desk that goes straight to that link.
 
-Aim for a steady stream — 2 to 5 new reviews per month beats a burst of 20 all at once and then nothing. Google rewards consistency. And respond to every review, good or bad. Your response to a negative review is visible to everyone who reads it — it says as much about your business as the review itself.
+Aim for a steady stream — 2 to 4 new reviews per month beats a burst of 20 all at once and then nothing. Google rewards consistency. And respond to every review, good or bad. Your response to a negative review is visible to everyone who reads it — it says as much about your business as the review itself.
 
 Never pay for reviews. Never incentivize them with discounts. Never ask friends or family to write fake ones. Google catches this and the penalty — suspension — is a nightmare to recover from.
 
@@ -149,7 +171,7 @@ Before you do anything else, go through this list. Every unchecked item is a ran
 - At least one photo added in the last 30 days
 
 **Reviews**
-- At least 10 reviews total
+- At least 20 reviews total — the real consumer-trust floor (47% of people won't consider a business with fewer, per [BrightLocal, 2026](https://www.brightlocal.com/research/local-consumer-review-survey/)); check your top competitors for your actual target
 - Average rating 4.5 or above
 - Every review has a response (positive and negative)
 - A review received within the last 90 days

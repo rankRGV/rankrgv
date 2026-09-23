@@ -2,10 +2,22 @@
 title: "Local SEO Playbook for RGV Home Service Businesses"
 description: "HVAC, plumbing, roofing — high-intent searches, emergency calls, and a market that's still largely unclaimed. Here's how to own it."
 pubDate: 2026-04-30
+updatedDate: 2026-09-23
 author: "Eddie Urbano"
 category: "local-seo"
 targetKeyword: "HVAC SEO McAllen"
 draft: false
+faqs:
+  - question: "What's the most important thing an HVAC company in McAllen can do for local SEO right now?"
+    answer: "Claim and complete your GBP with the correct primary category, add every specific service to your service list, and start a review collection system if you don't have one. Those three things alone will separate you from most competitors in the market within 60 days."
+  - question: "How many Google reviews does a home service business need to rank in the map pack?"
+    answer: "There's no fixed number — it depends on your competitors. The real floor, per consumer research: 47% of people won't consider a business with fewer than 20 reviews (BrightLocal, 2026). Past that floor, check what your top 3 competitors in that specific city already have — McAllen's established players typically carry more than Mission or Edinburg — and aim to match or beat them."
+  - question: "Should I run Google Ads while I build my organic rankings?"
+    answer: "Yes, especially if emergency searches are your primary source of revenue. Organic rankings take time. Ads are immediate. Run both simultaneously and dial back ads as organic kicks in — usually 4 to 6 months in."
+  - question: "Does a plumbing company need separate pages for each RGV city?"
+    answer: "Yes, if you want to rank in each city's local results. One page can't signal relevance to five cities at once. City-specific pages are one of the highest-leverage moves available to any home service business in the Valley right now."
+  - question: "What's the average cost per lead for HVAC in the RGV via Google Ads?"
+    answer: "Industry-wide, HVAC Google Ads CPC runs $6.84 to $12.31, averaging around $9 per click (PPC Chief's 2026 benchmark, based on $20M+ in tracked ad spend). Emergency-repair keywords sit at the high end of that range. At typical conversion rates of 10 to 15% on those searches, that works out to roughly $50 to $120 per booked call. A single AC repair job at $300 to $500 covers several calls — the economics work strongly in your favor."
 ---
 
 The Rio Grande Valley home services market has a problem that most business owners in it don't fully appreciate yet: the keywords are nearly uncontested. Search difficulty scores for high-value terms like "HVAC repair McAllen," "plumber Edinburg TX," or "roofing company Mission TX" sit in the single digits. For comparison, those same searches in San Antonio or Houston have difficulty scores 10 to 20 times higher.
@@ -13,6 +25,17 @@ The Rio Grande Valley home services market has a problem that most business owne
 That gap is closing. But right now, for an HVAC company, a plumber, or a roofing contractor operating in the Valley, ranking on page one for the searches that drive emergency calls is a realistic 60 to 90 day project — not a multi-year one.
 
 Here's how to do it — and it's exactly what our [local SEO service](/local-seo/) is built around.
+
+<div class="key-takeaways">
+
+**Key takeaways**
+
+- RGV home service keywords like "HVAC repair McAllen" have single-digit difficulty scores, versus 10-20x higher in San Antonio or Houston — ranking on page one is realistically a 60-90 day project here.
+- The conversion happens on the phone, not the website, so a fast mobile site with a visible phone number matters more than long-form content.
+- Forget a fixed review target — what wins is beating whatever your top competitors already have. Handy benchmark: most Valley competitors sit under 20 reviews, which happens to be the exact point where 47% of consumers stop considering a business at all ([BrightLocal, 2026](https://www.brightlocal.com/research/local-consumer-review-survey/)).
+- City-specific service pages (not one homepage mentioning every city) are what separate businesses ranking in multiple RGV cities from those stuck on page two.
+
+</div>
 
 ## Home Services SEO Is Different From Every Other Category
 
@@ -46,7 +69,7 @@ Photos posted regularly outperform a large batch uploaded once. A photo from a j
 
 ## Reviews Are Your Competitive Moat
 
-In the home services market, a business with 60 reviews and a 4.8 average is nearly impossible to beat in the map pack — especially in a Valley market where most competitors have under 20 reviews total. The business that gets there first and keeps the velocity going essentially owns the category.
+In the home services market, there's no fixed review count that locks in the map pack — what matters is outpacing whoever you're actually up against. The Valley's advantage: most local competitors haven't cleared 20 reviews yet, which research shows is the exact threshold where nearly half of consumers (47%) rule a business out entirely ([BrightLocal, 2026](https://www.brightlocal.com/research/local-consumer-review-survey/)). Get past that floor, check your top 3 rivals' counts, and beat them — the business that gets there first and keeps the velocity going essentially owns the category.
 
 The best time to ask for a review is immediately after the job, while you're still at the customer's location or on the phone wrapping up. Not a day later. Not a week later. Right then. A simple "Would you mind leaving us a quick Google review? It helps other families in McAllen find us" — said to a satisfied customer — converts at a surprisingly high rate.
 
@@ -87,7 +110,7 @@ For HVAC in the Valley, the window before summer is the most valuable ad season 
 Claim and complete your GBP with the correct primary category, add every specific service to your service list, and start a review collection system if you don't have one. Those three things alone will separate you from most competitors in the market within 60 days.
 
 **How many Google reviews does a home service business need to rank in the map pack?**
-In McAllen, you're competing against established businesses — you probably need 40 or more recent reviews to be competitive for high-volume keywords. In Mission or Edinburg, 20 to 30 with strong recency can be enough for most categories.
+There's no fixed number — it depends on your competitors. The real floor: 47% of people won't consider a business with fewer than 20 reviews ([BrightLocal, 2026](https://www.brightlocal.com/research/local-consumer-review-survey/)). Past that floor, check what your top 3 competitors in that specific city already have — McAllen's established players typically carry more than Mission or Edinburg — and aim to match or beat them.
 
 **Should I run Google Ads while I build my organic rankings?**
 Yes, especially if emergency searches are your primary source of revenue. Organic rankings take time. Ads are immediate. Run both simultaneously and dial back ads as organic kicks in — usually 4 to 6 months in.
@@ -96,4 +119,4 @@ Yes, especially if emergency searches are your primary source of revenue. Organi
 Yes, if you want to rank in each city's local results. One page can't signal relevance to five cities at once. City-specific pages are one of the highest-leverage moves available to any home service business in the Valley right now.
 
 **What's the average cost per lead for HVAC in the RGV via Google Ads?**
-Based on what we've seen running campaigns in the Valley, HVAC service keywords typically run $4 to $10 per click with conversion rates around 10 to 15% for emergency searches. That's roughly $30 to $100 per call, depending on the keyword. A single AC repair job at $300 to $500 covers several calls — the economics work strongly in your favor.
+HVAC Google Ads CPC nationally runs $6.84 to $12.31, averaging around $9, with emergency-repair keywords at the high end ([PPC Chief, 2026](https://ppcchief.com/google-ads-cost/hvac), based on $20M+ in tracked ad spend). Pair that with conversion rates of 10 to 15% on emergency searches and you're looking at roughly $50 to $120 per booked call — a single AC repair job at $300 to $500 covers several of those, so the economics work strongly in your favor.

@@ -2,14 +2,36 @@
 title: "How to Optimize Your Google Business Profile to Rank Higher (Complete Checklist)"
 description: "Every field in your Google Business Profile is a ranking signal. Most businesses fill in the bare minimum. Here's exactly what to optimize, and in what order."
 pubDate: 2026-07-02
-updatedDate: 2026-07-02
+updatedDate: 2026-09-23
 author: "Eddie Urbano"
 category: "google-maps"
 targetKeyword: "how to optimize google business profile"
 draft: false
+faqs:
+  - question: "How often should I update my GBP?"
+    answer: "Weekly: one post, one new photo, and a response to any new review."
+  - question: "Can I change my primary category later?"
+    answer: "Yes, but it may temporarily affect your rankings while Google reprocesses the profile."
+  - question: "Does posting on GBP actually help ranking?"
+    answer: "It signals an active, operating business. Consistency matters more than the content of any individual post."
+  - question: "Should I use stock photos?"
+    answer: "No. Real photos of your team, your work, and your location consistently outperform stock."
+  - question: "What's the single highest-impact optimization?"
+    answer: "Primary category. It determines whether you qualify for relevant searches at all, before anything else even matters."
 ---
 
 Every field in your Google Business Profile is a ranking signal. Most businesses fill in the bare minimum and leave most of their visibility on the table. We see this on nearly every profile we audit: the fields that take ten minutes to fix are usually the ones nobody has touched. A fully optimized GBP can outperform a neglected one even when the neglected profile has more reviews. Here's what to fix, in order of impact.
+
+<div class="key-takeaways">
+
+**Key takeaways**
+
+- **Primary category is the highest-impact field** — it determines which searches you qualify for at all, before anything else matters.
+- List every individual service, not just your general category: a profile with 15 services competes for 15 different searches instead of one.
+- Google weighs review **recency first, then count, then rating, then response rate** — fifteen recent reviews can outrank sixty old ones.
+- Weekly activity (one post, one new photo, a review response) is a simple, low-effort signal that an active profile is currently operating.
+
+</div>
 
 ## The optimization hierarchy
 

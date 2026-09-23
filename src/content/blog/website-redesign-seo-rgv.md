@@ -2,10 +2,22 @@
 title: "Redesign Your Website Without Losing Google Rankings"
 description: "Redesigns break more RGV rankings than any other single mistake we see. Here's the exact checklist to run before you launch a new site."
 pubDate: 2026-05-11
+updatedDate: 2026-09-23
 author: "Eddie Urbano"
 category: "web-design"
 targetKeyword: "web design McAllen SEO"
 draft: false
+faqs:
+  - question: "How do I know which pages are currently ranking before my redesign?"
+    answer: "Google Search Console is the most accurate source. Under Performance, you can see which URLs are getting impressions and clicks for which queries. If you don't have Search Console set up, set it up now — before the redesign begins."
+  - question: "What happens if I change my domain name during the redesign?"
+    answer: "Domain changes are the highest-risk scenario. You'll need 301 redirects from every old URL to its equivalent on the new domain, plus you'll need to update your GBP, all directory listings, and any backlinks you're aware of. Rankings typically drop temporarily after a domain migration and recover over 2 to 4 months if the redirects are set up correctly."
+  - question: "Does switching website platforms always hurt SEO?"
+    answer: "Not necessarily, but it almost always changes URLs, which requires redirects. The platform itself (Squarespace vs. WordPress vs. Wix) matters less than whether the redirect map is built correctly and whether the content and title tags are preserved."
+  - question: "How fast does a website need to load for SEO in 2026?"
+    answer: "Google's Core Web Vitals benchmarks are the standard. A Largest Contentful Paint (LCP) under 2.5 seconds is the target. For mobile specifically, most RGV business sites we audit score below this — images that aren't compressed and layout that's not optimized for mobile are the two most common causes."
+  - question: "Should I redesign my website if my current site is ranking well?"
+    answer: "If it's ranking well and converting well, be very careful. The reason to redesign is usually visual or UX — the site looks outdated or is hard to use. If you're getting consistent traffic and calls, the redesign should be structured around preserving everything that's working and improving what isn't. Don't fix rankings that aren't broken."
 ---
 
 A website redesign done right can be one of the best things that ever happened to your local SEO. A website redesign done wrong can erase years of ranking progress in a few hours — and the damage doesn't always show up immediately. Sometimes it takes weeks for Google to process what happened, by which point the business is wondering why calls stopped coming and has no idea the new website is why.
@@ -13,6 +25,17 @@ A website redesign done right can be one of the best things that ever happened t
 This isn't a scare story. It's a pattern we see regularly with RGV businesses, usually because the redesign was handed off to a designer who does great visual work but doesn't think about SEO, or because the business owner assumed the new site would automatically perform better than the old one. Both assumptions are expensive.
 
 Here's what to protect before you launch, and what to fix while you're at it.
+
+<div class="key-takeaways">
+
+**Key takeaways**
+
+- Redesigns tank rankings mainly through URL changes without 301 redirects, and through title tag/H1 rewrites that drop the keywords a page was ranking for.
+- Before touching anything, pull your top-ranking pages from Search Console and record their exact URLs, title tags, and H1s — that's your protection list.
+- Use the redesign to fix what's usually missing: keyword-rich title tags, a crawlable footer address matching your GBP, LocalBusiness schema, mobile performance, and image alt text.
+- Domain changes are the highest-risk scenario — rankings typically drop temporarily and recover over 2 to 4 months if redirects are set up correctly.
+
+</div>
 
 ## Why Redesigns Tank Rankings
 

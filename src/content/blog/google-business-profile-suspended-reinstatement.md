@@ -2,16 +2,40 @@
 title: "Google Business Profile Suspended? Here's What to Do"
 description: "A suspended Google Business Profile disappears from Maps and local search instantly. Here's why it happens, how to fix it, and how to protect yourself going forward."
 pubDate: 2026-07-07
-updatedDate: 2026-07-07
+updatedDate: 2026-09-23
 author: "Eddie Urbano"
 category: "google-maps"
 targetKeyword: "google business profile reinstatement"
 draft: false
+faqs:
+  - question: "How long does Google Business Profile reinstatement take?"
+    answer: "Typically 3 to 10 business days for a first submission. Complex cases or those requiring additional documentation review can take 4 to 6 weeks. Providing thorough documentation upfront is the only way to improve the timeline."
+  - question: "Can I still run Google Ads if my GBP is suspended?"
+    answer: "Yes. Your GBP and Google Ads account are separate systems. A suspended GBP does not prevent you from running search ads or Local Services Ads — and doing so during suspension is one of the best ways to maintain lead flow while waiting for reinstatement."
+  - question: "What happens to my reviews during a suspension?"
+    answer: "Reviews are not deleted during a suspension. When your profile is reinstated and becomes visible again, your review history returns with it. In a hard suspension, reviews are temporarily invisible along with the listing but reappear upon reinstatement."
+  - question: "My reinstatement request was denied. What do I do?"
+    answer: "Review the denial for any explanation. Fix any remaining policy issues. Gather additional documentation. Resubmit with a more detailed explanation and more supporting evidence. You can also try to reach a human reviewer through Google Business Profile support, though response times vary."
+  - question: "Someone is impersonating my business on Google. Can that cause my real profile to be suspended?"
+    answer: "It can complicate your case, but it shouldn't cause a suspension of your legitimate profile. Report the fraudulent listing through Google Business Profile Help Center, document when you reported it, and include that documentation in any reinstatement request if your profile is affected."
+  - question: "Should I create a new GBP listing if my current one is suspended?"
+    answer: "No. Creating a duplicate listing while a suspension is pending is itself a policy violation and makes your reinstatement case significantly harder. Work through the reinstatement process for the existing profile — creating a new one is not a shortcut."
 ---
 
 A Google Business Profile suspension is one of the worst things that can happen to a local business's online visibility. Your listing disappears from Google Maps. You fall out of the map pack. Calls that were coming in every day stop. And the reinstatement process is more bureaucratic and opaque than most business owners expect.
 
 Here's what actually causes suspensions, what the reinstatement process looks like, and how to protect yourself going forward.
+
+<div class="key-takeaways">
+
+**Key takeaways**
+
+- There are two suspension types: a **soft suspension** (visible but locked) and a **hard suspension** (removed from search and Maps entirely). Hard suspensions are more damaging and harder to recover from.
+- **Keyword stuffing in the business name** is the single most common cause of suspension.
+- Fix the underlying policy violation *before* submitting a reinstatement request. First-time reviews typically take 3 to 10 business days.
+- Don't submit repeat requests back to back or create a duplicate listing while a review is pending — both can reset the timer or make your case worse.
+
+</div>
 
 ## What are the two types of Google Business Profile suspensions?
 

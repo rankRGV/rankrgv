@@ -338,6 +338,37 @@ details[open] .faq-icon {
   font-weight: 700;
 }
 
+/* Blog key-takeaways box — answer-first summary, used near top of post */
+.prose .key-takeaways {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #1d4ed8;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.prose .key-takeaways p {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+}
+
+.prose .key-takeaways ul {
+  margin: 0;
+}
+
+.prose .key-takeaways li {
+  margin-bottom: 0.4rem;
+}
+
+.prose .key-takeaways li:last-child {
+  margin-bottom: 0;
+}
+
 /* ── Print / export safety ───────────────────────────────── */
 @media print {
   .no-print { display: none !important; }

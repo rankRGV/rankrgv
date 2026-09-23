@@ -2,16 +2,40 @@
 title: "How to Verify Your Google Business Profile (2026 Step-by-Step Guide)"
 description: "Verification is what makes your Google Business Profile go live and start ranking. Here's exactly how to get through the process — and what to do when it gets stuck."
 pubDate: 2026-06-25
-updatedDate: 2026-06-25
+updatedDate: 2026-09-23
 author: "Eddie Urbano"
 category: "google-maps"
 targetKeyword: "how to verify google business profile"
 draft: false
+faqs:
+  - question: "How long does Google Business Profile verification take?"
+    answer: "It depends on the method. Phone and email verification can complete in minutes. Video verification typically takes 3 to 7 business days. Postcard verification takes up to 14 days for delivery plus code entry. Live video calls verify immediately."
+  - question: "My video verification was rejected. What do I do?"
+    answer: "Resubmit with a new video — fully continuous, signage or branded vehicle clearly visible, address numbers in frame, recorded in good lighting. Most rejections are fixable by addressing those specific gaps on the second attempt."
+  - question: "Can I verify a Google Business Profile for a home-based business?"
+    answer: "Yes. The address stays hidden from the public, but you need a verification video that establishes commercial activity from that location. Show professional equipment, branded materials, or a work vehicle at the address."
+  - question: "What happens if I let a pending verification expire?"
+    answer: "Your profile won't appear in Google Search or Maps until verified. If you don't complete verification within the allowed window, you'll need to start the process over."
+  - question: "Can I change my business information after verification?"
+    answer: "Yes, but significant changes — business name, address, primary category — may trigger re-verification. Google monitors for profile changes that could indicate a different business."
+  - question: "I'm claiming an existing listing and it's asking me to verify. Is that normal?"
+    answer: "Yes. Even when claiming a listing Google created from public data, you still need to verify that you're the legitimate owner. The process is the same as a new profile."
 ---
 
 Before your Google Business Profile can show up in the map pack, local search results, or Google Maps, it has to be verified. Verification is Google's way of confirming that the business is real, that it operates where it says it operates, and that the person managing the profile actually has the right to do so.
 
 For most small businesses in the Rio Grande Valley, verification takes anywhere from a few minutes to a few weeks depending on which method Google assigns. Getting it right the first time matters — a failed or stuck verification can delay your local visibility by weeks, and some errors require contacting Google support to resolve.
+
+<div class="key-takeaways">
+
+**Key takeaways**
+
+- An unverified GBP is completely invisible in local search — video verification is now the default and takes 3 to 7 business days, while phone/text/email can complete within minutes.
+- Video verification gets rejected most often for gaps or cuts in the recording, unclear signage, or a mismatched address — most businesses succeed on the second or third attempt.
+- Don't change your business name, address, or category while verification is pending — it can restart the entire review process.
+- Service-area businesses still need a listed address for proximity calculations, even when it's hidden from the public.
+
+</div>
 
 ## Why does Google Business Profile verification matter for local rankings?
 

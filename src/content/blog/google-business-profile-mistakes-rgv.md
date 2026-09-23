@@ -2,10 +2,22 @@
 title: "7 Google Business Profile Mistakes Costing You Calls"
 description: "Most McAllen businesses have a Google Business Profile — but most have it set up wrong. Here are the 7 mistakes we see most often, and how to fix them fast."
 pubDate: 2026-04-14
+updatedDate: 2026-09-23
 author: "Eddie Urbano"
 category: "local-seo"
 targetKeyword: "Google Business Profile McAllen"
 draft: false
+faqs:
+  - question: "Can I fix my GBP category without losing my current rankings?"
+    answer: "Yes. Category changes are effective within a few weeks and rarely cause a ranking drop — the new category is almost always better than the wrong one. The risk of staying in the wrong category is much higher than the minor temporary fluctuation from switching."
+  - question: "How do I find out if my business info is inconsistent across directories?"
+    answer: "Search your exact business name in Google, then check Yelp, Apple Maps, and Facebook manually. Look for any variation in how your name, phone number, or address is listed. For a more thorough check, tools like BrightLocal or Whitespark can scan hundreds of directories at once."
+  - question: "What should I do if a competitor is keyword-stuffing their business name and outranking me?"
+    answer: "Report it to Google. Go to their GBP listing, scroll to the bottom, and click \"Suggest an edit\" or use the \"Report a problem\" feature. Google doesn't always act immediately, but legitimate reports do get reviewed. Document it with a screenshot."
+  - question: "How many photos should my GBP have?"
+    answer: "There's no ceiling. More photos consistently correlate with more profile views and more clicks. Start with a strong cover photo, logo, and 10 to 15 photos of your work or space. Then add at least one per week going forward. Volume and freshness both matter."
+  - question: "My GBP has a lot of old reviews and a low rating. Is there anything I can do?"
+    answer: "You can't remove legitimate reviews. What you can do is build your rating up over time by consistently getting new, positive reviews. A profile with 60 reviews at 3.8 stars that gets 10 new 5-star reviews starts climbing. Responding professionally to the old negative reviews helps too — it shows future readers that you've engaged with the feedback. Time and volume are the fix."
 ---
 
 Most RGV business owners know they need a Google Business Profile. So they set one up — or someone set one up for them years ago — and they moved on. The profile exists, so that box is checked.
@@ -15,6 +27,17 @@ The problem is that "existing" and "working" are two very different things.
 When we audit Google Business Profiles for McAllen businesses, we see the same mistakes over and over. These aren't obscure technical issues. They're fixable things that are actively hiding your business from people who are looking for exactly what you offer — right now, on their phones, in your city. GBP cleanup is one piece of a bigger system — see how our [local SEO service](/local-seo/) covers all of it.
 
 Here are the seven we see most often, and what to do about each one.
+
+<div class="key-takeaways">
+
+**Key takeaways**
+
+- **Wrong primary category is the most common and most damaging mistake** — it decides whether you show up at all, not just where you rank. A Mission law firm switched from "Law Firm" to "Personal Injury Attorney" and saw movement within three weeks.
+- Keyword-stuffing your business name (adding location or service terms to your legal name) violates Google's terms and is one of the most common suspension triggers.
+- Review recency matters more than volume: a business with 15 reviews from the last three months can outrank one with 60 reviews from 2022. Target 2 to 4 new reviews per month, not a burst of 20 all at once.
+- Inactive profiles — no new photos, no posts, no recent reviews — get quietly deprioritized. Weekly photos and posts are the easiest way to signal your business is active.
+
+</div>
 
 ## Mistake #1: The Wrong Primary Category
 

@@ -2,14 +2,36 @@
 title: "How Long to Rank on Google Maps? Real Timeline by Week"
 description: "Week 2, week 6, month 3: here's what actually happens at each stage, based on what we track across RGV clients."
 pubDate: 2026-07-01
-updatedDate: 2026-07-01
+updatedDate: 2026-09-23
 author: "Eddie Urbano"
 category: "google-maps"
 targetKeyword: "how long does it take to rank on google maps"
 draft: false
+faqs:
+  - question: "Can I speed this up by paying Google?"
+    answer: "Google Ads puts you at the top immediately, but that's paid placement, not map pack ranking. The two are separate systems."
+  - question: "What if I don't see movement in 90 days?"
+    answer: "Check verification status, NAP consistency, and whether your primary category actually matches your main service. Also consider whether your category is simply one of the more competitive ones."
+  - question: "Does my website affect map pack ranking?"
+    answer: "Minimally, once your GBP itself is strong. It's a secondary signal for local pack results. GBP quality matters far more."
+  - question: "Should I list my home address for a service-area business?"
+    answer: "You can hide your address from public view while still letting Google use it internally for proximity. A business based in one city will struggle to rank in a different city's map pack for competitive searches, regardless of address visibility."
+  - question: "How fast can I rank for \"near me\" searches?"
+    answer: "That's proximity-driven. You'll start appearing for searches originating within your physical service radius once your profile is verified and relevant, often well before you rank for the city-name version of the same search."
 ---
 
 There's no magic switch for Google Maps ranking. But there is a predictable timeline, and knowing it stops you from panicking at week three or quitting at month two.
+
+<div class="key-takeaways">
+
+**Key takeaways**
+
+- Ranking follows a predictable stage-by-stage timeline: foundation work in days 1-7, indexing through day 30, real movement in days 30-90, authority building through day 180, and top-3 contention beyond that.
+- **Proximity matters more than almost anything else** — an address physically inside your target city moves faster than a service address far from it.
+- Most RGV businesses see the biggest advantage not from what they do but from what neglected competitors *aren't* doing — profiles untouched for years are common.
+- Highly competitive categories (personal injury law, insurance) and profiles that sat neglected for years can stretch the timeline to six months or more.
+
+</div>
 
 ## Why this question matters
 
