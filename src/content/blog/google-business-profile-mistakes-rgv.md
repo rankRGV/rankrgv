@@ -59,7 +59,7 @@ Google requires your GBP business name to match your actual, legal business name
 
 Business owners add keywords to their name thinking it'll help them rank for those terms. It doesn't work that way — Google's algorithm reads your profile, your reviews, your website, and dozens of other signals to understand what you do and where you do it. A keyword in your business name doesn't override any of that. What it does do is flag your profile as violating Google's terms.
 
-A flagged profile can lose its ranking, or get suspended entirely. A suspended GBP means you disappear from Maps and local search until you appeal and get reinstated — a process that can take weeks and requires documentation to prove you're a legitimate business. We've helped businesses through GBP suspensions. They're a nightmare, and keyword-stuffing the business name is one of the most common triggers.
+A flagged profile can lose its ranking, or [get suspended entirely](/blog/google-business-profile-suspended-reinstatement/). A suspended GBP means you disappear from Maps and local search until you appeal and get reinstated — a process that can take weeks and requires documentation to prove you're a legitimate business. We've helped businesses through GBP suspensions. They're a nightmare, and keyword-stuffing the business name is one of the most common triggers.
 
 Your name in GBP should be exactly what's on your business card, your invoices, and your signage. That's it.
 

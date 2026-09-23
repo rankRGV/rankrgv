@@ -45,7 +45,7 @@ Personal injury and car accident claims generate the most search volume. "Car ac
 
 Criminal defense is the second-highest volume category. "Criminal defense attorney McAllen," "DWI lawyer RGV," "abogado criminal Edinburg" — these searches come from people under pressure, and they convert quickly. The map pack is smaller here because most people searching for a criminal defense attorney aren't comparison shopping the way they might for a realtor.
 
-Immigration law searches are high-volume in the Valley in a way they aren't anywhere else in Texas. The proximity to the border and the size of the undocumented and mixed-status population creates a consistent demand for DACA attorneys, asylum help, visa applications, and deportation defense. Spanish-language optimization is not optional in this practice area — it's the primary market.
+Immigration law searches are high-volume in the Valley in a way they aren't anywhere else in Texas. The proximity to the border and the size of the undocumented and mixed-status population creates a consistent demand for DACA attorneys, asylum help, visa applications, and deportation defense. [Spanish-language optimization](/blog/bilingual-seo-rio-grande-valley/) is not optional in this practice area — it's the primary market.
 
 Family law (divorce, custody, child support) sits below these in volume but maintains steady demand year-round. The RGV family law market is moderately competitive — not as contested as PI, easier to rank in than a major Texas city.
 
@@ -63,7 +63,7 @@ Their website has dedicated practice area pages, not a single "Services" page th
 
 The legal GBP setup has a few specific considerations beyond what most businesses deal with.
 
-The address situation matters. Firms with a real McAllen office have a clear proximity advantage for McAllen searches. A Mission firm trying to rank for McAllen terms without a physical presence there is at a disadvantage in the map pack — though service area pages can capture McAllen traffic in organic results.
+The address situation matters. Firms with a real McAllen office have a clear [proximity advantage](/blog/map-pack-mcallen-mission-edinburg/) for McAllen searches. A Mission firm trying to rank for McAllen terms without a physical presence there is at a disadvantage in the map pack — though service area pages can capture McAllen traffic in organic results.
 
 The primary category needs to match the exact search you're targeting. If personal injury is your primary practice area, "personal injury attorney" is your category — not "law firm." If you do multiple practice areas, the primary category should reflect the one you most want to rank for, and additional categories can be added for secondary areas.
 

@@ -69,7 +69,7 @@ A redesign is the best opportunity you'll have to fix SEO problems without disru
 
 **Title tags for every page.** Not "Home" or your business name. "HVAC Repair in McAllen, TX | [Business Name]" is a title tag. "Roofing Contractor Edinburg TX | Free Estimates" is a title tag. Every primary page should have the main keyword and the city in the title.
 
-**A crawlable address in the footer.** Your full address, exactly as it appears in your GBP, on every page. This alignment between your website and your GBP is a local SEO trust signal that most redesigns accidentally break when the new design omits the address or buries it on a contact page.
+**A crawlable address in the footer.** Your full address, exactly as it appears in your GBP, on every page. This alignment between [your website and your GBP](/blog/google-business-profile-vs-website/) is a local SEO trust signal that most redesigns accidentally break when the new design omits the address or buries it on a contact page.
 
 **Schema markup.** If your old site didn't have LocalBusiness schema, the redesign is the time to add it. If it did, make sure it carries over correctly — schema on many older sites gets dropped during a platform migration and nobody notices.
 

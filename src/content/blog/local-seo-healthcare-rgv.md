@@ -49,7 +49,7 @@ Third, the referral-to-search pipeline is different here. A patient gets a recom
 
 The Google Business Profile is the single most important digital asset for a healthcare practice in the Valley. It controls whether you show up in the map pack when someone searches "dentist near me" from wherever they happen to be standing — and in healthcare, "near me" is how most patients search.
 
-Primary category is the most common mistake. "Medical clinic" and "family practice physician" are different. "Dentist" and "pediatric dentist" are different. Your primary category should match the exact search your ideal patient is doing. If you're not sure which one, search for your top competitor and check their category — that's almost always the right one.
+Primary category is the [most common mistake](/blog/google-business-profile-mistakes-rgv/). "Medical clinic" and "family practice physician" are different. "Dentist" and "pediatric dentist" are different. Your primary category should match the exact search your ideal patient is doing. If you're not sure which one, search for your top competitor and check their category — that's almost always the right one.
 
 The attributes section of the GBP is almost always left blank, and it's one of the highest-leverage improvements available. For a healthcare practice in the Valley, turning on attributes like "Accepts new patients," "Spanish-language staff," "Telehealth available," and specific insurance types immediately improves your relevance for filter-based searches. Patients using Google Maps can filter by these attributes — if yours aren't listed, you're invisible to anyone using those filters.
 
@@ -63,7 +63,7 @@ Beyond compliance, the review strategy for a Valley healthcare practice should p
 
 The best moment to ask is at checkout. A staff member handing back an insurance card can say, "If you have a moment, we'd really appreciate a Google review — it helps other families find us." A QR code at the front desk linking directly to the review page removes any friction. Both of these are HIPAA-compliant because they don't reference anything clinical.
 
-For Spanish-speaking patients: ask in Spanish, respond in Spanish. A review written in Spanish that gets a Spanish response tells both Google and the next Spanish-speaking patient who finds your profile that this practice is for them.
+For [Spanish-speaking patients](/blog/bilingual-seo-rio-grande-valley/): ask in Spanish, respond in Spanish. A review written in Spanish that gets a Spanish response tells both Google and the next Spanish-speaking patient who finds your profile that this practice is for them.
 
 <div class="callout">
 

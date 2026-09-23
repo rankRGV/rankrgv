@@ -72,7 +72,7 @@ One thing that trips people up: your business name, address (or service area), a
 
 ## Verify Your Business
 
-Google requires you to verify ownership before your listing goes fully live. How you verify depends on your business type — most get a postcard mailed to their address with a PIN (takes 5–14 days). Some qualify for phone, text, or video verification. Don't skip it. An unverified profile has limited visibility and you can't fully manage it.
+Google requires you to [verify ownership](/blog/verify-google-business-profile-2026/) before your listing goes fully live. How you verify depends on your business type — most get a postcard mailed to their address with a PIN (takes 5–14 days). Some qualify for phone, text, or video verification. Don't skip it. An unverified profile has limited visibility and you can't fully manage it.
 
 ## Write a Real Business Description
 

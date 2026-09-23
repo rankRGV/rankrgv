@@ -91,7 +91,7 @@ Regardless of city, these are the things that consistently separate map pack win
 
 The most common map pack mistake we see from RGV businesses is trying to own every city simultaneously with no physical presence in any of them. They set up a GBP, add every RGV city as a service area, and wonder why they're not showing up anywhere.
 
-The map pack doesn't work on service areas — it works on addresses. Pick the city where your address gives you the strongest proximity advantage, win that map pack, and use the organic search results to reach the other cities. That's a sustainable strategy. Trying to win five map packs with one listing is not.
+The map pack doesn't work on service areas — it works on addresses. Pick the city where your address gives you the strongest proximity advantage, [win that map pack](/blog/how-to-rank-google-maps-mcallen/), and use the organic search results to reach the other cities. That's a sustainable strategy. Trying to win five map packs with one listing is not.
 
 ---
 

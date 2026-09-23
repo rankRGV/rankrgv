@@ -45,7 +45,7 @@ What this means for local businesses: the searches most affected are the informa
 
 ## Voice Search Is Growing — Especially in Spanish
 
-Voice search use in the Rio Grande Valley is growing faster than in most other U.S. markets, and the reason is straightforward: a bilingual population that code-switches naturally is also code-switching in how they search. Spanish-language voice searches for local businesses — "Hey Siri, ¿dónde está el dentista más cercano?" or "OK Google, plomero en Mission Texas" — are increasing in frequency, and the businesses showing up for those queries are the ones that have Spanish-language signals in their GBP.
+Voice search use in the Rio Grande Valley is growing faster than in most other U.S. markets, and the reason is straightforward: a bilingual population that code-switches naturally is also code-switching in how they search. [Spanish-language voice searches](/blog/bilingual-seo-rio-grande-valley/) for local businesses — "Hey Siri, ¿dónde está el dentista más cercano?" or "OK Google, plomero en Mission Texas" — are increasing in frequency, and the businesses showing up for those queries are the ones that have Spanish-language signals in their GBP.
 
 The difference between voice search and typed search is primarily format. Voice searches are conversational and longer. "Good HVAC company near me that's open on Saturdays" is a voice search. "HVAC McAllen" is a typed search. The GBP attributes — hours, specialties, language support — play a bigger role in voice search results because those are the fields Google reads to answer conversational questions.
 

@@ -73,7 +73,7 @@ The businesses that wait will be competing against an established field instead 
 
 It doesn't require a massive budget or a team. For most RGV businesses, the path from zero to first-page rankings runs through three things done consistently.
 
-First, your [Google Business Profile](/gbp-management/) needs to be complete and active. The right primary category, current photos added weekly, a steady stream of reviews, and responses to every review. This is your fastest path to Map Pack visibility.
+First, your [Google Business Profile](/gbp-management/) needs to be complete and active. The right primary category, current photos added weekly, a steady stream of reviews, and responses to every review. This is your fastest path to [Map Pack visibility](/blog/map-pack-mcallen-mission-edinburg/).
 
 Second, your website needs location-specific content. Not one generic page that mentions McAllen once. A page for each core service, each targeting the city where your customers are looking. A roofing company serving Mission, McAllen, and Edinburg should have a page for each of those cities — not one page that mentions all three.
 

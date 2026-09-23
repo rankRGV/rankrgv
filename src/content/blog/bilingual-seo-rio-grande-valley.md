@@ -49,7 +49,7 @@ Google identifies the language of a search query and tries to serve matching con
 
 Here's where it gets interesting for Valley businesses: Google doesn't require you to have a completely separate Spanish website. It reads bilingual signals across your whole presence. Your Google Business Profile description in Spanish matters. Reviews written in Spanish — and your responses to them — matter. Spanish keywords appearing naturally on your service pages matter.
 
-A McAllen dental office started responding to reviews in Spanish — they'd been getting them for years and responding only in English. Within a couple months, they started showing up for Spanish-language searches they'd been invisible for. No new pages built, no new content. Just matching the language of the conversation already happening on their profile.
+[A McAllen dental office](/blog/local-seo-healthcare-rgv/) started responding to reviews in Spanish — they'd been getting them for years and responding only in English. Within a couple months, they started showing up for Spanish-language searches they'd been invisible for. No new pages built, no new content. Just matching the language of the conversation already happening on their profile.
 
 ## The Near Me Problem
 
