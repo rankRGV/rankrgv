@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import HowWeWork from '@/components/HowWeWork.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
+import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
 import {
   buildServiceSchema,
   buildFAQSchema,
@@ -334,6 +335,8 @@ const schema = [
       </div>
     </div>
   </section>
+
+  <ServiceAreaGrid headline="Google Business Profile management across the Rio Grande Valley" />
 
   <!-- ===================== FAQ ===================== -->
   <FAQSection faqs={faqs} headline="Google Business Profile questions, answered for McAllen" />
