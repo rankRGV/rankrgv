@@ -20,7 +20,7 @@ faqs:
     answer: "If it's ranking well and converting well, be very careful. The reason to redesign is usually visual or UX — the site looks outdated or is hard to use. If you're getting consistent traffic and calls, the redesign should be structured around preserving everything that's working and improving what isn't. Don't fix rankings that aren't broken."
 ---
 
-A website redesign done right can be one of the best things that ever happened to your local SEO. A website redesign done wrong can erase years of ranking progress in a few hours — and the damage doesn't always show up immediately. Sometimes it takes weeks for Google to process what happened, by which point the business is wondering why calls stopped coming and has no idea the new website is why.
+A website redesign done right can be one of the best things that ever happened to your [local SEO](/local-seo/). A website redesign done wrong can erase years of ranking progress in a few hours — and the damage doesn't always show up immediately. Sometimes it takes weeks for Google to process what happened, by which point the business is wondering why calls stopped coming and has no idea the new website is why.
 
 This isn't a scare story. It's a pattern we see regularly with RGV businesses, usually because the redesign was handed off to a designer who does great visual work but doesn't think about SEO, or because the business owner assumed the new site would automatically perform better than the old one. Both assumptions are expensive.
 
@@ -53,7 +53,7 @@ Pull your top-ranking pages from Google Search Console. Look at which URLs are g
 
 If you don't have Search Console set up, use Google Analytics to identify your highest-traffic pages — then set up Search Console before the redesign begins so you can monitor what happens after launch.
 
-Your GBP link is also in play. Whatever URL your Google Business Profile links to needs to remain live after the redesign. If that URL changes, update the GBP immediately — a broken link between your GBP and your website weakens both.
+Your GBP link is also in play. Whatever URL your [Google Business Profile](/gbp-management/) links to needs to remain live after the redesign. If that URL changes, update the GBP immediately — a broken link between your GBP and your website weakens both.
 
 ## Redirects: The Most Important Technical Step
 

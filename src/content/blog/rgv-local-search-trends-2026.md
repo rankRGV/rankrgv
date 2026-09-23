@@ -20,9 +20,9 @@ faqs:
     answer: "Their Google Business Profile. Complete it, photograph it, respond to every review, post on it weekly, and keep the hours and attributes updated. That single asset drives more inbound calls and direction requests for most local businesses than their website, their social media, and any paid advertising combined."
 ---
 
-The way Valley residents find local businesses has shifted more in the past 18 months than in the previous several years combined. Some of the changes are subtle — adjustments to how Google weighs certain signals. Others are visible to anyone paying attention: AI answers appearing above traditional results, voice search behavior changing in bilingual households, and the map pack becoming more competitive in cities that used to be wide open.
+The way Valley residents find local businesses has shifted more in the past 18 months than in the previous several years combined. Some of the changes are subtle — adjustments to how Google weighs certain signals. Others are visible to anyone paying attention: AI answers appearing above traditional results, voice search behavior changing in bilingual households, and the [map pack](/google-maps-optimization/) becoming more competitive in cities that used to be wide open.
 
-Here's what actually changed in 2026 and what it means for businesses in McAllen, Mission, Edinburg, Harlingen, and Brownsville heading into the back half of the year — and how it factors into our [local SEO service](/local-seo/).
+Here's what actually changed in 2026 and what it means for businesses in McAllen, Mission, Edinburg, Harlingen, and [Brownsville](/service-areas/brownsville/) heading into the back half of the year — and how it factors into our [local SEO service](/local-seo/).
 
 <div class="key-takeaways">
 
@@ -31,7 +31,7 @@ Here's what actually changed in 2026 and what it means for businesses in McAllen
 - AI Overviews are now common for informational searches, but the map pack and local results panel remain separate — high-intent searches like "AC repair near me" are largely unaffected.
 - Spanish-language voice search is growing faster in the RGV than in most U.S. markets, and GBP attributes and description language directly influence those results.
 - Review velocity now outweighs raw review count — a business with 40 reviews and 6 in the last 30 days can outrank one with 150 reviews and none recently.
-- Edinburg and Mission map packs are getting more competitive as national and regional brands claim and optimize GBPs from day one, closing the gap that's existed for years.
+- [Edinburg](/service-areas/edinburg/) and Mission map packs are getting more competitive as national and regional brands claim and optimize GBPs from day one, closing the gap that's existed for years.
 
 </div>
 
@@ -49,7 +49,7 @@ Voice search use in the Rio Grande Valley is growing faster than in most other U
 
 The difference between voice search and typed search is primarily format. Voice searches are conversational and longer. "Good HVAC company near me that's open on Saturdays" is a voice search. "HVAC McAllen" is a typed search. The GBP attributes — hours, specialties, language support — play a bigger role in voice search results because those are the fields Google reads to answer conversational questions.
 
-For most Valley businesses, adding Spanish to the GBP description and turning on relevant attributes is still the lowest-effort, highest-impact move available for voice search optimization. Most businesses still haven't done it.
+For most Valley businesses, adding Spanish to the [GBP description](/gbp-management/) and turning on relevant attributes is still the lowest-effort, highest-impact move available for voice search optimization. Most businesses still haven't done it.
 
 ## The Map Pack Is Getting More Competitive in Edinburg and Mission
 

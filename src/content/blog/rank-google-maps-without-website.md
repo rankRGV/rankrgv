@@ -20,7 +20,7 @@ faqs:
     answer: "Only if it's fast and looks professional. A slow, broken free site is worse than having no site at all. Invest in a real mobile-optimized build when you're ready."
 ---
 
-You can rank in the Google map pack and get a steady stream of calls without a website. It takes a fully optimized Google Business Profile, consistent review collection, and weekly activity, but it works, especially where competitors aren't doing those things either. This isn't a case for skipping a website forever. It's about what's possible right now, with just a GBP, and how to get the most out of it.
+You can rank in the Google map pack and get a steady stream of calls without a website. It takes a fully optimized [Google Business Profile](/gbp-management/), consistent review collection, and weekly activity, but it works, especially where competitors aren't doing those things either. This isn't a case for skipping a website forever. It's about what's possible right now, with just a GBP, and how to get the most out of it.
 
 <div class="key-takeaways">
 
@@ -39,7 +39,7 @@ This playbook holds up well for home service businesses (HVAC, plumbing, roofing
 
 ## Why GBP-only ranking works at all
 
-Google's local ranking algorithm runs separately from its organic algorithm. It comes down to three things: proximity to the searcher, relevance to the query, and authority (reviews, completeness, activity). None of those require a website. They all live inside the profile itself. We've built exactly this kind of GBP-only setup for Valley clients who weren't ready to invest in a site yet, and the calls still came in.
+Google's [local ranking algorithm](/local-seo/) runs separately from its organic algorithm. It comes down to three things: proximity to the searcher, relevance to the query, and authority (reviews, completeness, activity). None of those require a website. They all live inside the profile itself. We've built exactly this kind of GBP-only setup for Valley clients who weren't ready to invest in a site yet, and the calls still came in.
 
 ## The GBP-only playbook
 
