@@ -17,6 +17,8 @@ interface Props {
   geoPlacename?: string;
   lang?: 'en' | 'es';
   hreflang?: { lang: string; href: string }[];
+  /** Drop the site header, footer and sticky call bar (private client pages). */
+  bare?: boolean;
 }
 
 const {
@@ -31,6 +33,7 @@ const {
   geoPlacename,
   lang = 'en',
   hreflang,
+  bare = false,
 } = Astro.props;
 
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
@@ -57,12 +60,12 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
     <slot name="head" />
   </head>
   <body class="bg-bg text-text font-sans antialiased">
-    <Header lang={lang} />
+    {!bare && <Header lang={lang} />}
     <main id="main-content">
       <slot />
     </main>
-    <Footer lang={lang} />
-    <StickyCallCTA />
+    {!bare && <Footer lang={lang} />}
+    {!bare && <StickyCallCTA />}
 
     <!-- GA4 — only loads when ga4Id is set -->
     {site.ga4Id && (

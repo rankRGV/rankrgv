@@ -10,7 +10,6 @@ export default defineConfig({
       filter: (page) =>
         page !== 'https://rankrgv.com/thank-you/' &&
         page !== 'https://rankrgv.com/welcome/' &&
-        page !== 'https://rankrgv.com/client-preferences/' &&
         !page.startsWith('https://rankrgv.com/start/'),
     }),
   ],
