@@ -51,15 +51,15 @@ RankRGV offers transparent, flat-fee pricing with no long-term contracts and no 
 ## Google & Meta Ads Management
 
 ### Starter
-- **Price**: $350/month (management fee only, ad spend separate)
+- **Price**: $425/month (management fee only, ad spend separate)
 - **Best for**: Single platform (Google or Meta), one campaign
 
 ### Growth
-- **Price**: $500/month (management fee only, ad spend separate)
+- **Price**: $650/month (management fee only, ad spend separate)
 - **Best for**: Both platforms or multiple campaigns
 
 ### Scale
-- **Price**: $750/month (management fee only, ad spend separate)
+- **Price**: $1,000/month (management fee only, ad spend separate)
 - **Best for**: Aggressive multi-campaign or multi-location paid strategy
 
 ---

@@ -82,7 +82,7 @@ GBP Management is included in every Local SEO plan. Choose the standalone GBP pl
 
 For businesses that want leads faster. Flat monthly fee based on your ad budget — no setup fees, no commissions on spend.
 
-Starter $350 /month
+Starter $425 /month
 
 Up to $1,000/mo in ad spend. Google Ads, Meta Ads, or both.
 
@@ -91,7 +91,7 @@ Up to $1,000/mo in ad spend. Google Ads, Meta Ads, or both.
 - Ongoing bid and audience optimization
 - Conversion tracking setup
 - Basic ad copy support
-- Monthly performance report Growth Most Popular $500 /month
+- Monthly performance report Growth Most Popular $650 /month
 
 $1,000 to $3,000/mo in ad spend. Built to scale lead volume consistently.
 
@@ -101,7 +101,7 @@ $1,000 to $3,000/mo in ad spend. Built to scale lead volume consistently.
 - A/B ad copy testing
 - Audience segmentation
 - Retargeting setup
-- Bi-weekly optimization check Scale $750 /month
+- Bi-weekly optimization check Scale $1,000 /month
 
 $3,000 to $10,000/mo in ad spend. Full account management for serious volume.
 
