@@ -28,8 +28,8 @@ export const onboardingClients: OnboardingClient[] = [
       "You told me the last marketing company left a bad taste. I'd rather earn your trust with results you can see than with promises, so every two weeks you'll see exactly what I did and what changed.",
     ],
     exclusivity: {
-      title: 'One collision shop per market.',
-      text: "While you're a client, I won't take on another collision or auto body shop competing with you in Mission or Edinburg.",
+      title: 'One collision shop per city.',
+      text: "While you're a client, I won't take on another collision or auto body shop in Mission or Edinburg.",
     },
     planName: 'Local SEO · Market Leader',
     planSub: 'Both locations, Mission and Edinburg',
@@ -56,5 +56,25 @@ export const onboardingClients: OnboardingClient[] = [
     billingDay: '23rd',
     billingNote: 'The one-time $975 foundation sprint is already paid.',
     cancelNote: "Month-to-month to start. Either side can end it with 30 days' notice, no penalty.",
+  },
+  {
+    // Made-up client for testing the flow end to end. Safe to remove.
+    slug: 'demo',
+    clientName: 'Valley Demo Auto Body',
+    contactName: 'Maria Gonzalez',
+    contactFirst: 'Maria',
+    letter: [
+      "Thank you for trusting us with Valley Demo Auto Body. This is a sample welcome so you can see exactly what a new client sees on day one.",
+      "Every two weeks you'll see what I did and what changed, in plain language, with the numbers to back it up.",
+    ],
+    exclusivity: {
+      title: 'One auto body shop per city.',
+      text: "While you're a client, I won't take on another auto body shop in Pharr.",
+    },
+    planName: 'Local SEO · Domination',
+    planSub: 'One location, Pharr',
+    monthly: '$975',
+    billingDay: '1st',
+    cancelNote: "Month-to-month. Give 30 days' notice by text or email to cancel, no penalty.",
   },
 ];

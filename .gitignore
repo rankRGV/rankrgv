@@ -10,3 +10,5 @@ Thumbs.db
 # impeccable skill — downloaded binary/data, re-fetched on first run
 .claude/skills/impeccable/scripts/bin/
 .claude/skills/impeccable/scripts/data/
+.vercel
+.env*
