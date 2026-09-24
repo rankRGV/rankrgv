@@ -81,7 +81,7 @@ async function main() {
     return i === -1 ? fallback : args[i + 1];
   };
 
-  const siteUrl = getArg('--site', 'https://rankrgv.com/');
+  const siteUrl = getArg('--site', 'sc-domain:rankrgv.com');
   const days = parseInt(getArg('--days', '90'), 10);
   const outFile = getArg('--out', null);
 

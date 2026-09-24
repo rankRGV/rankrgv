@@ -21,7 +21,6 @@ import { writeFile } from 'node:fs/promises';
 import { GoogleAuth } from 'google-auth-library';
 import { getCredentials } from './search-console-report.mjs';
 
-const SITE = 'https://rankrgv.com/';
 const SITEMAP = 'https://rankrgv.com/sitemap-0.xml';
 
 const args = process.argv.slice(2);
@@ -29,6 +28,8 @@ const getArg = (flag) => {
   const i = args.indexOf(flag);
   return i === -1 ? null : args[i + 1];
 };
+// rankrgv.com is verified as a Domain property, not URL-prefix.
+const SITE = getArg('--site') ?? 'sc-domain:rankrgv.com';
 
 async function sitemapUrls() {
   const xml = await (await fetch(SITEMAP)).text();
