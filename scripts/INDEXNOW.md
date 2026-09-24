@@ -101,6 +101,20 @@ GOOGLE_SERVICE_ACCOUNT_JSON="$(cat /path/to/service-account.json)" \
 If the property is verified as a Domain property rather than URL-prefix, pass
 `--site sc-domain:rankrgv.com` instead of the default `https://rankrgv.com/`.
 
+**Local runs without setting the env var:** place the downloaded key at
+`~/.secrets/rankrgv-gsc-service-account.json` (Windows:
+`C:\Users\Eddie\.secrets\rankrgv-gsc-service-account.json`). Both
+`search-console-report.mjs` and `gsc-inspect.mjs` read it automatically when
+`GOOGLE_SERVICE_ACCOUNT_JSON` isn't set. The file is outside the repo, so it
+can't be committed.
+
+`scripts/gsc-inspect.mjs` runs the URL Inspection API (indexed or not, and
+why) for every sitemap URL, or a subset:
+
+```bash
+node scripts/gsc-inspect.mjs --filter service-areas --out scripts/.gsc-inspect.json
+```
+
 ## Reuse on another client site
 
 1. Generate a key: `node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"`

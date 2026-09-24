@@ -19,15 +19,25 @@
  */
 
 import { writeFile } from 'node:fs/promises';
+import { existsSync, readFileSync } from 'node:fs';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { GoogleAuth } from 'google-auth-library';
 
 const SCOPES = ['https://www.googleapis.com/auth/webmasters.readonly'];
 
-function getCredentials() {
-  const raw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+// Local fallback: the key file lives outside the repo so it can never be
+// committed. CI keeps using the GOOGLE_SERVICE_ACCOUNT_JSON secret.
+export const LOCAL_KEY_PATH = join(homedir(), '.secrets', 'rankrgv-gsc-service-account.json');
+
+export function getCredentials() {
+  let raw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+  if (!raw && existsSync(LOCAL_KEY_PATH)) {
+    raw = readFileSync(LOCAL_KEY_PATH, 'utf8');
+  }
   if (!raw) {
-    throw new Error('GOOGLE_SERVICE_ACCOUNT_JSON not set. See scripts/INDEXNOW.md for how to source it locally.');
+    throw new Error(`No credentials: set GOOGLE_SERVICE_ACCOUNT_JSON or place the key at ${LOCAL_KEY_PATH}. See scripts/INDEXNOW.md.`);
   }
   try {
     return JSON.parse(raw);
