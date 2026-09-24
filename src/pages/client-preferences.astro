@@ -1,0 +1,158 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+
+// Linked by QR code from the client welcome packet (proposals/_templates/welcome-packet).
+// ?c=<client-slug> tags the submission; ?sent=1 shows the thank-you state after FormSpark redirects back.
+const title = 'Your communication preferences | RankRGV';
+const description = 'Tell RankRGV how and when you want to hear from us.';
+
+const input = 'w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent';
+const label = 'block text-sm font-semibold text-text mb-2';
+const chip = 'inline-flex items-center gap-2 rounded-lg border border-border bg-bg-surface px-3.5 py-2.5 text-sm text-text cursor-pointer has-[:checked]:border-brand-blue has-[:checked]:bg-brand-blue/10';
+
+const times = ['6:00 AM', '7:00 AM', '8:00 AM', '9:00 AM', '10:00 AM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM'];
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+  <section class="py-14 sm:py-20 bg-bg">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+
+      <div id="prefs-thanks" class="hidden text-center py-16">
+        <h1 class="text-3xl font-extrabold text-text mb-3">Got it. Thank you.</h1>
+        <p class="text-text-muted text-lg">I'll stick to what you told me. If anything changes, just text <a href={site.phoneHref} class="text-brand-blue font-semibold">{site.phone}</a>.</p>
+        <p class="text-text-muted mt-6">Eddie</p>
+      </div>
+
+      <div id="prefs-form-wrap">
+        <p class="text-sm font-bold tracking-widest uppercase text-brand-purple mb-2">Two minutes, one time</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-text mb-3">How do you want to hear from us?</h1>
+        <p class="text-text-muted text-lg mb-10">Your time off is yours. Tell me your quiet hours and I'll schedule anything non-urgent to arrive inside your window.</p>
+
+        <form action={`https://submit-form.com/${site.formsparkId}`} method="POST" class="space-y-8">
+          <input type="checkbox" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_redirect" id="redirect" value={`${site.url}/client-preferences/?sent=1`} />
+          <input type="hidden" name="_email.subject" id="email-subject" value="Client preferences submitted" />
+          <input type="hidden" name="form_type" value="client-preferences" />
+          <input type="hidden" name="client" id="client" value="" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class={label}>Your name</label>
+              <input id="name" name="name" required autocomplete="name" class={input} />
+            </div>
+            <div>
+              <label for="business" class={label}>Business</label>
+              <input id="business" name="business" required autocomplete="organization" class={input} />
+            </div>
+          </div>
+
+          <fieldset>
+            <legend class={label}>Best way to reach you</legend>
+            <div class="flex flex-wrap gap-2">
+              {['Text', 'Phone call', 'WhatsApp', 'Email'].map((m) => (
+                <label class={chip}><input type="checkbox" name="reach_by" value={m} class="accent-brand-blue" /> {m}</label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="phone" class={label}>Phone (for texts or calls)</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" class={input} />
+            </div>
+            <div>
+              <label for="email" class={label}>Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" class={input} />
+            </div>
+          </div>
+
+          <fieldset>
+            <legend class={label}>Days that are okay</legend>
+            <div class="flex flex-wrap gap-2">
+              {['Monday to Friday', 'Saturday', 'Sunday'].map((d) => (
+                <label class={chip}><input type="checkbox" name="ok_days" value={d} class="accent-brand-blue" /> {d}</label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="quiet_before" class={label}>No messages before</label>
+              <select id="quiet_before" name="no_messages_before" class={input}>
+                <option value="">No preference</option>
+                {times.slice(0, 5).map((t) => <option>{t}</option>)}
+              </select>
+            </div>
+            <div>
+              <label for="quiet_after" class={label}>No messages after</label>
+              <select id="quiet_after" name="no_messages_after" class={input}>
+                <option value="">No preference</option>
+                {times.slice(5).map((t) => <option>{t}</option>)}
+              </select>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend class={label}>If something urgent happens during quiet hours</legend>
+            <p class="text-sm text-text-muted mb-3">Urgent means things like a suspended Google profile, the website down, or a hacked account.</p>
+            <div class="flex flex-wrap gap-2">
+              {['Call me anyway', "Text me, I'll see it when I see it", 'Wait until morning'].map((o) => (
+                <label class={chip}><input type="radio" name="urgent_after_hours" value={o} class="accent-brand-blue" /> {o}</label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <fieldset>
+              <legend class={label}>How you want updates</legend>
+              <div class="flex flex-wrap gap-2">
+                {['Short video', 'Written summary', 'Both'].map((o) => (
+                  <label class={chip}><input type="radio" name="update_format" value={o} class="accent-brand-blue" /> {o}</label>
+                ))}
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class={label}>Language</legend>
+              <div class="flex flex-wrap gap-2">
+                {['English', 'Español', 'Either one'].map((o) => (
+                  <label class={chip}><input type="radio" name="language" value={o} class="accent-brand-blue" /> {o}</label>
+                ))}
+              </div>
+            </fieldset>
+          </div>
+
+          <div>
+            <label for="others" class={label}>Anyone else who should get updates or can approve things?</label>
+            <textarea id="others" name="other_contacts" rows="3" class={input} placeholder="Name, role, phone or email"></textarea>
+          </div>
+
+          <div>
+            <label for="notes" class={label}>Anything else I should know?</label>
+            <textarea id="notes" name="notes" rows="3" class={input} placeholder="Busy seasons, days you're off, how you like things explained..."></textarea>
+          </div>
+
+          <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-brand-blue text-white font-semibold rounded-lg hover:opacity-90 transition-opacity">Save my preferences</button>
+          <p class="text-xs text-text-muted">This goes only to Eddie at RankRGV. You can change any answer later with a text.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  (() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('sent') === '1') {
+      document.getElementById('prefs-form-wrap')?.classList.add('hidden');
+      document.getElementById('prefs-thanks')?.classList.remove('hidden');
+      return;
+    }
+    const slug = (params.get('c') || '').replace(/[^a-z0-9-]/gi, '').slice(0, 60);
+    if (!slug) return;
+    const client = document.getElementById('client') as HTMLInputElement | null;
+    const subject = document.getElementById('email-subject') as HTMLInputElement | null;
+    if (client) client.value = slug;
+    if (subject) subject.value = `Client preferences: ${slug}`;
+  })();
+</script>
