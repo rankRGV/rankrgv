@@ -305,7 +305,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
             )}
           </div>
           <ul class="space-y-3 text-sm text-text-muted mb-8">
-            <li><strong class="text-text">When:</strong> charged automatically on the {c.billingDay} of each month to the card on file through Stripe.</li>
+            <li><strong class="text-text">When:</strong> charged automatically on the {c.billingDay} of each month, the same day as your first payment, to the card on file through Stripe.</li>
             <li><strong class="text-text">Receipts:</strong> emailed to you after every charge.</li>
             {c.billingNote && <li><strong class="text-text">Setup:</strong> {c.billingNote}</li>}
             <li><strong class="text-text">Terms:</strong> {c.cancelNote}</li>
