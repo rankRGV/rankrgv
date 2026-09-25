@@ -4,7 +4,24 @@
 //   ONBOARDING_SECRET = long random string used to sign the access cookie
 // Any slug without a code, or a missing env var, stays locked (fails closed).
 import { next } from '@vercel/functions';
-import { onboardingClients } from './src/data/onboarding.ts';
+// Share-preview fields per client. Generated from src/data/onboarding.ts by
+// scripts/make-onboarding-og.mjs (Vercel's middleware bundler can't import the .ts file).
+// BEGIN onboardingShare
+const onboardingShare = {
+  "collision-masters": {
+    "contactFirst": "Cruz",
+    "clientName": "Collision Masters"
+  },
+  "vaultx": {
+    "contactFirst": "Carlton",
+    "clientName": "VaultX"
+  },
+  "demo": {
+    "contactFirst": "Maria",
+    "clientName": "Valley Demo Auto Body"
+  }
+};
+// END onboardingShare
 
 export const config = { matcher: '/start/:path*' };
 
@@ -36,7 +53,7 @@ function readCookie(request, name) {
 // Link-preview tags so a texted link unfurls as "Welcome to RankRGV, <name>" with that client's image
 // (built by scripts/make-onboarding-og.mjs). Previews only ever see this page, never the wizard.
 function shareMeta(origin, slug) {
-  const c = onboardingClients.find((x) => x.slug === slug);
+  const c = Object.hasOwn(onboardingShare, slug) ? { slug, ...onboardingShare[slug] } : null;
   if (!c) return { title: 'RankRGV · Client access', tags: '' };
   const title = `Welcome to RankRGV, ${c.contactFirst}`;
   const desc = `Your private onboarding for ${c.clientName}. It takes about three minutes.`;

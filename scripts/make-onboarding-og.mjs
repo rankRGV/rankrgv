@@ -1,9 +1,10 @@
 // Builds the 1200x630 link-preview image for each onboarding client:
 //   public/images/og/onboarding/<slug>.png
+// and refreshes the onboardingShare block in middleware.js (preview title and text).
 // Run after adding a client to src/data/onboarding.ts:
 //   node --experimental-strip-types scripts/make-onboarding-og.mjs
 import { chromium } from 'playwright';
-import { mkdirSync, readFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 
@@ -81,3 +82,11 @@ for (const c of onboardingClients) {
   console.log('wrote', path.relative(root, file));
 }
 await browser.close();
+
+const share = Object.fromEntries(onboardingClients.map((c) => [c.slug, { contactFirst: c.contactFirst, clientName: c.clientName }]));
+const mwPath = path.join(root, 'middleware.js');
+const mw = readFileSync(mwPath, 'utf8');
+const block = /(\/\/ BEGIN onboardingShare\r?\n)[\s\S]*?(\r?\n\/\/ END onboardingShare)/;
+if (!block.test(mw)) throw new Error('onboardingShare markers missing from middleware.js');
+writeFileSync(mwPath, mw.replace(block, `$1const onboardingShare = ${JSON.stringify(share, null, 2)};$2`));
+console.log('updated middleware.js onboardingShare');
