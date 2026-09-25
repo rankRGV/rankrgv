@@ -14,6 +14,8 @@ export interface OnboardingClient {
   monthly: string;
   billingDay: string;
   billingNote?: string;
+  /** One-time setup already paid, shown as a "Paid" line on the billing card. */
+  setupPaid?: string;
   cancelNote: string;
 }
 
@@ -54,7 +56,7 @@ export const onboardingClients: OnboardingClient[] = [
     planSub: 'Ongoing content, technical work and reporting',
     monthly: '$2,325',
     billingDay: '23rd',
-    billingNote: 'The one-time $975 foundation sprint is already paid.',
+    setupPaid: '$975 foundation sprint',
     cancelNote: "Month-to-month to start. Either side can end it with 30 days' notice, no penalty.",
   },
   {

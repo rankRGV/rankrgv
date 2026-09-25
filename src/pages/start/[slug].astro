@@ -18,13 +18,30 @@ const promises = [
   { title: 'No surprise bills.', text: 'Anything outside your plan gets quoted in writing and waits for your yes.' },
 ];
 
+// Progress groups shown above the card. Numbers are step indexes.
+const segments = [
+  { label: 'You', steps: [1] },
+  { label: 'Schedule', steps: [2, 3] },
+  { label: 'Updates', steps: [4, 5, 6] },
+  { label: 'Billing', steps: [7] },
+];
+
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const earliest = ['6:00 AM', '7:00 AM', '8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM'];
 const latest = ['4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM'];
+const hourPresets = [
+  { value: 'business', title: 'Business hours', sub: '8 AM to 5 PM', from: '8:00 AM', to: '5:00 PM' },
+  { value: 'extended', title: 'Extended', sub: '8 AM to 7 PM', from: '8:00 AM', to: '7:00 PM' },
+  { value: 'anytime', title: 'Anytime', sub: 'No limit', from: '', to: '' },
+  { value: 'custom', title: 'Custom', sub: 'Pick your own' },
+];
 
-const input = 'w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent';
+const check = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5" pathLength="1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+const input = 'w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent aria-[invalid=true]:border-red-500';
 const label = 'block text-sm font-semibold text-text mb-2';
-const chip = 'inline-flex items-center gap-2 rounded-lg border border-border bg-bg-surface px-4 py-3 text-sm font-medium text-text cursor-pointer select-none transition-colors has-[:checked]:border-brand-blue has-[:checked]:bg-brand-blue/10 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-blue';
+const req = 'font-normal text-text-muted';
+const fieldError = 'text-sm text-red-600 mt-2';
 const eyebrow = 'text-xs font-bold tracking-widest uppercase text-brand-purple mb-2';
 const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
 ---
@@ -38,12 +55,17 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
         <span class="text-xs font-semibold text-text-muted">{c.clientName}</span>
       </div>
 
-      <div id="progress" class="mb-5" aria-live="polite" hidden>
-        <div class="flex justify-between text-xs font-semibold text-text-muted mb-2">
-          <span id="progress-label"></span>
-        </div>
-        <div class="h-1.5 rounded-full bg-border overflow-hidden">
-          <div id="progress-bar" class="h-full bg-brand-blue rounded-full transition-all duration-300" style="width:0%"></div>
+      <div id="progress" class="mb-5" hidden>
+        <p id="progress-sr" class="sr-only" aria-live="polite"></p>
+        <div class="grid grid-cols-4 gap-1.5" aria-hidden="true">
+          {segments.map((s) => (
+            <div data-seg={s.steps.join(',')}>
+              <div class="h-1.5 rounded-full bg-border overflow-hidden">
+                <div class="seg-fill h-full bg-brand-blue rounded-full transition-[width] duration-300 ease-out" style="width:0%"></div>
+              </div>
+              <p class="mt-2 text-[11px] font-semibold tracking-wide uppercase"><span class="seg-label inline-block text-text-muted transition-colors">{s.label}</span></p>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -52,18 +74,23 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
 
         <!-- 0: Welcome -->
         <section data-step="0">
-          <p class={eyebrow}>Welcome to RankRGV</p>
-          <h1 class={h} tabindex="-1">Thank you, {c.contactFirst}.</h1>
-          {c.letter.map((p) => <p class="text-text-muted leading-relaxed mb-4">{p}</p>)}
-          <p class="text-text-muted leading-relaxed mb-4">The next few screens take about three minutes. I'll ask how and when you want to hear from me, walk you through how we'll stay in touch, and confirm your billing. After that I'll send you everything in writing.</p>
-          <p class="font-bold text-text mb-1">Eddie Urbano</p>
-          <p class="text-sm text-text-muted mb-8">Founder, RankRGV</p>
+          <p class={eyebrow} data-stagger>Welcome to RankRGV</p>
+          <h1 class={h} tabindex="-1" data-stagger>Thank you, {c.contactFirst}.</h1>
+          {c.letter.map((p) => <p class="text-text-muted leading-relaxed mb-4" data-stagger>{p}</p>)}
+          <p class="text-text-muted leading-relaxed mb-6" data-stagger>The next few screens take about three minutes. I'll ask how and when you want to hear from me, walk you through how we'll stay in touch, and confirm your billing. After that I'll send you everything in writing.</p>
+          <div class="flex items-center gap-3 mb-8" data-stagger>
+            <img src="/images/eddie-urbano.png" alt="" width="48" height="48" class="w-12 h-12 rounded-full object-cover object-[50%_20%] ring-2 ring-border" />
+            <div>
+              <p class="font-bold text-text leading-tight">Eddie Urbano</p>
+              <p class="text-sm text-text-muted">Founder, RankRGV</p>
+            </div>
+          </div>
 
-          <div class="rounded-xl bg-bg-surface border border-border p-5">
+          <div class="rounded-xl bg-bg-surface border border-border p-5" data-stagger>
             <p class="text-sm font-bold text-text mb-3">What you can count on</p>
             <ol class="space-y-3">
               {promises.map((p, i) => (
-                <li class="flex gap-3 text-sm">
+                <li class="flex gap-3 text-sm" data-stagger>
                   <span class="font-extrabold text-brand-purple w-5 shrink-0">0{i + 1}</span>
                   <span><strong class="text-text">{p.title}</strong> <span class="text-text-muted">{p.text}</span></span>
                 </li>
@@ -74,85 +101,105 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
 
         <!-- 1: Contact method -->
         <section data-step="1" hidden>
-          <p class={eyebrow}>Question 1 of 5</p>
+          <p class={eyebrow}>About you</p>
           <h2 class={h} tabindex="-1">How should we reach you?</h2>
           <p class="text-text-muted mb-6">Pick as many as you like.</p>
-          <fieldset class="mb-6">
+          <fieldset class="mb-6" data-field="reach_by">
             <legend class="sr-only">Contact methods</legend>
             <div class="grid grid-cols-2 gap-2">
               {['Text', 'Phone call', 'WhatsApp', 'Email'].map((m) => (
-                <label class={chip}><input type="checkbox" name="reach_by" value={m} class="accent-brand-blue" /> {m}</label>
+                <label class="wz-opt"><input type="checkbox" name="reach_by" value={m} class="sr-only" /><span class="wz-mark" set:html={check} />{m}</label>
               ))}
             </div>
+            <p class={fieldError} data-error-for="reach_by" hidden></p>
           </fieldset>
-          <div class="space-y-4 mb-6">
-            <div>
-              <label for="name" class={label}>Your name</label>
-              <input id="name" name="name" value={c.contactName} autocomplete="name" class={input} />
-            </div>
-            <div data-show-for="phone" hidden>
-              <label for="phone" class={label}>Best phone number</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" class={input} placeholder="956-555-0123" />
-            </div>
-            <div data-show-for="email" hidden>
-              <label for="email" class={label}>Best email</label>
-              <input id="email" name="email" type="email" autocomplete="email" class={input} />
-            </div>
+
+          <div data-field="name">
+            <label for="name" class={label}>Your name</label>
+            <input id="name" name="name" value={c.contactName} autocomplete="name" class={input} />
           </div>
-          <fieldset>
+          <div class="wz-reveal" data-reveal="phone" inert>
+            <div class="wz-reveal-inner"><div class="pt-4" data-field="phone">
+              <label for="phone" class={label}>Best phone number <span class={req}>· required</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" class={input} placeholder="956-555-0123" aria-describedby="phone-error" />
+              <p id="phone-error" class={fieldError} data-error-for="phone" hidden></p>
+            </div></div>
+          </div>
+          <div class="wz-reveal" data-reveal="email" inert>
+            <div class="wz-reveal-inner"><div class="pt-4" data-field="email">
+              <label for="email" class={label}>Best email <span class={req}>· required</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" class={input} aria-describedby="email-error" />
+              <p id="email-error" class={fieldError} data-error-for="email" hidden></p>
+            </div></div>
+          </div>
+
+          <fieldset class="mt-6">
             <legend class={label}>Language</legend>
-            <div class="flex flex-wrap gap-2">
-              {['English', 'Español', 'Either one'].map((o, i) => (
-                <label class={chip}><input type="radio" name="language" value={o} checked={i === 0} class="accent-brand-blue" /> {o}</label>
+            <div class="grid grid-cols-3 gap-2">
+              {[['English', 'English'], ['Español', 'Español'], ['Either one', 'Either']].map(([v, t], i) => (
+                <label class="wz-opt wz-opt-stack"><input type="radio" name="language" value={v} checked={i === 0} class="sr-only" /><span class="wz-mark wz-round" set:html={check} />{t}</label>
               ))}
             </div>
           </fieldset>
-          <p class="step-error text-sm text-red-600 mt-4" hidden></p>
         </section>
 
         <!-- 2: Days -->
         <section data-step="2" hidden>
-          <p class={eyebrow}>Question 2 of 5</p>
+          <p class={eyebrow}>Your schedule</p>
           <h2 class={h} tabindex="-1">Which days are okay to contact you?</h2>
           <p class="text-text-muted mb-6">Anything non-urgent will wait for one of these days.</p>
-          <fieldset>
+          <fieldset data-field="ok_days">
             <legend class="sr-only">Days</legend>
             <div class="grid grid-cols-4 sm:grid-cols-7 gap-2">
               {days.map((d, i) => (
-                <label class={`${chip} justify-center px-2`}><input type="checkbox" name="ok_days" value={d} checked={i < 5} class="sr-only" /> {d}</label>
+                <label class="wz-opt wz-opt-stack"><input type="checkbox" name="ok_days" value={d} checked={i < 5} class="sr-only" /><span class="wz-mark" set:html={check} />{d}</label>
               ))}
             </div>
+            <p class={fieldError} data-error-for="ok_days" hidden></p>
           </fieldset>
-          <p class="step-error text-sm text-red-600 mt-4" hidden></p>
         </section>
 
         <!-- 3: Hours -->
         <section data-step="3" hidden>
-          <p class={eyebrow}>Question 3 of 5</p>
+          <p class={eyebrow}>Your schedule</p>
           <h2 class={h} tabindex="-1">What hours work for you?</h2>
           <p class="text-text-muted mb-6">I'll write whenever I'm working, but schedule messages so they only reach you inside this window.</p>
-          <div class="grid grid-cols-2 gap-4 mb-6">
-            <div>
-              <label for="earliest" class={label}>Not before</label>
-              <select id="earliest" name="not_before" class={input}>
-                <option value="">No limit</option>
-                {earliest.map((t) => <option selected={t === '8:00 AM'}>{t}</option>)}
-              </select>
-            </div>
-            <div>
-              <label for="latest" class={label}>Not after</label>
-              <select id="latest" name="not_after" class={input}>
-                <option value="">No limit</option>
-                {latest.map((t) => <option selected={t === '7:00 PM'}>{t}</option>)}
-              </select>
-            </div>
-          </div>
           <fieldset>
+            <legend class="sr-only">Hours</legend>
+            <div class="grid grid-cols-2 gap-2">
+              {hourPresets.map((p) => (
+                <label class="wz-opt items-start">
+                  <input type="radio" name="hours_preset" value={p.value} checked={p.value === 'extended'} data-from={p.from} data-to={p.to} class="sr-only" />
+                  <span class="wz-mark wz-round mt-0.5" set:html={check} />
+                  <span><strong class="block text-text">{p.title}</strong><span class="text-text-muted font-normal">{p.sub}</span></span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <div class="wz-reveal" data-reveal="custom-hours" inert>
+            <div class="wz-reveal-inner"><div class="grid grid-cols-2 gap-4 pt-4">
+              <div>
+                <label for="earliest" class={label}>Not before</label>
+                <select id="earliest" name="not_before" class={input}>
+                  <option value="">No limit</option>
+                  {earliest.map((t) => <option selected={t === '8:00 AM'}>{t}</option>)}
+                </select>
+              </div>
+              <div>
+                <label for="latest" class={label}>Not after</label>
+                <select id="latest" name="not_after" class={input}>
+                  <option value="">No limit</option>
+                  {latest.map((t) => <option selected={t === '7:00 PM'}>{t}</option>)}
+                </select>
+              </div>
+            </div></div>
+          </div>
+          <fieldset class="mt-8">
             <legend class={label}>If something urgent comes up outside those hours</legend>
             <p class="text-sm text-text-muted mb-3">Urgent means a suspended Google profile, the website down, or a hacked account.</p>
             <div class="flex flex-col gap-2">
               {['Call me anyway', "Text me, I'll see it when I see it", 'Wait until my hours start'].map((o, i) => (
-                <label class={chip}><input type="radio" name="urgent_after_hours" value={o} checked={i === 1} class="accent-brand-blue" /> {o}</label>
+                <label class="wz-opt"><input type="radio" name="urgent_after_hours" value={o} checked={i === 1} class="sr-only" /><span class="wz-mark wz-round" set:html={check} />{o}</label>
               ))}
             </div>
           </fieldset>
@@ -160,43 +207,51 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
 
         <!-- 4: Additional authorized person -->
         <section data-step="4" hidden>
-          <p class={eyebrow}>Question 4 of 5</p>
+          <p class={eyebrow}>Updates</p>
           <h2 class={h} tabindex="-1">Should anyone else get our updates?</h2>
           <p class="text-text-muted mb-6">A partner, manager, or office lead who should have the same information in their hands.</p>
-          <div class="flex gap-2 mb-6">
-            <label class={chip}><input type="radio" name="has_other" value="No" checked class="accent-brand-blue" /> Just me</label>
-            <label class={chip}><input type="radio" name="has_other" value="Yes" class="accent-brand-blue" /> Add someone</label>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="wz-opt"><input type="radio" name="has_other" value="No" checked class="sr-only" /><span class="wz-mark wz-round" set:html={check} />Just me</label>
+            <label class="wz-opt"><input type="radio" name="has_other" value="Yes" class="sr-only" /><span class="wz-mark wz-round" set:html={check} />Add someone</label>
           </div>
-          <div id="other-fields" class="space-y-4" hidden>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div><label for="other_name" class={label}>Name</label><input id="other_name" name="other_name" class={input} /></div>
-              <div><label for="other_role" class={label}>Role</label><input id="other_role" name="other_role" class={input} placeholder="Office manager" /></div>
-              <div><label for="other_email" class={label}>Email</label><input id="other_email" name="other_email" type="email" class={input} /></div>
-              <div><label for="other_phone" class={label}>Phone</label><input id="other_phone" name="other_phone" type="tel" class={input} /></div>
-            </div>
-            <fieldset>
-              <legend class={label}>What can they do?</legend>
-              <div class="flex flex-col gap-2">
-                <label class={chip}><input type="radio" name="other_access" value="Receives updates only" checked class="accent-brand-blue" /> Receive updates only</label>
-                <label class={chip}><input type="radio" name="other_access" value="Receives updates and can approve work" class="accent-brand-blue" /> Receive updates and approve work</label>
+          <div class="wz-reveal" data-reveal="other" inert>
+            <div class="wz-reveal-inner"><div class="pt-6 space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div data-field="other_name">
+                  <label for="other_name" class={label}>Name <span class={req}>· required</span></label>
+                  <input id="other_name" name="other_name" class={input} aria-describedby="other_name-error" />
+                  <p id="other_name-error" class={fieldError} data-error-for="other_name" hidden></p>
+                </div>
+                <div><label for="other_role" class={label}>Role</label><input id="other_role" name="other_role" class={input} placeholder="Office manager" /></div>
+                <div data-field="other_contact"><label for="other_email" class={label}>Email</label><input id="other_email" name="other_email" type="email" class={input} aria-describedby="other_contact-error" /></div>
+                <div><label for="other_phone" class={label}>Phone</label><input id="other_phone" name="other_phone" type="tel" class={input} aria-describedby="other_contact-error" /></div>
               </div>
-            </fieldset>
+              <p id="other_contact-error" class={fieldError} data-error-for="other_contact" hidden></p>
+              <fieldset>
+                <legend class={label}>What can they do?</legend>
+                <div class="flex flex-col gap-2">
+                  <label class="wz-opt"><input type="radio" name="other_access" value="Receives updates only" checked class="sr-only" /><span class="wz-mark wz-round" set:html={check} />Receive updates only</label>
+                  <label class="wz-opt"><input type="radio" name="other_access" value="Receives updates and can approve work" class="sr-only" /><span class="wz-mark wz-round" set:html={check} />Receive updates and approve work</label>
+                </div>
+              </fieldset>
+            </div></div>
           </div>
-          <p class="step-error text-sm text-red-600 mt-4" hidden></p>
         </section>
 
         <!-- 5: Update format -->
         <section data-step="5" hidden>
-          <p class={eyebrow}>Question 5 of 5</p>
+          <p class={eyebrow}>Updates</p>
           <h2 class={h} tabindex="-1">How do you want your updates?</h2>
           <p class="text-text-muted mb-6">Every two weeks you'll get a rundown of rankings, website activity, what we did and what's next.</p>
           <div class="flex flex-col gap-3">
-            <label class={`${chip} items-start p-4`}>
-              <input type="radio" name="update_format" value="Loom video" checked class="accent-brand-blue mt-1" />
+            <label class="wz-opt items-start p-4">
+              <input type="radio" name="update_format" value="Loom video" checked class="sr-only" />
+              <span class="wz-mark wz-round mt-0.5" set:html={check} />
               <span><strong class="block text-text">Short video (Loom)</strong><span class="text-text-muted font-normal">A few minutes, watchable on your phone. I walk you through the numbers on screen.</span></span>
             </label>
-            <label class={`${chip} items-start p-4`}>
-              <input type="radio" name="update_format" value="Written report" class="accent-brand-blue mt-1" />
+            <label class="wz-opt items-start p-4">
+              <input type="radio" name="update_format" value="Written report" class="sr-only" />
+              <span class="wz-mark wz-round mt-0.5" set:html={check} />
               <span><strong class="block text-text">Written report</strong><span class="text-text-muted font-normal">The same information as a short email you can read or forward.</span></span>
             </label>
           </div>
@@ -206,63 +261,80 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
         <section data-step="6" hidden>
           <p class={eyebrow}>Staying in touch</p>
           <h2 class={h} tabindex="-1">Here's how you'll hear from us.</h2>
-          <ol class="relative border-l-2 border-border ml-2 space-y-6 my-6">
-            <li class="pl-6 relative"><span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-brand-blue"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-brand-purple">Every 2 weeks</p>
-              <p class="font-bold text-text">Your <span data-fill="update_format_lc">video update</span></p>
-              <p class="text-sm text-text-muted">Rankings, website activity, what we did, and what's next.</p></li>
-            <li class="pl-6 relative"><span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-brand-blue"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-brand-purple">Week 6</p>
-              <p class="font-bold text-text">First check-in call</p>
-              <p class="text-sm text-text-muted">How we're doing so far: pace, early results, and what to focus on next.</p></li>
-            <li class="pl-6 relative"><span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-brand-blue"></span>
-              <p class="text-xs font-bold uppercase tracking-wider text-brand-purple">Every 6 to 8 weeks after that</p>
-              <p class="font-bold text-text">Strategy call</p>
-              <p class="text-sm text-text-muted">We look at the numbers together and set the plan for the weeks ahead.</p></li>
-          </ol>
-          <div class="rounded-xl bg-bg-surface border border-border p-5 text-sm space-y-2">
+          <div class="relative ml-2 my-6">
+            <span class="wz-tl-line absolute left-0 top-2 bottom-2 w-0.5 bg-border" aria-hidden="true"></span>
+            <ol class="space-y-6">
+              <li class="wz-tl-item pl-6 relative" style="--i:0"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-purple">Every 2 weeks</p>
+                <p class="font-bold text-text">Your <span data-fill="update_format_lc">video update</span></p>
+                <p class="text-sm text-text-muted">Rankings, website activity, what we did, and what's next.</p></li>
+              <li class="wz-tl-item pl-6 relative" style="--i:1"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-purple">Week 6</p>
+                <p class="font-bold text-text">First check-in call</p>
+                <p class="text-sm text-text-muted">How we're doing so far: pace, early results, and what to focus on next.</p></li>
+              <li class="wz-tl-item pl-6 relative" style="--i:2"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-purple">Every 6 to 8 weeks after that</p>
+                <p class="font-bold text-text">Strategy call</p>
+                <p class="text-sm text-text-muted">We look at the numbers together and set the plan for the weeks ahead.</p></li>
+            </ol>
+          </div>
+          <div class="wz-tl-item rounded-xl bg-bg-surface border border-border p-5 text-sm space-y-2" style="--i:3">
             <p><strong class="text-text">Questions:</strong> <span class="text-text-muted">answered within one business day, usually the same day.</span></p>
             <p><strong class="text-text">Your window:</strong> <span class="text-text-muted" data-fill="window_summary"></span></p>
             <p><strong class="text-text">Reach me anytime:</strong> <span class="text-text-muted">{site.phone} · {site.email}</span></p>
           </div>
         </section>
 
-        <!-- 7: Billing -->
+        <!-- 7: Billing + review -->
         <section data-step="7" hidden>
           <p class={eyebrow}>Billing</p>
           <h2 class={h} tabindex="-1">A quick look at billing.</h2>
           <div class="rounded-xl bg-bg-dark text-white p-6 my-6">
             <p class="text-lg font-extrabold">{c.planName}</p>
-            <p class="text-sm text-slate-400 mb-4">{c.planSub}</p>
-            <p class="text-3xl font-extrabold">{c.monthly}<span class="text-base font-semibold text-slate-400">/mo</span></p>
-            <p class="text-sm text-slate-400">plus tax</p>
+            <p class="text-sm text-slate-400 mb-5">{c.planSub}</p>
+            <p class="text-5xl font-extrabold tracking-tight">{c.monthly}<span class="text-base font-semibold text-slate-400 tracking-normal">/mo</span></p>
+            <p class="text-sm text-slate-400 mt-1">plus tax</p>
+            {c.setupPaid && (
+              <div class="flex items-center justify-between gap-3 text-sm mt-5 pt-4 border-t border-white/10">
+                <span class="text-slate-300">Setup · {c.setupPaid}</span>
+                <span class="inline-flex items-center gap-1.5 font-semibold text-green-400">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  Paid
+                </span>
+              </div>
+            )}
           </div>
-          <ul class="space-y-3 text-sm text-text-muted mb-2">
+          <ul class="space-y-3 text-sm text-text-muted mb-8">
             <li><strong class="text-text">When:</strong> charged automatically on the {c.billingDay} of each month to the card on file through Stripe.</li>
             <li><strong class="text-text">Receipts:</strong> emailed to you after every charge.</li>
             {c.billingNote && <li><strong class="text-text">Setup:</strong> {c.billingNote}</li>}
             <li><strong class="text-text">Terms:</strong> {c.cancelNote}</li>
             <li><strong class="text-text">Extra work:</strong> quoted in writing first. No quote, no charge.</li>
           </ul>
-          <p class="submit-error text-sm text-red-600 mt-4" hidden>That didn't go through. Try again, or text me at {site.phone} and I'll take it from there.</p>
+
+          <div class="rounded-xl border border-border">
+            <p class="text-sm font-bold text-text px-5 pt-4 pb-1">Check your answers</p>
+            <dl id="review" class="divide-y divide-border text-sm"></dl>
+          </div>
+          <p class="submit-error text-sm text-red-600 mt-4" role="alert" hidden>That didn't go through. Try again, or text me at {site.phone} and I'll take it from there.</p>
         </section>
 
         <!-- 8: Thank you -->
         <section data-step="8" hidden>
           <div class="text-center py-6">
-            <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <div class="wz-done-circle w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path class="wz-done-path" pathLength="1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
             </div>
-            <h2 class={h} tabindex="-1">You're all set, {c.contactFirst}.</h2>
-            <p class="text-text-muted leading-relaxed mb-3">Thank you for taking the time. Within one business day I'll send you a recap with everything in writing: your preferences, the plan, how we'll stay in touch, and my confidentiality pledge.</p>
-            <p class="text-text-muted leading-relaxed">Glad to have you with us.</p>
-            <p class="font-bold text-text mt-6">Eddie</p>
+            <h2 class={h} tabindex="-1" data-stagger>You're all set, {c.contactFirst}.</h2>
+            <p class="text-text-muted leading-relaxed mb-3" data-stagger>Thank you for taking the time. Within one business day I'll send you a recap with everything in writing: your preferences, the plan, how we'll stay in touch, and my confidentiality pledge.</p>
+            <p class="text-text-muted leading-relaxed" data-stagger>Glad to have you with us.</p>
+            <p class="font-bold text-text mt-6" data-stagger>Eddie</p>
           </div>
         </section>
 
-        <div id="nav" class="flex items-center justify-between gap-3 mt-8 pt-6 border-t border-border">
-          <button type="button" id="back" class="px-4 py-3 text-sm font-semibold text-text-muted hover:text-text invisible">Back</button>
-          <button type="button" id="next" class="px-7 py-3 bg-brand-blue text-white font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-60">Let's get started</button>
+        <div id="nav" class="sticky bottom-0 z-10 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 mt-8 px-6 sm:px-10 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-bg/95 backdrop-blur border-t border-border rounded-b-2xl flex items-center justify-between gap-3">
+          <button type="button" id="back" class="min-h-12 px-4 -ml-4 text-sm font-semibold text-text-muted hover:text-text invisible">Back</button>
+          <button type="button" id="next" class="min-h-12 px-7 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-blue-dark active:scale-[0.97] transition-[background-color,transform] duration-150 disabled:opacity-60">Let's get started</button>
         </div>
       </form>
 
@@ -271,6 +343,61 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
   </div>
 </BaseLayout>
 
+<style is:global>
+  .wz-opt {
+    display: flex; align-items: center; gap: 0.625rem;
+    min-height: 3rem; padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border); border-radius: 0.75rem;
+    background: var(--color-bg-surface);
+    font-size: 0.875rem; font-weight: 500; color: var(--color-text);
+    cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
+    transition: border-color 150ms, background-color 150ms, box-shadow 150ms, transform 120ms ease-out;
+  }
+  .wz-opt:hover { border-color: #cbd5e1; }
+  .wz-opt:active { transform: scale(0.97); }
+  .wz-opt:has(:checked) { border-color: var(--color-brand-blue); background: color-mix(in srgb, var(--color-brand-blue) 7%, white); }
+  .wz-opt:has(:focus-visible) { box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-brand-blue); }
+  .wz-opt-stack { flex-direction: column; justify-content: center; gap: 0.375rem; padding: 0.625rem 0.25rem; }
+
+  .wz-mark {
+    flex: none; display: grid; place-items: center;
+    width: 1.125rem; height: 1.125rem;
+    border: 1.5px solid #cbd5e1; border-radius: 0.3rem; background: #fff;
+    transition: background-color 150ms, border-color 150ms;
+  }
+  .wz-mark.wz-round { border-radius: 999px; }
+  .wz-mark svg { width: 0.75rem; height: 0.75rem; stroke: #fff; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 200ms ease-out 40ms; }
+  .wz-opt:has(:checked) .wz-mark { background: var(--color-brand-blue); border-color: var(--color-brand-blue); }
+  .wz-opt:has(:checked) .wz-mark svg { stroke-dashoffset: 0; }
+
+  /* Fields that open in place: grid rows 0fr -> 1fr animates to the content's real height. */
+  .wz-reveal { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 220ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease-out; }
+  .wz-reveal[data-open] { grid-template-rows: 1fr; opacity: 1; }
+  .wz-reveal-inner { min-height: 0; overflow: hidden; margin: 0 -4px; padding: 0 4px 4px; }
+  .wz-reveal:not([data-open]) .wz-reveal-inner { padding-bottom: 0; }
+
+  @keyframes wz-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @keyframes wz-fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes wz-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes wz-pop { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+  @keyframes wz-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+  .wz-play [data-stagger] { animation: wz-up 420ms cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(var(--i, 0) * 60ms); }
+  .wz-play .wz-tl-line { transform-origin: top; animation: wz-grow 700ms cubic-bezier(0.22, 1, 0.36, 1) 60ms both; }
+  .wz-play .wz-tl-item { animation: wz-up 380ms cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(var(--i) * 140ms + 80ms); }
+  .wz-play .wz-tl-dot { animation: wz-pop 320ms cubic-bezier(0.34, 1.56, 0.64, 1) both; animation-delay: calc(var(--i) * 140ms + 80ms); }
+  .wz-done-path { stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .wz-play .wz-done-circle { animation: wz-pop 460ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .wz-play .wz-done-path { animation: wz-draw 380ms ease-out 240ms both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wz-opt:active { transform: none; }
+    .wz-reveal { transition: opacity 150ms; }
+    .wz-play [data-stagger], .wz-play .wz-tl-item, .wz-play .wz-done-circle { animation: wz-fade 200ms ease-out both; }
+    .wz-play .wz-tl-line, .wz-play .wz-tl-dot, .wz-play .wz-done-path { animation: none; }
+  }
+</style>
+
 <script>
   const form = document.getElementById('wizard') as HTMLFormElement;
   const steps = Array.from(form.querySelectorAll<HTMLElement>('[data-step]'));
@@ -278,62 +405,218 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
   const next = document.getElementById('next') as HTMLButtonElement;
   const nav = document.getElementById('nav') as HTMLElement;
   const progress = document.getElementById('progress') as HTMLElement;
-  const bar = document.getElementById('progress-bar') as HTMLElement;
-  const progressLabel = document.getElementById('progress-label') as HTMLElement;
+  const progressSr = document.getElementById('progress-sr') as HTMLElement;
+  const segs = Array.from(progress.querySelectorAll<HTMLElement>('[data-seg]')).map((el) => ({
+    el,
+    steps: el.dataset.seg!.split(',').map(Number),
+    fill: el.querySelector<HTMLElement>('.seg-fill')!,
+    label: el.querySelector<HTMLElement>('.seg-label')!,
+  }));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const LAST_INPUT = 7; // billing; step 8 is the thank-you screen
+  const STORE = `rankrgv-onboarding:${form.dataset.client}`;
+  const EASE_OUT = 'cubic-bezier(0.22, 1, 0.36, 1)';
   let current = 0;
+  let returnTo: number | null = null; // set when editing an answer from the review card
+  let busy = false;
+  const played = new Set<number>();
 
   const val = (name: string) => (form.elements.namedItem(name) as RadioNodeList | HTMLInputElement | null)?.value?.trim() ?? '';
   const all = (name: string) => Array.from(form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]:checked`)).map((i) => i.value);
 
-  function windowSummary() {
-    const days = all('ok_days');
-    const d = days.length === 7 ? 'Any day' : days.join(', ') || 'No days picked';
+  // ---------- Saved progress (browser only; cleared on submit) ----------
+  function save() {
+    if (current > LAST_INPUT) return;
+    const v: Record<string, string | string[]> = {};
+    for (const el of Array.from(form.elements) as HTMLInputElement[]) {
+      if (!el.name) continue;
+      if (el.type === 'checkbox') { const arr = (v[el.name] as string[]) ?? []; if (el.checked) arr.push(el.value); v[el.name] = arr; }
+      else if (el.type === 'radio') { if (el.checked) v[el.name] = el.value; }
+      else v[el.name] = el.value;
+    }
+    try { localStorage.setItem(STORE, JSON.stringify({ at: Date.now(), step: current, v })); } catch {}
+  }
+
+  function restore(): number {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORE) || 'null');
+      if (!saved || Date.now() - saved.at > 30 * 864e5) return 0;
+      for (const el of Array.from(form.elements) as HTMLInputElement[]) {
+        if (!el.name || !(el.name in saved.v)) continue;
+        const x = saved.v[el.name];
+        if (el.type === 'checkbox') el.checked = Array.isArray(x) && x.includes(el.value);
+        else if (el.type === 'radio') el.checked = el.value === x;
+        else el.value = x;
+      }
+      return saved.step >= 0 && saved.step <= LAST_INPUT ? saved.step : 0;
+    } catch { return 0; }
+  }
+
+  // ---------- Conditional fields and summaries ----------
+  function reveal(key: string, open: boolean) {
+    const el = form.querySelector<HTMLElement>(`[data-reveal="${key}"]`)!;
+    el.toggleAttribute('data-open', open);
+    el.inert = !open;
+  }
+
+  function hoursText() {
     const from = val('not_before'), to = val('not_after');
-    const hours = from || to ? `${from || 'any time'} to ${to || 'any time'}` : 'any time';
-    return `${d}, ${hours}. Non-urgent messages are scheduled to land inside it.`;
+    return from || to ? `${from || 'any time'} to ${to || 'any time'}` : 'any time';
+  }
+
+  function daysText() {
+    const d = all('ok_days');
+    if (d.length === 7) return 'Any day';
+    if (d.join() === 'Mon,Tue,Wed,Thu,Fri') return 'Weekdays';
+    return d.join(', ') || 'No days picked';
+  }
+
+  function buildReview() {
+    const other = val('has_other') === 'Yes'
+      ? [val('other_name'), val('other_role') && `(${val('other_role')})`, val('other_access') === 'Receives updates only' ? 'updates only' : 'can approve work'].filter(Boolean).join(' ')
+      : 'Just you';
+    const rows: [string, string, number][] = [
+      ['Reach you by', [all('reach_by').join(', '), val('phone'), all('reach_by').includes('Email') ? val('email') : ''].filter(Boolean).join(' · '), 1],
+      ['Language', val('language'), 1],
+      ['Days', daysText(), 2],
+      ['Hours', `${hoursText()}. Urgent: ${val('urgent_after_hours').replace(/^./, (ch) => ch.toLowerCase())}`, 3],
+      ['Also gets updates', other, 4],
+      ['Updates as', val('update_format') === 'Written report' ? 'Written report' : 'Short video (Loom)', 5],
+    ];
+    const dl = document.getElementById('review')!;
+    dl.replaceChildren(...rows.map(([term, text, step]) => {
+      const row = document.createElement('div');
+      row.className = 'flex items-start justify-between gap-3 px-5 py-3';
+      const body = document.createElement('div');
+      const dt = document.createElement('dt'); dt.className = 'text-xs font-semibold text-text-muted'; dt.textContent = term;
+      const dd = document.createElement('dd'); dd.className = 'text-text'; dd.textContent = text;
+      body.append(dt, dd);
+      const edit = document.createElement('button');
+      edit.type = 'button'; edit.dataset.edit = String(step);
+      edit.className = 'shrink-0 -my-1 -mr-2 px-2 py-1 min-h-9 text-sm font-semibold text-brand-blue hover:underline';
+      edit.textContent = 'Edit'; edit.setAttribute('aria-label', `Edit ${term.toLowerCase()}`);
+      row.append(body, edit);
+      return row;
+    }));
   }
 
   function syncConditional() {
     const methods = all('reach_by');
-    form.querySelector<HTMLElement>('[data-show-for="phone"]')!.hidden = !methods.some((m) => m !== 'Email');
-    form.querySelector<HTMLElement>('[data-show-for="email"]')!.hidden = !methods.includes('Email');
-    (document.getElementById('other-fields') as HTMLElement).hidden = val('has_other') !== 'Yes';
+    reveal('phone', methods.some((m) => m !== 'Email'));
+    reveal('email', methods.includes('Email'));
+    reveal('other', val('has_other') === 'Yes');
+    reveal('custom-hours', val('hours_preset') === 'custom');
     form.querySelectorAll<HTMLElement>('[data-fill="update_format_lc"]').forEach((el) => {
       el.textContent = val('update_format') === 'Written report' ? 'written report' : 'video update';
     });
-    form.querySelectorAll<HTMLElement>('[data-fill="window_summary"]').forEach((el) => (el.textContent = windowSummary()));
+    form.querySelectorAll<HTMLElement>('[data-fill="window_summary"]').forEach((el) => {
+      el.textContent = `${daysText()}, ${hoursText()}. Non-urgent messages are scheduled to land inside it.`;
+    });
+    if (current === LAST_INPUT) buildReview();
   }
 
-  function validate(step: number): string {
+  // ---------- Validation ----------
+  type Err = { key: string; msg: string };
+  function validate(step: number): Err[] {
+    const errs: Err[] = [];
     if (step === 1) {
       const methods = all('reach_by');
-      if (!methods.length) return 'Pick at least one way to reach you.';
-      if (methods.some((m) => m !== 'Email') && !val('phone')) return 'Add the best phone number.';
-      if (methods.includes('Email') && !/^\S+@\S+\.\S+$/.test(val('email'))) return 'Add a valid email.';
+      if (!methods.length) errs.push({ key: 'reach_by', msg: 'Pick at least one way to reach you.' });
+      if (methods.some((m) => m !== 'Email') && !val('phone')) errs.push({ key: 'phone', msg: 'Add the best phone number.' });
+      if (methods.includes('Email') && !/^\S+@\S+\.\S+$/.test(val('email'))) errs.push({ key: 'email', msg: 'Add a valid email.' });
     }
-    if (step === 2 && !all('ok_days').length) return 'Pick at least one day.';
+    if (step === 2 && !all('ok_days').length) errs.push({ key: 'ok_days', msg: 'Pick at least one day.' });
     if (step === 4 && val('has_other') === 'Yes') {
-      if (!val('other_name')) return 'Add their name.';
-      if (!val('other_email') && !val('other_phone')) return 'Add an email or phone for them.';
+      if (!val('other_name')) errs.push({ key: 'other_name', msg: 'Add their name.' });
+      if (!val('other_email') && !val('other_phone')) errs.push({ key: 'other_contact', msg: 'Add an email or phone for them.' });
     }
-    return '';
+    return errs;
   }
 
-  function show(step: number) {
+  function setError(key: string, msg: string) {
+    const p = form.querySelector<HTMLElement>(`[data-error-for="${key}"]`);
+    if (p) { p.textContent = msg; p.hidden = !msg; }
+    const field = form.querySelector<HTMLElement>(`[data-field="${key}"]`);
+    field?.querySelectorAll('input').forEach((i) => { if (i.type !== 'checkbox') i.setAttribute('aria-invalid', String(!!msg)); });
+  }
+
+  function showErrors(errs: Err[]) {
+    errs.forEach((e) => setError(e.key, e.msg));
+    const field = form.querySelector<HTMLElement>(`[data-field="${errs[0].key}"]`);
+    if (!field) return;
+    if (!reduce) field.animate(
+      [{ transform: 'translateX(0)' }, { transform: 'translateX(-3px)' }, { transform: 'translateX(3px)' }, { transform: 'translateX(-2px)' }, { transform: 'translateX(0)' }],
+      { duration: 300, easing: 'ease-out' },
+    );
+    field.querySelector<HTMLInputElement>('input:not([type=checkbox]), input')?.focus({ preventScroll: true });
+    field.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' });
+  }
+
+  const errorKey = (name: string) => (name === 'other_email' || name === 'other_phone' ? 'other_contact' : name);
+
+  // ---------- Progress ----------
+  function renderProgress(step: number, prev: number) {
+    progress.hidden = step === 0 || step > LAST_INPUT;
+    segs.forEach((s) => {
+      const last = s.steps[s.steps.length - 1];
+      const idx = s.steps.indexOf(step);
+      const done = step > last;
+      s.fill.style.width = done ? '100%' : idx >= 0 ? `${((idx + 1) / s.steps.length) * 100}%` : '0%';
+      s.label.textContent = (done ? '✓ ' : '') + s.el.dataset.name;
+      s.label.className = `seg-label inline-block transition-colors ${done ? 'text-brand-blue' : idx >= 0 ? 'text-text' : 'text-text-muted'}`;
+      if (done && prev <= last && prev > 0 && !reduce) {
+        s.label.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.12)' }, { transform: 'scale(1)' }], { duration: 360, easing: 'ease-out' });
+      }
+    });
+    const seg = segs.find((s) => s.steps.includes(step));
+    if (seg) progressSr.textContent = `Step ${step} of ${LAST_INPUT}: ${seg.el.dataset.name}`;
+  }
+  segs.forEach((s) => (s.el.dataset.name = s.label.textContent!.trim()));
+
+  // ---------- Step rendering and transitions ----------
+  function play(step: number) {
+    if (played.has(step)) return;
+    played.add(step);
+    const s = steps[step];
+    const offset = step === 8 ? 5 : 0; // thank-you text waits for the check to draw
+    s.querySelectorAll<HTMLElement>('[data-stagger]').forEach((el, i) => el.style.setProperty('--i', String(i + offset)));
+    s.classList.remove('wz-play');
+    void s.offsetWidth;
+    s.classList.add('wz-play');
+  }
+
+  function render(step: number) {
+    const prev = current;
     steps.forEach((s) => (s.hidden = Number(s.dataset.step) !== step));
     current = step;
     syncConditional();
     back.classList.toggle('invisible', step === 0);
-    next.textContent = step === 0 ? "Let's get started" : step === LAST_INPUT ? 'Finish' : 'Next';
+    next.textContent = step === 0 ? "Let's get started"
+      : step === LAST_INPUT ? 'Finish'
+      : returnTo !== null ? 'Back to review' : 'Next';
     nav.hidden = step > LAST_INPUT;
-    progress.hidden = step === 0 || step > LAST_INPUT;
-    progressLabel.textContent = `Step ${step} of ${LAST_INPUT}`;
-    bar.style.width = `${(step / LAST_INPUT) * 100}%`;
+    renderProgress(step, prev);
+    if (step === 0 || step === 6 || step === 8) play(step);
     steps[step].querySelector<HTMLElement>('h1, h2')?.focus({ preventScroll: true });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.scrollY > 0) window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    save();
   }
 
+  async function go(to: number) {
+    if (busy || to === current) return;
+    busy = true;
+    const dir = to > current ? 1 : -1;
+    const x = reduce ? 0 : 24 * dir;
+    const out = steps[current].animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: `translateX(${-x}px)` }], { duration: 140, easing: 'cubic-bezier(0.4, 0, 1, 1)' });
+    // Never let a throttled animation hold the wizard hostage.
+    await Promise.race([out.finished.catch(() => {}), new Promise((r) => setTimeout(r, 200))]);
+    out.cancel();
+    render(to);
+    steps[to].animate([{ opacity: 0, transform: `translateX(${x}px)` }, { opacity: 1, transform: 'none' }], { duration: 240, easing: EASE_OUT });
+    busy = false;
+  }
+
+  // ---------- Submit ----------
   function answers() {
     return {
       client: form.dataset.client,
@@ -351,6 +634,26 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
         : null,
       update_format: val('update_format'),
     };
+  }
+
+  function confetti(origin: HTMLElement) {
+    if (reduce) return;
+    const r = origin.getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    const colors = ['#1d4ed8', '#3b82f6', '#d97706', '#fbbf24'];
+    for (let i = 0; i < 36; i++) {
+      const p = document.createElement('span');
+      const size = 5 + Math.random() * 4;
+      Object.assign(p.style, { position: 'fixed', left: `${cx}px`, top: `${cy}px`, width: `${size}px`, height: `${size * 0.6}px`, background: colors[i % 4], borderRadius: '1px', pointerEvents: 'none', zIndex: '50' });
+      document.body.appendChild(p);
+      const a = Math.random() * Math.PI * 2, d = 60 + Math.random() * 90;
+      const dx = Math.cos(a) * d, dy = Math.sin(a) * d - 30, rot = Math.random() * 540 - 270;
+      p.animate([
+        { transform: 'translate(-50%, -50%) rotate(0deg)', opacity: 1 },
+        { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) rotate(${rot / 2}deg)`, opacity: 1, offset: 0.6 },
+        { transform: `translate(calc(-50% + ${dx * 1.1}px), calc(-50% + ${dy + 60}px)) rotate(${rot}deg)`, opacity: 0 },
+      ], { duration: 900 + Math.random() * 500, easing: 'cubic-bezier(0.2, 0.7, 0.3, 1)' }).finished.then(() => p.remove());
+    }
   }
 
   async function submit() {
@@ -374,7 +677,10 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error(String(res.status));
-      show(LAST_INPUT + 1);
+      try { localStorage.removeItem(STORE); } catch {}
+      next.disabled = false;
+      await go(LAST_INPUT + 1);
+      setTimeout(() => confetti(steps[LAST_INPUT + 1].querySelector<HTMLElement>('.wz-done-circle')!), 260);
     } catch {
       err.hidden = false;
       next.disabled = false;
@@ -382,19 +688,44 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
     }
   }
 
+  // ---------- Events ----------
   next.addEventListener('click', () => {
-    const msg = validate(current);
-    const errEl = steps[current].querySelector<HTMLElement>('.step-error');
-    if (errEl) { errEl.textContent = msg; errEl.hidden = !msg; }
-    if (msg) return;
-    if (current === LAST_INPUT) submit();
-    else show(current + 1);
+    if (busy || next.disabled) return;
+    const errs = validate(current);
+    if (errs.length) { showErrors(errs); return; }
+    if (current === LAST_INPUT) { submit(); return; }
+    if (returnTo !== null) { const to = returnTo; returnTo = null; go(to); return; }
+    go(current + 1);
   });
-  back.addEventListener('click', () => show(Math.max(0, current - 1)));
-  form.addEventListener('change', syncConditional);
+  back.addEventListener('click', () => go(Math.max(0, current - 1)));
+
+  form.addEventListener('click', (e) => {
+    const edit = (e.target as HTMLElement).closest<HTMLElement>('[data-edit]');
+    if (!edit) return;
+    returnTo = LAST_INPUT;
+    go(Number(edit.dataset.edit));
+  });
+
+  form.addEventListener('change', (e) => {
+    const t = e.target as HTMLInputElement;
+    if (t.name === 'hours_preset' && t.value !== 'custom') {
+      (form.elements.namedItem('not_before') as HTMLSelectElement).value = t.dataset.from ?? '';
+      (form.elements.namedItem('not_after') as HTMLSelectElement).value = t.dataset.to ?? '';
+    }
+    if (t.name) setError(errorKey(t.name), '');
+    syncConditional();
+    save();
+  });
+  form.addEventListener('input', (e) => {
+    const t = e.target as HTMLInputElement;
+    if (t.name) setError(errorKey(t.name), '');
+    save();
+  });
   form.addEventListener('submit', (e) => e.preventDefault());
   form.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && (e.target as HTMLElement).tagName === 'INPUT') { e.preventDefault(); next.click(); }
   });
-  show(0);
+
+  const start = restore();
+  render(start);
 </script>
