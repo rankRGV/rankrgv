@@ -4,11 +4,13 @@
 //   ONBOARDING_SECRET = long random string used to sign the access cookie
 // Any slug without a code, or a missing env var, stays locked (fails closed).
 import { next } from '@vercel/functions';
+import { onboardingClients } from './src/data/onboarding.ts';
 
 export const config = { matcher: '/start/:path*' };
 
 const COOKIE_DAYS = 90;
 const enc = new TextEncoder();
+const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]);
 
 const normalize = (code) => String(code || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
 
@@ -31,9 +33,33 @@ function readCookie(request, name) {
   return match ? match.slice(name.length + 1) : '';
 }
 
-function page(status, body) {
+// Link-preview tags so a texted link unfurls as "Welcome to RankRGV, <name>" with that client's image
+// (built by scripts/make-onboarding-og.mjs). Previews only ever see this page, never the wizard.
+function shareMeta(origin, slug) {
+  const c = onboardingClients.find((x) => x.slug === slug);
+  if (!c) return { title: 'RankRGV · Client access', tags: '' };
+  const title = `Welcome to RankRGV, ${c.contactFirst}`;
+  const desc = `Your private onboarding for ${c.clientName}. It takes about three minutes.`;
+  const img = `${origin}/images/og/onboarding/${c.slug}.png`;
+  return {
+    title,
+    first: c.contactFirst,
+    clientName: c.clientName,
+    tags: `<meta name="description" content="${esc(desc)}">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RankRGV">
+<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${origin}/start/${c.slug}/">
+<meta property="og:image" content="${img}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(title)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${img}">`,
+  };
+}
+
+function page(status, body, meta = { title: 'RankRGV · Client access', tags: '' }) {
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><title>RankRGV · Client access</title>
+<meta name="robots" content="noindex,nofollow"><title>${esc(meta.title)}</title>
+${meta.tags}
 <style>
   *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f8f9fc;font-family:Inter,system-ui,-apple-system,sans-serif;color:#0f172a;padding:16px}
   .card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:32px 28px;width:100%;max-width:380px;box-shadow:0 1px 3px rgba(15,23,42,.06)}
@@ -52,11 +78,14 @@ function page(status, body) {
   });
 }
 
-function loginPage(error) {
-  return page(401, `<h1>Welcome to RankRGV</h1><p>Enter the passcode Eddie sent you to open your onboarding.</p>
+function loginPage(meta, error) {
+  const heading = meta.first ? `Welcome to RankRGV, ${esc(meta.first)}` : 'Welcome to RankRGV';
+  const forWho = meta.clientName ? ` for ${esc(meta.clientName)}` : '';
+  // 200, not 401: iMessage and other link previewers skip non-200 pages.
+  return page(error ? 401 : 200, `<h1>${heading}</h1><p>Enter the passcode Eddie sent you to open your onboarding${forWho}.</p>
 <form method="POST"><label for="code">Passcode</label>
 <input id="code" name="code" autocomplete="one-time-code" autocapitalize="characters" required autofocus>
-${error ? `<p class="err" role="alert">${error}</p>` : ''}<button type="submit">Continue</button></form>`);
+${error ? `<p class="err" role="alert">${error}</p>` : ''}<button type="submit">Continue</button></form>`, meta);
 }
 
 export default async function middleware(request) {
@@ -70,6 +99,7 @@ export default async function middleware(request) {
   const code = normalize(codes[slug]);
   if (!secret || !code) return page(404, '<h1>Page not available</h1><p>This link isn\'t active.</p>');
 
+  const meta = shareMeta(url.origin, slug);
   const cookieName = `rgv_start_${slug.replace(/[^a-z0-9-]/g, '')}`;
   const expected = await sign(secret, `${slug}:${code}`);
 
@@ -79,7 +109,7 @@ export default async function middleware(request) {
     const ok = safeEqual(await sign(secret, `${slug}:${given}`), expected);
     if (!ok) {
       await new Promise((r) => setTimeout(r, 600));
-      return loginPage("That code didn't match. Check the text from Eddie and try again.");
+      return loginPage(meta, "That code didn't match. Check the text from Eddie and try again.");
     }
     return new Response(null, {
       status: 303,
@@ -94,5 +124,5 @@ export default async function middleware(request) {
   if (safeEqual(readCookie(request, cookieName), expected)) {
     return next({ headers: { 'x-robots-tag': 'noindex, nofollow', 'cache-control': 'private, no-store' } });
   }
-  return loginPage();
+  return loginPage(meta);
 }
