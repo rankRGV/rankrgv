@@ -12,3 +12,11 @@ Thumbs.db
 .claude/skills/impeccable/scripts/data/
 .vercel
 .env*
+
+# internal client work, keep out of the public repo (backed up in the Vault)
+reports/
+intelligence/
+scripts/.gsc-*.json
+.astro/data-store.json
+.astro/dev.json
+.astro/settings.json
