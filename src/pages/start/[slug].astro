@@ -11,11 +11,11 @@ export function getStaticPaths() {
 const { c } = Astro.props as { c: OnboardingClient };
 
 const promises = [
-  { title: 'You work with me directly.', text: 'The person you talk to is the person doing the work. No account managers, no hand-offs.' },
-  { title: 'You own everything.', text: 'Your website, content, Google accounts and data stay in your name. If we ever part ways, all of it stays with you.' },
+  { title: "You'll always reach me.", text: 'Every call, text and email comes straight to me, and I do the work myself.' },
+  { title: 'Everything is in your name.', text: 'Your website, content, Google accounts and data belong to you and stay with you.' },
   c.exclusivity,
-  { title: 'Straight numbers.', text: "Reports show what moved and what didn't. If something isn't working, you hear it from me first." },
-  { title: 'No surprise bills.', text: 'Anything outside your plan gets quoted in writing and waits for your yes.' },
+  { title: 'Reports show the real numbers.', text: "You'll see what moved and what didn't. If something isn't working, I'll tell you." },
+  { title: 'Extra work is quoted first.', text: 'Anything outside your plan gets a written quote, and nothing starts until you say yes.' },
 ];
 
 // Progress groups shown above the card. Numbers are step indexes.
@@ -87,7 +87,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
           </div>
 
           <div class="rounded-xl bg-bg-surface border border-border p-5" data-stagger>
-            <p class="text-sm font-bold text-text mb-3">What you can count on</p>
+            <p class="text-sm font-bold text-text mb-3">How we'll work together</p>
             <ol class="space-y-3">
               {promises.map((p, i) => (
                 <li class="flex gap-3 text-sm" data-stagger>
@@ -316,6 +316,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
             <p class="text-sm font-bold text-text px-5 pt-4 pb-1">Check your answers</p>
             <dl id="review" class="divide-y divide-border text-sm"></dl>
           </div>
+          <div class="cf-turnstile mt-6" data-sitekey="0x4AAAAAAE4-5t1BJvBEpWkt" data-size="flexible"></div>
           <p class="submit-error text-sm text-red-600 mt-4" role="alert" hidden>That didn't go through. Try again, or text me at {site.phone} and I'll take it from there.</p>
         </section>
 
@@ -398,6 +399,8 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
   }
 </style>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+
 <script>
   const form = document.getElementById('wizard') as HTMLFormElement;
   const steps = Array.from(form.querySelectorAll<HTMLElement>('[data-step]'));
@@ -429,7 +432,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
     if (current > LAST_INPUT) return;
     const v: Record<string, string | string[]> = {};
     for (const el of Array.from(form.elements) as HTMLInputElement[]) {
-      if (!el.name) continue;
+      if (!el.name || el.name === 'cf-turnstile-response') continue;
       if (el.type === 'checkbox') { const arr = (v[el.name] as string[]) ?? []; if (el.checked) arr.push(el.value); v[el.name] = arr; }
       else if (el.type === 'radio') { if (el.checked) v[el.name] = el.value; }
       else v[el.name] = el.value;
@@ -669,6 +672,8 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
       form_type: 'onboarding-wizard',
       '_email.subject': `Onboarding complete: ${a.client}`,
       recap_json: JSON.stringify(a),
+      // Formspark rejects submissions without a Turnstile token.
+      'cf-turnstile-response': val('cf-turnstile-response'),
     };
     try {
       const res = await fetch(form.dataset.endpoint!, {
@@ -682,6 +687,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
       await go(LAST_INPUT + 1);
       setTimeout(() => confetti(steps[LAST_INPUT + 1].querySelector<HTMLElement>('.wz-done-circle')!), 260);
     } catch {
+      (window as any).turnstile?.reset(); // tokens are single-use
       err.hidden = false;
       next.disabled = false;
       next.textContent = 'Finish';
