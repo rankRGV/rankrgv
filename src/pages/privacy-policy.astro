@@ -4,7 +4,7 @@ import { site } from '@/config/site';
 
 const title = 'Privacy Policy | RankRGV';
 const description = 'Privacy policy for RankRGV — how we collect, use, and protect your information.';
-const lastUpdated = 'March 2026';
+const lastUpdated = 'September 2026';
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
@@ -35,7 +35,7 @@ const lastUpdated = 'March 2026';
             <li>Any additional information you include in the message field</li>
           </ul>
           <p class="text-text-muted leading-relaxed mt-3">
-            We also collect standard website analytics data (page views, referral sources, browser type) via Google Analytics 4 if you have not opted out of tracking. This data is anonymized and aggregated.
+            We also collect standard website analytics data (page views, referral sources, browser type) through Google Analytics 4 and PostHog. See the Analytics section below for details.
           </p>
         </div>
 
@@ -65,12 +65,15 @@ const lastUpdated = 'March 2026';
           <p class="text-text-muted leading-relaxed">
             We use Google Analytics 4 to understand how visitors use our site. This service collects anonymized, aggregated data including pages visited, time on site, referral source, and general geographic region. It does not collect personally identifiable information. You can opt out of Google Analytics tracking via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:underline">Google Analytics Opt-out Browser Add-on</a>.
           </p>
+          <p class="text-text-muted leading-relaxed mt-3">
+            We also use PostHog to see how people use the site. PostHog records page views, clicks, referral source, device and browser type, and approximate location. It also records sessions, meaning a replay of how you scroll and click through pages, so we can find parts of the site that are confusing or broken. Anything typed into form fields is masked in these recordings. We use this data only to improve our website, and we do not sell it. You can block PostHog with most ad or tracker blockers.
+          </p>
         </div>
 
         <div>
           <h2 class="text-xl font-bold text-text mb-3">6. Cookies</h2>
           <p class="text-text-muted leading-relaxed">
-            Our website may set cookies for analytics purposes (Google Analytics) and for basic site functionality. We do not use advertising cookies or tracking pixels for ad targeting purposes. You can control cookie settings through your browser preferences.
+            Our website may set cookies for analytics purposes (Google Analytics and PostHog) and for basic site functionality. We do not use advertising cookies or tracking pixels for ad targeting purposes. You can control cookie settings through your browser preferences.
           </p>
         </div>
 
