@@ -380,3 +380,23 @@ details[open] .faq-icon {
   outline-offset: 3px;
 }
 :where(section[id], h2[id], form[id]) { scroll-margin-top: 7rem; }
+
+/* Homepage grade controls share one size and focus treatment. */
+.grade-form { padding: 8px; border-radius: 16px; background: white; }
+.grade-controls { display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 8px; }
+.grade-business { min-width: 0; grid-column: 1 / -1; }
+.grade-city { min-width: 0; grid-column: 1; }
+.grade-form input[type="text"], .grade-form select, .grade-submit {
+  box-sizing: border-box; height: 48px; min-width: 0; width: 100%;
+  font-size: 16px; line-height: 24px; border-radius: 8px;
+}
+.grade-form input[type="text"], .grade-form select { padding: 0 12px; background: #f1f5f9; color: #0f172a; border: 1px solid #e2e8f0; }
+.grade-form input::placeholder { color: #64748b; opacity: 1; }
+.grade-submit { grid-column: 2; padding: 0 12px; justify-content: center; white-space: nowrap; font-weight: 600; }
+.grade-submit:hover, .grade-submit:active { transform: none; box-shadow: none; }
+@media (min-width: 640px) {
+  .grade-controls { grid-template-columns: minmax(0, 1fr) 136px; }
+  .grade-business { grid-column: 1; }
+  .grade-city { grid-column: 2; }
+  .grade-submit { grid-column: 1 / -1; }
+}
