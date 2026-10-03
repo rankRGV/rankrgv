@@ -10,6 +10,8 @@
     }
   ],
   "redirects": [
+    { "source": "/v2", "destination": "/", "permanent": true },
+    { "source": "/v2/", "destination": "/", "permanent": true },
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/home/", "destination": "/", "permanent": true },
     { "source": "/brownsville", "destination": "/service-areas/brownsville/", "permanent": true },

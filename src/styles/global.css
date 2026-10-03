@@ -373,3 +373,10 @@ details[open] .faq-icon {
 @media print {
   .no-print { display: none !important; }
 }
+
+/* Keyboard focus and anchor clearance for the shared fixed header. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 3px;
+}
+:where(section[id], h2[id], form[id]) { scroll-margin-top: 7rem; }

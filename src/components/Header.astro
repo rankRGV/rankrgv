@@ -24,7 +24,7 @@ const navEs = [
 
 <header
   id="site-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-bg-dark"
+  class="fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300 bg-bg-dark"
 >
   <!-- Top utility bar — phone + service area coverage. Grid-rows transition (not max-height) so collapsing on scroll doesn't animate a layout-thrashing property. -->
   <div id="top-bar" class="hidden sm:grid border-b border-white/10 transition-[grid-template-rows] duration-200 ease-out" style="background: #1d4ed8; grid-template-rows: 1fr;">
@@ -62,7 +62,7 @@ const navEs = [
           alt="RankRGV"
           width={256}
           height={64}
-          class="h-8 w-auto transition-all duration-300"
+          class="h-8 w-auto transition-[filter] duration-300"
           loading="eager"
           fetchpriority="high"
         />
@@ -70,13 +70,15 @@ const navEs = [
 
       <!-- Desktop nav -->
       <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
-        {(es ? navEs : mainNav).map((item) => (
+        {(es ? navEs : mainNav).map((item, i) => (
           item.dropdown ? (
-            <div class="relative group">
+            <div class="relative group" data-nav-disclosure>
               <button
-                class="header-nav-btn flex items-center gap-1 px-3 py-2 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors duration-150"
+                class="header-nav-btn flex items-center gap-1 px-3 py-3 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors duration-150"
                 aria-expanded="false"
-                aria-haspopup="true"
+                aria-controls={`nav-panel-${i}`}
+                type="button"
+                data-nav-toggle
               >
                 {item.label}
                 <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,7 +87,7 @@ const navEs = [
               </button>
 
               <!-- Dropdown -->
-              <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div id={`nav-panel-${i}`} class="absolute top-full left-0 pt-2 z-50" hidden>
                 <div class="bg-white rounded-xl shadow-2xl border border-border p-2 min-w-[220px]">
                   {item.dropdown.map((child) => (
                     <a
@@ -101,7 +103,7 @@ const navEs = [
           ) : (
             <a
               href={item.href}
-              class="header-nav-link px-3 py-2 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors duration-150 no-underline"
+              class="header-nav-link px-3 py-3 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors duration-150 no-underline"
             >
               {item.label}
             </a>
@@ -119,9 +121,11 @@ const navEs = [
       <!-- Mobile menu button -->
       <button
         id="mobile-menu-btn"
-        class="header-mobile-btn lg:hidden p-2 text-white/80 hover:text-white"
+        class="header-mobile-btn lg:hidden min-w-11 min-h-11 p-2 text-white/80 hover:text-white"
         aria-label="Toggle menu"
         aria-expanded="false"
+        aria-controls="mobile-menu"
+        type="button"
       >
         <span class="relative block w-6 h-6">
           <svg id="icon-open" class="w-6 h-6 absolute inset-0 transition-[opacity,transform] duration-150 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -138,16 +142,20 @@ const navEs = [
   <!-- Mobile menu — always dark bg regardless of scroll. Grid-rows transition (not display:none) so open/close animates instead of teleporting. -->
   <div
     id="mobile-menu"
+    role="navigation"
+    aria-label={es ? 'Navegación móvil' : 'Mobile navigation'}
+    hidden
+    inert
     class="lg:hidden grid transition-[grid-template-rows,opacity] duration-200 ease-out"
     style="grid-template-rows: 0fr; opacity: 0;"
   >
     <div class="overflow-hidden">
-      <div class="border-t border-white/10 bg-bg-dark max-h-[calc(100vh-3.5rem)] overflow-y-auto overscroll-contain px-4 py-4 space-y-1">
+      <div class="border-t border-white/10 bg-bg-dark max-h-[calc(100dvh-3.5rem)] overflow-y-auto overscroll-contain px-4 py-4 space-y-1">
         {(es ? navEs : mainNav).map((item) => (
           <>
             {(item as any).dropdown ? (
-              <details class="group/acc js-accordion">
-                <summary class="flex items-center justify-between px-3 py-2 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors cursor-pointer list-none">
+              <details class="group/acc">
+                <summary class="flex items-center justify-between px-3 py-3 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors cursor-pointer list-none">
                   {item.label}
                   <svg class="w-4 h-4 text-white/50 transition-transform duration-200 group-open/acc:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -157,7 +165,7 @@ const navEs = [
                   {((item as any).dropdown as any[]).map((child: any) => (
                     <a
                       href={child.href}
-                      class="block px-3 py-2 text-sm text-white/70 hover:text-white rounded-md transition-colors no-underline"
+                      class="block px-3 py-3 text-sm text-white/70 hover:text-white rounded-md transition-colors no-underline"
                     >
                       {child.label}
                     </a>
@@ -167,7 +175,7 @@ const navEs = [
             ) : (
               <a
                 href={item.href}
-                class="block px-3 py-2 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors no-underline"
+                class="block px-3 py-3 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors no-underline"
               >
                 {item.label}
               </a>
@@ -233,93 +241,63 @@ const navEs = [
     setScrolled(window.scrollY > 20);
   }, { passive: true });
 
-  // ── Mobile menu toggle ───────────────────────────────────
-  const btn       = document.getElementById('mobile-menu-btn');
-  const menu      = document.getElementById('mobile-menu');
-  const iconOpen  = document.getElementById('icon-open');
+  // Disclosure navigation: native button keys, synchronized state and focus.
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
   const iconClose = document.getElementById('icon-close');
-
-  btn.addEventListener('click', () => {
-    const wasOpen = menu.style.opacity === '1';
-    const nowOpen = !wasOpen;
-
-    menu.style.gridTemplateRows = nowOpen ? '1fr' : '0fr';
-    menu.style.opacity = nowOpen ? '1' : '0';
-    btn.setAttribute('aria-expanded', String(nowOpen));
-
-    iconOpen.style.opacity = nowOpen ? '0' : '1';
-    iconOpen.style.transform = nowOpen ? 'rotate(45deg)' : 'rotate(0deg)';
-    iconClose.style.opacity = nowOpen ? '1' : '0';
-    iconClose.style.transform = nowOpen ? 'rotate(0deg)' : 'rotate(-45deg)';
-
-    // Hide the floating sticky CTA bar while the mobile menu is open — they occupy
-    // the same space and the bar was covering the menu's own CTA/contact links.
-    const stickyBar = document.getElementById('sticky-call-cta');
-    if (stickyBar) stickyBar.style.transform = nowOpen ? 'translateY(100%)' : '';
-  });
-
-  // ── Accordion open/close animation (details/summary) ─────
-  // Native <details> snaps open instantly; animate height via WAAPI instead,
-  // measuring the summary + content so it works with any amount of text.
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('details.js-accordion').forEach((el) => {
-      const summary = el.querySelector(':scope > summary');
-      const content = el.querySelector(':scope > summary + div');
-      if (!summary || !content) return;
-      let animation = null;
-      let isClosing = false;
-      let isExpanding = false;
-
-      summary.addEventListener('click', (e) => {
-        e.preventDefault();
-        el.style.overflow = 'hidden';
-        if (isClosing || !el.open) {
-          openAccordion();
-        } else if (isExpanding || el.open) {
-          closeAccordion();
-        }
-      });
-
-      function openAccordion() {
-        el.style.height = `${el.offsetHeight}px`;
-        el.open = true;
-        window.requestAnimationFrame(runExpand);
-      }
-
-      function runExpand() {
-        isExpanding = true;
-        const startHeight = `${el.offsetHeight}px`;
-        const endHeight = `${summary.offsetHeight + content.offsetHeight}px`;
-        if (animation) animation.cancel();
-        animation = el.animate(
-          { height: [startHeight, endHeight] },
-          { duration: 200, easing: 'cubic-bezier(0.23, 1, 0.32, 1)' }
-        );
-        animation.onfinish = () => onFinish(true);
-        animation.oncancel = () => { isExpanding = false; };
-      }
-
-      function closeAccordion() {
-        isClosing = true;
-        const startHeight = `${el.offsetHeight}px`;
-        const endHeight = `${summary.offsetHeight}px`;
-        if (animation) animation.cancel();
-        animation = el.animate(
-          { height: [startHeight, endHeight] },
-          { duration: 160, easing: 'ease-out' }
-        );
-        animation.onfinish = () => onFinish(false);
-        animation.oncancel = () => { isClosing = false; };
-      }
-
-      function onFinish(open) {
-        el.open = open;
-        animation = null;
-        isClosing = false;
-        isExpanding = false;
-        el.style.height = '';
-        el.style.overflow = '';
-      }
-    });
+  function setMobileOpen(open, restoreFocus = false) {
+    menu.hidden = !open;
+    menu.inert = !open;
+    menu.style.gridTemplateRows = open ? '1fr' : '0fr';
+    menu.style.opacity = open ? '1' : '0';
+    btn.setAttribute('aria-expanded', String(open));
+    iconOpen.style.opacity = open ? '0' : '1';
+    iconClose.style.opacity = open ? '1' : '0';
+    iconClose.style.transform = open ? 'rotate(0deg)' : 'rotate(-45deg)';
+    const sticky = document.getElementById('sticky-call-cta');
+    if (sticky) sticky.style.transform = open ? 'translateY(100%)' : '';
+    if (restoreFocus) btn.focus();
   }
+  btn.addEventListener('click', () => setMobileOpen(menu.hidden));
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMobileOpen(false)));
+  const disclosures = Array.from(header.querySelectorAll('[data-nav-disclosure]'));
+  function setDisclosure(group, open, restoreFocus = false) {
+    const toggle = group.querySelector('[data-nav-toggle]');
+    const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+    panel.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    if (restoreFocus) toggle.focus();
+  }
+  disclosures.forEach(group => {
+    const toggle = group.querySelector('[data-nav-toggle]');
+    const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+    const open = () => { disclosures.forEach(other => { if (other !== group) setDisclosure(other, false); }); setDisclosure(group, true); };
+    toggle.addEventListener('click', () => toggle.getAttribute('aria-expanded') === 'true' ? setDisclosure(group, false) : open());
+    toggle.addEventListener('keydown', event => {
+      if (event.key === 'ArrowDown') { event.preventDefault(); open(); panel.querySelector('a')?.focus(); }
+    });
+    group.addEventListener('mouseenter', open);
+    group.addEventListener('mouseleave', () => { if (!group.contains(document.activeElement)) setDisclosure(group, false); });
+    group.addEventListener('focusout', event => { if (!group.contains(event.relatedTarget)) setDisclosure(group, false); });
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const active = disclosures.find(group => group.querySelector('[data-nav-toggle]').getAttribute('aria-expanded') === 'true');
+    if (active) { event.preventDefault(); setDisclosure(active, false, true); }
+    if (!menu.hidden) { event.preventDefault(); setMobileOpen(false, true); }
+  });
+  document.addEventListener('click', event => {
+    disclosures.forEach(group => { if (!group.contains(event.target)) setDisclosure(group, false); });
+    if (!header.contains(event.target) && !menu.hidden) setMobileOpen(false);
+  });
+  header.addEventListener('focusout', event => { if (!header.contains(event.relatedTarget) && !menu.hidden) setMobileOpen(false); });
+  const desktop = window.matchMedia('(min-width: 1024px)');
+  desktop.addEventListener('change', () => { setMobileOpen(false); disclosures.forEach(group => setDisclosure(group, false)); });
 </script>
+
+<style>
+  [hidden] { display: none !important; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
+  [data-nav-toggle][aria-expanded="true"] svg { transform: rotate(180deg); }
+</style>
