@@ -29,6 +29,12 @@ const {
     <span class="text-sm text-text">Inquiring about: <strong id="plan-banner-text" class="text-brand-blue"></strong></span>
   </div>
 
+  <div id="report-reference-banner" class="hidden bg-brand-blue/5 border border-brand-blue/20 rounded-xl px-4 py-3 mb-6 text-sm text-text" role="note">
+    <strong>Your Business Grader report link is included.</strong>
+    <p class="mt-1">Review the message below, add your contact details, then send your request.</p>
+    <a id="report-reference-link" class="text-brand-blue underline break-all" href=""></a>
+  </div>
+
   <form
     action={`https://submit-form.com/${site.formsparkId}`}
     method="POST"
@@ -41,6 +47,7 @@ const {
     <input type="hidden" name="_redirect" value={`${site.url}/thank-you/`} />
     <!-- Plan interest from URL params — populated by the script below -->
     <input type="hidden" id="plan_interest" name="plan_interest" value="" />
+    <input type="hidden" id="report_reference" name="report_reference" value="" />
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
       <div>
@@ -187,6 +194,24 @@ const {
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
 
 <script>
+  import { reportContactContext } from '@/utils/report-contact';
+
+  (() => {
+    const context = reportContactContext(window.location.search);
+    if (!context) return;
+    const business = document.getElementById('business') as HTMLInputElement | null;
+    const message = document.getElementById('message') as HTMLTextAreaElement | null;
+    const city = document.getElementById('city') as HTMLSelectElement | null;
+    const reference = document.getElementById('report_reference') as HTMLInputElement | null;
+    const link = document.getElementById('report-reference-link') as HTMLAnchorElement | null;
+    if (business && !business.value) business.value = context.business;
+    if (message && !message.value) message.value = context.message;
+    if (city && !city.value && context.city) city.value = Array.from(city.options).some(option => option.value === context.city) ? context.city : 'Other RGV';
+    if (reference) reference.value = context.reportUrl;
+    if (link) { link.href = context.reportUrl; link.textContent = context.reportUrl; }
+    document.getElementById('report-reference-banner')?.classList.remove('hidden');
+  })();
+
   (() => {
     // Fire a GA4 lead event before the form navigates away to FormSpark.
     // Registered on document in the capture phase — GA4's own Enhanced
