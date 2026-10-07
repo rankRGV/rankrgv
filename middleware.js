@@ -1,6 +1,6 @@
 // Vercel Routing Middleware: passcode gate for private client onboarding pages at /start/<slug>/.
 // The repo is public, so passcodes live only in Vercel env vars:
-//   ONBOARDING_CODES  = {"collision-masters":"K7MX-4QPA", ...}
+//   ONBOARDING_CODES  = {"<slug>":"XXXX-XXXX", ...}
 //   ONBOARDING_SECRET = long random string used to sign the access cookie
 // Any slug without a code, or a missing env var, stays locked (fails closed).
 import { next } from '@vercel/functions';
