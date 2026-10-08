@@ -265,10 +265,11 @@ const reviews = [
         <input type="hidden" name="utm_medium" value="website" />
         <input type="hidden" name="utm_campaign" value="business-grader" />
         <input type="hidden" name="utm_content" value="homepage-final" />
+        <p class="grade-heading">See your grade in 60 seconds</p>
         <div class="grade-controls">
             <label class="grade-business"><span class="sr-only">Your business name</span><input name="business" type="text" maxlength="60" autocomplete="organization" placeholder="Your business name" /></label>
             <label class="grade-city"><span class="sr-only">City</span><select name="city">{finalCities.map((city) => <option value={city}>{city}</option>)}</select></label>
-            <button type="submit" class="btn-primary grade-submit">Get free grade <span aria-hidden="true">→</span></button>
+            <button type="submit" class="grade-submit">Get my free grade <span aria-hidden="true">→</span></button>
           </div>
       </form>
 

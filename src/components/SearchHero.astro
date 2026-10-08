@@ -1,127 +1,37 @@
 ---
 import { site } from '@/config/site';
 const cities = ['McAllen', 'Edinburg', 'Mission', 'Pharr', 'Brownsville', 'Harlingen', 'Weslaco'];
-const services = ['Roofer', 'AC repair', 'Auto body', 'Dentist'];
 ---
 <section class="hero-bg relative overflow-hidden" aria-labelledby="hero-heading">
   <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/25 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
-    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,32rem)] gap-8 xl:gap-16 items-center">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,30rem)] gap-10 xl:gap-16 items-center">
       <div class="min-w-0">
         <p class="text-sm font-semibold text-white/85 mb-5">Local SEO agency in McAllen, TX</p>
         <h1 id="hero-heading" class="text-4xl sm:text-5xl xl:text-[3.5rem] font-extrabold text-white leading-[1.08] tracking-tight text-balance">When McAllen Googles what you do, <span class="text-amber-400">be the first call.</span></h1>
         <p class="mt-5 text-lg sm:text-xl text-white/85 leading-relaxed max-w-xl text-pretty">Local SEO for Rio Grande Valley businesses. Get found on Google Maps and in AI answers, with a McAllen team and month-to-month service.</p>
-        <form id="hero-grade-form" action={`${site.graderUrl}/`} method="get" class="grade-form hero-form mt-7 max-w-xl text-left">
+        <form id="hero-grade-form" action={`${site.graderUrl}/`} method="get" class="grade-form hero-form mt-8 max-w-xl text-left">
           <input type="hidden" name="utm_source" value="rankrgv.com" /><input type="hidden" name="utm_medium" value="website" /><input type="hidden" name="utm_campaign" value="business-grader" /><input type="hidden" name="utm_content" value="homepage-hero" />
+          <p class="grade-heading">See your grade in 60 seconds</p>
           <div class="grade-controls">
             <label class="grade-business"><span class="sr-only">Your business name</span><input id="hero-business" name="business" type="text" maxlength="60" autocomplete="organization" placeholder="Your business name" /></label>
             <label class="grade-city"><span class="sr-only">City</span><select id="hero-city" name="city">{cities.map((city) => <option value={city}>{city}</option>)}</select></label>
-            <button type="submit" class="btn-primary grade-submit">Get free grade <span aria-hidden="true">→</span></button>
+            <button type="submit" class="grade-submit">Get my free grade <span aria-hidden="true">→</span></button>
           </div>
         </form>
-        <p class="mt-4 text-sm text-white/80">Automated grade. Free, about a minute, no signup.</p>
+        <p class="mt-4 text-sm text-white/80">Automated. Free. No signup. Your Google profile score and Maps position, from public data.</p>
         <p class="mt-2 text-sm text-white/80">Prefer a personal audit? <a href="/contact/" class="font-semibold text-white underline underline-offset-4">Ask Eddie</a>, or <a href={site.phoneHref} class="font-semibold text-white underline underline-offset-4 whitespace-nowrap">call {site.phone}</a>.</p>
       </div>
-      <details id="search-example" class="search-example min-w-0 w-full max-w-[32rem] mx-auto lg:mx-0" open>
-        <summary class="example-toggle">See a search example <span aria-hidden="true">+</span></summary>
-        <div class="example-content">
-        <div class="serp-card rounded-2xl bg-white shadow-xl overflow-hidden text-[#202124]">
-          <p class="bg-blue-50 border-b border-blue-100 px-4 py-2 text-xs font-semibold text-blue-800">Search illustration · not live results or a ranking guarantee</p>
-          <div class="px-4 pt-4">
-            <div class="flex items-center gap-3 border border-[#dadce0] rounded-full px-4 py-3 text-sm"><span class="text-lg font-bold text-[#4285f4]" aria-hidden="true">G</span><span id="serp-query" class="min-w-0 truncate">roofer mcallen</span></div>
-            <div class="mt-3 flex gap-1 border-b border-[#ebebeb] text-sm" role="tablist" aria-label="Illustrative search views">{['All', 'Maps', 'AI Mode'].map((label, i) => <button id={`serp-tab-${i}`} type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'} aria-controls={`serp-panel-${i}`} tabindex={i === 0 ? 0 : -1} class="serp-tab">{label}</button>)}</div>
-          </div>
-          <div class="px-4 pb-4">
-            {[0, 1].map((view) => <div id={`serp-panel-${view}`} role="tabpanel" aria-labelledby={`serp-tab-${view}`} tabindex="0" hidden={view === 1}>
-              <p class="text-sm mt-4 mb-2">{view === 0 ? 'Places' : 'Map view'}</p>
-              <div class={`sample-map ${view === 1 ? 'sample-map--large' : ''}`} aria-hidden="true"><span class="map-pin">1</span><span class="map-pin">2</span><span class="map-pin">3</span></div>
-              <ol class="sample-list">{[1, 2, 3].map((i) => <li><span class="sample-name">Example roofer business {i}</span><span class="sample-detail">Illustrative listing · McAllen, TX</span></li>)}</ol>
-            </div>)}
-            <div id="serp-panel-2" role="tabpanel" aria-labelledby="serp-tab-2" tabindex="0" hidden>
-              <h2 class="text-base font-semibold mt-5 mb-3">An example AI answer</h2><p class="text-sm leading-relaxed">A search answer could mention a business alongside others that offer the service.</p>
-              <p class="mt-5 rounded-lg bg-blue-50 p-4 text-sm leading-relaxed"><strong id="serp-ai-name">Example roofer business</strong><span id="serp-ai-context"> could be mentioned for roofing in McAllen. This is a sample, not a result.</span></p>
-              <p class="mt-5 text-sm leading-relaxed text-[#5f6368]">This is an illustration, not an AI response or a measurement of your visibility.</p>
-            </div>
-          </div>
-          <p class="border-t border-[#ebebeb] bg-[#f8f9fa] px-4 py-3 text-xs text-[#5f6368]">Example businesses and positions. Your grade starts with your actual listing.</p>
+      <figure class="min-w-0 w-full max-w-[30rem] mx-auto lg:mx-0">
+        <div class="hero-report">
+          <img src="/images/grader-report-cool-aid.webp" alt="RankRGV Business Grader report for Cool Aid Air Conditioning in Edinburg: Google profile score 98 out of 100, Google Maps position number 11 for AC repair" width="1120" height="1330" fetchpriority="high" decoding="async" />
         </div>
-        <div class="mt-4 flex flex-wrap gap-2 justify-center lg:justify-start" role="group" aria-label="Try an illustrative search">{services.map((service, i) => <button type="button" class="serp-chip" data-service={service.toLowerCase()} aria-pressed={i === 0 ? 'true' : 'false'}>{service}</button>)}</div>
-        </div>
-      </details>
+        <figcaption class="mt-3 text-sm text-white/75 text-center lg:text-left">A real report. Cool Aid Air Conditioning, a RankRGV client, scanned Oct 8, 2026.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 <style>
-  .example-toggle { cursor: pointer; color: #e2e8f0; font-size: 14px; font-weight: 600; padding: 14px 0; min-height: 48px; border-top: 1px solid #475569; list-style: none; }
-  .example-toggle::-webkit-details-marker { display: none; }
-  .example-toggle span { float: right; }
-  .search-example[open] .example-toggle span { transform: rotate(45deg); }
-  .example-content { margin-top: 12px; }
-  @media (min-width: 1024px) { .search-example[open] > .example-toggle { display: none; } .example-content { margin-top: 0; } }
-  .serp-tab { padding: 12px 10px; min-height: 44px; border-bottom: 3px solid transparent; color: #5f6368; }
-  .serp-tab[aria-selected="true"] { color: #1a73e8; border-bottom-color: #1a73e8; }
-  .serp-chip { min-height: 44px; border: 1px solid #64748b; border-radius: 999px; padding: 7px 12px; color: #e2e8f0; font-size: 13px; background: #1e293b; }
-  .serp-chip[aria-pressed="true"] { background: white; color: #0f172a; border-color: white; }
-  .serp-chip:hover { background: #334155; color: white; }
-  [role="tabpanel"] { min-height: 315px; }
-  [hidden] { display: none; }
-  .sample-map { height: 96px; border-radius: 8px; position: relative; overflow: hidden; background: linear-gradient(24deg, transparent 45%, #fff 46%, #fff 49%, transparent 50%), linear-gradient(100deg, transparent 60%, #bed7ec 61%, #bed7ec 65%, transparent 66%), #e9eee8; }
-  .sample-map--large { height: 120px; }
-  .map-pin { position: absolute; border-radius: 50%; background: #1d4ed8; color: white; width: 24px; height: 24px; text-align: center; line-height: 24px; font-size: 12px; left: 25%; top: 30%; }
-  .map-pin:nth-child(2) { left: 55%; top: 55%; } .map-pin:nth-child(3) { left: 78%; top: 20%; }
-  .sample-list li { padding: 12px 0; border-bottom: 1px solid #ebebeb; }
-  .sample-list li:last-child { border: 0; }
-  .sample-name { display: block; color: #1a5fca; font-size: 14px; overflow-wrap: anywhere; }
-  .sample-detail { display: block; color: #5f6368; font-size: 12px; margin-top: 4px; }
-  .sample-list li.is-you { background: #e8f0fe; border-radius: 8px; padding: 12px 8px; }
+  .hero-report { border-radius: 16px; overflow: hidden; background: #f8fafc; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08); }
+  .hero-report img { display: block; width: 100%; height: auto; }
 </style>
-<script>
-  const example = document.getElementById('search-example') as HTMLDetailsElement | null;
-  const desktop = window.matchMedia('(min-width: 1024px)');
-  if (example) {
-    example.open = desktop.matches;
-    desktop.addEventListener('change', () => { example.open = desktop.matches; });
-  }
-  const card = document.querySelector<HTMLElement>('.serp-card');
-  const business = document.getElementById('hero-business') as HTMLInputElement | null;
-  const city = document.getElementById('hero-city') as HTMLSelectElement | null;
-  if (card && business && city) {
-    let service = 'roofer';
-    const tabs = Array.from(card.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
-    const panels = Array.from(card.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
-    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.serp-chip'));
-    function selectTab(index: number, focus = false) {
-      tabs.forEach((tab, i) => { tab.setAttribute('aria-selected', String(i === index)); tab.tabIndex = i === index ? 0 : -1; });
-      panels.forEach((panel, i) => { panel.hidden = i !== index; });
-      if (focus) tabs[index].focus();
-    }
-    tabs.forEach((tab, i) => {
-      tab.addEventListener('click', () => selectTab(i));
-      tab.addEventListener('keydown', (event) => {
-        let next = i;
-        if (event.key === 'ArrowRight') next = (i + 1) % tabs.length;
-        else if (event.key === 'ArrowLeft') next = (i + tabs.length - 1) % tabs.length;
-        else if (event.key === 'Home') next = 0;
-        else if (event.key === 'End') next = tabs.length - 1;
-        else return;
-        event.preventDefault(); selectTab(next, true);
-      });
-    });
-    function render() {
-      const name = business!.value.trim();
-      document.getElementById('serp-query')!.textContent = `${service} ${city!.value.toLowerCase()}`;
-      card!.querySelectorAll<HTMLOListElement>('.sample-list').forEach((list) => {
-        Array.from(list.children).forEach((row, i) => {
-          const personalized = i === 0 && name.length >= 2;
-          row.classList.toggle('is-you', personalized);
-          row.querySelector('.sample-name')!.textContent = personalized ? name : `Example ${service} business ${i + 1}`;
-          row.querySelector('.sample-detail')!.textContent = personalized ? 'Illustrative position, not your measured rank' : `Example listing · ${city!.value}, TX`;
-        });
-      });
-      document.getElementById('serp-ai-name')!.textContent = name.length >= 2 ? name : `Example ${service} business`;
-      document.getElementById('serp-ai-context')!.textContent = ` could be mentioned for ${service} in ${city!.value}. This is a sample, not a result.`;
-    }
-    chips.forEach((chip) => chip.addEventListener('click', () => { service = chip.dataset.service || 'roofer'; chips.forEach((item) => item.setAttribute('aria-pressed', String(item === chip))); render(); }));
-    business.addEventListener('input', render); city.addEventListener('change', render);
-  }
-</script>
