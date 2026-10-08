@@ -1,0 +1,41 @@
+---
+interface Props {
+  lang?: 'en' | 'es';
+}
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+
+// Logos are single-color (slate) versions of each client's own logo, used with their approval.
+// height = displayed height in px; sized per logo so they carry equal visual weight.
+const clients = [
+  { name: 'Edel Roofing', file: 'edel-roofing', w: 189, h: 96, height: 56 },
+  { name: 'Cool Aid Air Conditioning', file: 'cool-aid', w: 256, h: 96, height: 44 },
+  { name: 'Collision Masters', file: 'collision-masters', w: 234, h: 96, height: 48 },
+  { name: 'VaultX', file: 'vaultx', w: 196, h: 96, height: 40 },
+  { name: 'Luxoria Realty', file: 'luxoria-realty', w: 328, h: 96, height: 40 },
+];
+---
+
+<section class="bg-bg border-b border-border" aria-labelledby="client-logos-heading">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+    <h2 id="client-logos-heading" class="text-center text-xs font-semibold uppercase tracking-wider text-text-muted mb-6">
+      {es ? 'Negocios con los que hemos trabajado' : "Businesses we've worked with"}
+    </h2>
+    <ul class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+      {clients.map((c) => (
+        <li class="flex items-center">
+          <img
+            src={`/images/clients/${c.file}.webp`}
+            alt={c.name}
+            width={c.w}
+            height={c.h}
+            loading="lazy"
+            decoding="async"
+            style={`height:${c.height}px;width:auto;`}
+            class="opacity-80 hover:opacity-100 transition-opacity"
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

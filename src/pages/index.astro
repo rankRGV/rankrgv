@@ -3,6 +3,7 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import SearchHero from '@/components/SearchHero.astro';
+import ClientLogos from '@/components/ClientLogos.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import { buildOrgSchema, buildFAQSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
 import { site } from '@/config/site';
@@ -49,6 +50,14 @@ const reviews = [
     bg: 'rgba(29, 78, 216, 0.1)',
     fg: '#1d4ed8',
   },
+  {
+    quote: 'Just got my website done with RangRGV and I love it! The attention to detail, response time and customer service was amazing! Super recommend! He is super knowledgeable!!',
+    name: 'Samantha Reynoso',
+    meta: 'Principal Broker, Luxoria Realty',
+    initials: 'SR',
+    bg: '#fef3c7',
+    fg: '#b45309',
+  },
 ];
 ---
 
@@ -69,6 +78,8 @@ const reviews = [
       <li class="hidden sm:block text-text-muted">Based in McAllen, serving the Valley.</li>
     </ul>
   </section>
+
+  <ClientLogos />
 
   <!-- ===================== Reviews + who you work with ===================== -->
   <section class="py-12 lg:py-16 bg-bg" aria-labelledby="results-heading">
@@ -103,23 +114,6 @@ const reviews = [
             </figcaption>
           </figure>
         ))}
-
-        <div class="bg-white border border-border rounded-2xl p-5 sm:p-6 flex flex-col">
-          <div class="inline-flex self-start items-center gap-1.5 mb-4 px-2.5 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold">
-            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-            Active client
-          </div>
-          <p class="text-text leading-relaxed mb-5 flex-1">
-            Roofing contractor on our Domination plan, plus Google and Meta ads. Schema markup, a multi-city plan and a bilingual content roadmap.
-          </p>
-          <div class="flex items-center gap-3 pt-4 border-t border-border">
-            <span class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm flex-shrink-0" style="background:#1d4ed8">ER</span>
-            <span>
-              <span class="block text-sm font-bold text-text">Edel Roofing</span>
-              <span class="block text-xs text-text-muted">Roofing · Edinburg, TX</span>
-            </span>
-          </div>
-        </div>
       </div>
 
       <p class="mt-8 text-center text-sm text-text-muted">
@@ -241,7 +235,7 @@ const reviews = [
 
   <section class="py-12 lg:py-16 bg-bg" aria-labelledby="how-heading">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 id="how-heading" class="text-3xl sm:text-4xl font-bold text-text mb-7">A clear starting point. Work you can follow.</h2>
+      <h2 id="how-heading" class="text-3xl sm:text-4xl font-bold text-text text-center mb-10">A clear starting point. Work you can follow.</h2>
       <div class="grid sm:grid-cols-3 gap-7">
         {[
           ['Check your visibility', 'Start with the automated grade, or ask Eddie for a personal audit. We look at where you are today.'],
