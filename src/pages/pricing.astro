@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import PricingCard from '@/components/PricingCard.astro';
 import PricingSection from '@/components/PricingSection.astro';
 import CTASection from '@/components/CTASection.astro';
+import ClientLogos from '@/components/ClientLogos.astro';
 import { buildWebPageSchema, buildBreadcrumbSchema } from '@/components/SchemaMarkup.astro';
 import { graderHref, site } from '@/config/site';
 
@@ -299,6 +300,8 @@ const pricingFaqs = [
       </p>
     </div>
   </section>
+
+  <ClientLogos />
 
   <!-- GBP Management -->
   <section class="py-20 bg-bg" aria-label="GBP Management pricing">
