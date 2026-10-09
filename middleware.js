@@ -16,6 +16,10 @@ const onboardingShare = {
     "contactFirst": "Carlton",
     "clientName": "VaultX"
   },
+  "yoga-house": {
+    "contactFirst": "Mahima",
+    "clientName": "Yoga House RGV"
+  },
   "demo": {
     "contactFirst": "Maria",
     "clientName": "Valley Demo Auto Body"

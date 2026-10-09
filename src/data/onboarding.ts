@@ -60,6 +60,25 @@ export const onboardingClients: OnboardingClient[] = [
     cancelNote: "Month-to-month to start. Either side can end it with 30 days' notice, no penalty.",
   },
   {
+    slug: 'yoga-house',
+    clientName: 'Yoga House RGV',
+    contactName: 'Mahima',
+    contactFirst: 'Mahima',
+    letter: [
+      "Thank you for trusting us with Yoga House RGV. Three locations, real review density, and a membership base people actually show up for, that's not something we're starting from scratch, it's something we're pointed at making bigger.",
+      "Shant will stay in the loop for the Google Ads handoff, but you're my main point of contact going forward. I'll keep things simple: one dashboard, straight answers, nothing you have to translate.",
+    ],
+    exclusivity: {
+      title: 'One yoga or hot yoga studio per city.',
+      text: "While you're a client, I won't take on another yoga, hot yoga, or Pilates studio in McAllen, Mission, or Edinburg.",
+    },
+    planName: 'Ads Management + Local SEO',
+    planSub: 'Google + Meta ads, all three locations',
+    monthly: '$1,875',
+    billingDay: '9th',
+    cancelNote: "Month-to-month, no long-term commitment. Give 2 weeks' notice by text or email to wind down either service, no penalty.",
+  },
+  {
     // Made-up client for testing the flow end to end. Safe to remove.
     slug: 'demo',
     clientName: 'Valley Demo Auto Body',
