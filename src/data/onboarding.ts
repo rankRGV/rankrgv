@@ -62,7 +62,7 @@ export const onboardingClients: OnboardingClient[] = [
   {
     slug: 'yoga-house',
     clientName: 'Yoga House RGV',
-    contactName: 'Mahima',
+    contactName: 'Mahima Samtani',
     contactFirst: 'Mahima',
     letter: [
       "Thank you for trusting us with Yoga House RGV. Three locations, real review density, and a membership base people actually show up for, that's not something we're starting from scratch, it's something we're pointed at making bigger.",
