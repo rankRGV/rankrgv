@@ -68,7 +68,6 @@ export const onboardingClients: OnboardingClient[] = [
     contactFirst: 'Mahima',
     letter: [
       "Thank you for trusting me with Yoga House RGV.",
-      "You're my main point of contact. Shant stays in the loop for the Google Ads handoff. You'll get plain answers and one place to see your numbers.",
     ],
     exclusivity: {
       title: "I won't work with your competitors.",
