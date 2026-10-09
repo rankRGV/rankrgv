@@ -15,7 +15,16 @@ const promises = [
   { title: 'Everything is in your name.', text: 'Your website, content, Google accounts and data belong to you and stay with you.' },
   c.exclusivity,
   { title: 'Reports show the real numbers.', text: "You'll see what moved and what didn't. If something isn't working, I'll tell you." },
-  { title: 'Extra work is quoted first.', text: 'Anything outside your plan gets a written quote, and nothing starts until you say yes.' },
+  { title: 'Extra work is quoted first.', text: "Anything outside your plan gets a written quote. Once you approve it, I'll get started." },
+];
+
+const updateCovers = c.updateCovers ?? "rankings, website activity, what we did, and what's next";
+
+const updateFormats = [
+  { value: 'Loom video', title: 'Short video (Loom)', text: "A few minutes, watchable on your phone. I walk you through the numbers on screen, and I'm happy to hop on a call if you want to talk any of it through.", lc: 'video update' },
+  { value: 'Written report', title: 'Written report', text: 'The same information as a short email you can read or forward.', lc: 'written report' },
+  { value: 'Video and written', title: 'Both', text: 'The video plus the written report, so you can watch it or skim it.', lc: 'video and written report' },
+  { value: 'Live virtual meeting', title: 'Live walkthrough', text: 'Skip the recording. We meet online and I walk you through the numbers live.', lc: 'live walkthrough' },
 ];
 
 // Progress groups shown above the card. Numbers are step indexes.
@@ -242,18 +251,15 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
         <section data-step="5" hidden>
           <p class={eyebrow}>Updates</p>
           <h2 class={h} tabindex="-1">How do you want your updates?</h2>
-          <p class="text-text-muted mb-6">Every two weeks you'll get a rundown of rankings, website activity, what we did and what's next.</p>
-          <div class="flex flex-col gap-3">
-            <label class="wz-opt items-start p-4">
-              <input type="radio" name="update_format" value="Loom video" checked class="sr-only" />
-              <span class="wz-mark wz-round mt-0.5" set:html={check} />
-              <span><strong class="block text-text">Short video (Loom)</strong><span class="text-text-muted font-normal">A few minutes, watchable on your phone. I walk you through the numbers on screen.</span></span>
-            </label>
-            <label class="wz-opt items-start p-4">
-              <input type="radio" name="update_format" value="Written report" class="sr-only" />
-              <span class="wz-mark wz-round mt-0.5" set:html={check} />
-              <span><strong class="block text-text">Written report</strong><span class="text-text-muted font-normal">The same information as a short email you can read or forward.</span></span>
-            </label>
+          <p class="text-text-muted mb-6">Every two weeks you'll get a rundown of {updateCovers}.</p>
+          <div class="flex flex-col gap-3" data-formats={JSON.stringify(Object.fromEntries(updateFormats.map((f) => [f.value, { title: f.title, lc: f.lc }])))}>
+            {updateFormats.map((f, i) => (
+              <label class="wz-opt items-start p-4">
+                <input type="radio" name="update_format" value={f.value} checked={i === 0} class="sr-only" />
+                <span class="wz-mark wz-round mt-0.5" set:html={check} />
+                <span><strong class="block text-text">{f.title}</strong><span class="text-text-muted font-normal">{f.text}</span></span>
+              </label>
+            ))}
           </div>
         </section>
 
@@ -267,7 +273,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
               <li class="wz-tl-item pl-6 relative" style="--i:0"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
                 <p class="text-xs font-bold uppercase tracking-wider text-brand-purple">Every 2 weeks</p>
                 <p class="font-bold text-text">Your <span data-fill="update_format_lc">video update</span></p>
-                <p class="text-sm text-text-muted">Rankings, website activity, what we did, and what's next.</p></li>
+                <p class="text-sm text-text-muted">{updateCovers.charAt(0).toUpperCase() + updateCovers.slice(1)}.</p></li>
               <li class="wz-tl-item pl-6 relative" style="--i:1"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
                 <p class="text-xs font-bold uppercase tracking-wider text-brand-purple">Week 6</p>
                 <p class="font-bold text-text">First check-in call</p>
@@ -309,7 +315,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
             <li><strong class="text-text">Receipts:</strong> emailed to you after every charge.</li>
             {c.billingNote && <li><strong class="text-text">Setup:</strong> {c.billingNote}</li>}
             <li><strong class="text-text">Terms:</strong> {c.cancelNote}</li>
-            <li><strong class="text-text">Extra work:</strong> quoted in writing first. No quote, no charge.</li>
+            <li><strong class="text-text">Extra work:</strong> you get a written quote first. Work starts once you approve it.</li>
           </ul>
 
           <div class="rounded-xl border border-border">
@@ -424,6 +430,8 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
   let busy = false;
   const played = new Set<number>();
 
+  const formats: Record<string, { title: string; lc: string }> = JSON.parse(form.querySelector<HTMLElement>('[data-formats]')!.dataset.formats!);
+  const format = () => formats[val('update_format')] ?? Object.values(formats)[0];
   const val = (name: string) => (form.elements.namedItem(name) as RadioNodeList | HTMLInputElement | null)?.value?.trim() ?? '';
   const all = (name: string) => Array.from(form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]:checked`)).map((i) => i.value);
 
@@ -484,7 +492,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
       ['Days', daysText(), 2],
       ['Hours', `${hoursText()}. Urgent: ${val('urgent_after_hours').replace(/^./, (ch) => ch.toLowerCase())}`, 3],
       ['Also gets updates', other, 4],
-      ['Updates as', val('update_format') === 'Written report' ? 'Written report' : 'Short video (Loom)', 5],
+      ['Updates as', format().title, 5],
     ];
     const dl = document.getElementById('review')!;
     dl.replaceChildren(...rows.map(([term, text, step]) => {
@@ -510,7 +518,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
     reveal('other', val('has_other') === 'Yes');
     reveal('custom-hours', val('hours_preset') === 'custom');
     form.querySelectorAll<HTMLElement>('[data-fill="update_format_lc"]').forEach((el) => {
-      el.textContent = val('update_format') === 'Written report' ? 'written report' : 'video update';
+      el.textContent = format().lc;
     });
     form.querySelectorAll<HTMLElement>('[data-fill="window_summary"]').forEach((el) => {
       el.textContent = `${daysText()}, ${hoursText()}. Non-urgent messages are scheduled to land inside it.`;

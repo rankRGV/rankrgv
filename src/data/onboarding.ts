@@ -17,6 +17,8 @@ export interface OnboardingClient {
   /** One-time setup already paid, shown as a "Paid" line on the billing card. */
   setupPaid?: string;
   cancelNote: string;
+  /** What the biweekly update covers, matched to the client's plan. */
+  updateCovers?: string;
 }
 
 export const onboardingClients: OnboardingClient[] = [
@@ -65,13 +67,14 @@ export const onboardingClients: OnboardingClient[] = [
     contactName: 'Mahima Samtani',
     contactFirst: 'Mahima',
     letter: [
-      "Thank you for trusting us with Yoga House RGV. Three locations, real review density, and a membership base people actually show up for, that's not something we're starting from scratch, it's something we're pointed at making bigger.",
-      "Shant will stay in the loop for the Google Ads handoff, but you're my main point of contact going forward. I'll keep things simple: one dashboard, straight answers, nothing you have to translate.",
+      "Thank you for trusting me with Yoga House RGV.",
+      "You're my main point of contact. Shant stays in the loop for the Google Ads handoff. You'll get plain answers and one place to see your numbers.",
     ],
     exclusivity: {
-      title: 'One yoga or hot yoga studio per city.',
-      text: "While you're a client, I won't take on another yoga, hot yoga, or Pilates studio in McAllen, Mission, or Edinburg.",
+      title: "I won't work with your competitors.",
+      text: "While you're a client, I won't take on another yoga or Pilates studio in McAllen, Mission, or Edinburg.",
     },
+    updateCovers: 'your Google and Meta ad results (spend, leads, and cost per lead), your rankings in all three cities, what we did, and what\'s next',
     planName: 'Ads Management + Local SEO',
     planSub: 'Google + Meta ads, all three locations',
     monthly: '$1,875',
