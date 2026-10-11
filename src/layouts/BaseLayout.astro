@@ -65,7 +65,7 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
       <slot />
     </main>
     {!bare && <Footer lang={lang} />}
-    {!bare && <StickyCallCTA />}
+    {!bare && <StickyCallCTA lang={lang} />}
 
     <!-- PostHog (project token is a public client key) -->
     <script is:inline>
