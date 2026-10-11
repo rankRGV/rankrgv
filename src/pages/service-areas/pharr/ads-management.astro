@@ -7,6 +7,7 @@ import Testimonials from '@/components/Testimonials.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import { getAreaBySlug } from '@/data/serviceAreas';
+import { graderHref, site } from '@/config/site';
 import { getServiceBySlug } from '@/data/services';
 import {
   buildServiceSchema,
@@ -185,5 +186,7 @@ const schema = [
   <CTASection
     headline="Need tighter paid acquisition in Pharr?"
     subheadline="We will show you which Pharr search and audience segments justify budget and how to keep the account focused on qualified intent."
+    primaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
+    secondaryCTA={{ label: 'Get a Free Business Grade', href: graderHref('pharr-ads-management-final') }}
   />
 </ServiceAreaLayout>

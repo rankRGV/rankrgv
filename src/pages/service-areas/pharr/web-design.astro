@@ -15,7 +15,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const area = getAreaBySlug('pharr')!;
 const service = getServiceBySlug('web-design')!;
@@ -85,6 +85,7 @@ const schema = [
     badge="Web Design · Pharr, TX"
     headline='A Pharr website built to rank in the<br /><span class="gradient-text">lowest-competition market in South Texas.</span>'
     subheadline="Pharr has real search demand from 80,000+ residents and one of Texas's busiest international bridges — and almost no businesses with properly built websites. We build the site that claims those rankings before anyone else shows up."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('pharr-web-design-hero') }}
     secondaryCTA={{ label: 'See how we build', href: '#how-we-work' }}
     mockupQuery="web design pharr tx"
     mockupCategory="Web Design · Pharr, TX"
@@ -219,6 +220,8 @@ const schema = [
 
   <CTASection
     headline="Let's build a Pharr website that claims your rankings before competitors arrive"
-    subheadline="15-minute call and we'll audit your current site and show you exactly what you're leaving on the table — or get a free written audit."
+    subheadline="Run a free grade on your Pharr business and see where you stand on Google. Call us if you want a site that closes the gaps."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('pharr-web-design-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </ServiceAreaLayout>

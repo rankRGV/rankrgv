@@ -15,7 +15,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const area = getAreaBySlug('brownsville')!;
 const service = getServiceBySlug('web-design')!;
@@ -85,6 +85,7 @@ const schema = [
     badge="Web Design · Brownsville, TX"
     headline='A Brownsville website built for a bilingual market<br /><span class="gradient-text">and a growing economy.</span>'
     subheadline="Brownsville's market is unique in Texas — bilingual customer base, growing SpaceX economy, and Cameron County's second-largest city. We build sites fast enough to rank, smart enough to convert, and built for the real Brownsville market."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('brownsville-web-design-hero') }}
     secondaryCTA={{ label: 'See how we build', href: '#how-we-work' }}
     mockupQuery="web design brownsville tx"
     mockupCategory="Web Design · Brownsville, TX"
@@ -219,6 +220,8 @@ const schema = [
 
   <CTASection
     headline="Let's build a Brownsville website that actually works for your market"
-    subheadline="15-minute call and we'll audit your current site and show you exactly what it's costing you — or get a free written audit."
+    subheadline="Get a free grade of how your business shows up online in Brownsville. Call us after if you want a site built around the results."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('brownsville-web-design-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </ServiceAreaLayout>

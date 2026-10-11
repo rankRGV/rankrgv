@@ -13,7 +13,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const area = getAreaBySlug('edinburg')!;
 
@@ -79,6 +79,7 @@ const schema = [
     badge="Serving Edinburg, TX & Hidalgo County"
     headline={`Edinburg's local SEO & digital marketing agency.<br /><span class="gradient-text">Built for the county seat.</span>`}
     subheadline="Edinburg is the Hidalgo County seat and home to UTRGV. It has strong professional services demand, a growing student economy, and SEO competition so low that properly built businesses rank in weeks."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('edinburg-hub-hero') }}
     secondaryCTA={{ label: 'View our services', href: '#edinburg-services' }}
     mockupQuery="digital marketing edinburg tx"
     mockupCategory="Marketing Agency · Edinburg, TX"
@@ -219,6 +220,8 @@ const schema = [
 
   <CTASection
     headline="Ready to dominate Edinburg searches?"
-    subheadline="Call for a free 15-min conversation about your Edinburg rankings — or get a free written audit."
+    subheadline="Get a free grade of your Google listing and see how you stack up in Edinburg. Questions after? Call us."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('edinburg-hub-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </ServiceAreaLayout>

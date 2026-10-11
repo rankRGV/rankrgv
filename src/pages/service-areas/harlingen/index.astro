@@ -13,7 +13,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const area = getAreaBySlug('harlingen')!;
 
@@ -79,6 +79,7 @@ const schema = [
     badge="Serving Harlingen, TX & Cameron County"
     headline={`Harlingen's local SEO & digital marketing agency.<br /><span class="gradient-text">Healthcare hub, real results.</span>`}
     subheadline="Harlingen anchors Cameron County with Valley Baptist, the UTRGV Health Sciences campus, and a strong mid-size business economy. We help Harlingen businesses rank for the searches that matter — and stay there."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('harlingen-hub-hero') }}
     secondaryCTA={{ label: 'View our services', href: '#harlingen-services' }}
     mockupQuery="digital marketing harlingen tx"
     mockupCategory="Marketing Agency · Harlingen, TX"
@@ -219,6 +220,8 @@ const schema = [
 
   <CTASection
     headline="Ready to rank in Harlingen and Cameron County?"
-    subheadline="Call for a free 15-min conversation about your Harlingen rankings — or get a free written audit."
+    subheadline="Run a free grade on your Google listing and see where you stand in Harlingen. Call us if you want a hand with the results."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('harlingen-hub-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </ServiceAreaLayout>

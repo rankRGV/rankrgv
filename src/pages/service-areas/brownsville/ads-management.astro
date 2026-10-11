@@ -7,6 +7,7 @@ import Testimonials from '@/components/Testimonials.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
 import { getAreaBySlug } from '@/data/serviceAreas';
+import { graderHref, site } from '@/config/site';
 import { getServiceBySlug } from '@/data/services';
 import {
   buildServiceSchema,
@@ -185,5 +186,7 @@ const schema = [
   <CTASection
     headline="Want to build paid lead flow in Brownsville before it gets more expensive?"
     subheadline="We will show you where Brownsville demand is strongest and whether Google Ads, Meta Ads, or both fit your next move."
+    primaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
+    secondaryCTA={{ label: 'Get a Free Business Grade', href: graderHref('brownsville-ads-management-final') }}
   />
 </ServiceAreaLayout>

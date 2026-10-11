@@ -15,7 +15,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const area = getAreaBySlug('harlingen')!;
 const service = getServiceBySlug('web-design')!;
@@ -85,6 +85,7 @@ const schema = [
     badge="Web Design · Harlingen, TX"
     headline='A Harlingen website that earns patient trust<br /><span class="gradient-text">and converts Cameron County searches.</span>'
     subheadline="Harlingen is Cameron County's healthcare hub. We build websites for medical practices, professional services, and local businesses that load fast, rank on Google, and convert the high-value patients and clients Harlingen attracts."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('harlingen-web-design-hero') }}
     secondaryCTA={{ label: 'See how we build', href: '#how-we-work' }}
     mockupQuery="web design harlingen tx"
     mockupCategory="Web Design · Harlingen, TX"
@@ -219,6 +220,8 @@ const schema = [
 
   <CTASection
     headline="Let's build a Harlingen website that earns trust and ranks on Google"
-    subheadline="15-minute call and we'll audit your current site and show you exactly where it's losing patients and clients — or get a free written audit."
+    subheadline="See how your Harlingen business looks on Google with a free grade. If your site is part of the problem, call us."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('harlingen-web-design-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </ServiceAreaLayout>

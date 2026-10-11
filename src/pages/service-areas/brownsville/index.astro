@@ -13,7 +13,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const area = getAreaBySlug('brownsville')!;
 
@@ -79,6 +79,7 @@ const schema = [
     badge="Serving Brownsville, TX & Cameron County"
     headline={`Brownsville's local SEO & digital marketing agency.<br /><span class="gradient-text">Built for South Texas.</span>`}
     subheadline="Brownsville is growing faster than any city in the RGV. We help Brownsville businesses capture that growth — with local SEO, web design, and automation built for this market."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('brownsville-hub-hero') }}
     secondaryCTA={{ label: 'View our services', href: '#brownsville-services' }}
     mockupQuery="digital marketing brownsville tx"
     mockupCategory="Marketing Agency · Brownsville, TX"
@@ -202,6 +203,8 @@ const schema = [
 
   <CTASection
     headline="Ready to grow your Brownsville business on Google?"
-    subheadline="Call for a free 15-min conversation about Brownsville rankings — or get a free written audit."
+    subheadline="Check where your business stands on Google in Brownsville. The grade is free and takes about a minute."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('brownsville-hub-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </ServiceAreaLayout>

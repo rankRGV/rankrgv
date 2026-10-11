@@ -15,7 +15,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const area = getAreaBySlug('mcallen')!;
 const service = getServiceBySlug('web-design')!;
@@ -117,6 +117,7 @@ const schema = [
     badge="Web Design · McAllen, TX"
     headline='A McAllen website that ranks on Google<br /><span class="gradient-text">and turns visitors into calls.</span>'
     subheadline="Most McAllen business websites load slow, look outdated on mobile, and rank nowhere. We build fast, modern sites that score 99+ on Google PageSpeed and are built for local search from the ground up."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('mcallen-web-design-hero') }}
     secondaryCTA={{ label: 'See how we build', href: '#how-we-work' }}
     mockupQuery="web design mcallen tx"
     mockupCategory="Web Design · McAllen, TX"
@@ -293,6 +294,8 @@ const schema = [
 
   <CTASection
     headline="Let's build a McAllen website that actually works"
-    subheadline="15-minute call and we'll tell you exactly what your current site is costing you — or get a free written audit."
+    subheadline="Start with a free grade of your Google presence, website included. Then call us to talk through a McAllen site that fixes what it finds."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('mcallen-web-design-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </ServiceAreaLayout>

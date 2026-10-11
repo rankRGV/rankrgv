@@ -15,7 +15,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const area = getAreaBySlug('pharr')!;
 const service = getServiceBySlug('business-automation')!;
@@ -219,6 +219,8 @@ const schema = [
 
   <CTASection
     headline="Stop losing Pharr leads to competitors who respond faster"
-    subheadline="15-minute call and we'll map out exactly where your follow-up is leaking — or get a free written audit."
+    subheadline="Call and we'll map where your Pharr follow-up is leaking. Want to check your Google listing while you're at it? Grade it free."
+    primaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
+    secondaryCTA={{ label: 'Get a Free Business Grade', href: graderHref('pharr-business-automation-final') }}
   />
 </ServiceAreaLayout>

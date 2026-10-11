@@ -15,7 +15,7 @@ import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const area = getAreaBySlug('mission')!;
 const service = getServiceBySlug('web-design')!;
@@ -85,6 +85,7 @@ const schema = [
     badge="Web Design · Mission, TX"
     headline='A Mission website that ranks before<br /><span class="gradient-text">the competition arrives.</span>'
     subheadline="Mission is the fastest-growing suburb in Hidalgo County and its web design market is still nearly empty. New residents searching for local businesses deserve a site that loads fast and converts. We build it — 99+ PageSpeed, built to rank."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('mission-web-design-hero') }}
     secondaryCTA={{ label: 'See how we build', href: '#how-we-work' }}
     mockupQuery="web design mission tx"
     mockupCategory="Web Design · Mission, TX"
@@ -219,6 +220,8 @@ const schema = [
 
   <CTASection
     headline="Build your Mission website before the competition does"
-    subheadline="15-minute call and we'll show you exactly what a properly built site could do for your Mission rankings — or get a free written audit."
+    subheadline="Get a free grade first. It shows where your Mission business stands on Google before you spend anything on a new site."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('mission-web-design-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </ServiceAreaLayout>

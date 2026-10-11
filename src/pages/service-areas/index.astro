@@ -13,7 +13,7 @@ import {
   buildWebPageSchema,
   buildFAQSchema,
 } from '@/components/SchemaMarkup.astro';
-import { site } from '@/config/site';
+import { graderHref, site } from '@/config/site';
 
 const title = 'RGV Digital Marketing Service Areas | McAllen, Brownsville, Edinburg & More | RankRGV';
 const description =
@@ -66,6 +66,7 @@ const schema = [
     badge="Serving All 6 Major RGV Cities"
     headline={`Digital marketing for the<br /><span class="gradient-text">entire Rio Grande Valley.</span>`}
     subheadline="RankRGV builds local SEO, web design, and business automation strategies for businesses across McAllen, Brownsville, Edinburg, Harlingen, Mission, and Pharr — with city-specific pages built to rank in each market."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('service-areas-hero') }}
     secondaryCTA={{ label: 'See all cities', href: '#service-areas' }}
     mockupQuery="digital marketing rgv texas"
     mockupCategory="Marketing Agency · Rio Grande Valley, TX"
@@ -280,6 +281,8 @@ const schema = [
 
   <CTASection
     headline="Ready to rank in every RGV city you serve?"
-    subheadline="15-minute call and we'll map out exactly which cities to target first — and how fast you can rank in each one."
+    subheadline="Grade your Google presence in about a minute. If you want help with the cities you serve, call us after."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('service-areas-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
   />
 </BaseLayout>
