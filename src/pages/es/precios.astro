@@ -67,7 +67,7 @@ const seoCards = [
     price: '$975',
     period: '/mes',
     description:
-      'SEO local completo — construido para dominar tu categoría en cada ciudad del Valle donde tienes clientes.',
+      'SEO local completo, construido para dominar tu categoría en cada ciudad del Valle donde tienes clientes.',
     features: [
       'Todo lo de Visibilidad',
       '2 piezas de contenido al mes',
@@ -211,6 +211,24 @@ const adsCards = [
   },
 ];
 
+const lsaCards = [
+  {
+    name: 'Anuncios de Servicios Locales',
+    price: '$350',
+    period: '/mes',
+    description:
+      'Anuncios de pago por cliente potencial con la insignia Google Verified. Es un producto diferente a Google Ads normal, con su propia configuración y manejo de clientes potenciales.',
+    features: [
+      'Configuración del perfil de LSA y los tipos de trabajo',
+      'Apoyo con la verificación de licencia y antecedentes que pide Google',
+      'Manejo semanal del presupuesto y del volumen de clientes potenciales',
+      'Revisión de calidad de clientes potenciales y disputa de clientes inválidos',
+      'Reporte mensual de rendimiento',
+    ],
+    cta: { label: 'Empezar', href: '/get-started/?service=ads-management&plan=LSA' },
+  },
+];
+
 const automationCards = [
   {
     name: 'Automatización de Negocios',
@@ -325,6 +343,21 @@ const pricingFaqs = [
     note="¿Gasta más de $10,000 al mes en anuncios? Esas cuentas las cotizamos individualmente — normalmente una tarifa base más un porcentaje del gasto. Contáctenos para una cotización personalizada."
     bg="bg-surface"
   />
+
+  <!-- Local Services Ads -->
+  <section class="py-20 bg-bg" aria-label="Precios de Anuncios de Servicios Locales" id="lsa-pricing">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">Anuncios de Servicios Locales</h2>
+        <p class="text-text-muted text-lg reveal reveal-delay-1">
+          No es lo mismo que Google Ads. Con LSA usted paga por cada cliente potencial, Google verifica su negocio con su propio proceso, y su anuncio aparece arriba de los resultados normales y de Google Ads con la insignia Google Verified.
+        </p>
+      </div>
+      <div class="max-w-sm mx-auto reveal reveal-delay-2">
+        <PricingCard {...lsaCards[0]} />
+      </div>
+    </div>
+  </section>
 
   <!-- Web Design -->
   <PricingSection

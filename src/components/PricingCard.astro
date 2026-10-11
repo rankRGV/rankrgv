@@ -9,6 +9,7 @@ interface Props {
   lockedFeatures?: string[];
   cta: { label: string; href: string };
   highlighted?: boolean;
+  taxNote?: string;
 }
 
 const {
@@ -21,7 +22,13 @@ const {
   lockedFeatures = [],
   cta,
   highlighted = false,
+  taxNote: taxNoteProp,
 } = Astro.props;
+
+// Sales tax is added at checkout on top of every listed price. Pass taxNote="" to hide it.
+const isSpanish = Astro.url.pathname.startsWith('/es/');
+const taxNote =
+  taxNoteProp ?? (price.startsWith('$') ? (isSpanish ? 'más impuesto sobre la venta' : 'plus sales tax') : undefined);
 ---
 
 <div
@@ -64,10 +71,11 @@ const {
     </div>
 
     <!-- Price -->
-    <div class="relative flex items-end gap-2 mb-3">
+    <div class={`relative flex items-end gap-2 ${taxNote ? 'mb-1' : 'mb-3'}`}>
       <span class="text-4xl font-extrabold text-text tracking-tight">{price}</span>
       {period && <span class="text-text-muted pb-1 text-sm leading-snug">{period}</span>}
     </div>
+    {taxNote && <p class="relative text-xs text-text-muted mb-3">{taxNote}</p>}
 
     <!-- Description -->
     <p class="relative text-sm text-text-muted leading-relaxed mb-5">{description}</p>
