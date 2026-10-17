@@ -53,7 +53,7 @@ export const serviceAreas: ServiceArea[] = [
     county: 'Cameron',
     state: 'TX',
     geoRegion: 'US-TX',
-    population: '75,000+',
+    population: '70,000+',
     neighborhoods: ['Downtown Harlingen', 'North Harlingen', 'Stuart Place', 'Treasure Hills'],
     landmarks: ['Valley International Airport', 'Iwo Jima Memorial', 'UTRGV Health Sciences Campus'],
     marketContext:
