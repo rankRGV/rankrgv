@@ -31,7 +31,7 @@ Here's what AI Overviews actually are, what they mean for businesses in the Rio 
 - AI Overviews rarely appear for local commercial searches like "AC repair McAllen TX" — they show up mostly for informational, how-to, and comparison queries, and don't replace the map pack.
 - The real impact is on informational blog content, which now competes with Google's AI-generated summary for the same query.
 - **To get cited**: answer the question in the first one to three sentences, use clear H2/H3 structure and FAQ sections, and include specifics (local experience, real numbers) that generic AI content can't replicate.
-- E-E-A-T — the same framework behind organic rankings — also drives AI source selection, so map pack optimization and review velocity remain the higher-leverage priorities for most RGV businesses.
+- Google says there are no extra requirements to appear in AI Overviews beyond normal SEO, so map pack optimization and review velocity remain the higher-leverage priorities for most RGV businesses.
 
 </div>
 
@@ -65,7 +65,7 @@ Google's AI Overview algorithm selects sources based on quality, structure, and 
 
 ## How does E-E-A-T affect Google AI Overview citations?
 
-E-E-A-T — Experience, Expertise, Authoritativeness, Trustworthiness — is the quality framework Google uses for both standard rankings and AI source selection. For local businesses, the signals that matter most:
+E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is how [Google describes the content its systems try to reward](https://developers.google.com/search/docs/fundamentals/creating-helpful-content). Google is clear that E-E-A-T is not a specific ranking factor by itself, and that trust matters most. It also says [there are no additional requirements to appear in AI Overviews](https://developers.google.com/search/docs/appearance/ai-features) beyond normal SEO best practices. For local businesses, the signals that matter most:
 
 **Experience:** Content that reflects hands-on work in your field and your market. Writing about what you've seen working for businesses in the RGV specifically, not generic industry advice copied from anywhere.
 
@@ -87,7 +87,7 @@ These signals have always mattered for SEO. The difference now is that building 
 
 Don't abandon your informational content strategy. Businesses that panic and stop publishing lose ground on the long tail of informational searches that still drive discovery and brand building. A blog post that no longer ranks #1 because an AI Overview appears above it may still rank #3 — and some readers always scroll past the AI to the blue links below.
 
-Don't write content specifically targeting AI systems. Google's guidelines are explicit: content written to manipulate AI features rather than help people risks triggering scaled content abuse policies. Write for people, organize for clarity.
+Don't write content specifically targeting AI systems. Google's [spam policies](https://developers.google.com/search/docs/essentials/spam-policies) name scaled content abuse: lots of pages generated mainly to manipulate rankings. Content churned out to game AI answers falls into the same trap. Write for people, organize for clarity.
 
 Don't treat AI Overviews as the most important thing happening in local search right now. For most RGV businesses, map pack optimization and review velocity are still the highest-leverage activities. AI Overviews are worth understanding — not reorganizing your marketing around.
 

@@ -11,7 +11,7 @@ faqs:
   - question: "How do I know which pages are currently ranking before my redesign?"
     answer: "Google Search Console is the most accurate source. Under Performance, you can see which URLs are getting impressions and clicks for which queries. If you don't have Search Console set up, set it up now — before the redesign begins."
   - question: "What happens if I change my domain name during the redesign?"
-    answer: "Domain changes are the highest-risk scenario. You'll need 301 redirects from every old URL to its equivalent on the new domain, plus you'll need to update your GBP, all directory listings, and any backlinks you're aware of. Rankings typically drop temporarily after a domain migration and recover over 2 to 4 months if the redirects are set up correctly."
+    answer: "Domain changes are the highest-risk scenario. You'll need 301 redirects from every old URL to its equivalent on the new domain, plus you'll need to update your GBP, all directory listings, and any backlinks you're aware of. Google says to expect temporary ranking fluctuation during a move, and that rankings settle down over time when permanent redirects are set up correctly."
   - question: "Does switching website platforms always hurt SEO?"
     answer: "Not necessarily, but it almost always changes URLs, which requires redirects. The platform itself (Squarespace vs. WordPress vs. Wix) matters less than whether the redirect map is built correctly and whether the content and title tags are preserved."
   - question: "How fast does a website need to load for SEO in 2026?"
@@ -33,7 +33,7 @@ Here's what to protect before you launch, and what to fix while you're at it.
 - Redesigns tank rankings mainly through URL changes without 301 redirects, and through title tag/H1 rewrites that drop the keywords a page was ranking for.
 - Before touching anything, pull your top-ranking pages from Search Console and record their exact URLs, title tags, and H1s — that's your protection list.
 - Use the redesign to fix what's usually missing: keyword-rich title tags, a crawlable footer address matching your GBP, LocalBusiness schema, mobile performance, and image alt text.
-- Domain changes are the highest-risk scenario — rankings typically drop temporarily and recover over 2 to 4 months if redirects are set up correctly.
+- Domain changes are the highest-risk scenario. Google says to expect temporary ranking fluctuation during a move, settling over time when permanent (301) redirects are in place.
 
 </div>
 
@@ -111,7 +111,7 @@ A redesign is not a reset. The ranking signals you've built up over months or ye
 Google Search Console is the most accurate source. Under Performance, you can see which URLs are getting impressions and clicks for which queries. If you don't have Search Console set up, set it up now — before the redesign begins.
 
 **What happens if I change my domain name during the redesign?**
-Domain changes are the highest-risk scenario. You'll need 301 redirects from every old URL to its equivalent on the new domain, plus you'll need to update your GBP, all directory listings, and any backlinks you're aware of. Rankings typically drop temporarily after a domain migration and recover over 2 to 4 months if the redirects are set up correctly.
+Domain changes are the highest-risk scenario. You'll need 301 redirects from every old URL to its equivalent on the new domain, plus you'll need to update your GBP, all directory listings, and any backlinks you're aware of. Google's [site move guide](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes) says to expect temporary ranking fluctuation during a move, that 301 redirects don't lose PageRank, and that rankings settle down over time.
 
 **Does switching website platforms always hurt SEO?**
 Not necessarily, but it almost always changes URLs, which requires redirects. The platform itself (Squarespace vs. WordPress vs. Wix) matters less than whether the redirect map is built correctly and whether the content and title tags are preserved.

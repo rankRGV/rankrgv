@@ -9,7 +9,7 @@ targetKeyword: "how to verify google business profile"
 draft: false
 faqs:
   - question: "How long does Google Business Profile verification take?"
-    answer: "It depends on the method. Phone and email verification can complete in minutes. Video verification typically takes 3 to 7 business days. Postcard verification takes up to 14 days for delivery plus code entry. Live video calls verify immediately."
+    answer: "It depends on the method. Phone and email verification can complete in minutes. Google says video review can take up to 5 business days. Postcard verification takes up to 14 days for delivery plus code entry. Live video calls verify immediately."
   - question: "My video verification was rejected. What do I do?"
     answer: "Resubmit with a new video — fully continuous, signage or branded vehicle clearly visible, address numbers in frame, recorded in good lighting. Most rejections are fixable by addressing those specific gaps on the second attempt."
   - question: "Can I verify a Google Business Profile for a home-based business?"
@@ -30,7 +30,7 @@ For most small businesses in the Rio Grande Valley, verification takes anywhere 
 
 **Key takeaways**
 
-- An unverified GBP is completely invisible in local search — video verification is now the default and takes 3 to 7 business days, while phone/text/email can complete within minutes.
+- An unverified GBP is completely invisible in local search — video verification is now the default and Google says its review can take up to 5 business days, while phone/text/email can complete within minutes.
 - Video verification gets rejected most often for gaps or cuts in the recording, unclear signage, or a mismatched address — most businesses succeed on the second or third attempt.
 - Don't change your business name, address, or category while verification is pending — it can restart the entire review process.
 - Service-area businesses still need a listed address for proximity calculations, even when it's hidden from the public.
@@ -59,13 +59,13 @@ Google offers several methods depending on your business type, location, and his
 
 **Email verification** sends a code to an email associated with the business. Less common but straightforward.
 
-**Postcard verification** mails a physical code to your business address. Takes 5 to 14 days. Less common since video verification became the default, but still used for certain business types. The code expires in 30 days.
+**Postcard verification** mails a physical code to your business address. Google says [most codes arrive within 14 days](https://support.google.com/business/answer/7107242). Less common since video verification became the default, but still used for certain business types. Codes expire after 30 days.
 
 **Live video call** is available when video verification has been rejected. A Google representative joins a call and you show your location, equipment, or signage in real time.
 
 ## How long does Google Business Profile verification take?
 
-Timeline depends on the method Google assigns. Phone, text, and email verification typically complete within minutes to an hour. Video verification takes 3 to 7 business days for Google to review the submission. Postcard verification takes up to 14 days for delivery, then is instant upon code entry. A live video call verifies immediately upon completion.
+Timeline depends on the method Google assigns. Phone, text, and email verification typically complete within minutes to an hour. Google says [video review can take up to 5 business days](https://support.google.com/business/answer/14271705). Postcard verification takes up to 14 days for delivery, then is instant upon code entry. A live video call verifies immediately upon completion.
 
 Do not make significant changes to your profile — especially business name, address, or primary category — while verification is pending. Changes can restart the entire review process.
 
@@ -108,7 +108,7 @@ A profile that goes from zero to 10 reviews in the first 30 days sends a strong 
 ## Frequently Asked Questions
 
 **How long does Google Business Profile verification take?**
-It depends on the method. Phone and email verification can complete in minutes. Video verification typically takes 3 to 7 business days. Postcard verification takes up to 14 days for delivery plus code entry. Live video calls verify immediately.
+It depends on the method. Phone and email verification can complete in minutes. Google says video review can take up to 5 business days. Postcard verification takes up to 14 days for delivery plus code entry. Live video calls verify immediately.
 
 **My video verification was rejected. What do I do?**
 Resubmit with a new video — fully continuous, signage or branded vehicle clearly visible, address numbers in frame, recorded in good lighting. Most rejections are fixable by addressing those specific gaps on the second attempt.

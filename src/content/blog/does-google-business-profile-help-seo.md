@@ -54,11 +54,11 @@ If you're a plumber in McAllen trying to show up for "plumber McAllen," your Goo
 
 **You appear in the map pack.** The top three results in a local search aren't blue links. They're a map with three businesses. That's where the calls come from.
 
-**You show up in "near me" searches.** Google uses location, both the searcher's and yours, to populate these results. Without a verified GBP, you're not in the running at all.
+**You show up in "near me" searches.** Google uses [distance](https://support.google.com/business/answer/7091), meaning how far you are from the person searching, to populate these results. Without a verified GBP, you're not in the running at all.
 
 **Google trusts you faster.** A verified, active profile signals to Google that your business is real, open, and engaged. Unverified profiles get deprioritized.
 
-**You can collect reviews.** Reviews are the top trust signal for local searchers, and a meaningful ranking factor. You need a GBP to ask for them.
+**You can collect reviews.** Reviews are a trust signal for local searchers, and Google says [more reviews and positive ratings can help your local ranking](https://support.google.com/business/answer/7091). You need a GBP to ask for them.
 
 ## The indirect SEO benefits
 

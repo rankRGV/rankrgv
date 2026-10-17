@@ -34,7 +34,7 @@ Here are the seven we see most often, and what to do about each one.
 
 - **Wrong primary category is the most common and most damaging mistake** — it decides whether you show up at all, not just where you rank. A Mission law firm switched from "Law Firm" to "Personal Injury Attorney" and saw movement within three weeks.
 - Keyword-stuffing your business name (adding location or service terms to your legal name) violates Google's terms and is one of the most common suspension triggers.
-- Review recency matters more than volume: a business with 15 reviews from the last three months can outrank one with 60 reviews from 2022. Target 2 to 4 new reviews per month, not a burst of 20 all at once.
+- Google says more reviews and positive ratings can help local ranking. Ask every customer, steadily. Target 2 to 4 new reviews per month instead of a burst of 20 all at once.
 - Inactive profiles — no new photos, no posts, no recent reviews — get quietly deprioritized. Weekly photos and posts are the easiest way to signal your business is active.
 
 </div>
@@ -43,7 +43,7 @@ Here are the seven we see most often, and what to do about each one.
 
 This is the single most impactful mistake on this list, and it's also the most common.
 
-Your primary category is what Google uses to decide which searches your profile even qualifies to appear in. Not just where you rank — whether you show up at all. Get it wrong and you're invisible to the exact people looking for your services, no matter how good everything else looks.
+Your primary category is a big part of what Google calls [relevance](https://support.google.com/business/answer/7091): how well your profile matches what someone is searching for. Not just where you rank — whether you show up at all. Get it wrong and you're invisible to the exact people looking for your services, no matter how good everything else looks.
 
 We audited a Mission law firm that had set their primary category to "Law Firm." Reasonable choice, right? Except their main revenue came from personal injury cases, and they weren't showing up for "personal injury attorney Mission TX" or "car accident lawyer McAllen" — the searches that actually bring in clients. Switching the primary category to "Personal Injury Attorney" and keeping "Law Firm" as a secondary took three weeks to show meaningful movement. The searches they'd been invisible for started showing the profile.
 
@@ -55,7 +55,7 @@ After you've set a strong primary, add 3–5 relevant secondary categories to co
 
 This one gets businesses suspended.
 
-Google requires your GBP business name to match your actual, legal business name — nothing added. If your business is called "Garza Plumbing," your GBP name is "Garza Plumbing." Not "Garza Plumbing McAllen TX Emergency Plumber Best Price." Not "Garza Plumbing — McAllen's #1 Plumber."
+Google's [guidelines](https://support.google.com/business/answer/3038177) say your name should reflect your business's real-world name, and adding extra information to it isn't permitted. If your business is called "Garza Plumbing," your GBP name is "Garza Plumbing." Not "Garza Plumbing McAllen TX Emergency Plumber Best Price." Not "Garza Plumbing — McAllen's #1 Plumber."
 
 Business owners add keywords to their name thinking it'll help them rank for those terms. It doesn't work that way — Google's algorithm reads your profile, your reviews, your website, and dozens of other signals to understand what you do and where you do it. A keyword in your business name doesn't override any of that. What it does do is flag your profile as violating Google's terms.
 
@@ -69,11 +69,11 @@ Here's what most McAllen business owners believe about reviews: you get them whe
 
 That's not how it works. Satisfied customers go back to their day. The ones motivated to write something unprompted are disproportionately the unhappy ones. If you're not actively asking for reviews, your profile is being quietly pulled toward a skewed picture of your business — and it's not a flattering one.
 
-Google's Map Pack ranking algorithm weighs three things about reviews: how many you have, your average rating, and how recent they are. Recent reviews carry more weight than old ones. A business with 15 reviews from the last three months can outrank a business with 60 reviews from 2022. Volume matters, but velocity matters more.
+Google says [more reviews and positive ratings can help your local ranking](https://support.google.com/business/answer/7091). It doesn't publish how much recency counts. But a steady flow keeps your newest review recent, and customers notice when the last one is two years old.
 
 The fix is simple: build asking into the end of every job or appointment. Say something in person, then send a text or email with a direct link to your review page (go to your GBP dashboard, click "Ask for reviews," copy that URL — that's your link). For businesses with a front desk or waiting area, a QR code that goes straight to the review page works well.
 
-Two to four new reviews per month is a reasonable target for most RGV businesses. That pace keeps your profile fresh and builds the count gradually. A burst of 20 reviews all at once can actually trigger Google's spam filters, which is the last thing you want.
+Two to four new reviews per month is a reasonable target for most RGV businesses. That pace keeps your profile fresh and builds the count gradually. Keep it clean, too. Google's [review policy](https://support.google.com/contributionpolicy/answer/7400114) bans paying or rewarding customers for reviews and asking only your happy customers. Ask everyone the same way.
 
 Never pay for reviews. Never offer discounts or incentives in exchange for them. Never ask people who haven't actually used your services. Google's systems flag abnormal review patterns, and a manual reviewer can spot fake reviews quickly. The penalty is suspension.
 
@@ -117,7 +117,7 @@ Audit these sources and make sure your business name, phone number, and address 
 
 ## Mistake #7: Going Quiet After Setup
 
-A Google Business Profile isn't a set-it-and-forget-it tool. Google treats inactive profiles as a signal that a business might have closed or reduced operations — and it adjusts rankings accordingly.
+A Google Business Profile isn't a set-it-and-forget-it tool. Google says [businesses with complete and accurate info](https://support.google.com/business/answer/7091) are more likely to show up in local results. Hours, photos and services that go stale stop being accurate.
 
 What "inactive" means in practice: no new photos added in months, no GBP posts in weeks, no recent reviews, no updates to hours or services. A profile like that is telling Google you've stopped paying attention. Google responds by ranking you lower.
 

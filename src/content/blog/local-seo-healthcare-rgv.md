@@ -31,7 +31,7 @@ Here's what actually works — and if you'd rather have it handled for you, this
 - Bilingual and insurance-specific searches ("dentista McAllen TX," "dentist that accepts Medicaid McAllen") are among the highest-intent healthcare searches in the Valley and most practices haven't optimized for them.
 - GBP attributes (Accepts new patients, Spanish-language staff, Telehealth available, insurance types) are almost always left blank — turning them on is one of the highest-leverage fixes available.
 - Review responses must stay HIPAA-compliant: thank the reviewer and express general appreciation, but never confirm a patient relationship or reference clinical details.
-- Review velocity beats raw count: a practice with 30 reviews where 8 came in the last quarter outranks one with 15 reviews that stopped 18 months ago.
+- Keep reviews coming: Google says more reviews and positive ratings help local ranking, and a practice still collecting them looks active next to one that stopped 18 months ago.
 
 </div>
 
@@ -59,7 +59,7 @@ Photos matter more for healthcare than people expect. Not stock photos. Actual p
 
 Healthcare is subject to HIPAA, which means you can never reference a specific patient's visit or condition in a review response. What you can do is thank the reviewer, express that your team is glad they had a good experience, and invite them to reach out with any questions. That's it — don't add any clinical detail, don't confirm they're a patient, don't describe what they came in for.
 
-Beyond compliance, the review strategy for a Valley healthcare practice should prioritize volume and recency. A practice with 15 reviews that stopped coming in 18 months ago is being outcompeted by a practice with 30 reviews where 8 came in the last quarter. Google treats review velocity as a proxy for business activity.
+Beyond compliance, the review strategy for a Valley healthcare practice should prioritize volume and recency. Google says [more reviews and positive ratings can help your local ranking](https://support.google.com/business/answer/7091). A patient comparing a practice whose last review is 18 months old with one that got 8 this quarter will notice the difference too.
 
 The best moment to ask is at checkout. A staff member handing back an insurance card can say, "If you have a moment, we'd really appreciate a Google review — it helps other families find us." A QR code at the front desk linking directly to the review page removes any friction. Both of these are HIPAA-compliant because they don't reference anything clinical.
 
