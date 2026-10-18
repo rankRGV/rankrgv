@@ -27,8 +27,8 @@ There's no magic switch for Google Maps ranking. But there is a predictable time
 **Key takeaways**
 
 - Ranking follows a predictable stage-by-stage timeline: foundation work in days 1-7, indexing through day 30, real movement in days 30-90, authority building through day 180, and top-3 contention beyond that.
-- **Proximity matters more than almost anything else** — an address physically inside your target city moves faster than a service address far from it.
-- Most RGV businesses see the biggest advantage not from what they do but from what neglected competitors *aren't* doing — profiles untouched for years are common.
+- **Proximity matters more than almost anything else.** An address physically inside your target city moves faster than a service address far from it.
+- Most RGV businesses see the biggest advantage not from what they do but from what neglected competitors *aren't* doing. Profiles untouched for years are common.
 - Highly competitive categories (personal injury law, insurance) and profiles that sat neglected for years can stretch the timeline to six months or more.
 
 </div>

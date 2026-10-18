@@ -20,15 +20,15 @@ faqs:
     answer: "Wrong primary category. It decides whether you qualify for a search at all, not just where you land once you do."
 ---
 
-Google Business Profile doesn't boost your website's organic rankings. Rankings in the map pack and local finder run on a separate algorithm. That surprises most business owners, who either ignore their profile completely or treat it as a free listing and nothing more. Both reactions cost them calls — which is why GBP is one piece of our [local SEO service](/local-seo/), not the whole strategy.
+Google Business Profile doesn't boost your website's organic rankings. Rankings in the map pack and local finder run on a separate algorithm. That surprises most business owners, who either ignore their profile completely or treat it as a free listing and nothing more. Both reactions cost them calls. That's why GBP is one piece of our [local SEO service](/local-seo/), not the whole strategy.
 
 <div class="key-takeaways">
 
 **Key takeaways**
 
-- GBP doesn't directly boost organic rankings — the map pack and local finder run on a separate algorithm where GBP optimization and proximity are the primary signals, not website quality or backlinks.
+- GBP doesn't directly boost organic rankings. The map pack and local finder run on a separate algorithm where GBP optimization and proximity are the primary signals, not website quality or backlinks.
 - It's still the highest-ROI local marketing asset most RGV businesses have: it's free, it's the first thing customers see on "near me" searches, and a properly built profile can outrank competitors spending real money on ads.
-- Indirect organic benefits do exist — NAP consistency, referral traffic, branded search volume, and click-through behavior all feed back into your website's own rankings.
+- Indirect organic benefits do exist: NAP consistency, referral traffic, branded search volume, and click-through behavior all feed back into your website's own rankings.
 - The single most common profile-killer is the **wrong primary category**, since it decides whether you qualify for a search at all, not just where you land once you do.
 
 </div>

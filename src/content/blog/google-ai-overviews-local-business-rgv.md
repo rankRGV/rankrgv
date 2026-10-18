@@ -1,6 +1,6 @@
 ---
 title: "What Are Google AI Overviews? What RGV Business Owners Need to Know"
-description: "Google AI Overviews are changing how search results look. For most local businesses in the Rio Grande Valley, the actual impact is much smaller than the panic suggests — but a few things do matter."
+description: "Google AI Overviews are changing how search results look. For most local businesses in the Rio Grande Valley, the actual impact is much smaller than the panic suggests, but a few things do matter."
 pubDate: 2026-06-29
 updatedDate: 2026-09-23
 author: "Eddie Urbano"
@@ -17,10 +17,10 @@ faqs:
   - question: "Do AI Overviews hurt my organic traffic?"
     answer: "For informational content, there is some evidence of reduced click-through rates on queries where AI Overviews appear. For local and commercial queries, the impact is minimal. The solution is content built around your firsthand experience that AI can't replicate: local case studies, specific market data, and real client results."
   - question: "Should I change my content strategy because of AI Overviews?"
-    answer: "Refine it, don't abandon it. Write content that's more specific, more local, and more rooted in your actual experience. That content is both more likely to be cited in AI Overviews and more likely to earn clicks when it isn't. The fundamentals of good content haven't changed — AI Overviews just reward doing them well more explicitly than before."
+    answer: "Refine it, don't abandon it. Write content that's more specific, more local, and more rooted in your actual experience. That content is both more likely to be cited in AI Overviews and more likely to earn clicks when it isn't. The fundamentals of good content haven't changed. AI Overviews just reward doing them well more explicitly than before."
 ---
 
-If you've searched Google recently and seen a box of AI-generated text appear above the organic results, you've seen a Google AI Overview. Google started rolling these out broadly in 2024, and they've become a consistent feature across a wide range of queries. The marketing world spent significant time panicking about them. Most of that panic was misplaced — especially for local businesses.
+If you've searched Google recently and seen a box of AI-generated text appear above the organic results, you've seen a Google AI Overview. Google started rolling these out broadly in 2024, and they've become a consistent feature across a wide range of queries. The marketing world spent significant time panicking about them. Most of that panic was misplaced, especially for local businesses.
 
 Here's what AI Overviews actually are, what they mean for businesses in the Rio Grande Valley, and what (if anything) you need to do about them.
 
@@ -28,7 +28,7 @@ Here's what AI Overviews actually are, what they mean for businesses in the Rio 
 
 **Key takeaways**
 
-- AI Overviews rarely appear for local commercial searches like "AC repair McAllen TX" — they show up mostly for informational, how-to, and comparison queries, and don't replace the map pack.
+- AI Overviews rarely appear for local commercial searches like "AC repair McAllen TX." They show up mostly for informational, how-to, and comparison queries, and don't replace the map pack.
 - The real impact is on informational blog content, which now competes with Google's AI-generated summary for the same query.
 - **To get cited**: answer the question in the first one to three sentences, use clear H2/H3 structure and FAQ sections, and include specifics (local experience, real numbers) that generic AI content can't replicate.
 - Google says there are no extra requirements to appear in AI Overviews beyond normal SEO, so map pack optimization and review velocity remain the higher-leverage priorities for most RGV businesses.
@@ -37,13 +37,13 @@ Here's what AI Overviews actually are, what they mean for businesses in the Rio 
 
 ## What are Google AI Overviews?
 
-Google AI Overviews are AI-generated summaries that appear at the top of certain search results pages. When someone asks an informational question, Google generates a text response and displays it above the traditional blue links. The AI pulls from content across the web and sometimes cites sources. They appear frequently for how-to, comparison, and definition queries — and much less often for local commercial searches.
+Google AI Overviews are AI-generated summaries that appear at the top of certain search results pages. When someone asks an informational question, Google generates a text response and displays it above the traditional blue links. The AI pulls from content across the web and sometimes cites sources. They appear frequently for how-to, comparison, and definition queries, and much less often for local commercial searches.
 
 Previously called Search Generative Experience (SGE) during testing, AI Overviews have been broadly available in the US since May 2024.
 
 ## Do Google AI Overviews affect local business search results?
 
-For most RGV local businesses, the impact is minimal. Google AI Overviews almost never appear for local searches. When someone searches "AC repair McAllen TX" or "electrician near me Edinburg" or "roofing company Harlingen TX," Google shows a map pack — those three business listings with a map — followed by regular organic results. AI Overviews don't replace the map pack.
+For most RGV local businesses, the impact is minimal. Google AI Overviews almost never appear for local searches. When someone searches "AC repair McAllen TX" or "electrician near me Edinburg" or "roofing company Harlingen TX," Google shows a map pack (those three business listings with a map) followed by regular organic results. AI Overviews don't replace the map pack.
 
 This makes sense: an AI summarizing "best HVAC companies in McAllen" would be making claims Google can't verify. Instead, Google shows real GBP listings with real reviews, addresses, and phone numbers. If your business depends on people searching for your service in a specific city and then calling, the AI Overviews conversation is mostly irrelevant to your immediate visibility strategy.
 
@@ -51,11 +51,11 @@ This makes sense: an AI summarizing "best HVAC companies in McAllen" would be ma
 
 AI Overviews do affect one area local businesses care about: informational blog content. If you've published posts like "how to tell if your AC needs repair" or "how many quotes should I get before hiring a roofer," those pages now compete with Google's AI Overview for the query they were targeting. A reader who gets a satisfying AI answer at the top of results is less likely to click through to your blog.
 
-This doesn't mean stop writing informational content — it means writing content the AI can't fully replicate. Generic explanations of common concepts are at risk. First-hand local experience, client results, hyperlocal market data, and specific RGV context are not.
+This doesn't mean stop writing informational content. It means writing content the AI can't fully replicate. Generic explanations of common concepts are at risk. First-hand local experience, client results, hyperlocal market data, and specific RGV context are not.
 
 ## How do I get my content cited in a Google AI Overview?
 
-Google's AI Overview algorithm selects sources based on quality, structure, and relevance — the same signals that determine regular organic rankings. To improve your chances of being cited:
+Google's AI Overview algorithm selects sources based on quality, structure, and relevance, the same signals that determine regular organic rankings. To improve your chances of being cited:
 
 **Answer the question directly in the first one to three sentences.** AI source content tends to have the answer early. A page that buries the answer after four paragraphs of preamble gets passed over.
 
@@ -71,7 +71,7 @@ E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is how [Goog
 
 **Expertise:** Correct, specific, current information. Outdated or vague content is not selected as a source.
 
-**Authoritativeness:** Links from reputable local sources — chambers of commerce, local news, industry associations — that establish your business as a credible entity in the Valley.
+**Authoritativeness:** Links from reputable local sources (chambers of commerce, local news, industry associations) that establish your business as a credible entity in the Valley.
 
 **Trustworthiness:** NAP consistency across the web, real Google reviews, an SSL-secured website, and transparent author attribution.
 
@@ -79,17 +79,17 @@ These signals have always mattered for SEO. The difference now is that building 
 
 <div class="callout">
 
-**Running a local business in the Rio Grande Valley and not sure what's actually hurting your Google visibility?** We do a straightforward diagnostic — not a 47-slide deck, just a clear answer. [Start here →](/get-started/)
+**Running a local business in the Rio Grande Valley and not sure what's actually hurting your Google visibility?** We do a straightforward diagnostic. Not a 47-slide deck, just a clear answer. [Start here →](/get-started/)
 
 </div>
 
 ## What should local businesses avoid doing about AI Overviews?
 
-Don't abandon your informational content strategy. Businesses that panic and stop publishing lose ground on the long tail of informational searches that still drive discovery and brand building. A blog post that no longer ranks #1 because an AI Overview appears above it may still rank #3 — and some readers always scroll past the AI to the blue links below.
+Don't abandon your informational content strategy. Businesses that panic and stop publishing lose ground on the long tail of informational searches that still drive discovery and brand building. A blog post that no longer ranks #1 because an AI Overview appears above it may still rank #3, and some readers always scroll past the AI to the blue links below.
 
 Don't write content specifically targeting AI systems. Google's [spam policies](https://developers.google.com/search/docs/essentials/spam-policies) name scaled content abuse: lots of pages generated mainly to manipulate rankings. Content churned out to game AI answers falls into the same trap. Write for people, organize for clarity.
 
-Don't treat AI Overviews as the most important thing happening in local search right now. For most RGV businesses, map pack optimization and review velocity are still the highest-leverage activities. AI Overviews are worth understanding — not reorganizing your marketing around.
+Don't treat AI Overviews as the most important thing happening in local search right now. For most RGV businesses, map pack optimization and review velocity are still the highest-leverage activities. AI Overviews are worth understanding, but not worth reorganizing your marketing around.
 
 ---
 
@@ -108,12 +108,12 @@ By producing high-quality, well-structured, specific content that directly answe
 For informational content, there is some evidence of reduced click-through rates on queries where AI Overviews appear. For local and commercial queries, the impact is minimal. The solution is content built around your firsthand experience that AI can't replicate: local case studies, specific market data, and real client results.
 
 **Should I change my content strategy because of AI Overviews?**
-Refine it, don't abandon it. Write content that's more specific, more local, and more rooted in your actual experience. That content is both more likely to be cited in AI Overviews and more likely to earn clicks when it isn't. The fundamentals of good content haven't changed — AI Overviews just reward doing them well more explicitly than before.
+Refine it, don't abandon it. Write content that's more specific, more local, and more rooted in your actual experience. That content is both more likely to be cited in AI Overviews and more likely to earn clicks when it isn't. The fundamentals of good content haven't changed. AI Overviews just reward doing them well more explicitly than before.
 
 ---
 
 ## Related Reading
 
-- [Local SEO for RGV Home Service Businesses](/blog/local-seo-home-services-rgv/) — The organic ranking fundamentals that still drive most local search visibility.
-- [How to Rank on Google Maps in McAllen](/blog/how-to-rank-google-maps-mcallen/) — The map pack is still where local commercial search happens — here's how it works.
-- [RGV Local Search Trends 2026](/blog/rgv-local-search-trends-2026/) — What's shifting in how Valley customers find local businesses.
+- [Local SEO for RGV Home Service Businesses](/blog/local-seo-home-services-rgv/): The organic ranking fundamentals that still drive most local search visibility.
+- [How to Rank on Google Maps in McAllen](/blog/how-to-rank-google-maps-mcallen/): The map pack is still where local commercial search happens. Here's how it works.
+- [RGV Local Search Trends 2026](/blog/rgv-local-search-trends-2026/): What's shifting in how Valley customers find local businesses.

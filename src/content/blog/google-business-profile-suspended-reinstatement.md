@@ -11,7 +11,7 @@ faqs:
   - question: "How long does Google Business Profile reinstatement take?"
     answer: "Google does not publish a timeline. It reviews the appeal, emails you the decision, and you can check the status in the appeals tool. Clear documentation up front avoids extra back and forth."
   - question: "Can I still run Google Ads if my GBP is suspended?"
-    answer: "Yes. Your GBP and Google Ads account are separate systems. A suspended GBP does not prevent you from running search ads or Local Services Ads — and doing so during suspension is one of the best ways to maintain lead flow while waiting for reinstatement."
+    answer: "Yes. Your GBP and Google Ads account are separate systems. A suspended GBP does not prevent you from running search ads or Local Services Ads, and doing so during suspension is one of the best ways to maintain lead flow while waiting for reinstatement."
   - question: "What happens to my reviews during a suspension?"
     answer: "Reviews are not deleted during a suspension. When your profile is reinstated and becomes visible again, your review history returns with it. In a hard suspension, reviews are temporarily invisible along with the listing but reappear upon reinstatement."
   - question: "My reinstatement request was denied. What do I do?"
@@ -33,7 +33,7 @@ Here's what actually causes suspensions, what the reinstatement process looks li
 - There are two suspension types: a **soft suspension** (visible but locked) and a **hard suspension** (removed from search and Maps entirely). Hard suspensions are more damaging and harder to recover from.
 - **Keyword stuffing in the business name** is the single most common cause of suspension.
 - Fix the underlying policy violation *before* submitting a reinstatement request. Google does not publish a review timeline.
-- Don't submit repeat requests back to back or create a duplicate listing while a review is pending — both can reset the timer or make your case worse.
+- Don't submit repeat requests back to back or create a duplicate listing while a review is pending. Both can reset the timer or make your case worse.
 
 </div>
 
@@ -47,21 +47,21 @@ A **hard suspension** means your listing is completely removed and no longer app
 
 ## Why does a Google Business Profile get suspended?
 
-Most suspensions are triggered by Google's automated systems, not a human reviewer — which means they can hit legitimate businesses based on patterns that look suspicious, even when nothing was actually wrong.
+Most suspensions are triggered by Google's automated systems, not a human reviewer, which means they can hit legitimate businesses based on patterns that look suspicious, even when nothing was actually wrong.
 
-**Keyword stuffing in the business name** is the single most common cause. Google's [guidelines](https://support.google.com/business/answer/3038177) say your name should reflect your real-world business name, and adding extra information isn't permitted. "McAllen Roofing Company | Storm Damage | Hail Repair" is not a business name — it's a keyword list. Your GBP name should match exactly what's on your business license and signage.
+**Keyword stuffing in the business name** is the single most common cause. Google's [guidelines](https://support.google.com/business/answer/3038177) say your name should reflect your real-world business name, and adding extra information isn't permitted. "McAllen Roofing Company | Storm Damage | Hail Repair" is not a business name. It's a keyword list. Your GBP name should match exactly what's on your business license and signage.
 
 **Address issues** include a PO box listed as a physical address, a virtual office or mailbox store address used to appear closer to a target city, or multiple businesses at the same address flagging your listing even if you're the legitimate one.
 
-**Rapid profile changes** — changing your business name, category, and phone number all at once — signal that a different business may have taken over the listing.
+**Rapid profile changes** (changing your business name, category, and phone number all at once) signal that a different business may have taken over the listing.
 
 **Category or description violations** include restricted categories, unverifiable claims ("best in the area"), or URLs and phone numbers added to fields that shouldn't contain them.
 
-**Third-party attacks** — competitors reporting your listing as fraudulent — can trigger a review that sometimes results in temporary suspension.
+**Third-party attacks** (competitors reporting your listing as fraudulent) can trigger a review that sometimes results in temporary suspension.
 
 ## How do I submit a Google Business Profile reinstatement request?
 
-Before submitting anything, identify why the suspension happened. Review Google's GBP policies against every field in your profile. Check your business name for keyword additions. Verify your address is legitimate and matches your business license. Fix any clear policy violations before submitting — a reinstatement request for a profile that still violates policy almost always results in denial.
+Before submitting anything, identify why the suspension happened. Review Google's GBP policies against every field in your profile. Check your business name for keyword additions. Verify your address is legitimate and matches your business license. Fix any clear policy violations before submitting. A reinstatement request for a profile that still violates policy almost always results in denial.
 
 Once the underlying issue is fixed, go to the Google Business Profile Help Center and search for "appeal a suspended profile." Submit the reinstatement form with:
 
@@ -91,19 +91,19 @@ A hard suspension can mean zero local visibility for weeks. While you work throu
 
 ## What mistakes delay Google Business Profile reinstatement?
 
-**Submitting multiple requests back to back.** If you submit, don't hear anything, and submit again the same day, Google's system can treat this as a reset — restarting the review timer. Wait the full review period before following up.
+**Submitting multiple requests back to back.** If you submit, don't hear anything, and submit again the same day, Google's system can treat this as a reset, restarting the review timer. Wait the full review period before following up.
 
 **Not fixing the underlying issue first.** The most common reason for repeated denials is that the profile still contains the problem that caused the suspension. Fix first, then request reinstatement.
 
 **Vague explanations.** "My business is legitimate and I don't know why this happened" doesn't help reviewers. Be specific: what your business does, where it operates, how long it's been operating, and why you believe the suspension was an error.
 
-**Editing the profile while a review is active.** Don't change your business name, category, or address while a reinstatement is pending — changes can restart the process.
+**Editing the profile while a review is active.** Don't change your business name, category, or address while a reinstatement is pending. Changes can restart the process.
 
 ## How do I prevent my Google Business Profile from being suspended again?
 
-Keep your business name exactly as it appears on your business license — no keyword additions, no taglines, no service areas in the name field. Don't use a virtual office or mailbox address unless you actually work from there. If you're a service-area business, hide your address and set service areas instead.
+Keep your business name exactly as it appears on your business license: no keyword additions, no taglines, no service areas in the name field. Don't use a virtual office or mailbox address unless you actually work from there. If you're a service-area business, hide your address and set service areas instead.
 
-Make profile changes gradually, not all at once. If you're updating your phone number, hours, and category, spread those changes over a few days rather than simultaneously. Monitor your profile regularly — a suspension caught in week one recovers faster than one discovered after three months.
+Make profile changes gradually, not all at once. If you're updating your phone number, hours, and category, spread those changes over a few days rather than simultaneously. Monitor your profile regularly. A suspension caught in week one recovers faster than one discovered after three months.
 
 Review your profile access list periodically if employees or third parties have management access. An authorized user who inadvertently violates policy can trigger the same outcome as intentional abuse.
 
@@ -115,7 +115,7 @@ Review your profile access list periodically if employees or third parties have 
 Google does not publish a timeline. Per its [appeal instructions](https://support.google.com/business/answer/4569145), Google reviews the appeal, emails you the decision, and you can check the status in the appeals tool. Clear documentation up front avoids extra back and forth.
 
 **Can I still run Google Ads if my GBP is suspended?**
-Yes. Your GBP and Google Ads account are separate systems. A suspended GBP does not prevent you from running search ads or Local Services Ads — and doing so during suspension is one of the best ways to maintain lead flow while waiting for reinstatement.
+Yes. Your GBP and Google Ads account are separate systems. A suspended GBP does not prevent you from running search ads or Local Services Ads, and doing so during suspension is one of the best ways to maintain lead flow while waiting for reinstatement.
 
 **What happens to my reviews during a suspension?**
 Reviews are not deleted during a suspension. When your profile is reinstated and becomes visible again, your review history returns with it. In a hard suspension, reviews are temporarily invisible along with the listing but reappear upon reinstatement.
@@ -133,6 +133,6 @@ No. Google's [appeal instructions](https://support.google.com/business/answer/45
 
 ## Related Reading
 
-- [How to Verify Your Google Business Profile](/blog/verify-google-business-profile-2026/) — Before suspension prevention, get verification right from the start.
-- [How to Rank on Google Maps in McAllen](/blog/how-to-rank-google-maps-mcallen/) — The GBP optimization fundamentals that build a profile worth protecting.
-- [GBP Management for RGV Businesses](/gbp-management/) — Done-for-you GBP setup, compliance monitoring, and ongoing optimization.
+- [How to Verify Your Google Business Profile](/blog/verify-google-business-profile-2026/): Before suspension prevention, get verification right from the start.
+- [How to Rank on Google Maps in McAllen](/blog/how-to-rank-google-maps-mcallen/): The GBP optimization fundamentals that build a profile worth protecting.
+- [GBP Management for RGV Businesses](/gbp-management/): Done-for-you GBP setup, compliance monitoring, and ongoing optimization.
