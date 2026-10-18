@@ -1,6 +1,6 @@
 ---
 title: "How to Rank on Google Maps in McAllen: A 90-Day Plan"
-description: "McAllen businesses can hit the map pack top 3 in 60 to 90 days with the right setup. Here's the exact process, step by step."
+description: "A step-by-step plan for improving a McAllen business's Google Maps ranking over the first 90 days, and what each step does."
 pubDate: 2026-03-14
 updatedDate: 2026-09-23
 author: "Eddie Urbano"

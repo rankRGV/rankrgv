@@ -14,7 +14,12 @@ export const mainNav = [
       {
         label: 'Google Maps Optimization',
         href: '/google-maps-optimization/',
-        description: 'Get your business into the top 3 Google Maps results.',
+        description: 'Show up in Google Maps when nearby customers search.',
+      },
+      {
+        label: 'GBP Management',
+        href: '/gbp-management/',
+        description: 'Google Business Profile upkeep: posts, reviews, photos.',
       },
     ],
   },

@@ -120,7 +120,7 @@ const {
           </div>
         </div>
         <span class="text-sm font-medium text-text leading-snug">
-          Yes — allow RankRGV's assistant to text me answers and updates about my request.
+          Yes, allow RankRGV's assistant to text me answers and updates about my request.
         </span>
       </label>
       <p class="text-xs text-text-muted leading-relaxed pl-8">
@@ -266,7 +266,7 @@ const {
       'gbp-management': 'GBP Management',
       'business-automation': 'Business Automation',
     };
-    const svcLabel = (service && serviceLabels[service]) ? ' — ' + serviceLabels[service] : '';
+    const svcLabel = (service && serviceLabels[service]) ? ': ' + serviceLabels[service] : '';
     const displayText = plan + svcLabel;
 
     const field = document.getElementById('plan_interest') as HTMLInputElement | null;

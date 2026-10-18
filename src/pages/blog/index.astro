@@ -25,7 +25,7 @@ const categoryColors: Record<string, string> = {
 
 const title = 'Local SEO & Marketing Blog for RGV Business Owners | RankRGV';
 const description =
-  'Practical guides on local SEO, Google Maps ranking, web design, and digital marketing — written specifically for McAllen and Rio Grande Valley business owners.';
+  'Practical guides on local SEO, Google Maps ranking, web design, and digital marketing: written specifically for McAllen and Rio Grande Valley business owners.';
 
 const schema = [
   buildOrgSchema(),
@@ -46,7 +46,7 @@ const schema = [
           RankRGV Blog
         </div>
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text leading-tight mb-4">
-          Local SEO & marketing tips — <span class="gradient-text">built for the RGV.</span>
+          Local SEO & marketing tips, <span class="gradient-text">built for the RGV.</span>
         </h1>
         <p class="text-lg text-text-muted">
           No fluff. Practical guides on how McAllen and RGV businesses get found on Google, get more calls, and grow.
@@ -59,7 +59,7 @@ const schema = [
   <section class="py-16 bg-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {posts.length === 0 ? (
-        <p class="text-text-muted text-center py-20">Articles coming soon — check back shortly.</p>
+        <p class="text-text-muted text-center py-20">Articles coming soon: check back shortly.</p>
       ) : (
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (

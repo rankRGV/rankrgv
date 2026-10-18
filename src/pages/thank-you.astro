@@ -3,8 +3,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/config/site';
 import { services } from '@/data/services';
 
-const title = "You're on the list — RankRGV";
-const description = "We received your audit request. We'll review your Google Business Profile and website before we reach out — usually within one business day.";
+const title = "You're on the list | RankRGV";
+const description = "We received your audit request. We'll review your Google Business Profile and website before we reach out. You'll hear from us the same business day.";
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
@@ -19,13 +19,13 @@ const description = "We received your audit request. We'll review your Google Bu
       </div>
 
       <h1 class="text-3xl sm:text-4xl font-extrabold text-text mb-4">
-        Got it — we'll be in touch.
+        Got it: we'll be in touch.
       </h1>
       <p class="text-text-muted text-lg leading-relaxed mb-8">
-        We received your request. Before we reach out, we review your Google Business Profile, your current website, and who's ranking above you for your main keywords. You get a prepared conversation — not a cold call.
+        We received your request. Before we reach out, we review your Google Business Profile, your current website, and who's ranking above you for your main keywords. You get a prepared conversation, not a cold call.
       </p>
       <p class="text-text-muted mb-10">
-        <strong class="text-text">Response time:</strong> Within one business day, usually the same day.
+        <strong class="text-text">Response time:</strong> The same business day.
         <br />
         Want to reach us faster? Call or text <a href={site.phoneHref} class="text-brand-blue font-semibold hover:underline">{site.phone}</a>.
       </p>
@@ -36,7 +36,7 @@ const description = "We received your audit request. We'll review your Google Bu
         <div class="space-y-4">
           {[
             { step: '01', text: 'We review your Google Business Profile, website, and top competitors for your category and city.' },
-            { step: '02', text: 'We identify keyword gaps and Map Pack opportunities specific to your business — not generic advice.' },
+            { step: '02', text: 'We identify keyword gaps and Map Pack opportunities specific to your business, not generic advice.' },
             { step: '03', text: "We reach out with our findings and a straight assessment of what's possible and how fast." },
           ].map(({ step, text }) => (
             <div class="flex gap-4">

@@ -2,8 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/config/site';
 
-const title = "Welcome to RankRGV — Let's get started";
-const description = "You're in. Here's what happens next — invoice details, your kickoff call, and how we'll keep you in the loop.";
+const title = "Welcome to RankRGV. Let's get started";
+const description = "You're in. Here's what happens next: invoice details, your kickoff call, and how we'll keep you in the loop.";
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
@@ -21,10 +21,10 @@ const description = "You're in. Here's what happens next — invoice details, yo
         Welcome to RankRGV.
       </h1>
       <p class="text-text-muted text-lg leading-relaxed mb-8">
-        You made the call. Now we go to work. Here's exactly what happens next — no guesswork, no waiting in the dark.
+        You made the call. Now we go to work. Here's exactly what happens next, no guesswork, no waiting in the dark.
       </p>
       <p class="text-text-muted mb-10">
-        <strong class="text-text">First contact:</strong> Within one business day, usually the same day.
+        <strong class="text-text">First contact:</strong> The same business day.
         <br />
         Questions before then? Call or text <a href={site.phoneHref} class="text-brand-blue font-semibold hover:underline">{site.phone}</a>.
       </p>
@@ -34,10 +34,10 @@ const description = "You're in. Here's what happens next — invoice details, yo
         <h2 class="font-bold text-text mb-5 text-lg">What happens next</h2>
         <div class="space-y-4">
           {[
-            { step: '01', text: "An invoice with full payment details goes to the email you provided at checkout. Keep it for your records — that's your receipt and your line-item breakdown." },
+            { step: '01', text: "An invoice with full payment details goes to the email you provided at checkout. Keep it for your records: that's your receipt and your line-item breakdown." },
             { step: '02', text: "We'll reach out to schedule your 30-minute kickoff call. We use this call to align on Month 1 priorities, confirm access, and lock the cadence." },
-            { step: '03', text: 'Week 1 deliverables hit your inbox within 7–10 business days of the kickoff meeting. Google Business Profile optimization, technical schema deployed, NAP cleanup, baseline tracking — foundation work first.' },
-            { step: '04', text: "Your bi-weekly Loom updates begin at the end of week two. Short video walk-throughs talking through what we did — watch on your phone between jobs." },
+            { step: '03', text: 'Week 1 deliverables hit your inbox within 7–10 business days of the kickoff meeting. Google Business Profile optimization, technical schema deployed, NAP cleanup, baseline tracking: foundation work first.' },
+            { step: '04', text: "Your bi-weekly Loom updates begin at the end of week two. Short video walk-throughs talking through what we did: watch on your phone between jobs." },
           ].map(({ step, text }) => (
             <div class="flex gap-4">
               <div class="flex-shrink-0 w-9 h-9 rounded-full bg-brand-blue/10 flex items-center justify-center">
@@ -53,7 +53,7 @@ const description = "You're in. Here's what happens next — invoice details, yo
       <div class="bg-bg-surface rounded-2xl border border-border p-6 mb-10">
         <h2 class="font-bold text-text mb-2">Need anything before kickoff?</h2>
         <p class="text-text-muted text-sm mb-4">
-          We're already pulling together your audit and prep work. If you want to flag something for the kickoff call — a priority, a deadline, a system we should know about — send it over now.
+          We're already pulling together your audit and prep work. If you want to flag something for the kickoff call (a priority, a deadline, a system we should know about), send it over now.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
           <a href={`mailto:${site.email}`} class="inline-flex items-center justify-center px-5 py-2.5 bg-brand-blue text-white font-semibold text-sm rounded-lg hover:opacity-90 transition-opacity">

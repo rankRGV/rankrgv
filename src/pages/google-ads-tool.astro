@@ -4,7 +4,7 @@ import { site } from '@/config/site';
 
 const title = 'Google Ads Reporting Tool | RankRGV';
 const description =
-  'RankRGV internal Google Ads reporting and account management tool — how it works and what Google user data it accesses.';
+  'RankRGV internal Google Ads reporting and account management tool: how it works and what Google user data it accesses.';
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
@@ -21,14 +21,14 @@ const description =
         <div>
           <h2 class="text-xl font-bold text-text mb-3">What this application is</h2>
           <p class="text-text-muted leading-relaxed">
-            RankRGV is a digital marketing agency based in McAllen, Texas. We manage Google Ads accounts on behalf of our retainer clients across the Rio Grande Valley. This page describes an internal tool built and used by RankRGV — a command-line application that connects to the Google Ads API under our Google Ads manager (MCC) account.
+            RankRGV is a digital marketing agency based in McAllen, Texas. We manage Google Ads accounts on behalf of our retainer clients across the Rio Grande Valley. This page describes an internal tool built and used by RankRGV: a command-line application that connects to the Google Ads API under our Google Ads manager (MCC) account.
           </p>
         </div>
 
         <div>
           <h2 class="text-xl font-bold text-text mb-3">Purpose</h2>
           <p class="text-text-muted leading-relaxed">
-            The tool lets our team pull campaign, ad group, and keyword performance data for client accounts into the reports we deliver, and make routine account changes — pausing or enabling a campaign, adjusting a budget — without logging into the Google Ads interface separately for every client. It replaces manual, repetitive work with a single reporting workflow across all client accounts we manage.
+            The tool lets our team pull campaign, ad group, and keyword performance data for client accounts into the reports we deliver, and make routine account changes (pausing or enabling a campaign, adjusting a budget) without logging into the Google Ads interface separately for every client. It replaces manual, repetitive work with a single reporting workflow across all client accounts we manage.
           </p>
         </div>
 
@@ -38,9 +38,9 @@ const description =
             The tool requests access to Google Ads account data through the Google Ads API, scoped to accounts that have been linked to RankRGV's manager account with the client's consent, as part of our existing service agreement with each client. Specifically, it accesses:
           </p>
           <ul class="list-disc pl-5 space-y-1 text-text-muted">
-            <li>Campaign, ad group, and keyword performance metrics (impressions, clicks, cost, conversions) — used to build client performance reports</li>
-            <li>Campaign budget amounts — used to monitor and update budget pacing</li>
-            <li>Campaign status — used to pause or enable campaigns at a client's request</li>
+            <li>Campaign, ad group, and keyword performance metrics (impressions, clicks, cost, conversions): used to build client performance reports</li>
+            <li>Campaign budget amounts: used to monitor and update budget pacing</li>
+            <li>Campaign status: used to pause or enable campaigns at a client's request</li>
           </ul>
           <p class="text-text-muted leading-relaxed mt-3">
             No data retrieved through this tool is sold, shared with unrelated third parties, or used for any purpose beyond managing and reporting on the specific client accounts we are contracted to manage.

@@ -25,7 +25,7 @@ const gbpCards = [
     price: '$300',
     period: '/month',
     description:
-      'Google Business Profile upkeep — posts, review responses, photos, and monthly optimization. This keeps your profile active; full ranking work lives in Local SEO.',
+      'Google Business Profile upkeep: posts, review responses, photos, and monthly optimization. This keeps your profile active; full ranking work lives in Local SEO.',
     features: [
       'Weekly GBP posts',
       'Review monitoring & responses (within 24 hrs)',
@@ -46,7 +46,7 @@ const seoCards = [
     description:
       'The foundation. Get your Google presence optimized and start building real rankings in your primary market.',
     features: [
-      'GBP optimization & management',
+      'Google Business Profile management (posts, reviews, photos)',
       '1 content piece per month',
       'Local citation cleanup',
       'Rank tracking across target keywords',
@@ -75,7 +75,6 @@ const seoCards = [
       'Geo-grid ranking reports',
       'Competitor gap analysis',
       'Quarterly strategy call',
-      'GBP posts & review management',
     ],
     cta: { label: 'Get my free business grade', href: graderHref('pricing-seo-domination') },
     highlighted: true,
@@ -85,7 +84,7 @@ const seoCards = [
     price: '$1,500+',
     period: '/month',
     description:
-      'Full-service for competitive verticals — legal, healthcare, multi-location. Maximum output, priority access.',
+      'Full-service for competitive verticals: legal, healthcare, multi-location. Maximum output, priority access.',
     features: [
       'Everything in Domination',
       '4 content pieces per month',
@@ -108,7 +107,7 @@ const webCards = [
       'A fast, professional website that ranks and converts. Built for the RGV market from day one.',
     features: [
       '5–7 pages',
-      '99+ Google PageSpeed score',
+      'Goal: 99+ Google PageSpeed score',
       'Mobile-first design',
       'GBP-connected & schema-ready',
       'Contact form with lead capture',
@@ -217,7 +216,7 @@ const lsaCards = [
     price: '$350',
     period: '/month',
     description:
-      'Pay-per-lead ads with the Google Verified badge — a different product from standard Google Ads, with its own setup and ongoing lead management.',
+      'Pay-per-lead ads with the Google Verified badge: a different product from standard Google Ads, with its own setup and ongoing lead management.',
     features: [
       'LSA profile setup & job type configuration',
       'Guidance through Google\'s license & background check verification',
@@ -235,7 +234,7 @@ const automationCards = [
     price: 'Custom',
     period: 'quoted per project',
     description:
-      'Missed call text-back, lead nurture sequences, review automation, and appointment systems — scoped to your business and built to your workflow.',
+      'Missed call text-back, lead nurture sequences, review automation, and appointment systems: scoped to your business and built to your workflow.',
     features: [
       'Missed call text-back (< 60 sec response)',
       'Automated lead nurture sequences',
@@ -251,15 +250,19 @@ const automationCards = [
 const pricingFaqs = [
   {
     q: 'Do you require long-term contracts?',
-    a: "No — we're month-to-month on all recurring services. We'd rather earn your business every month with results than hold you with paperwork.",
+    a: "No: we're month-to-month on all recurring services. We'd rather earn your business every month with results than hold you with paperwork.",
   },
   {
     q: 'Can I start with GBP Management and upgrade to full SEO later?',
-    a: 'Absolutely. GBP Management is a natural entry point — and when you\'re ready to push for full rankings, the upgrade to a Local SEO package is seamless.',
+    a: 'Yes. When you move to a Local SEO plan, your GBP work rolls into it and the separate $300 charge stops.',
   },
   {
     q: 'What\'s included in the free SEO audit?',
-    a: "Your Google Business Profile health, website technical SEO, current keyword rankings, and a top-3 competitor comparison. No pitch deck — just a straight read of where you stand.",
+    a: "Your Google Business Profile health, website technical SEO, current keyword rankings, and a top-3 competitor comparison. No pitch deck, just a straight read of where you stand.",
+  },
+  {
+    q: 'Why does an existing client pay a different rate?',
+    a: 'Clients who signed before these prices were posted, or who bundled several services, keep the rate in their agreement. New clients pay the prices on this page.',
   },
   {
     q: 'Can I combine services?',
@@ -296,23 +299,34 @@ const pricingFaqs = [
         Transparent pricing for<br />RGV businesses.
       </h1>
       <p class="text-xl text-white/80 max-w-2xl mx-auto">
-        We publish our prices because we're confident in our work. Every competitor in the Valley hides theirs. We don't.
+        Our prices are on this page so you know the cost before the first call.
       </p>
     </div>
   </section>
 
   <ClientLogos />
 
+
+  <!-- Local SEO -->
+  <PricingSection
+    id="local-seo-pricing"
+    headline="Local SEO packages"
+    subheadline="Monthly retainers built to rank you across every RGV city your customers search from."
+    cards={seoCards}
+    note="Every Local SEO plan includes Google Business Profile management. You do not pay for it separately."
+    bg="bg-surface"
+  />
+
   <!-- GBP Management -->
   <section class="py-20 bg-bg" aria-label="GBP Management pricing">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-10">
         <div class="inline-flex items-center gap-2 bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4 reveal">
-          Best entry point
+          Profile upkeep only
         </div>
         <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">GBP Management</h2>
         <p class="text-text-muted text-lg reveal reveal-delay-1">
-          Not ready for full SEO? Start here. We maintain your Google Business Profile — posts, reviews, photos, and basic optimization — without a full ranking campaign.
+          Every Local SEO plan above already includes this. Buy it on its own only if you want your Google Business Profile kept up (posts, reviews, photos) without ranking work.
         </p>
       </div>
       <div class="max-w-sm mx-auto reveal reveal-delay-2">
@@ -321,22 +335,12 @@ const pricingFaqs = [
     </div>
   </section>
 
-  <!-- Local SEO -->
-  <PricingSection
-    id="local-seo-pricing"
-    headline="Local SEO packages"
-    subheadline="Monthly retainers built to rank you across every RGV city your customers search from."
-    cards={seoCards}
-    note="GBP Management is included in every Local SEO plan. Choose the standalone GBP plan only if you want profile maintenance without a full SEO campaign."
-    bg="bg-surface"
-  />
-
   <PricingSection
     id="ads-management-pricing"
     headline="Google & Meta Ads management"
-    subheadline="For businesses that want leads faster. Flat monthly fee based on your ad budget — no setup fees, no commissions on spend."
+    subheadline="For businesses that want leads faster. Flat monthly fee based on your ad budget, no setup fees, no commissions on spend."
     cards={adsCards}
-    note="Spending more than $10,000/month? We scope those accounts individually — usually a base fee plus a percentage of spend. Reach out for a custom quote."
+    note="Spending more than $10,000/month? We scope those accounts individually, usually a base fee plus a percentage of spend. Reach out for a custom quote."
     bg="bg-surface"
   />
 
@@ -359,9 +363,9 @@ const pricingFaqs = [
   <PricingSection
     id="web-design-pricing"
     headline="Web design packages"
-    subheadline="One-time projects. Built in Astro for 99+ PageSpeed, SEO-ready from day one, designed to convert."
+    subheadline="One-time projects. Built in Astro with a goal of 99+ on Google PageSpeed, SEO-ready from day one."
     cards={webCards}
-    note="All sites include 30 days of post-launch support. Hosting on Vercel — fast, reliable, included in the quoted price."
+    note="All sites include 30 days of post-launch support. Hosting on Vercel: fast, reliable, included in the quoted price."
     bg="bg"
   />
 
@@ -381,10 +385,10 @@ const pricingFaqs = [
         <div class="text-sm font-bold text-text mb-3">What a typical automation setup includes:</div>
         <ul class="space-y-2 text-sm text-text-muted">
           {[
-            'Missed call text-back — automated SMS within 60 seconds of a missed call',
-            'Lead nurture sequence — 5–7 touchpoints over 2–3 weeks',
-            'Review request automation — sent after every completed job',
-            'Appointment reminders — text reminders are consistently shown to meaningfully cut no-show rates',
+            'Missed call text-back: automated SMS within 60 seconds of a missed call',
+            'Lead nurture sequence: 5–7 touchpoints over 2–3 weeks',
+            'Review request automation, sent after every completed job',
+            'Appointment reminders: text reminders are consistently shown to meaningfully cut no-show rates',
           ].map((item) => (
             <li class="flex items-start gap-2.5">
               <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
