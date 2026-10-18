@@ -1,0 +1,16 @@
+---
+// Concept preview only (noindex). Compare against / before swapping anything on the live homepage.
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SpecHero from '@/components/SpecHero.astro';
+import ClientLogos from '@/components/ClientLogos.astro';
+import { site } from '@/config/site';
+---
+<BaseLayout
+  title="Homepage hero concept | RankRGV"
+  description="Concept preview of a new homepage hero."
+  canonical={`${site.url}/concept-hero/`}
+  noindex={true}
+>
+  <SpecHero />
+  <ClientLogos />
+</BaseLayout>
