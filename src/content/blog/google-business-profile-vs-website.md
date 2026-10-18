@@ -17,17 +17,17 @@ faqs:
   - question: "Will Google penalize me for not having a website?"
     answer: "No. But some customers won't trust you as much without one, and you'll miss out on organic search traffic entirely."
   - question: "How much should a local business website cost?"
-    answer: "Freelance-built small business sites generally run $1,500 to $8,000 depending on scope, per current web design pricing guides, with agency builds running higher. A single-location service business without e-commerce needs typically lands at the low end of that — call it $1,500 to $3,500 for something properly built and SEO-optimized. Beyond that is usually unnecessary."
+    answer: "Freelance-built small business sites generally run $1,500 to $8,000 depending on scope, per current web design pricing guides, with agency builds running higher. A single-location service business without e-commerce needs typically lands at the low end of that, call it $1,500 to $3,500 for something properly built and SEO-optimized. Beyond that is usually unnecessary."
 ---
 
-For local service businesses, Google Business Profile drives more immediate revenue than a website does. But the businesses that dominate local search have both, and they work together. The real question is sequencing, not either-or. Getting the order wrong costs months of visibility — see how our [web design service](/web-design/) is built to work with your GBP, not around it.
+For local service businesses, Google Business Profile drives more immediate revenue than a website does. But the businesses that dominate local search have both, and they work together. The real question is sequencing, not either-or. Getting the order wrong costs months of visibility. See how our [web design service](/web-design/) is built to work with your GBP, not around it.
 
 <div class="key-takeaways">
 
 **Key takeaways**
 
-- GBP shows map pack results in 30 to 90 days for free; a website takes 3 to 12 months to build organic authority and costs real money — this is a sequencing question, not either-or.
-- For plumbers, HVAC companies, roofers, electricians, dentists, and restaurants, GBP is the single most important digital asset — some Valley home service clients generate steady call volume from GBP alone, no website.
+- GBP shows map pack results in 30 to 90 days for free; a website takes 3 to 12 months to build organic authority and costs real money. This is a sequencing question, not either-or.
+- For plumbers, HVAC companies, roofers, electricians, dentists, and restaurants, GBP is the single most important digital asset. Some Valley home service clients generate steady call volume from GBP alone, no website.
 - The exceptions: competitive professional services (personal injury attorneys, insurance agencies, financial advisors) where prospects research before calling, and e-commerce, where a real website does more of the work.
 - Freelance small-business site pricing generally spans $1,500 to $8,000; a single-location service business without e-commerce needs typically only needs the low end of that range to get something properly built and SEO-optimized.
 
@@ -85,4 +85,4 @@ No. But some customers won't trust you as much without one, and you'll miss out 
 
 ### How much should a local business website cost?
 
-Freelance-built small business sites generally run $1,500 to $8,000 depending on scope, with agency builds running higher. A single-location service business without e-commerce needs typically lands at the low end of that — call it $1,500 to $3,500 for something properly built and SEO-optimized. Beyond that is usually unnecessary.
+Freelance-built small business sites generally run $1,500 to $8,000 depending on scope, with agency builds running higher. A single-location service business without e-commerce needs typically lands at the low end of that, call it $1,500 to $3,500 for something properly built and SEO-optimized. Beyond that is usually unnecessary.

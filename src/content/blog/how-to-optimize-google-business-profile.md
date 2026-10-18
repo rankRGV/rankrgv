@@ -26,9 +26,9 @@ Every field in your Google Business Profile is a ranking signal. Most businesses
 
 **Key takeaways**
 
-- **Primary category is the highest-impact field** — it determines which searches you qualify for at all, before anything else matters.
+- **Primary category is the highest-impact field.** It determines which searches you qualify for at all, before anything else matters.
 - List every individual service, not just your general category: a profile with 15 services competes for 15 different searches instead of one.
-- Google weighs review **recency first, then count, then rating, then response rate** — fifteen recent reviews can outrank sixty old ones.
+- Google weighs review **recency first, then count, then rating, then response rate**. Fifteen recent reviews can outrank sixty old ones.
 - Weekly activity (one post, one new photo, a review response) is a simple, low-effort signal that an active profile is currently operating.
 
 </div>
