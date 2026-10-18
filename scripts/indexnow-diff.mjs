@@ -7,8 +7,8 @@
  * it catches any change that adds a URL to the sitemap (auto-published blog
  * posts, new city/service pages), regardless of how the deploy happened.
  *
- * Also submits the same new URLs to Google's Indexing API (google-index.mjs),
- * which no-ops if GOOGLE_SERVICE_ACCOUNT_JSON isn't configured.
+ * Google is NOT pinged here. Google limits its Indexing API to JobPosting and
+ * livestream pages, so Google picks up new URLs from the sitemap instead.
  *
  * Note: this sitemap has no <lastmod>, so edits to EXISTING pages aren't
  * detected here — ping those manually with indexnow.mjs <url>.
@@ -24,7 +24,6 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { resolveKey, urlsFromSitemap, submit, MAX_URLS } from './indexnow.mjs';
-import { submit as submitGoogle } from './google-index.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SNAPSHOT = join(__dirname, '.indexnow-snapshot.json');
@@ -68,8 +67,6 @@ async function main() {
   for (let i = 0; i < added.length; i += MAX_URLS) {
     await submit(added.slice(i, i + MAX_URLS), key, dryRun);
   }
-
-  await submitGoogle(added, dryRun);
 
   if (!dryRun) await writeSnapshot(current);
 }

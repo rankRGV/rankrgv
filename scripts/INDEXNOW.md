@@ -52,6 +52,14 @@ curl https://rankrgv.com/d19c27e36c735779a34908bece0a145b.txt
 
 ## Google Indexing
 
+**Removed from the daily diff on 2026-10-18.** Google's quickstart (updated
+2026-10-16) says the API "can only be used" for JobPosting/BroadcastEvent pages
+and that misuse "may result in access being revoked". The same service account
+runs GSC and GA4 for several clients, so that risk isn't worth it. Google now
+finds new URLs through the sitemap. For a key new page, request indexing by hand
+with URL Inspection in Search Console. `google-index.mjs` stays in the repo for
+reference only. Do not wire it back in.
+
 Google isn't an IndexNow partner. The only programmatic option is Google's
 **Indexing API**, which is officially scoped to `JobPosting`/`BroadcastEvent`
 pages only — using it for blog/service pages works in practice (common
