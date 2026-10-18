@@ -6,7 +6,7 @@ import ServiceCard from '@/components/ServiceCard.astro';
 import Testimonials from '@/components/Testimonials.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
-import { getAreaBySlug } from '@/data/serviceAreas';
+import { getAreaBySlug, cityServiceHref } from '@/data/serviceAreas';
 import { services } from '@/data/services';
 import {
   buildOrgSchema,
@@ -179,7 +179,7 @@ const schema = [
               <ServiceCard service={service} />
               <!-- Override link to city-service page -->
               <a
-                href={`/service-areas/mcallen/${service.slug}/`}
+                href={cityServiceHref('mcallen', service.slug)}
                 class="absolute inset-0 rounded-2xl"
                 aria-label={`${service.name} in McAllen`}
               ></a>

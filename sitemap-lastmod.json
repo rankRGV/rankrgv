@@ -8,7 +8,7 @@
   "lastmod": "2026-10-18"
  },
  "/ads-management/": {
-  "hash": "3d32ce209e063233",
+  "hash": "0f92403076e3d650",
   "lastmod": "2026-10-18"
  },
  "/blog/": {
@@ -108,7 +108,7 @@
   "lastmod": "2026-09-23"
  },
  "/business-automation/": {
-  "hash": "81fe594f408c8af6",
+  "hash": "eb84f9c3bfdb8b3f",
   "lastmod": "2026-10-18"
  },
  "/contact/": {
@@ -160,11 +160,11 @@
   "lastmod": "2026-10-18"
  },
  "/google-maps-optimization/": {
-  "hash": "6f3b3f6287f72a7e",
+  "hash": "c13ccf19cb10d0f6",
   "lastmod": "2026-10-18"
  },
  "/local-seo/": {
-  "hash": "baea269632a99256",
+  "hash": "0fedf46c05e4b707",
   "lastmod": "2026-10-18"
  },
  "/pricing/": {
@@ -172,23 +172,11 @@
   "lastmod": "2026-10-18"
  },
  "/service-areas/": {
-  "hash": "a706d561c496e624",
-  "lastmod": null
+  "hash": "e58ea90858838817",
+  "lastmod": "2026-10-18"
  },
  "/service-areas/brownsville/": {
   "hash": "0ef27fc1b1f25ea9",
-  "lastmod": "2026-10-18"
- },
- "/service-areas/brownsville/ads-management/": {
-  "hash": "eb6646e479b50b13",
-  "lastmod": null
- },
- "/service-areas/brownsville/business-automation/": {
-  "hash": "aa8860f55f684da4",
-  "lastmod": "2026-10-18"
- },
- "/service-areas/brownsville/local-seo/": {
-  "hash": "23fcad4699ef47ec",
   "lastmod": "2026-10-18"
  },
  "/service-areas/brownsville/web-design/": {
@@ -199,36 +187,12 @@
   "hash": "5d7c0811e82ad2b9",
   "lastmod": "2026-10-18"
  },
- "/service-areas/edinburg/ads-management/": {
-  "hash": "7f2859962f1e77a1",
-  "lastmod": null
- },
- "/service-areas/edinburg/business-automation/": {
-  "hash": "d72856742ad82786",
-  "lastmod": "2026-10-18"
- },
- "/service-areas/edinburg/local-seo/": {
-  "hash": "c2292985362cc7a8",
-  "lastmod": "2026-10-18"
- },
  "/service-areas/edinburg/web-design/": {
   "hash": "de3ef1ef41ecb6e1",
   "lastmod": "2026-10-18"
  },
  "/service-areas/harlingen/": {
   "hash": "83dc366e9a549c36",
-  "lastmod": "2026-10-18"
- },
- "/service-areas/harlingen/ads-management/": {
-  "hash": "6542177d978c94d6",
-  "lastmod": null
- },
- "/service-areas/harlingen/business-automation/": {
-  "hash": "ef5c80ec7daa24b0",
-  "lastmod": "2026-10-18"
- },
- "/service-areas/harlingen/local-seo/": {
-  "hash": "43a65ce707fc3cd8",
   "lastmod": "2026-10-18"
  },
  "/service-areas/harlingen/web-design/": {
@@ -239,18 +203,6 @@
   "hash": "5a1e822922b73b75",
   "lastmod": "2026-10-18"
  },
- "/service-areas/mcallen/ads-management/": {
-  "hash": "85001576d05b3ae1",
-  "lastmod": null
- },
- "/service-areas/mcallen/business-automation/": {
-  "hash": "7c1285a308dc15f6",
-  "lastmod": "2026-10-18"
- },
- "/service-areas/mcallen/local-seo/": {
-  "hash": "757c299eea38c977",
-  "lastmod": "2026-10-18"
- },
  "/service-areas/mcallen/web-design/": {
   "hash": "3ad8f149c2003282",
   "lastmod": null
@@ -259,36 +211,12 @@
   "hash": "9255e2e1784a85be",
   "lastmod": "2026-10-18"
  },
- "/service-areas/mission/ads-management/": {
-  "hash": "7636b1ed0a9a1d0a",
-  "lastmod": null
- },
- "/service-areas/mission/business-automation/": {
-  "hash": "277db8d92723977e",
-  "lastmod": "2026-10-18"
- },
- "/service-areas/mission/local-seo/": {
-  "hash": "86d1a63bc2251b37",
-  "lastmod": "2026-10-18"
- },
  "/service-areas/mission/web-design/": {
   "hash": "6ef8571eac0e06c4",
   "lastmod": "2026-10-18"
  },
  "/service-areas/pharr/": {
   "hash": "b218d355c5259174",
-  "lastmod": "2026-10-18"
- },
- "/service-areas/pharr/ads-management/": {
-  "hash": "67fde8a3cda7cd07",
-  "lastmod": null
- },
- "/service-areas/pharr/business-automation/": {
-  "hash": "e9b09eee6f0e375d",
-  "lastmod": "2026-10-18"
- },
- "/service-areas/pharr/local-seo/": {
-  "hash": "da11bc94ed94a03e",
   "lastmod": "2026-10-18"
  },
  "/service-areas/pharr/web-design/": {

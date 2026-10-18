@@ -141,7 +141,7 @@ Verified Google Review · April 2026
 
 ## Google Maps optimization across the Rio Grande Valley
 
-[ McAllen Hidalgo Co. ](/service-areas/mcallen/local-seo.md)[ Brownsville Cameron Co. ](/service-areas/brownsville/local-seo.md)[ Edinburg Hidalgo Co. ](/service-areas/edinburg/local-seo.md)[ Harlingen Cameron Co. ](/service-areas/harlingen/local-seo.md)[ Mission Hidalgo Co. ](/service-areas/mission/local-seo.md)[ Pharr Hidalgo Co. ](/service-areas/pharr/local-seo.md)
+[ McAllen Hidalgo Co. ](/service-areas/mcallen.md)[ Brownsville Cameron Co. ](/service-areas/brownsville.md)[ Edinburg Hidalgo Co. ](/service-areas/edinburg.md)[ Harlingen Cameron Co. ](/service-areas/harlingen.md)[ Mission Hidalgo Co. ](/service-areas/mission.md)[ Pharr Hidalgo Co. ](/service-areas/pharr.md)
 
 ## Google Maps optimization questions from RGV business owners
 

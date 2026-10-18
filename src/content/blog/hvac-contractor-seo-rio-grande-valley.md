@@ -110,4 +110,4 @@ Yes, and most RGV HVAC contractors don't use it. Spanish-language searches for H
 - [Electrician SEO in McAllen and the RGV](/blog/electrician-seo-mcallen-rgv/) — The same local SEO framework applied to electrical contractors.
 - [Home Services Marketing for RGV Contractors](/blog/home-services-marketing-rgv/) — The full marketing picture: GBP, organic, paid ads, and reviews working together.
 - [Local SEO Home Services RGV](/blog/local-seo-home-services-rgv/) — How home service businesses across all trades build local visibility in the Valley.
-- [Local SEO McAllen TX](/service-areas/mcallen/local-seo/) — How RankRGV handles local SEO for McAllen businesses end-to-end.
+- [Local SEO McAllen TX](/service-areas/mcallen/) — How RankRGV handles local SEO for McAllen businesses end-to-end.

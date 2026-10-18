@@ -147,9 +147,9 @@ Yes — set your service area to cover every city you serve. You’re not limite
 
 - [How to Set Up Google Business Profile for Your McAllen Business](/blog/google-business-profile-mcallen.md) — The complete setup and audit checklist before you start pushing for rankings.
 
-- [Local SEO McAllen TX](/service-areas/mcallen/local-seo.md) — How RankRGV handles Map Pack rankings for McAllen businesses end-to-end.
+- [Local SEO McAllen TX](/service-areas/mcallen.md) — How RankRGV handles Map Pack rankings for McAllen businesses end-to-end.
 
-- [Local SEO Edinburg TX](/service-areas/edinburg/local-seo.md) — The fastest Map Pack market in the RGV — lower competition than McAllen.
+- [Local SEO Edinburg TX](/service-areas/edinburg.md) — The fastest Map Pack market in the RGV — lower competition than McAllen.
 
 - [Google Maps Optimization](/google-maps-optimization.md) — Done-for-you GBP management and ranking service.
 

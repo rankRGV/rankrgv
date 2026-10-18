@@ -88,3 +88,14 @@ export const serviceAreas: ServiceArea[] = [
 export function getAreaBySlug(slug: string): ServiceArea | undefined {
   return serviceAreas.find((a) => a.slug === slug);
 }
+
+// Services that still have their own city page (/service-areas/[city]/[service]/).
+// Local SEO, ads and automation city pages were folded into the city hub or the
+// main service page on 2026-10-18 (no search demand, never crawled by Google).
+export const CITY_SPOKE_SERVICES = ['web-design'];
+
+export function cityServiceHref(citySlug: string, serviceSlug: string): string {
+  return CITY_SPOKE_SERVICES.includes(serviceSlug)
+    ? `/service-areas/${citySlug}/${serviceSlug}/`
+    : `/${serviceSlug}/`;
+}

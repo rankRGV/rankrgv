@@ -203,7 +203,7 @@ No — a well-optimized GBP alone can rank. But a website strengthens your Map P
 
 - [How to Rank Your Business on Google Maps in McAllen (2026 Guide)](/blog/how-to-rank-google-maps-mcallen.md) — Once your GBP is built right, this is how you push it into the top 3.
 
-- [Local SEO McAllen TX](/service-areas/mcallen/local-seo.md) — How RankRGV handles Map Pack rankings for McAllen businesses.
+- [Local SEO McAllen TX](/service-areas/mcallen.md) — How RankRGV handles Map Pack rankings for McAllen businesses.
 
 - [Google Maps Optimization](/google-maps-optimization.md) — Our GBP management and optimization service.
 

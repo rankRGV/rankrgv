@@ -113,4 +113,4 @@ Yes, especially if you need leads now. Google Local Services Ads are particularl
 - [HVAC Contractor SEO in the Rio Grande Valley](/blog/hvac-contractor-seo-rio-grande-valley/) — The same local SEO framework applied to HVAC contractors in the Valley.
 - [Home Services Marketing for RGV Contractors](/blog/home-services-marketing-rgv/) — The full digital marketing picture for contractors — GBP, organic, ads, and reviews.
 - [How to Verify Your Google Business Profile](/blog/verify-google-business-profile-2026/) — Step-by-step guide to getting your GBP live and verified.
-- [Local SEO McAllen TX](/service-areas/mcallen/local-seo/) — How RankRGV handles local SEO for McAllen businesses end-to-end.
+- [Local SEO McAllen TX](/service-areas/mcallen/) — How RankRGV handles local SEO for McAllen businesses end-to-end.

@@ -43,7 +43,7 @@ Every service tailored to how Brownsville customers search.
 We optimize your Google Business Profile and build a website that ranks for every &quot;near me&quot; and city-specific search your customers make.
 
 Learn more
-](/local-seo.md) [](/service-areas/brownsville/local-seo.md) [
+](/local-seo.md) [](/service-areas/brownsville.md) [
 
 ### Web Design
 
@@ -57,14 +57,14 @@ Learn more
 Flat-fee Google Ads and Meta Ads management for Rio Grande Valley businesses. No setup fees, no commissions on spend, and no long-term contracts.
 
 Learn more
-](/ads-management.md) [](/service-areas/brownsville/ads-management.md) [
+](/ads-management.md) [](/ads-management.md) [
 
 ### Business Automation
 
 From missed call text-back to automated review requests, we set up the systems that follow up with every lead automatically — so you close more without working more.
 
 Learn more
-](/business-automation.md) [](/service-areas/brownsville/business-automation.md)
+](/business-automation.md) [](/business-automation.md)
 
 ##
 We help businesses across all of Brownsville

@@ -160,7 +160,7 @@ Verified Google Review · April 2026
 
 ## Ads management across the Rio Grande Valley
 
-[ McAllen Hidalgo Co. ](/service-areas/mcallen/ads-management.md)[ Brownsville Cameron Co. ](/service-areas/brownsville/ads-management.md)[ Edinburg Hidalgo Co. ](/service-areas/edinburg/ads-management.md)[ Harlingen Cameron Co. ](/service-areas/harlingen/ads-management.md)[ Mission Hidalgo Co. ](/service-areas/mission/ads-management.md)[ Pharr Hidalgo Co. ](/service-areas/pharr/ads-management.md)
+[ McAllen Hidalgo Co. ](/ads-management.md)[ Brownsville Cameron Co. ](/ads-management.md)[ Edinburg Hidalgo Co. ](/ads-management.md)[ Harlingen Cameron Co. ](/ads-management.md)[ Mission Hidalgo Co. ](/ads-management.md)[ Pharr Hidalgo Co. ](/ads-management.md)
 
 ## Paid ads questions from RGV business owners
 

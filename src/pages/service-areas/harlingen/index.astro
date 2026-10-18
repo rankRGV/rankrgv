@@ -6,7 +6,7 @@ import ServiceCard from '@/components/ServiceCard.astro';
 import Testimonials from '@/components/Testimonials.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import CTASection from '@/components/CTASection.astro';
-import { getAreaBySlug } from '@/data/serviceAreas';
+import { getAreaBySlug, cityServiceHref } from '@/data/serviceAreas';
 import { services } from '@/data/services';
 import {
   buildFAQSchema,
@@ -154,7 +154,7 @@ const schema = [
           <div class={`reveal reveal-delay-${i + 1}`}>
             <div class="relative">
               <ServiceCard service={service} />
-              <a href={`/service-areas/harlingen/${service.slug}/`} class="absolute inset-0 rounded-2xl" aria-label={`${service.name} in Harlingen`}></a>
+              <a href={cityServiceHref('harlingen', service.slug)} class="absolute inset-0 rounded-2xl" aria-label={`${service.name} in Harlingen`}></a>
             </div>
           </div>
         ))}

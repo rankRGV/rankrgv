@@ -43,7 +43,7 @@ Built for the Edinburg market — from professional services to the UTRGV corrid
 We optimize your Google Business Profile and build a website that ranks for every &quot;near me&quot; and city-specific search your customers make.
 
 Learn more
-](/local-seo.md) [](/service-areas/edinburg/local-seo.md) [
+](/local-seo.md) [](/service-areas/edinburg.md) [
 
 ### Web Design
 
@@ -57,14 +57,14 @@ Learn more
 Flat-fee Google Ads and Meta Ads management for Rio Grande Valley businesses. No setup fees, no commissions on spend, and no long-term contracts.
 
 Learn more
-](/ads-management.md) [](/service-areas/edinburg/ads-management.md) [
+](/ads-management.md) [](/ads-management.md) [
 
 ### Business Automation
 
 From missed call text-back to automated review requests, we set up the systems that follow up with every lead automatically — so you close more without working more.
 
 Learn more
-](/business-automation.md) [](/service-areas/edinburg/business-automation.md)
+](/business-automation.md) [](/business-automation.md)
 
 ##
 We help businesses across all of Edinburg

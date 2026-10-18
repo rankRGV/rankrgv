@@ -1,5 +1,5 @@
 ---
-import { serviceAreas } from '@/data/serviceAreas';
+import { serviceAreas, CITY_SPOKE_SERVICES } from '@/data/serviceAreas';
 import { getServiceBySlug } from '@/data/services';
 
 interface Props {
@@ -10,7 +10,8 @@ interface Props {
 const { headline = 'We serve these RGV cities', serviceSlug } = Astro.props;
 // City-service links name the service ("McAllen / Local SEO") so the anchor
 // text tells Google what the target page is about, not just the city.
-const serviceLabel = serviceSlug ? getServiceBySlug(serviceSlug)?.shortName : undefined;
+const hasCityPages = !!serviceSlug && CITY_SPOKE_SERVICES.includes(serviceSlug);
+const serviceLabel = hasCityPages ? getServiceBySlug(serviceSlug!)?.shortName : undefined;
 ---
 
 <section class="py-20 bg-bg-surface" aria-label="Service areas">
@@ -19,7 +20,7 @@ const serviceLabel = serviceSlug ? getServiceBySlug(serviceSlug)?.shortName : un
 
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
       {serviceAreas.map((area, i) => {
-        const href = serviceSlug
+        const href = hasCityPages
           ? `/service-areas/${area.slug}/${serviceSlug}/`
           : `/service-areas/${area.slug}/`;
         return (

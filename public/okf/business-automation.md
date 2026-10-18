@@ -138,7 +138,7 @@ Verified Google Review · April 2026
 
 ## Business automation services across the Rio Grande Valley
 
-[ McAllen Hidalgo Co. ](/service-areas/mcallen/business-automation.md)[ Brownsville Cameron Co. ](/service-areas/brownsville/business-automation.md)[ Edinburg Hidalgo Co. ](/service-areas/edinburg/business-automation.md)[ Harlingen Cameron Co. ](/service-areas/harlingen/business-automation.md)[ Mission Hidalgo Co. ](/service-areas/mission/business-automation.md)[ Pharr Hidalgo Co. ](/service-areas/pharr/business-automation.md)
+[ McAllen Hidalgo Co. ](/business-automation.md)[ Brownsville Cameron Co. ](/business-automation.md)[ Edinburg Hidalgo Co. ](/business-automation.md)[ Harlingen Cameron Co. ](/business-automation.md)[ Mission Hidalgo Co. ](/business-automation.md)[ Pharr Hidalgo Co. ](/business-automation.md)
 
 ## Business automation questions from RGV business owners
 
