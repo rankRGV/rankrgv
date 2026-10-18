@@ -63,7 +63,7 @@ Their website has dedicated practice area pages, not a single "Services" page th
 
 The legal GBP setup has a few specific considerations beyond what most businesses deal with.
 
-The address situation matters. Firms with a real McAllen office have a clear [proximity advantage](/blog/map-pack-mcallen-mission-edinburg/) for McAllen searches. A Mission firm trying to rank for McAllen terms without a physical presence there is at a disadvantage in the map pack, though service area pages can capture McAllen traffic in organic results.
+The address situation matters. Firms with a real McAllen office have a clear [proximity advantage](/blog/how-to-rank-google-maps-mcallen/) for McAllen searches. A Mission firm trying to rank for McAllen terms without a physical presence there is at a disadvantage in the map pack, though service area pages can capture McAllen traffic in organic results.
 
 The primary category needs to match the exact search you're targeting. If personal injury is your primary practice area, "personal injury attorney" is your category, not "law firm." If you do multiple practice areas, the primary category should reflect the one you most want to rank for, and additional categories can be added for secondary areas.
 

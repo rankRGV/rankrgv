@@ -107,7 +107,7 @@ The Q&A section is searchable and indexed. Seed it yourself with the questions c
 | First GBP post published | ☐ |
 | NAP audit across Yelp, Facebook, Apple Maps, Bing | ☐ |
 
-Once your profile is in good shape, the next question is timing. See [how long it realistically takes to rank on Google Maps](/blog/how-long-to-rank-google-maps/) for what to expect at each stage, and whether GBP alone is enough or you also need a website, [covered here](/blog/google-business-profile-vs-website/).
+Once your profile is in good shape, the next question is timing. See [how long it realistically takes to rank on Google Maps](/blog/how-long-to-rank-google-maps/) for what to expect at each stage, and whether GBP alone is enough or you also need a website, [covered here](/blog/does-google-business-profile-help-seo/).
 
 ## Frequently asked questions
 

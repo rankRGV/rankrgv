@@ -81,7 +81,7 @@ This playbook tends to work better here than in most U.S. markets, mainly becaus
 
 Don't rush it if GBP-only is already working. Add one when you're consistently in the top 3 and want to convert more of that traffic, when competitors start building real websites and you need to match their credibility, when you want to capture informational searches through content, or when you need lead capture for after-hours inquiries. The priority order stays the same either way: GBP optimization first, then a fast mobile website, then content.
 
-If you haven't worked through the profile itself yet, the [field-by-field GBP checklist](/blog/how-to-optimize-google-business-profile/) is the place to start. And if you're weighing whether a website is worth building at all right now, see the [full GBP vs. website breakdown](/blog/google-business-profile-vs-website/).
+If you haven't worked through the profile itself yet, the [field-by-field GBP checklist](/blog/how-to-optimize-google-business-profile/) is the place to start. And if you're weighing whether a website is worth building at all right now, see the [full GBP vs. website breakdown](/blog/does-google-business-profile-help-seo/).
 
 ## Frequently asked questions
 

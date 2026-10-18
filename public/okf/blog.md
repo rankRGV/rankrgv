@@ -49,14 +49,7 @@ Read article
 HVAC, plumbing, roofing — high-intent searches, emergency calls, and a market that&#39;s still largely unclaimed. Here&#39;s how to own it.
 
 Read article
-](/blog/local-seo-home-services-rgv.md)[ Google Maps Apr 27, 2026
-
-## Map Pack Ranking Guide for McAllen, Mission, and Edinburg
-
-The Google Map Pack works differently depending on which RGV city you&#39;re targeting. Here&#39;s what actually moves the needle in each market.
-
-Read article
-](/blog/map-pack-mcallen-mission-edinburg.md)[ Local SEO Apr 17, 2026
+](/blog/local-seo-home-services-rgv.md)[ Local SEO Apr 17, 2026
 
 ## Choosing a Local SEO Agency in the RGV: A No-Fluff Buyer&#39;s Guide
 

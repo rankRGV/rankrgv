@@ -19,6 +19,12 @@
     }
   ],
   "redirects": [
+    { "source": "/blog/map-pack-mcallen-mission-edinburg", "destination": "/blog/how-to-rank-google-maps-mcallen/", "permanent": true },
+    { "source": "/blog/map-pack-mcallen-mission-edinburg/", "destination": "/blog/how-to-rank-google-maps-mcallen/", "permanent": true },
+    { "source": "/blog/home-services-marketing-rgv", "destination": "/blog/local-seo-home-services-rgv/", "permanent": true },
+    { "source": "/blog/home-services-marketing-rgv/", "destination": "/blog/local-seo-home-services-rgv/", "permanent": true },
+    { "source": "/blog/google-business-profile-vs-website", "destination": "/blog/does-google-business-profile-help-seo/", "permanent": true },
+    { "source": "/blog/google-business-profile-vs-website/", "destination": "/blog/does-google-business-profile-help-seo/", "permanent": true },
     { "source": "/service-areas/mcallen/local-seo", "destination": "/service-areas/mcallen/", "permanent": true },
     { "source": "/service-areas/mcallen/local-seo/", "destination": "/service-areas/mcallen/", "permanent": true },
     { "source": "/service-areas/mcallen/ads-management", "destination": "/ads-management/", "permanent": true },
