@@ -7,18 +7,53 @@ import { site } from '@/config/site';
 import eddiePhoto from '@/assets/eddie-urbano.png';
 import HeroShader from '@/components/HeroShader.astro';
 const cities = ['McAllen', 'Edinburg', 'Mission', 'Pharr', 'Brownsville', 'Harlingen', 'Weslaco'];
-const cityLinks = [
-  { name: 'McAllen', href: '/service-areas/mcallen/' },
-  { name: 'Edinburg', href: '/service-areas/edinburg/' },
-  { name: 'Mission', href: '/service-areas/mission/' },
-  { name: 'Pharr', href: '/service-areas/pharr/' },
-  { name: 'Brownsville', href: '/service-areas/brownsville/' },
-  { name: 'Harlingen', href: '/service-areas/harlingen/' },
-];
-interface Props { theme?: 'dark' | 'light' }
-const { theme = 'dark' } = Astro.props;
+interface Props { theme?: 'dark' | 'light'; lang?: 'en' | 'es' }
+const { theme = 'dark', lang = 'en' } = Astro.props;
+const es = lang === 'es';
+// Spanish city pages exist for these six (src/pages/es/areas-de-servicio/).
+const citySlugs = ['mcallen', 'edinburg', 'mission', 'pharr', 'brownsville', 'harlingen'];
+const cityLinks = citySlugs.map((slug, i) => ({
+  name: cities[i],
+  href: es ? `/es/areas-de-servicio/${slug}/` : `/service-areas/${slug}/`,
+}));
 // Facts below all match the live site (web design page, pricing page, FAQ, Google reviews).
-const facts = ['Websites from $1,500', 'Local SEO from $600/mo', 'Month-to-month, no contract'];
+// Spanish copy is a faithful translation of the English, same facts only.
+const t = es
+  ? {
+      eyebrow: 'Diseño web y SEO local en McAllen, TX',
+      switchHref: '/', switchLang: 'en', switchText: 'Prefer English? View in English →',
+      lines: ['Cuando en McAllen', 'googlean lo que haces,', 'sé la primera llamada.'],
+      sub: 'Sitios web y SEO local para negocios del Rio Grande Valley. Un sitio rápido que trae llamadas, y luego te encuentran en Google Maps y en las respuestas de IA. Trabajas directo con Eddie.',
+      facts: ['Sitios web desde $1,500', 'SEO local desde $600/mes', 'Mes a mes, sin contrato'],
+      founder: 'Eddie Urbano, fundador', founderLine: 'Hablas conmigo, no con un gerente de cuentas.',
+      proofAlt: 'Reporte del Business Grader de RankRGV para Cool Aid Air Conditioning en Edinburg: puntaje del perfil de Google de 98 sobre 100, excelente',
+      proofCap: 'Una calificación real. Cool Aid Air Conditioning, cliente de RankRGV, revisada el 8 de octubre de 2026.',
+      formHeading: 'Tu calificación en 60 segundos',
+      bizLabel: 'Nombre de tu negocio', cityLabel: 'Ciudad', button: 'Obtener mi calificación gratis',
+      formNote: 'Automático. Gratis. Sin registrarte. Con datos públicos de Google.',
+      citiesLabel: 'Ciudades que servimos', citiesLead: 'Con base en McAllen. Servimos a',
+      allCities: null,
+      stars: '5 de 5 estrellas', rated: 'Calificación en Google', readReviews: 'Lee las reseñas →',
+      logosHeading: 'Negocios con los que hemos trabajado',
+    }
+  : {
+      eyebrow: 'Web design & local SEO in McAllen, TX',
+      switchHref: '/es/', switchLang: 'es', switchText: '¿Prefiere español? Ver en español →',
+      lines: ['When McAllen', 'Googles what you do,', 'be the first call.'],
+      sub: 'Websites and local SEO for Rio Grande Valley businesses. A fast site built to get calls, then found on Google Maps and in AI answers. You work directly with Eddie.',
+      facts: ['Websites from $1,500', 'Local SEO from $600/mo', 'Month-to-month, no contract'],
+      founder: 'Eddie Urbano, founder', founderLine: 'You talk to me, not an account manager.',
+      proofAlt: 'RankRGV Business Grader report for Cool Aid Air Conditioning in Edinburg: Google profile score 98 out of 100, excellent',
+      proofCap: 'A real grade. Cool Aid Air Conditioning, a RankRGV client, scanned Oct 8, 2026.',
+      formHeading: 'See your own grade in 60 seconds',
+      bizLabel: 'Your business name', cityLabel: 'City', button: 'Get my free grade',
+      formNote: 'Automated. Free. No signup. From public Google data.',
+      citiesLabel: 'Cities we serve', citiesLead: 'Based in McAllen. Serving',
+      allCities: { href: '/service-areas/', text: 'All Valley cities' },
+      stars: '5 out of 5 stars', rated: 'Rated on Google', readReviews: 'Read the reviews →',
+      logosHeading: "Businesses we've worked with",
+    };
+const facts = t.facts;
 // Same logos and approval as ClientLogos.astro, shown white on the dark hero.
 const clients = [
   { name: 'Edel Roofing', file: 'edel-roofing', w: 189, h: 96, height: 46 },
@@ -35,53 +70,53 @@ const clients = [
   <div class="spec-grid" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-14 lg:pb-16">
     <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 mb-6 lg:mb-12 text-sm">
-      <p class="spec-eyebrow font-semibold text-brand-blue">Web design &amp; local SEO in McAllen, TX</p>
-      <a href="/es/" hreflang="es" lang="es" class="spec-eslink font-semibold text-text-muted hover:text-brand-blue">¿Prefiere español? Ver en español →</a>
+      <p class="spec-eyebrow font-semibold text-brand-blue">{t.eyebrow}</p>
+      <a href={t.switchHref} hreflang={t.switchLang} lang={t.switchLang} class="spec-eslink font-semibold text-text-muted hover:text-brand-blue">{t.switchText}</a>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_22rem] xl:grid-cols-[minmax(0,1fr)_26rem] gap-8 lg:gap-14 items-start">
       <div class="min-w-0">
-        <h1 id="hero-heading" class="spec-h1 font-extrabold text-text">
-          <span class="spec-line" style="--d:0ms">When McAllen</span>
-          <span class="spec-line" style="--d:90ms">Googles what you do,</span>
-          <span class="spec-line" style="--d:180ms"><mark class="spec-mark">be the first call.</mark></span>
+        <h1 id="hero-heading" class:list={['spec-h1 font-extrabold text-text', es && 'spec-h1--es']}>
+          <span class="spec-line" style="--d:0ms">{t.lines[0]}</span>
+          <span class="spec-line" style="--d:90ms">{t.lines[1]}</span>
+          <span class="spec-line" style="--d:180ms"><mark class="spec-mark">{t.lines[2]}</mark></span>
         </h1>
-        <p class="spec-sub mt-5 lg:mt-7 text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl spec-fade" style="--d:300ms">Websites and local SEO for Rio Grande Valley businesses. A fast site built to get calls, then found on Google Maps and in AI answers. You work directly with Eddie.</p>
+        <p class="spec-sub mt-5 lg:mt-7 text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl spec-fade" style="--d:300ms">{t.sub}</p>
         <ul class="spec-facts mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-text spec-fade" style="--d:360ms">
           {facts.map((f) => <li><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>{f}</li>)}
         </ul>
 
         <div class="hidden lg:flex items-center gap-4 mt-10 spec-fade" style="--d:420ms">
           <Image src={eddiePhoto} alt="" widths={[96, 144]} sizes="56px" class="w-14 h-14 rounded-full object-cover object-[50%_20%] ring-2 ring-white shadow" />
-          <p class="spec-muted-on text-sm leading-snug text-text-muted"><span class="spec-ink-on block font-bold text-text">Eddie Urbano, founder</span>You talk to me, not an account manager. <a href={site.phoneHref} class="spec-phone font-semibold text-brand-blue whitespace-nowrap">{site.phone}</a></p>
+          <p class="spec-muted-on text-sm leading-snug text-text-muted"><span class="spec-ink-on block font-bold text-text">{t.founder}</span>{t.founderLine} <a href={site.phoneHref} class="spec-phone font-semibold text-brand-blue whitespace-nowrap">{site.phone}</a></p>
         </div>
       </div>
 
       <aside class="spec-card spec-fade flex flex-col" style="--d:260ms" aria-labelledby="grade-card-heading">
         <figure class="spec-proof order-2 lg:order-1">
-          <img src="/images/grader-report-cool-aid.webp" alt="RankRGV Business Grader report for Cool Aid Air Conditioning in Edinburg: Google profile score 98 out of 100, excellent" width="1120" height="570" fetchpriority="high" decoding="async" />
-          <figcaption>A real grade. Cool Aid Air Conditioning, a RankRGV client, scanned Oct 8, 2026.</figcaption>
+          <img src="/images/grader-report-cool-aid.webp" alt={t.proofAlt} width="1120" height="570" fetchpriority="high" decoding="async" />
+          <figcaption>{t.proofCap}</figcaption>
         </figure>
         <form action={`${site.graderUrl}/`} method="get" class="order-1 lg:order-2 p-5 sm:p-6 pt-5 lg:pt-5 space-y-2.5">
-          <input type="hidden" name="utm_source" value="rankrgv.com" /><input type="hidden" name="utm_medium" value="website" /><input type="hidden" name="utm_campaign" value="business-grader" /><input type="hidden" name="utm_content" value="homepage-hero" />
-          <p id="grade-card-heading" class="text-base font-bold text-text">See your own grade in 60 seconds</p>
-          <label class="block"><span class="sr-only">Your business name</span><input name="business" type="text" maxlength="60" autocomplete="organization" placeholder="Your business name" class="spec-input" /></label>
-          <label class="block"><span class="sr-only">City</span><select name="city" class="spec-input font-semibold">{cities.map((c) => <option value={c}>{c}</option>)}</select></label>
-          <button type="submit" class="spec-btn"><span>Get my free grade</span><span class="spec-btn-arrow" aria-hidden="true">→</span></button>
-          <p class="pt-1 text-xs text-text-muted">Automated. Free. No signup. From public Google data.</p>
+          <input type="hidden" name="utm_source" value="rankrgv.com" /><input type="hidden" name="utm_medium" value="website" /><input type="hidden" name="utm_campaign" value="business-grader" /><input type="hidden" name="utm_content" value="homepage-hero" />{es && <input type="hidden" name="lang" value="es" />}
+          <p id="grade-card-heading" class="text-base font-bold text-text">{t.formHeading}</p>
+          <label class="block"><span class="sr-only">{t.bizLabel}</span><input name="business" type="text" maxlength="60" autocomplete="organization" placeholder={t.bizLabel} class="spec-input" /></label>
+          <label class="block"><span class="sr-only">{t.cityLabel}</span><select name="city" class="spec-input font-semibold">{cities.map((c) => <option value={c}>{c}</option>)}</select></label>
+          <button type="submit" class="spec-btn"><span>{t.button}</span><span class="spec-btn-arrow" aria-hidden="true">→</span></button>
+          <p class="pt-1 text-xs text-text-muted">{t.formNote}</p>
         </form>
       </aside>
 
       <div class="lg:hidden flex items-center gap-4 -mt-2">
         <Image src={eddiePhoto} alt="" widths={[96, 144]} sizes="56px" class="w-14 h-14 rounded-full object-cover object-[50%_20%] ring-2 ring-white shadow" />
-        <p class="spec-muted-on text-sm leading-snug text-text-muted"><span class="spec-ink-on block font-bold text-text">Eddie Urbano, founder</span>You talk to me, not an account manager. <a href={site.phoneHref} class="spec-phone font-semibold text-brand-blue whitespace-nowrap">{site.phone}</a></p>
+        <p class="spec-muted-on text-sm leading-snug text-text-muted"><span class="spec-ink-on block font-bold text-text">{t.founder}</span>{t.founderLine} <a href={site.phoneHref} class="spec-phone font-semibold text-brand-blue whitespace-nowrap">{site.phone}</a></p>
       </div>
     </div>
 
-    <nav class="mt-10 lg:mt-14 flex flex-wrap items-center gap-x-1 gap-y-2 text-sm spec-fade" style="--d:480ms" aria-label="Cities we serve">
-      <span class="spec-ink-on mr-2 font-semibold text-text">Based in McAllen. Serving</span>
+    <nav class="mt-10 lg:mt-14 flex flex-wrap items-center gap-x-1 gap-y-2 text-sm spec-fade" style="--d:480ms" aria-label={t.citiesLabel}>
+      <span class="spec-ink-on mr-2 font-semibold text-text">{t.citiesLead}</span>
       {cityLinks.map((c) => <a href={c.href} class="spec-chip">{c.name}</a>)}
-      <a href="/service-areas/" class="spec-chip">All Valley cities</a>
+      {t.allCities && <a href={t.allCities.href} class="spec-chip">{t.allCities.text}</a>}
     </nav>
   </div>
 
@@ -90,13 +125,13 @@ const clients = [
       <a href={site.social.gbp} target="_blank" rel="noopener" class="spec-rating group flex items-center gap-4">
         <span class="spec-rating-num">5.0</span>
         <span class="flex flex-col">
-          <span class="text-amber-400 text-lg leading-none tracking-wide" aria-label="5 out of 5 stars">★★★★★</span>
-          <span class="spec-ink-on mt-1 text-sm font-semibold text-text">Rated on Google</span>
-          <span class="spec-phone text-sm font-semibold text-brand-blue group-hover:underline underline-offset-4">Read the reviews →</span>
+          <span class="text-amber-400 text-lg leading-none tracking-wide" aria-label={t.stars}>★★★★★</span>
+          <span class="spec-ink-on mt-1 text-sm font-semibold text-text">{t.rated}</span>
+          <span class="spec-phone text-sm font-semibold text-brand-blue group-hover:underline underline-offset-4">{t.readReviews}</span>
         </span>
       </a>
       <div class="min-w-0">
-        <h2 class="spec-muted-on text-xs font-semibold uppercase tracking-wider text-text-muted mb-4 text-center lg:text-left">Businesses we've worked with</h2>
+        <h2 class="spec-muted-on text-xs font-semibold uppercase tracking-wider text-text-muted mb-4 text-center lg:text-left">{t.logosHeading}</h2>
         <ul class="grid grid-cols-3 lg:flex lg:flex-wrap items-center justify-items-center lg:justify-between gap-x-6 gap-y-5">
           {clients.map((c) => (
             <li class="flex items-center">
@@ -121,6 +156,9 @@ const clients = [
   .spec-h1 { font-size: clamp(2.35rem, 5.6vw, 4.1rem); line-height: 1.04; letter-spacing: -0.035em; }
   @media (min-width: 1024px) { .spec-line { white-space: nowrap; } .spec-h1 { font-size: clamp(2.35rem, calc((100vw - 500px) / 12.5), 4.1rem); } }
   .spec-line { display: block; }
+  /* Spanish lines run a little longer; scale down slightly so each still fits on one line. */
+  .spec-h1--es { font-size: clamp(1.95rem, 5.2vw, 3.8rem); }
+  @media (min-width: 1024px) { .spec-h1--es { font-size: clamp(1.95rem, calc((100vw - 500px) / 13.5), 3.8rem); } }
   .spec-mark { background: none; color: inherit; position: relative; white-space: nowrap; z-index: 0; }
   .spec-mark::before {
     content: ''; position: absolute; left: -0.05em; right: -0.05em; bottom: 0.08em; height: 0.32em; z-index: -1;

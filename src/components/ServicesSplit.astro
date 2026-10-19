@@ -1,8 +1,11 @@
 ---
 // Concept services section: web design and local SEO side by side, web design first.
 // Every price and inclusion is copied from /web-design/ and /pricing/.
+interface Props { lang?: 'en' | 'es' }
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
 const check = 'M5 13l4 4L19 7';
-const main = [
+const mainEn = [
   {
     href: '/web-design/',
     tag: 'Web design',
@@ -22,17 +25,47 @@ const main = [
     note: 'Monthly, plus sales tax',
   },
 ];
-const extra = [
+// Spanish: same facts, plan names as on /es/precios/. No Spanish web design page yet, so that card goes to its pricing section.
+const mainEs = [
+  {
+    href: '/es/precios/#web-design-pricing',
+    tag: 'Diseño web',
+    title: 'Sitios web hechos en McAllen para recibir llamadas',
+    body: 'Sitios rápidos, pensados primero para el celular, con la estructura de SEO incluida desde el primer día: etiquetas de título, schema, páginas por ciudad y por servicio, formularios de contacto y analítica.',
+    items: ['Sitio Fundación, de 5 a 7 páginas: $1,500', 'Sitio Crecimiento, de 10 a 15 páginas: $2,500', '30 días de soporte después del lanzamiento', 'Precio fijo antes de empezar cualquier trabajo'],
+    link: 'Ver diseño web',
+    note: 'Pago único, más impuesto de ventas',
+  },
+  {
+    href: '/es/seo-local/',
+    tag: 'SEO local',
+    title: 'Aparece en Google Maps en el RGV',
+    body: 'Ponemos a negocios del Valle en el map pack y en las búsquedas por ciudad que hacen sus clientes, con reportes fáciles de entender.',
+    items: ['Plan Visibilidad: $600/mes', 'Plan Dominación: $975/mes', 'Incluye el manejo de tu perfil de Google Business', 'Mes a mes. Te puedes ir cualquier mes.'],
+    link: 'Ver SEO local',
+    note: 'Mensual, más impuesto de ventas',
+  },
+];
+const extraEn = [
   { href: '/ads-management/', title: 'Google & Meta Ads', body: 'Paid search and social alongside SEO. Flat management fee, separate from ad spend.' },
   { href: '/business-automation/', title: 'Business Automation', body: 'Missed-call texts, review requests and follow-ups, so leads stop slipping away.' },
 ];
+const extraEs = [
+  { href: '/es/precios/#ads-management-pricing', title: 'Anuncios en Google y Meta', body: 'Búsqueda pagada y redes sociales junto con el SEO. Tarifa fija de manejo, aparte de lo que gastas en anuncios.' },
+  { href: '/es/precios/#automation-pricing', title: 'Automatización de negocios', body: 'Mensajes automáticos por llamadas perdidas, solicitudes de reseñas y seguimientos, para que no se te escapen los clientes.' },
+];
+const main = es ? mainEs : mainEn;
+const extra = es ? extraEs : extraEn;
+const t = es
+  ? { eyebrow: 'Lo que hacemos', heading: 'Un sitio web que convierte. Y después, las búsquedas que te mandan gente.', sub: 'La mayoría de los negocios del Valle necesitan los dos. Empieza con cualquiera.' }
+  : { eyebrow: 'What we do', heading: 'A website that converts. Then the searches that send people to it.', sub: 'Most Valley businesses need both. Start with either one.' };
 ---
 <section class="py-14 lg:py-20 bg-bg-surface" aria-labelledby="services-heading">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mb-8 sm:mb-10">
-      <p class="text-sm font-semibold text-brand-blue mb-2">What we do</p>
-      <h2 id="services-heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text mb-3">A website that converts. Then the searches that send people to it.</h2>
-      <p class="text-text-muted text-lg">Most Valley businesses need both. Start with either one.</p>
+      <p class="text-sm font-semibold text-brand-blue mb-2">{t.eyebrow}</p>
+      <h2 id="services-heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text mb-3">{t.heading}</h2>
+      <p class="text-text-muted text-lg">{t.sub}</p>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
       {main.map((s) => (
