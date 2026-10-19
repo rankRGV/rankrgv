@@ -1,0 +1,93 @@
+---
+// Animated mesh-gradient background for the dark hero. Hand-written WebGL (~2 KB, no
+// dependency). Look modeled on the shaders.com MeshGradient; that package was tested and
+// dropped because it ships ~700 KB gzipped of JS to draw one effect.
+// Guardrails: desktop only, skipped for reduced motion / Save-Data / no WebGL, starts
+// after page load + idle so it never competes with LCP, pauses off-screen and in hidden
+// tabs, capped at 30 fps and 1x pixel ratio. The CSS gradient underneath is the fallback.
+---
+<canvas class="hero-shader" aria-hidden="true"></canvas>
+
+<script>
+  const canvas = document.querySelector<HTMLCanvasElement>('.hero-shader');
+  const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+  const allowed =
+    canvas &&
+    window.matchMedia('(min-width: 1024px)').matches &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+    !conn?.saveData;
+
+  // Slow domain-warped noise mapped onto the RankRGV navy -> blue ramp (global.css tokens).
+  const FRAG = `precision mediump float;
+uniform vec2 r; uniform float t;
+float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p*=2.;a*=.5;}return v;}
+void main(){vec2 uv=gl_FragCoord.xy/r;vec2 p=uv*vec2(r.x/r.y,1.)*1.6;
+vec2 q=vec2(fbm(p+t*.05),fbm(p+vec2(5.2,1.3)-t*.04));
+float v=fbm(p+1.8*q+t*.03);
+vec3 navy=vec3(.043,.071,.141),ink=vec3(.059,.09,.165),deep=vec3(.118,.227,.541),blue=vec3(.114,.306,.847);
+vec3 c=mix(navy,ink,smoothstep(.1,.4,v));c=mix(c,deep,smoothstep(.35,.65,v));c=mix(c,blue,smoothstep(.6,.9,v)*.85);
+c*=mix(.75,1.,uv.y);gl_FragColor=vec4(c,1.);}`;
+  const VERT = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+
+  function start() {
+    if (!canvas) return;
+    const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
+    if (!gl) return canvas.remove();
+    const sh = (type: number, src: string) => { const s = gl.createShader(type)!; gl.shaderSource(s, src); gl.compileShader(s); return s; };
+    const prog = gl.createProgram()!;
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, VERT));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FRAG));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return canvas.remove();
+    gl.useProgram(prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, 'a');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const uR = gl.getUniformLocation(prog, 'r');
+    const uT = gl.getUniformLocation(prog, 't');
+
+    const resize = () => {
+      const w = canvas.clientWidth, h = canvas.clientHeight;
+      if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; gl.viewport(0, 0, w, h); }
+      gl.uniform2f(uR, w, h);
+    };
+    new ResizeObserver(resize).observe(canvas);
+    resize();
+
+    let visible = true, raf = 0, last = 0;
+    const t0 = performance.now();
+    const frame = (now: number) => {
+      raf = requestAnimationFrame(frame);
+      if (now - last < 33) return; // ~30 fps is plenty for a slow background
+      last = now;
+      gl.uniform1f(uT, (now - t0) / 1000);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+    const run = () => { if (!raf && visible && !document.hidden) raf = requestAnimationFrame(frame); };
+    const stop = () => { cancelAnimationFrame(raf); raf = 0; };
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible ? run() : stop(); }).observe(canvas);
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : run()));
+    run();
+    requestAnimationFrame(() => canvas.classList.add('is-ready'));
+  }
+
+  if (allowed) {
+    const kick = () => {
+      const idle = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback;
+      idle ? idle(start, { timeout: 2500 }) : setTimeout(start, 1200);
+    };
+    document.readyState === 'complete' ? kick() : window.addEventListener('load', kick, { once: true });
+  } else {
+    canvas?.remove();
+  }
+</script>
+
+<style>
+  .hero-shader { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+  .hero-shader.is-ready { opacity: 1; }
+</style>

@@ -5,6 +5,7 @@
 import { Image } from 'astro:assets';
 import { site } from '@/config/site';
 import eddiePhoto from '@/assets/eddie-urbano.png';
+import HeroShader from '@/components/HeroShader.astro';
 const cities = ['McAllen', 'Edinburg', 'Mission', 'Pharr', 'Brownsville', 'Harlingen', 'Weslaco'];
 const cityLinks = [
   { name: 'McAllen', href: '/service-areas/mcallen/' },
@@ -29,6 +30,8 @@ const clients = [
 ];
 ---
 <section class:list={['spec relative overflow-hidden', theme === 'dark' && 'spec--dark']} aria-labelledby="hero-heading">
+  {theme === 'dark' && <HeroShader />}
+  {theme === 'dark' && <div class="spec-scrim" aria-hidden="true"></div>}
   <div class="spec-grid" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-14 lg:pb-16">
     <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 mb-6 lg:mb-12 text-sm">
@@ -152,6 +155,7 @@ const clients = [
 
   /* Dark theme: navy like the live hero; the white grade card pops forward. */
   .spec--dark { background: radial-gradient(70rem 40rem at 85% -10%, rgb(29 78 216 / .45), transparent 60%), radial-gradient(40rem 30rem at -10% 110%, rgb(29 78 216 / .2), transparent 60%), #0b1224; }
+  .spec-scrim { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgb(11 18 36 / .78) 0%, rgb(11 18 36 / .45) 55%, rgb(11 18 36 / .15) 100%), linear-gradient(0deg, rgb(11 18 36 / .6), transparent 35%); }
   .spec--dark .spec-grid { background-image: linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px); }
   .spec--dark .spec-h1, .spec--dark .spec-ink-on { color: #fff; }
   .spec--dark .spec-mark { color: #fbbf24; }
