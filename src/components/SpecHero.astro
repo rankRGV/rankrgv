@@ -1,9 +1,7 @@
 ---
 // Concept hero (branch concept/awwwards-hero). Big type + stats strip pattern borrowed from
-// ITSUA (Awwwards nominee, Oct 2026), rebuilt around proof: the real Cool Aid grade, one
-// confirmed ranking, and Eddie. CSS-only motion, no JS libraries.
-// Result source: DataForSEO 2026-10-06, Cool Aid #1 organic for "ac repair edinburg tx"
-// (Vault: Clients/Cool Aid Air Conditioning/2026-10-06 Indexing queue.md).
+// ITSUA (Awwwards nominee, Oct 2026). Trust strip uses only RankRGV's own policies and rating,
+// the same facts the live homepage already publishes. CSS-only motion, no JS libraries.
 import { Image } from 'astro:assets';
 import { site } from '@/config/site';
 import eddiePhoto from '@/assets/eddie-urbano.png';
@@ -16,19 +14,22 @@ const cityLinks = [
   { name: 'Brownsville', href: '/service-areas/brownsville/' },
   { name: 'Harlingen', href: '/service-areas/harlingen/' },
 ];
-const stats = [
-  { value: '#1', unit: '', label: 'On Google for "ac repair edinburg tx"', note: 'Cool Aid AC, Oct 2026', tone: 'blue' },
-  { value: '98', unit: '/100', label: 'Google profile grade', note: 'Cool Aid AC, Oct 8 2026', tone: 'blue' },
-  { value: '5.0', unit: '★', label: 'RankRGV Google rating', note: 'Attributed reviews', tone: 'amber' },
-  { value: '0', unit: '', label: 'Long-term contracts', note: 'Month-to-month', tone: 'ink' },
+interface Props { theme?: 'dark' | 'light' }
+const { theme = 'dark' } = Astro.props;
+// Each item matches a fact already on the live site (pricing page, FAQ, Google reviews).
+const trust = [
+  { title: '5.0 on Google', body: 'Attributed reviews from RGV owners', href: site.social.gbp, link: 'Read reviews', external: true },
+  { title: 'Transparent pricing', body: 'Plans start at $600/mo plus tax', href: '/pricing/', link: 'See plans' },
+  { title: 'Month-to-month', body: 'No long-term contract. Leave any month.' },
+  { title: 'Based in McAllen', body: 'One market: the Rio Grande Valley' },
 ];
 ---
-<section class="spec relative overflow-hidden" aria-labelledby="hero-heading">
+<section class:list={['spec relative overflow-hidden', theme === 'dark' && 'spec--dark']} aria-labelledby="hero-heading">
   <div class="spec-grid" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-14 lg:pb-16">
     <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 mb-6 lg:mb-12 text-sm">
-      <p class="font-semibold text-brand-blue">Local SEO agency in McAllen, TX</p>
-      <a href="/es/" hreflang="es" lang="es" class="font-semibold text-text-muted hover:text-brand-blue">¿Prefiere español? Ver en español →</a>
+      <p class="spec-eyebrow font-semibold text-brand-blue">Local SEO agency in McAllen, TX</p>
+      <a href="/es/" hreflang="es" lang="es" class="spec-eslink font-semibold text-text-muted hover:text-brand-blue">¿Prefiere español? Ver en español →</a>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_22rem] xl:grid-cols-[minmax(0,1fr)_26rem] gap-8 lg:gap-14 items-start">
@@ -38,11 +39,11 @@ const stats = [
           <span class="spec-line" style="--d:90ms">Googles what you do,</span>
           <span class="spec-line" style="--d:180ms"><mark class="spec-mark">be the first call.</mark></span>
         </h1>
-        <p class="mt-5 lg:mt-7 text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl spec-fade" style="--d:300ms">Local SEO for Rio Grande Valley businesses. Get found on Google Maps and in AI answers, working directly with Eddie, month-to-month.</p>
+        <p class="spec-sub mt-5 lg:mt-7 text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl spec-fade" style="--d:300ms">Local SEO for Rio Grande Valley businesses. Get found on Google Maps and in AI answers, working directly with Eddie, month-to-month.</p>
 
         <div class="hidden lg:flex items-center gap-4 mt-10 spec-fade" style="--d:420ms">
           <Image src={eddiePhoto} alt="" widths={[96, 144]} sizes="56px" class="w-14 h-14 rounded-full object-cover object-[50%_20%] ring-2 ring-white shadow" />
-          <p class="text-sm leading-snug text-text-muted"><span class="block font-bold text-text">Eddie Urbano, founder</span>You talk to me, not an account manager. <a href={site.phoneHref} class="font-semibold text-brand-blue whitespace-nowrap">{site.phone}</a></p>
+          <p class="spec-muted-on text-sm leading-snug text-text-muted"><span class="spec-ink-on block font-bold text-text">Eddie Urbano, founder</span>You talk to me, not an account manager. <a href={site.phoneHref} class="spec-phone font-semibold text-brand-blue whitespace-nowrap">{site.phone}</a></p>
         </div>
       </div>
 
@@ -63,23 +64,23 @@ const stats = [
 
       <div class="lg:hidden flex items-center gap-4 -mt-2">
         <Image src={eddiePhoto} alt="" widths={[96, 144]} sizes="56px" class="w-14 h-14 rounded-full object-cover object-[50%_20%] ring-2 ring-white shadow" />
-        <p class="text-sm leading-snug text-text-muted"><span class="block font-bold text-text">Eddie Urbano, founder</span>You talk to me, not an account manager. <a href={site.phoneHref} class="font-semibold text-brand-blue whitespace-nowrap">{site.phone}</a></p>
+        <p class="spec-muted-on text-sm leading-snug text-text-muted"><span class="spec-ink-on block font-bold text-text">Eddie Urbano, founder</span>You talk to me, not an account manager. <a href={site.phoneHref} class="spec-phone font-semibold text-brand-blue whitespace-nowrap">{site.phone}</a></p>
       </div>
     </div>
 
     <nav class="mt-10 lg:mt-14 flex flex-wrap items-center gap-x-1 gap-y-2 text-sm spec-fade" style="--d:480ms" aria-label="Cities we serve">
-      <span class="mr-2 font-semibold text-text">Based in McAllen. Serving</span>
+      <span class="spec-ink-on mr-2 font-semibold text-text">Based in McAllen. Serving</span>
       {cityLinks.map((c) => <a href={c.href} class="spec-chip">{c.name}</a>)}
       <a href="/service-areas/" class="spec-chip">All Valley cities</a>
     </nav>
   </div>
 
-  <ul class="relative grid grid-cols-2 lg:grid-cols-4 border-y border-border bg-white" aria-label="Results and facts">
-    {stats.map((s, i) => (
+  <ul class="relative grid grid-cols-2 lg:grid-cols-4 border-b border-border bg-white" aria-label="Working with RankRGV">
+    {trust.map((t, i) => (
       <li class="spec-stat" style={`--d:${560 + i * 70}ms`}>
-        <span class={`spec-num spec-${s.tone}`}>{s.value}<span class="spec-unit">{s.unit}</span></span>
-        <span class="text-sm font-semibold text-text leading-snug">{s.label}</span>
-        <span class="text-xs text-text-muted">{s.note}</span>
+        <span class="text-base sm:text-lg font-bold text-text">{t.title}</span>
+        <span class="text-sm text-text-muted leading-snug">{t.body}</span>
+        {t.href && <a href={t.href} target={t.external ? '_blank' : undefined} rel={t.external ? 'noopener' : undefined} class="text-sm font-semibold text-brand-blue underline underline-offset-4">{t.link}</a>}
       </li>
     ))}
   </ul>
@@ -120,18 +121,26 @@ const stats = [
   .spec-chip { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1px solid var(--color-border); border-radius: 99px; background: #fff; color: var(--color-text); font-weight: 500; transition: border-color 150ms ease, color 150ms ease; }
   .spec-chip:hover { border-color: var(--color-brand-blue); color: var(--color-brand-blue); }
 
-  .spec-stat { display: flex; flex-direction: column; gap: 6px; padding: 28px 24px; border-color: var(--color-border); }
+  .spec-stat { display: flex; flex-direction: column; gap: 4px; padding: 22px 24px; border-color: var(--color-border); }
   .spec-stat + .spec-stat { border-left-width: 1px; }
   @media (max-width: 1023px) {
     .spec-stat { padding: 22px 16px; }
     .spec-stat:nth-child(odd) { border-left-width: 0; }
     .spec-stat:nth-child(n+3) { border-top-width: 1px; }
   }
-  .spec-num { font-size: clamp(2.25rem, 4.2vw, 3.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
-  .spec-unit { font-size: 0.45em; margin-left: 2px; font-weight: 700; }
-  .spec-blue { color: var(--color-brand-blue); }
-  .spec-amber { color: var(--color-brand-purple); } /* site token: warm amber accent */
-  .spec-ink { color: var(--color-text); }
+
+  /* Dark theme: navy like the live hero; the white grade card pops forward. */
+  .spec--dark { background: radial-gradient(70rem 40rem at 85% -10%, rgb(29 78 216 / .45), transparent 60%), radial-gradient(40rem 30rem at -10% 110%, rgb(29 78 216 / .2), transparent 60%), #0b1224; }
+  .spec--dark .spec-grid { background-image: linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px); }
+  .spec--dark .spec-h1, .spec--dark .spec-ink-on { color: #fff; }
+  .spec--dark .spec-mark { color: #fbbf24; }
+  .spec--dark .spec-mark::before { height: 0.07em; bottom: -0.04em; background: #fbbf24; }
+  .spec--dark .spec-sub, .spec--dark .spec-muted-on, .spec--dark .spec-eslink { color: rgb(255 255 255 / .8); }
+  .spec--dark .spec-eslink:hover { color: #fff; }
+  .spec--dark .spec-eyebrow, .spec--dark .spec-phone { color: #93c5fd; }
+  .spec--dark .spec-chip { background: rgb(255 255 255 / .06); border-color: rgb(255 255 255 / .2); color: #fff; }
+  .spec--dark .spec-chip:hover { border-color: #93c5fd; color: #93c5fd; }
+  .spec--dark .spec-card { border-color: transparent; box-shadow: 0 30px 60px -20px rgb(0 0 0 / .6), 0 0 0 1px rgb(255 255 255 / .08); }
 
   /* Entrance motion. Skipped for reduced-motion users. */
   @media (prefers-reduced-motion: no-preference) {

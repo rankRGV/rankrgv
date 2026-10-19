@@ -1,0 +1,94 @@
+---
+// Concept preview only (noindex). Proposed homepage built on SpecHero. Reviews and FAQs are
+// the same shared data the live homepage uses. Compare against / before swapping anything.
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SpecHero from '@/components/SpecHero.astro';
+import ClientLogos from '@/components/ClientLogos.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import { buildOrgSchema, buildFAQSchema } from '@/components/SchemaMarkup.astro';
+import { site } from '@/config/site';
+import { homeFaqs, homeReviews } from '@/data/home';
+
+const routes = [
+  { have: 'Customers can\'t find you on Google Maps', start: 'Free grade', startNote: '60 seconds, from public data', href: `${site.graderUrl}/?utm_source=rankrgv.com&utm_medium=website&utm_campaign=business-grader&utm_content=concept-route`, leads: 'Local SEO & Google Maps', price: 'From $600/mo' },
+  { have: 'The phone is quiet and you don\'t know why', start: 'Free personal audit with Eddie', startNote: 'Profile, website, competition', href: '/contact/', leads: 'A plan in plain English', price: 'No cost to talk' },
+  { have: 'An old or slow website', start: 'Web design', startNote: 'Built to get calls', href: '/web-design/', leads: 'A new site that ranks', price: 'From $1,500' },
+];
+---
+<BaseLayout
+  title="Homepage concept (light) | RankRGV"
+  description="Concept preview of a new homepage."
+  canonical={`${site.url}/concept-hero-light/`}
+  noindex={true}
+  schema={[buildOrgSchema(), buildFAQSchema(homeFaqs)]}
+>
+  <SpecHero theme="light" />
+  <ClientLogos />
+
+  <section class="bg-white py-14 lg:py-20" aria-labelledby="start-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm font-semibold text-brand-blue mb-2">Where to start</p>
+      <h2 id="start-heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text mb-8">Pick the problem you have.</h2>
+      <div class="border border-border rounded-2xl overflow-hidden bg-white">
+        <div class="hidden md:grid grid-cols-3 bg-bg-surface border-b border-border text-xs font-semibold uppercase tracking-wider text-text-muted">
+          <span class="px-6 py-3">You have</span><span class="px-6 py-3 border-l border-border">Start with</span><span class="px-6 py-3 border-l border-border">Leads to</span>
+        </div>
+        {routes.map((r) => (
+          <a href={r.href} class="route group grid grid-cols-1 md:grid-cols-3 border-b last:border-b-0 border-border">
+            <span class="px-6 pt-5 md:py-6 font-semibold text-text text-lg md:text-base">{r.have}</span>
+            <span class="px-6 py-2 md:py-6 md:border-l border-border"><span class="block font-semibold text-brand-blue">{r.start}</span><span class="block text-sm text-text-muted">{r.startNote}</span></span>
+            <span class="px-6 pb-5 md:py-6 md:border-l border-border flex items-center justify-between gap-4">
+              <span><span class="block text-text">{r.leads}</span><span class="block text-sm font-semibold text-amber-700">{r.price}</span></span>
+              <span class="route-arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+        ))}
+      </div>
+      <p class="mt-4 text-sm text-text-muted">Sales tax is added to every plan. <a href="/pricing/" class="font-semibold text-brand-blue underline underline-offset-4">See full pricing and scope</a></p>
+    </div>
+  </section>
+
+  <section class="py-14 lg:py-20 bg-bg-surface" aria-labelledby="reviews-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+        <div>
+          <p class="text-sm font-semibold text-brand-blue mb-2">Google reviews</p>
+          <h2 id="reviews-heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text">What RGV business owners say</h2>
+        </div>
+        <a href={site.social.gbp} target="_blank" rel="noopener" class="text-sm font-semibold text-brand-blue hover:underline">5.0 on Google. Read every review →</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {homeReviews.map((r) => (
+          <figure class="bg-white border border-border rounded-2xl p-6 flex flex-col">
+            <span class="text-amber-400 text-lg leading-none tracking-wide mb-4" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote class="text-text leading-relaxed mb-5 flex-1">"{r.quote}"</blockquote>
+            <figcaption class="flex items-center gap-3 pt-4 border-t border-border">
+              <span class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0" style={`background:${r.bg};color:${r.fg}`}>{r.initials}</span>
+              <span class="min-w-0"><span class="block text-sm font-bold text-text">{r.name}</span><span class="block text-xs text-text-muted">{r.meta}</span></span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={homeFaqs} headline="Common questions about local SEO in the RGV" />
+
+  <section class="bg-bg-dark text-white py-14 lg:py-16" aria-labelledby="final-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="final-heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Find out where you stand on Google.</h2>
+      <p class="text-white/80 text-lg mb-8">Free grade in 60 seconds, or call Eddie and talk it through.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href={`${site.graderUrl}/?utm_source=rankrgv.com&utm_medium=website&utm_campaign=business-grader&utm_content=concept-final`} class="inline-flex items-center h-12 px-6 rounded-xl bg-brand-blue hover:bg-brand-blue-light font-bold transition-colors">Get my free grade →</a>
+        <a href={site.phoneHref} class="inline-flex items-center h-12 px-6 rounded-xl border border-white/25 hover:border-white font-bold transition-colors">Call {site.phone}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .route { transition: background-color 180ms ease; }
+  .route:hover { background: rgb(29 78 216 / 0.04); }
+  .route-arrow { color: var(--color-brand-blue); font-size: 1.25rem; transition: transform 200ms cubic-bezier(.2,.8,.2,1); }
+  .route:hover .route-arrow { transform: translateX(4px); }
+</style>
