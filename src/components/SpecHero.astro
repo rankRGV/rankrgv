@@ -1,132 +1,146 @@
 ---
-// Concept hero (branch concept/awwwards-hero). Layout borrowed from ITSUA's "spec sheet"
-// pattern (Awwwards nominee, Oct 2026): grid lines, big type, stats strip, a routing table.
-// Copy and numbers come from the live homepage only. CSS-only motion, no JS libraries.
+// Concept hero (branch concept/awwwards-hero). Big type + stats strip pattern borrowed from
+// ITSUA (Awwwards nominee, Oct 2026), rebuilt around proof: the real Cool Aid grade, one
+// confirmed ranking, and Eddie. CSS-only motion, no JS libraries.
+// Result source: DataForSEO 2026-10-06, Cool Aid #1 organic for "ac repair edinburg tx"
+// (Vault: Clients/Cool Aid Air Conditioning/2026-10-06 Indexing queue.md).
+import { Image } from 'astro:assets';
 import { site } from '@/config/site';
+import eddiePhoto from '@/assets/eddie-urbano.png';
 const cities = ['McAllen', 'Edinburg', 'Mission', 'Pharr', 'Brownsville', 'Harlingen', 'Weslaco'];
-const stats = [
-  { label: 'Google rating', value: '5.0', unit: '★', note: 'Attributed reviews', color: 'text-amber-500' },
-  { label: 'Valley cities', value: '7', unit: '', note: 'McAllen to Brownsville', color: 'text-brand-blue' },
-  { label: 'Long-term contracts', value: '0', unit: '', note: 'Month-to-month', color: 'text-text' },
-  { label: 'Free grade', value: '60', unit: 's', note: 'No signup', color: 'text-emerald-600' },
-  { label: 'Client grade', value: '98', unit: '/100', note: 'Cool Aid, Oct 8 2026', color: 'text-brand-blue' },
+const cityLinks = [
+  { name: 'McAllen', href: '/service-areas/mcallen/' },
+  { name: 'Edinburg', href: '/service-areas/edinburg/' },
+  { name: 'Mission', href: '/service-areas/mission/' },
+  { name: 'Pharr', href: '/service-areas/pharr/' },
+  { name: 'Brownsville', href: '/service-areas/brownsville/' },
+  { name: 'Harlingen', href: '/service-areas/harlingen/' },
 ];
-const routes = [
-  { have: 'Customers can\'t find you on Google Maps', start: 'Free grade', startNote: '60 seconds, from public data', href: `${site.graderUrl}/?utm_source=rankrgv.com&utm_medium=website&utm_campaign=business-grader&utm_content=concept-route`, leads: 'Local SEO & Google Maps' },
-  { have: 'The phone is quiet and you don\'t know why', start: 'Personal audit with Eddie', startNote: 'Profile, website, competition', href: '/contact/', leads: 'A plan in plain English' },
-  { have: 'An old or slow website', start: 'Web design', startNote: 'Starts at $1,500', href: '/web-design/', leads: 'A site built to get calls' },
+const stats = [
+  { value: '#1', unit: '', label: 'On Google for "ac repair edinburg tx"', note: 'Cool Aid AC, Oct 2026', tone: 'blue' },
+  { value: '98', unit: '/100', label: 'Google profile grade', note: 'Cool Aid AC, Oct 8 2026', tone: 'blue' },
+  { value: '5.0', unit: '★', label: 'RankRGV Google rating', note: 'Attributed reviews', tone: 'amber' },
+  { value: '0', unit: '', label: 'Long-term contracts', note: 'Month-to-month', tone: 'ink' },
 ];
 ---
-<section class="spec relative bg-white overflow-hidden" aria-labelledby="hero-heading">
+<section class="spec relative overflow-hidden" aria-labelledby="hero-heading">
   <div class="spec-grid" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between py-4 border-b border-border spec-mono text-[11px] uppercase tracking-wider text-text-muted">
-      <span>§ 00 · Local SEO agency · McAllen, TX</span>
-      <span class="hidden sm:inline-flex items-center gap-2 text-emerald-700"><span class="spec-dot"></span>Taking new Valley clients</span>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-14 lg:pb-16">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 mb-6 lg:mb-12 text-sm">
+      <p class="font-semibold text-brand-blue">Local SEO agency in McAllen, TX</p>
+      <a href="/es/" hreflang="es" lang="es" class="font-semibold text-text-muted hover:text-brand-blue">¿Prefiere español? Ver en español →</a>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_20rem] gap-10 lg:gap-16 py-12 lg:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_22rem] xl:grid-cols-[minmax(0,1fr)_26rem] gap-8 lg:gap-14 items-start">
       <div class="min-w-0">
-        <h1 id="hero-heading" class="spec-h1 font-extrabold text-text tracking-tight">
+        <h1 id="hero-heading" class="spec-h1 font-extrabold text-text">
           <span class="spec-line" style="--d:0ms">When McAllen</span>
           <span class="spec-line" style="--d:90ms">Googles what you do,</span>
           <span class="spec-line" style="--d:180ms"><mark class="spec-mark">be the first call.</mark></span>
         </h1>
-        <p class="mt-8 text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl spec-fade" style="--d:320ms">Local SEO for Rio Grande Valley businesses. Get found on Google Maps and in AI answers, working directly with Eddie, month-to-month.</p>
+        <p class="mt-5 lg:mt-7 text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl spec-fade" style="--d:300ms">Local SEO for Rio Grande Valley businesses. Get found on Google Maps and in AI answers, working directly with Eddie, month-to-month.</p>
+
+        <div class="hidden lg:flex items-center gap-4 mt-10 spec-fade" style="--d:420ms">
+          <Image src={eddiePhoto} alt="" widths={[96, 144]} sizes="56px" class="w-14 h-14 rounded-full object-cover object-[50%_20%] ring-2 ring-white shadow" />
+          <p class="text-sm leading-snug text-text-muted"><span class="block font-bold text-text">Eddie Urbano, founder</span>You talk to me, not an account manager. <a href={site.phoneHref} class="font-semibold text-brand-blue whitespace-nowrap">{site.phone}</a></p>
+        </div>
       </div>
 
-      <aside class="lg:pt-3 spec-fade" style="--d:420ms" aria-label="Free grade">
-        <p class="spec-mono text-[11px] uppercase tracking-wider text-text-muted mb-3">Start here</p>
-        <form action={`${site.graderUrl}/`} method="get" class="space-y-2">
+      <aside class="spec-card spec-fade flex flex-col" style="--d:260ms" aria-labelledby="grade-card-heading">
+        <figure class="spec-proof order-2 lg:order-1">
+          <img src="/images/grader-report-cool-aid.webp" alt="RankRGV Business Grader report for Cool Aid Air Conditioning in Edinburg: Google profile score 98 out of 100, excellent" width="1120" height="570" fetchpriority="high" decoding="async" />
+          <figcaption>A real grade. Cool Aid Air Conditioning, a RankRGV client, scanned Oct 8, 2026.</figcaption>
+        </figure>
+        <form action={`${site.graderUrl}/`} method="get" class="order-1 lg:order-2 p-5 sm:p-6 pt-5 lg:pt-5 space-y-2.5">
           <input type="hidden" name="utm_source" value="rankrgv.com" /><input type="hidden" name="utm_medium" value="website" /><input type="hidden" name="utm_campaign" value="business-grader" /><input type="hidden" name="utm_content" value="concept-hero" />
+          <p id="grade-card-heading" class="text-base font-bold text-text">See your own grade in 60 seconds</p>
           <label class="block"><span class="sr-only">Your business name</span><input name="business" type="text" maxlength="60" autocomplete="organization" placeholder="Your business name" class="spec-input" /></label>
           <label class="block"><span class="sr-only">City</span><select name="city" class="spec-input font-semibold">{cities.map((c) => <option value={c}>{c}</option>)}</select></label>
-          <button type="submit" class="spec-btn"><span class="spec-btn-arrow" aria-hidden="true">→</span><span>Get my free grade</span></button>
+          <button type="submit" class="spec-btn"><span>Get my free grade</span><span class="spec-btn-arrow" aria-hidden="true">→</span></button>
+          <p class="pt-1 text-xs text-text-muted">Automated. Free. No signup. From public Google data.</p>
         </form>
-        <p class="mt-3 text-sm text-text-muted">Automated. Free. No signup. Prefer a person? <a href={site.phoneHref} class="font-semibold text-text underline underline-offset-4 whitespace-nowrap">Call {site.phone}</a>.</p>
       </aside>
+
+      <div class="lg:hidden flex items-center gap-4 -mt-2">
+        <Image src={eddiePhoto} alt="" widths={[96, 144]} sizes="56px" class="w-14 h-14 rounded-full object-cover object-[50%_20%] ring-2 ring-white shadow" />
+        <p class="text-sm leading-snug text-text-muted"><span class="block font-bold text-text">Eddie Urbano, founder</span>You talk to me, not an account manager. <a href={site.phoneHref} class="font-semibold text-brand-blue whitespace-nowrap">{site.phone}</a></p>
+      </div>
     </div>
+
+    <nav class="mt-10 lg:mt-14 flex flex-wrap items-center gap-x-1 gap-y-2 text-sm spec-fade" style="--d:480ms" aria-label="Cities we serve">
+      <span class="mr-2 font-semibold text-text">Based in McAllen. Serving</span>
+      {cityLinks.map((c) => <a href={c.href} class="spec-chip">{c.name}</a>)}
+      <a href="/service-areas/" class="spec-chip">All Valley cities</a>
+    </nav>
   </div>
 
-  <ul class="relative grid grid-cols-2 md:grid-cols-5 border-y border-border bg-white" aria-label="RankRGV at a glance">
+  <ul class="relative grid grid-cols-2 lg:grid-cols-4 border-y border-border bg-white" aria-label="Results and facts">
     {stats.map((s, i) => (
-      <li class="spec-stat" style={`--d:${500 + i * 70}ms`}>
-        <span class="spec-mono text-[11px] uppercase tracking-wider text-text-muted">{s.label}</span>
-        <span class={`spec-num ${s.color}`}>{s.value}<span class="spec-unit">{s.unit}</span></span>
-        <span class="spec-mono text-[11px] uppercase tracking-wider text-text-muted">{s.note}</span>
+      <li class="spec-stat" style={`--d:${560 + i * 70}ms`}>
+        <span class={`spec-num spec-${s.tone}`}>{s.value}<span class="spec-unit">{s.unit}</span></span>
+        <span class="text-sm font-semibold text-text leading-snug">{s.label}</span>
+        <span class="text-xs text-text-muted">{s.note}</span>
       </li>
     ))}
   </ul>
 </section>
 
-<section class="bg-white py-14 lg:py-20" aria-labelledby="start-heading">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <p class="spec-mono text-[11px] uppercase tracking-wider text-text-muted mb-2">§ 01 · Where to start</p>
-    <h2 id="start-heading" class="text-4xl sm:text-5xl font-extrabold tracking-tight text-text mb-8">/start</h2>
-    <div class="border border-border rounded-xl overflow-hidden">
-      <div class="hidden md:grid grid-cols-3 bg-bg-surface border-b border-border spec-mono text-[11px] uppercase tracking-wider text-text-muted">
-        <span class="px-5 py-3">01 · You have</span><span class="px-5 py-3 border-l border-border">02 · Start with</span><span class="px-5 py-3 border-l border-border">03 · Leads to</span>
-      </div>
-      {routes.map((r) => (
-        <a href={r.href} class="spec-route group grid grid-cols-1 md:grid-cols-3 border-b last:border-b-0 border-border">
-          <span class="px-5 py-5 font-semibold text-text">{r.have}</span>
-          <span class="px-5 py-5 md:border-l border-border"><span class="block font-semibold text-brand-blue">{r.start}</span><span class="block text-sm text-text-muted">{r.startNote}</span></span>
-          <span class="px-5 py-5 md:border-l border-border flex items-center justify-between gap-4 text-text">{r.leads}<span class="spec-route-arrow" aria-hidden="true">→</span></span>
-        </a>
-      ))}
-    </div>
-  </div>
-</section>
-
 <style>
-  .spec-mono { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  .spec { background: linear-gradient(180deg, #f5f8ff 0%, #ffffff 70%); }
   .spec-grid {
     position: absolute; inset: 0; pointer-events: none;
-    background-image: linear-gradient(to right, rgb(15 23 42 / 0.05) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgb(29 78 216 / 0.045) 1px, transparent 1px);
     background-size: calc(100% / 12) 100%;
-    mask-image: linear-gradient(to bottom, #000 60%, transparent);
+    mask-image: linear-gradient(to bottom, #000 40%, transparent 85%);
   }
-  .spec-dot { width: 7px; height: 7px; border-radius: 99px; background: #059669; box-shadow: 0 0 0 0 rgb(5 150 105 / .5); animation: spec-pulse 2.4s ease-out infinite; }
-  @keyframes spec-pulse { 70% { box-shadow: 0 0 0 7px rgb(5 150 105 / 0); } 100% { box-shadow: 0 0 0 0 rgb(5 150 105 / 0); } }
 
-  .spec-h1 { font-size: clamp(2.6rem, 7.2vw, 6.25rem); line-height: 0.98; letter-spacing: -0.035em; }
+  .spec-h1 { font-size: clamp(2.35rem, 5.6vw, 4.1rem); line-height: 1.04; letter-spacing: -0.035em; }
+  @media (min-width: 1024px) { .spec-line { white-space: nowrap; } .spec-h1 { font-size: clamp(2.35rem, calc((100vw - 500px) / 12.5), 4.1rem); } }
   .spec-line { display: block; }
   .spec-mark { background: none; color: inherit; position: relative; white-space: nowrap; z-index: 0; }
   .spec-mark::before {
-    content: ''; position: absolute; left: -0.06em; right: -0.06em; bottom: 0.06em; height: 0.36em; z-index: -1;
-    background: #fbbf24; transform-origin: left; transform: scaleX(1);
+    content: ''; position: absolute; left: -0.05em; right: -0.05em; bottom: 0.08em; height: 0.32em; z-index: -1;
+    background: #fcd34d; border-radius: 2px; transform-origin: left; transform: scaleX(1);
   }
 
-  .spec-input { width: 100%; height: 52px; padding: 0 14px; border: 1px solid var(--color-border); border-radius: 8px; background: #fff; font-size: 16px; color: var(--color-text); }
-  .spec-input:focus { outline: 2px solid var(--color-brand-blue); outline-offset: 1px; }
-  .spec-btn { width: 100%; height: 52px; display: flex; align-items: stretch; border-radius: 8px; overflow: hidden; background: var(--color-bg-dark); color: #fff; font-weight: 700; }
-  .spec-btn > span:last-child { flex: 1; display: flex; align-items: center; justify-content: center; }
-  .spec-btn-arrow { width: 52px; display: flex; align-items: center; justify-content: center; background: var(--color-brand-blue); transition: width 220ms cubic-bezier(.2,.8,.2,1); }
-  .spec-btn:hover .spec-btn-arrow { width: 72px; }
+  .spec-card { background: #fff; border: 1px solid var(--color-border); border-radius: 18px; overflow: hidden; box-shadow: 0 1px 2px rgb(15 23 42 / .04), 0 24px 48px -16px rgb(29 78 216 / .18); }
+  .spec-proof { margin: 0; padding: 0 14px 14px; }
+  @media (min-width: 1024px) { .spec-proof { padding: 14px 14px 0; } }
+  .spec-proof img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--color-border); }
+  .spec-proof figcaption { margin-top: 8px; font-size: 12px; color: var(--color-text-muted); }
 
-  .spec-stat { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 28px 12px; text-align: center; border-color: var(--color-border); }
+  .spec-input { width: 100%; height: 50px; padding: 0 14px; border: 1px solid var(--color-border); border-radius: 10px; background: #fff; font-size: 16px; color: var(--color-text); }
+  .spec-input:focus { outline: 2px solid var(--color-brand-blue); outline-offset: 1px; border-color: transparent; }
+  .spec-btn { width: 100%; height: 52px; display: flex; align-items: stretch; border-radius: 10px; overflow: hidden; background: var(--color-brand-blue); color: #fff; font-weight: 700; font-size: 16px; transition: background-color 180ms ease; }
+  .spec-btn:hover { background: var(--color-brand-blue-dark); }
+  .spec-btn > span:first-child { flex: 1; display: flex; align-items: center; justify-content: center; }
+  .spec-btn-arrow { width: 52px; display: flex; align-items: center; justify-content: center; background: rgb(0 0 0 / .14); transition: width 220ms cubic-bezier(.2,.8,.2,1); }
+  .spec-btn:hover .spec-btn-arrow { width: 68px; }
+
+  .spec-chip { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1px solid var(--color-border); border-radius: 99px; background: #fff; color: var(--color-text); font-weight: 500; transition: border-color 150ms ease, color 150ms ease; }
+  .spec-chip:hover { border-color: var(--color-brand-blue); color: var(--color-brand-blue); }
+
+  .spec-stat { display: flex; flex-direction: column; gap: 6px; padding: 28px 24px; border-color: var(--color-border); }
   .spec-stat + .spec-stat { border-left-width: 1px; }
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
+    .spec-stat { padding: 22px 16px; }
     .spec-stat:nth-child(odd) { border-left-width: 0; }
     .spec-stat:nth-child(n+3) { border-top-width: 1px; }
-    .spec-stat:last-child { grid-column: span 2; }
   }
-  .spec-num { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .spec-num { font-size: clamp(2.25rem, 4.2vw, 3.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
   .spec-unit { font-size: 0.45em; margin-left: 2px; font-weight: 700; }
+  .spec-blue { color: var(--color-brand-blue); }
+  .spec-amber { color: var(--color-brand-purple); } /* site token: warm amber accent */
+  .spec-ink { color: var(--color-text); }
 
-  .spec-route { transition: background-color 180ms ease; }
-  .spec-route:hover { background: rgb(29 78 216 / 0.04); }
-  .spec-route-arrow { color: var(--color-brand-blue); transition: transform 200ms cubic-bezier(.2,.8,.2,1); }
-  .spec-route:hover .spec-route-arrow { transform: translateX(4px); }
-
-  /* Entrance motion. Skipped entirely for reduced-motion users. */
+  /* Entrance motion. Skipped for reduced-motion users. */
   @media (prefers-reduced-motion: no-preference) {
     .spec-line { animation: spec-rise 700ms cubic-bezier(.2,.8,.2,1) both; animation-delay: var(--d); }
     .spec-mark::before { animation: spec-sweep 600ms cubic-bezier(.6,0,.2,1) 650ms both; }
     .spec-fade { animation: spec-fade 600ms ease-out both; animation-delay: var(--d); }
     .spec-stat { animation: spec-fade 500ms ease-out both; animation-delay: var(--d); }
   }
-  @keyframes spec-rise { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
+  @keyframes spec-rise { from { opacity: 0; transform: translateY(0.3em); } to { opacity: 1; transform: none; } }
   @keyframes spec-sweep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
   @keyframes spec-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 </style>
