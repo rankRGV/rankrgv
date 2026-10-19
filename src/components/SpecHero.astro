@@ -16,19 +16,23 @@ const cityLinks = [
 ];
 interface Props { theme?: 'dark' | 'light' }
 const { theme = 'dark' } = Astro.props;
-// Each item matches a fact already on the live site (pricing page, FAQ, Google reviews).
-const trust = [
-  { title: '5.0 on Google', body: 'Attributed reviews from RGV owners', href: site.social.gbp, link: 'Read reviews', external: true },
-  { title: 'Transparent pricing', body: 'Plans start at $600/mo plus tax', href: '/pricing/', link: 'See plans' },
-  { title: 'Month-to-month', body: 'No long-term contract. Leave any month.' },
-  { title: 'Based in McAllen', body: 'One market: the Rio Grande Valley' },
+// Facts below all match the live site (web design page, pricing page, FAQ, Google reviews).
+const facts = ['Websites from $1,500', 'Local SEO from $600/mo', 'Month-to-month, no contract'];
+// Same logos and approval as ClientLogos.astro, shown white on the dark hero.
+const clients = [
+  { name: 'Edel Roofing', file: 'edel-roofing', w: 189, h: 96, height: 46 },
+  { name: 'Cool Aid Air Conditioning', file: 'cool-aid', w: 256, h: 96, height: 36 },
+  { name: 'Collision Masters', file: 'collision-masters', w: 234, h: 96, height: 40 },
+  { name: 'VaultX', file: 'vaultx', w: 196, h: 96, height: 32 },
+  { name: 'Luxoria Realty', file: 'luxoria-realty', w: 328, h: 96, height: 32 },
+  { name: 'Tekton Home Solutions', file: 'tekton-roofing', w: 323, h: 96, height: 36 },
 ];
 ---
 <section class:list={['spec relative overflow-hidden', theme === 'dark' && 'spec--dark']} aria-labelledby="hero-heading">
   <div class="spec-grid" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-14 lg:pb-16">
     <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 mb-6 lg:mb-12 text-sm">
-      <p class="spec-eyebrow font-semibold text-brand-blue">Local SEO agency in McAllen, TX</p>
+      <p class="spec-eyebrow font-semibold text-brand-blue">Web design &amp; local SEO in McAllen, TX</p>
       <a href="/es/" hreflang="es" lang="es" class="spec-eslink font-semibold text-text-muted hover:text-brand-blue">¿Prefiere español? Ver en español →</a>
     </div>
 
@@ -39,7 +43,10 @@ const trust = [
           <span class="spec-line" style="--d:90ms">Googles what you do,</span>
           <span class="spec-line" style="--d:180ms"><mark class="spec-mark">be the first call.</mark></span>
         </h1>
-        <p class="spec-sub mt-5 lg:mt-7 text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl spec-fade" style="--d:300ms">Local SEO for Rio Grande Valley businesses. Get found on Google Maps and in AI answers, working directly with Eddie, month-to-month.</p>
+        <p class="spec-sub mt-5 lg:mt-7 text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl spec-fade" style="--d:300ms">Websites and local SEO for Rio Grande Valley businesses. A fast site built to get calls, then found on Google Maps and in AI answers. You work directly with Eddie.</p>
+        <ul class="spec-facts mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-text spec-fade" style="--d:360ms">
+          {facts.map((f) => <li><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>{f}</li>)}
+        </ul>
 
         <div class="hidden lg:flex items-center gap-4 mt-10 spec-fade" style="--d:420ms">
           <Image src={eddiePhoto} alt="" widths={[96, 144]} sizes="56px" class="w-14 h-14 rounded-full object-cover object-[50%_20%] ring-2 ring-white shadow" />
@@ -75,15 +82,28 @@ const trust = [
     </nav>
   </div>
 
-  <ul class="relative grid grid-cols-2 lg:grid-cols-4 border-b border-border bg-white" aria-label="Working with RankRGV">
-    {trust.map((t, i) => (
-      <li class="spec-stat" style={`--d:${560 + i * 70}ms`}>
-        <span class="text-base sm:text-lg font-bold text-text">{t.title}</span>
-        <span class="text-sm text-text-muted leading-snug">{t.body}</span>
-        {t.href && <a href={t.href} target={t.external ? '_blank' : undefined} rel={t.external ? 'noopener' : undefined} class="text-sm font-semibold text-brand-blue underline underline-offset-4">{t.link}</a>}
-      </li>
-    ))}
-  </ul>
+  <div class="spec-band relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-7 grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-12 items-center">
+      <a href={site.social.gbp} target="_blank" rel="noopener" class="spec-rating group flex items-center gap-4">
+        <span class="spec-rating-num">5.0</span>
+        <span class="flex flex-col">
+          <span class="text-amber-400 text-lg leading-none tracking-wide" aria-label="5 out of 5 stars">★★★★★</span>
+          <span class="spec-ink-on mt-1 text-sm font-semibold text-text">Rated on Google</span>
+          <span class="spec-phone text-sm font-semibold text-brand-blue group-hover:underline underline-offset-4">Read the reviews →</span>
+        </span>
+      </a>
+      <div class="min-w-0">
+        <h2 class="spec-muted-on text-xs font-semibold uppercase tracking-wider text-text-muted mb-4 text-center lg:text-left">Businesses we've worked with</h2>
+        <ul class="grid grid-cols-3 lg:flex lg:flex-wrap items-center justify-items-center lg:justify-between gap-x-6 gap-y-5">
+          {clients.map((c) => (
+            <li class="flex items-center">
+              <img src={`/images/clients/${c.file}.webp`} alt={c.name} width={c.w} height={c.h} loading="lazy" decoding="async" style={`height:${c.height}px;width:auto;max-width:100%;`} class="spec-logo" />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -121,13 +141,14 @@ const trust = [
   .spec-chip { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1px solid var(--color-border); border-radius: 99px; background: #fff; color: var(--color-text); font-weight: 500; transition: border-color 150ms ease, color 150ms ease; }
   .spec-chip:hover { border-color: var(--color-brand-blue); color: var(--color-brand-blue); }
 
-  .spec-stat { display: flex; flex-direction: column; gap: 4px; padding: 22px 24px; border-color: var(--color-border); }
-  .spec-stat + .spec-stat { border-left-width: 1px; }
-  @media (max-width: 1023px) {
-    .spec-stat { padding: 22px 16px; }
-    .spec-stat:nth-child(odd) { border-left-width: 0; }
-    .spec-stat:nth-child(n+3) { border-top-width: 1px; }
-  }
+  .spec-facts li { display: inline-flex; align-items: center; gap: 6px; }
+  .spec-facts svg { color: var(--color-brand-blue); }
+
+  .spec-band { border-top: 1px solid var(--color-border); background: rgb(255 255 255 / .7); }
+  .spec-rating-num { font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--color-text); }
+  .spec-logo { opacity: .75; transition: opacity 150ms ease; }
+  .spec-logo:hover { opacity: 1; }
+  @media (min-width: 1024px) { .spec-rating { padding-right: 3rem; border-right: 1px solid var(--color-border); } }
 
   /* Dark theme: navy like the live hero; the white grade card pops forward. */
   .spec--dark { background: radial-gradient(70rem 40rem at 85% -10%, rgb(29 78 216 / .45), transparent 60%), radial-gradient(40rem 30rem at -10% 110%, rgb(29 78 216 / .2), transparent 60%), #0b1224; }
@@ -140,6 +161,13 @@ const trust = [
   .spec--dark .spec-eyebrow, .spec--dark .spec-phone { color: #93c5fd; }
   .spec--dark .spec-chip { background: rgb(255 255 255 / .06); border-color: rgb(255 255 255 / .2); color: #fff; }
   .spec--dark .spec-chip:hover { border-color: #93c5fd; color: #93c5fd; }
+  .spec--dark .spec-facts { color: rgb(255 255 255 / .85); }
+  .spec--dark .spec-facts svg { color: #fbbf24; }
+  .spec--dark .spec-band { border-top-color: rgb(255 255 255 / .1); background: rgb(255 255 255 / .03); }
+  .spec--dark .spec-rating-num { color: #fff; }
+  .spec--dark .spec-logo { filter: brightness(0) invert(1); opacity: .6; }
+  .spec--dark .spec-logo:hover { opacity: .95; }
+  @media (min-width: 1024px) { .spec--dark .spec-rating { border-right-color: rgb(255 255 255 / .12); } }
   .spec--dark .spec-card { border-color: transparent; box-shadow: 0 30px 60px -20px rgb(0 0 0 / .6), 0 0 0 1px rgb(255 255 255 / .08); }
 
   /* Entrance motion. Skipped for reduced-motion users. */
