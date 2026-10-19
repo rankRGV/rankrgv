@@ -1,5 +1,5 @@
 ---
-// Concept hero (branch concept/awwwards-hero). Big type + stats strip pattern borrowed from
+// Homepage hero. Big type + proof band pattern borrowed from
 // ITSUA (Awwwards nominee, Oct 2026). Trust strip uses only RankRGV's own policies and rating,
 // the same facts the live homepage already publishes. CSS-only motion, no JS libraries.
 import { Image } from 'astro:assets';
@@ -63,7 +63,7 @@ const clients = [
           <figcaption>A real grade. Cool Aid Air Conditioning, a RankRGV client, scanned Oct 8, 2026.</figcaption>
         </figure>
         <form action={`${site.graderUrl}/`} method="get" class="order-1 lg:order-2 p-5 sm:p-6 pt-5 lg:pt-5 space-y-2.5">
-          <input type="hidden" name="utm_source" value="rankrgv.com" /><input type="hidden" name="utm_medium" value="website" /><input type="hidden" name="utm_campaign" value="business-grader" /><input type="hidden" name="utm_content" value="concept-hero" />
+          <input type="hidden" name="utm_source" value="rankrgv.com" /><input type="hidden" name="utm_medium" value="website" /><input type="hidden" name="utm_campaign" value="business-grader" /><input type="hidden" name="utm_content" value="homepage-hero" />
           <p id="grade-card-heading" class="text-base font-bold text-text">See your own grade in 60 seconds</p>
           <label class="block"><span class="sr-only">Your business name</span><input name="business" type="text" maxlength="60" autocomplete="organization" placeholder="Your business name" class="spec-input" /></label>
           <label class="block"><span class="sr-only">City</span><select name="city" class="spec-input font-semibold">{cities.map((c) => <option value={c}>{c}</option>)}</select></label>

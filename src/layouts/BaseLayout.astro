@@ -96,7 +96,8 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
           // window.gtag assignment survives that scoping regardless.
           window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
           gtag('js', new Date());
-          gtag('config', ga4Id);
+          // Only the real site reports. Localhost and Vercel previews stay out of GA4.
+          if (/(^|\.)rankrgv\.com$/.test(location.hostname)) gtag('config', ga4Id);
         </script>
 
         <!-- Primary conversion tracking -->
@@ -120,6 +121,21 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
               event_category: 'engagement',
               event_label: link.href,
               link_text: link.textContent.trim(),
+              page_path: window.location.pathname,
+              transport_type: 'beacon',
+            });
+          });
+
+          // Grade forms (homepage hero etc.) submit as GET to the grader, not as a link,
+          // so count them as the same grader_click event.
+          document.addEventListener('submit', function (e) {
+            var form = e.target;
+            if (!form.action || !form.action.startsWith('https://grader.rankrgv.com')) return;
+            var content = form.querySelector('input[name="utm_content"]');
+            window.gtag('event', 'grader_click', {
+              event_category: 'engagement',
+              event_label: form.action,
+              link_text: 'form: ' + (content ? content.value : 'unknown'),
               page_path: window.location.pathname,
               transport_type: 'beacon',
             });

@@ -1,4 +1,4 @@
-// Shared homepage content (used by / and the /concept-hero/ preview).
+// Shared homepage content (reviews + base FAQs).
 export const homeFaqs = [
   { question: 'How long does local SEO take?', answer: 'SEO builds over months. The starting point, service and competition affect how quickly rankings move. We track progress and explain what changed. We do not promise a particular Google position or number of calls.' },
   { question: 'How much does local SEO cost?', answer: 'Our Visibility plan starts at $600/month. Domination is $975/month. Both include Google Business Profile management. Web design starts at $1,500. Sales tax is added on top of every plan. See our pricing page for the full scope of each plan.' },
