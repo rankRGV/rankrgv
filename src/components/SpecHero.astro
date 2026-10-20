@@ -6,7 +6,7 @@ import { Image } from 'astro:assets';
 import { site } from '@/config/site';
 import eddiePhoto from '@/assets/eddie-urbano.png';
 import HeroShader from '@/components/HeroShader.astro';
-const cities = ['McAllen', 'Edinburg', 'Mission', 'Pharr', 'Brownsville', 'Harlingen', 'Weslaco'];
+const cities = ['McAllen', 'Edinburg', 'Mission', 'Pharr', 'Brownsville', 'Harlingen'];
 interface Props { theme?: 'dark' | 'light'; lang?: 'en' | 'es' }
 const { theme = 'dark', lang = 'en' } = Astro.props;
 const es = lang === 'es';
@@ -29,7 +29,7 @@ const t = es
       proofAlt: 'Reporte del Business Grader de RankRGV para Cool Aid Air Conditioning en Edinburg: puntaje del perfil de Google de 98 sobre 100, excelente',
       proofCap: 'Una calificación real. Cool Aid Air Conditioning, cliente de RankRGV, revisada el 8 de octubre de 2026.',
       formHeading: 'Tu calificación en 60 segundos',
-      bizLabel: 'Nombre de tu negocio', cityLabel: 'Ciudad', button: 'Obtener mi calificación gratis',
+      bizLabel: 'Nombre de tu negocio', button: 'Obtener mi calificación gratis',
       formNote: 'Automático. Gratis. Sin registrarte. Con datos públicos de Google.',
       citiesLabel: 'Ciudades que servimos', citiesLead: 'Con base en McAllen. Servimos a',
       allCities: null,
@@ -46,7 +46,7 @@ const t = es
       proofAlt: 'RankRGV Business Grader report for Cool Aid Air Conditioning in Edinburg: Google profile score 98 out of 100, excellent',
       proofCap: 'A real grade. Cool Aid Air Conditioning, a RankRGV client, scanned Oct 8, 2026.',
       formHeading: 'See your own grade in 60 seconds',
-      bizLabel: 'Your business name', cityLabel: 'City', button: 'Get my free grade',
+      bizLabel: 'Your business name', button: 'Get my free grade',
       formNote: 'Automated. Free. No signup. From public Google data.',
       citiesLabel: 'Cities we serve', citiesLead: 'Based in McAllen. Serving',
       allCities: { href: '/service-areas/', text: 'All Valley cities' },
@@ -101,7 +101,6 @@ const clients = [
           <input type="hidden" name="utm_source" value="rankrgv.com" /><input type="hidden" name="utm_medium" value="website" /><input type="hidden" name="utm_campaign" value="business-grader" /><input type="hidden" name="utm_content" value="homepage-hero" />{es && <input type="hidden" name="lang" value="es" />}
           <p id="grade-card-heading" class="text-base font-bold text-text">{t.formHeading}</p>
           <label class="block"><span class="sr-only">{t.bizLabel}</span><input name="business" type="text" maxlength="60" autocomplete="organization" placeholder={t.bizLabel} class="spec-input" /></label>
-          <label class="block"><span class="sr-only">{t.cityLabel}</span><select name="city" class="spec-input font-semibold">{cities.map((c) => <option value={c}>{c}</option>)}</select></label>
           <button type="submit" class="spec-btn"><span>{t.button}</span><span class="spec-btn-arrow" aria-hidden="true">→</span></button>
           <p class="pt-1 text-xs text-text-muted">{t.formNote}</p>
         </form>
