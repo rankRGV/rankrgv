@@ -19,6 +19,8 @@ interface Props {
   hreflang?: { lang: string; href: string }[];
   /** Drop the site header, footer and sticky call bar (private client pages). */
   bare?: boolean;
+  /** Drop only the mobile sticky bar (homepage: the hero and final section already offer both actions). */
+  hideSticky?: boolean;
 }
 
 const {
@@ -34,6 +36,7 @@ const {
   lang = 'en',
   hreflang,
   bare = false,
+  hideSticky = false,
 } = Astro.props;
 
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
@@ -65,7 +68,7 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
       <slot />
     </main>
     {!bare && <Footer lang={lang} />}
-    {!bare && <StickyCallCTA lang={lang} />}
+    {!bare && !hideSticky && <StickyCallCTA lang={lang} />}
 
     <!-- PostHog (project token is a public client key) -->
     <script is:inline>

@@ -5,9 +5,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import SpecHero from '@/components/SpecHero.astro';
 import ServicesSplit from '@/components/ServicesSplit.astro';
 import FAQSection from '@/components/FAQSection.astro';
+import HomeReviews from '@/components/HomeReviews.astro';
 import { graderHref, site } from '@/config/site';
 import { buildOrgSchema, buildFAQSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
-import { homeReviews } from '@/data/home';
 
 const faqs = [
   {
@@ -27,8 +27,8 @@ const faqs = [
     answer: 'RankRGV tiene su base en McAllen. Nuestro enfoque principal es el SEO local para negocios del Rio Grande Valley. También aceptamos algunos proyectos de sitios web, publicidad y automatización para negocios que atienden mercados más amplios.',
   },
   {
-    question: '¿Qué incluye el diagnóstico SEO gratuito?',
-    answer: 'El diagnóstico cubre cuatro áreas: tu perfil de Google Business (completitud, fotos, reseñas), el SEO técnico de tu sitio web, tus posiciones actuales en Google, y los 3 competidores más fuertes de tu área. Sin compromiso, sin presión.',
+    question: '¿La revisión gratis es lo mismo que una auditoría SEO personal?',
+    answer: 'No. La revisión gratis (nuestro Business Grader) es una foto automática de tu perfil público de Google Business. Escribes el nombre de tu negocio, confirmas el perfil y eliges un servicio. Una auditoría personal es una conversación aparte con Eddie sobre tu perfil de Google Business, tu sitio web, cómo apareces en las búsquedas y tu competencia. Pídela en nuestra página de contacto o llama al 956-391-5991.',
   },
   {
     question: '¿Trabajan con negocios que atienden en español?',
@@ -50,43 +50,21 @@ const description = 'Diseño web y SEO local en McAllen, TX para negocios del Ri
   hreflang={[{ lang: 'en', href: `${site.url}/` }, { lang: 'es', href: `${site.url}/es/` }, { lang: 'x-default', href: `${site.url}/` }]}
   schema={[buildOrgSchema(), buildFAQSchema(faqs), buildWebPageSchema(title, description, '/es/')]}
   geoPlacename="McAllen, Texas"
+  hideSticky
 >
   <SpecHero lang="es" />
   <ServicesSplit lang="es" />
 
-  <section class="py-14 lg:py-20 bg-white" aria-labelledby="reviews-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
-        <div>
-          <p class="text-sm font-semibold text-brand-blue mb-2">Reseñas de Google</p>
-          <h2 id="reviews-heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text">Lo que dicen los dueños de negocios del RGV</h2>
-          <p class="mt-2 text-sm text-text-muted">Reseñas tal como se escribieron en Google, en inglés.</p>
-        </div>
-        <a href={site.social.gbp} target="_blank" rel="noopener" class="text-sm font-semibold text-brand-blue hover:underline">5.0 en Google. Lee todas las reseñas →</a>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {homeReviews.map((r) => (
-          <figure class="bg-white border border-border rounded-2xl p-6 flex flex-col">
-            <span class="text-amber-400 text-lg leading-none tracking-wide mb-4" aria-label="5 de 5 estrellas">★★★★★</span>
-            <blockquote lang="en" class="text-text leading-relaxed mb-5 flex-1">"{r.quote}"</blockquote>
-            <figcaption class="flex items-center gap-3 pt-4 border-t border-border">
-              <span class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0" style={`background:${r.bg};color:${r.fg}`}>{r.initials}</span>
-              <span class="min-w-0"><span class="block text-sm font-bold text-text">{r.name}</span><span class="block text-xs text-text-muted">{r.meta}</span></span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </div>
-  </section>
+  <HomeReviews lang="es" />
 
   <FAQSection faqs={faqs} headline="Preguntas frecuentes sobre diseño web y SEO local en el Valle" />
 
   <section class="bg-bg-dark text-white py-14 lg:py-16" aria-labelledby="final-heading">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 id="final-heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Descubre cómo estás en Google.</h2>
-      <p class="text-white/80 text-lg mb-8">Calificación gratis en 60 segundos, o llama a Eddie y platícalo.</p>
+      <p class="text-white/80 text-lg mb-8">Una revisión automática y gratis de tu perfil de Google en 60 segundos, o llama a Eddie y platícalo.</p>
       <div class="flex flex-wrap justify-center gap-3">
-        <a href={graderHref('homepage-final', 'es')} class="inline-flex items-center h-12 px-6 rounded-xl bg-brand-blue hover:bg-brand-blue-light font-bold transition-colors">Obtener mi calificación gratis →</a>
+        <a href={graderHref('homepage-final', 'es')} class="inline-flex items-center h-12 px-6 rounded-xl bg-brand-blue hover:bg-brand-blue-light font-bold transition-colors">Revisar mi perfil de Google →</a>
         <a href={site.phoneHref} class="inline-flex items-center h-12 px-6 rounded-xl border border-white/25 hover:border-white font-bold transition-colors">Llama al {site.phone}</a>
       </div>
     </div>

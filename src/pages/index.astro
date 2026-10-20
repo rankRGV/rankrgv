@@ -5,9 +5,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import SpecHero from '@/components/SpecHero.astro';
 import ServicesSplit from '@/components/ServicesSplit.astro';
 import FAQSection from '@/components/FAQSection.astro';
+import HomeReviews from '@/components/HomeReviews.astro';
 import { buildOrgSchema, buildFAQSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
 import { site } from '@/config/site';
-import { homeFaqs, homeReviews } from '@/data/home';
+import { homeFaqs } from '@/data/home';
 
 const faqs = [
   { question: 'How much does a website cost?', answer: 'Our websites start at $1,500 for a 5 to 7 page Foundation site and $2,500 for a 10 to 15 page Growth site with full service and city pages, plus sales tax. Larger multi-city builds are quoted custom. You get a fixed price before any work begins.' },
@@ -23,42 +24,21 @@ const description = 'Web design and local SEO in McAllen, TX for Rio Grande Vall
   canonical={`${site.url}/`}
   hreflang={[{ lang: 'en', href: `${site.url}/` }, { lang: 'es', href: `${site.url}/es/` }, { lang: 'x-default', href: `${site.url}/` }]}
   schema={[buildOrgSchema(), buildFAQSchema(faqs), buildWebPageSchema(title, description, '/')]}
+  hideSticky
 >
   <SpecHero />
   <ServicesSplit />
 
-  <section class="py-14 lg:py-20 bg-white" aria-labelledby="reviews-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
-        <div>
-          <p class="text-sm font-semibold text-brand-blue mb-2">Google reviews</p>
-          <h2 id="reviews-heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text">What RGV business owners say</h2>
-        </div>
-        <a href={site.social.gbp} target="_blank" rel="noopener" class="text-sm font-semibold text-brand-blue hover:underline">5.0 on Google. Read every review →</a>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {homeReviews.map((r) => (
-          <figure class="bg-white border border-border rounded-2xl p-6 flex flex-col">
-            <span class="text-amber-400 text-lg leading-none tracking-wide mb-4" aria-label="5 out of 5 stars">★★★★★</span>
-            <blockquote class="text-text leading-relaxed mb-5 flex-1">"{r.quote}"</blockquote>
-            <figcaption class="flex items-center gap-3 pt-4 border-t border-border">
-              <span class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0" style={`background:${r.bg};color:${r.fg}`}>{r.initials}</span>
-              <span class="min-w-0"><span class="block text-sm font-bold text-text">{r.name}</span><span class="block text-xs text-text-muted">{r.meta}</span></span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </div>
-  </section>
+  <HomeReviews />
 
   <FAQSection faqs={faqs} headline="Common questions about web design and local SEO in the RGV" />
 
   <section class="bg-bg-dark text-white py-14 lg:py-16" aria-labelledby="final-heading">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 id="final-heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Find out where you stand on Google.</h2>
-      <p class="text-white/80 text-lg mb-8">Free grade in 60 seconds, or call Eddie and talk it through.</p>
+      <p class="text-white/80 text-lg mb-8">Free automated check of your Google listing in 60 seconds, or call Eddie and talk it through.</p>
       <div class="flex flex-wrap justify-center gap-3">
-        <a href={`${site.graderUrl}/?utm_source=rankrgv.com&utm_medium=website&utm_campaign=business-grader&utm_content=homepage-final`} class="inline-flex items-center h-12 px-6 rounded-xl bg-brand-blue hover:bg-brand-blue-light font-bold transition-colors">Get my free grade →</a>
+        <a href={`${site.graderUrl}/?utm_source=rankrgv.com&utm_medium=website&utm_campaign=business-grader&utm_content=homepage-final`} class="inline-flex items-center h-12 px-6 rounded-xl bg-brand-blue hover:bg-brand-blue-light font-bold transition-colors">Check my Google listing →</a>
         <a href={site.phoneHref} class="inline-flex items-center h-12 px-6 rounded-xl border border-white/25 hover:border-white font-bold transition-colors">Call {site.phone}</a>
       </div>
     </div>

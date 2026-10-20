@@ -27,13 +27,13 @@ const t = es
       facts: ['Sitios web desde $1,500', 'SEO local desde $600/mes', 'Mes a mes, sin contrato'],
       founder: 'Eddie Urbano, fundador', founderLine: 'Hablas conmigo, no con un gerente de cuentas.',
       proofAlt: 'Reporte del Business Grader de RankRGV para Cool Aid Air Conditioning en Edinburg: puntaje del perfil de Google de 98 sobre 100, excelente',
-      proofCap: 'Una calificación real. Cool Aid Air Conditioning, cliente de RankRGV, revisada el 8 de octubre de 2026.',
-      formHeading: 'Tu calificación en 60 segundos',
-      bizLabel: 'Nombre de tu negocio', button: 'Obtener mi calificación gratis',
-      formNote: 'Automático. Gratis. Sin registrarte. Con datos públicos de Google.',
+      proofCap: 'Una revisión real. Cool Aid Air Conditioning, cliente de RankRGV, revisada el 8 de octubre de 2026.',
+      formHeading: 'Revisa tu perfil de Google en 60 segundos',
+      bizLabel: 'Nombre de tu negocio', button: 'Revisar mi perfil de Google',
+      formNote: 'Una revisión automática y gratis de tu perfil público de Google Business. Sin registrarte. Para una auditoría personal, habla con Eddie.',
       citiesLabel: 'Ciudades que servimos', citiesLead: 'Con base en McAllen. Servimos a',
       allCities: null,
-      stars: '5 de 5 estrellas', rated: 'Calificación en Google', readReviews: 'Lee las reseñas →',
+      stars: '5 de 5 estrellas', rated: 'Reseñas reales en Google', readReviews: 'Léelas en Google →',
       logosHeading: 'Negocios con los que hemos trabajado',
     }
   : {
@@ -44,13 +44,13 @@ const t = es
       facts: ['Websites from $1,500', 'Local SEO from $600/mo', 'Month-to-month, no contract'],
       founder: 'Eddie Urbano, founder', founderLine: 'You talk to me, not an account manager.',
       proofAlt: 'RankRGV Business Grader report for Cool Aid Air Conditioning in Edinburg: Google profile score 98 out of 100, excellent',
-      proofCap: 'A real grade. Cool Aid Air Conditioning, a RankRGV client, scanned Oct 8, 2026.',
-      formHeading: 'See your own grade in 60 seconds',
-      bizLabel: 'Your business name', button: 'Get my free grade',
-      formNote: 'Automated. Free. No signup. From public Google data.',
+      proofCap: 'A real listing check. Cool Aid Air Conditioning, a RankRGV client, scanned Oct 8, 2026.',
+      formHeading: 'Check your Google listing in 60 seconds',
+      bizLabel: 'Your business name', button: 'Check my Google listing',
+      formNote: 'A free automated snapshot of your public Google Business listing. No signup. For a personal audit, talk with Eddie.',
       citiesLabel: 'Cities we serve', citiesLead: 'Based in McAllen. Serving',
       allCities: { href: '/service-areas/', text: 'All Valley cities' },
-      stars: '5 out of 5 stars', rated: 'Rated on Google', readReviews: 'Read the reviews →',
+      stars: '5 out of 5 stars', rated: 'Real Google reviews', readReviews: 'Read them on Google →',
       logosHeading: "Businesses we've worked with",
     };
 const facts = t.facts;
@@ -122,7 +122,6 @@ const clients = [
   <div class="spec-band relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-7 grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-12 items-center">
       <a href={site.social.gbp} target="_blank" rel="noopener" class="spec-rating group flex items-center gap-4">
-        <span class="spec-rating-num">5.0</span>
         <span class="flex flex-col">
           <span class="text-amber-400 text-lg leading-none tracking-wide" aria-label={t.stars}>★★★★★</span>
           <span class="spec-ink-on mt-1 text-sm font-semibold text-text">{t.rated}</span>
@@ -185,7 +184,6 @@ const clients = [
   .spec-facts svg { color: var(--color-brand-blue); }
 
   .spec-band { border-top: 1px solid var(--color-border); background: rgb(255 255 255 / .7); }
-  .spec-rating-num { font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--color-text); }
   .spec-logo { opacity: .75; transition: opacity 150ms ease; }
   .spec-logo:hover { opacity: 1; }
   @media (min-width: 1024px) { .spec-rating { padding-right: 3rem; border-right: 1px solid var(--color-border); } }
@@ -205,7 +203,6 @@ const clients = [
   .spec--dark .spec-facts { color: rgb(255 255 255 / .85); }
   .spec--dark .spec-facts svg { color: #fbbf24; }
   .spec--dark .spec-band { border-top-color: rgb(255 255 255 / .1); background: rgb(255 255 255 / .03); }
-  .spec--dark .spec-rating-num { color: #fff; }
   .spec--dark .spec-logo { filter: brightness(0) invert(1); opacity: .6; }
   .spec--dark .spec-logo:hover { opacity: .95; }
   @media (min-width: 1024px) { .spec--dark .spec-rating { border-right-color: rgb(255 255 255 / .12); } }

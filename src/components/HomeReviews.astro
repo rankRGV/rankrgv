@@ -1,0 +1,56 @@
+---
+// Homepage reviews (EN + ES). Quotes stay word for word in English. On phones only the first
+// review shows in full; the others open with "Read full review" so the stack stays short.
+// No star average or count here: the profile has few reviews, so the named quotes carry the proof.
+import { site } from '@/config/site';
+import { homeReviews } from '@/data/home';
+interface Props { lang?: 'en' | 'es' }
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+const t = es
+  ? { eyebrow: 'Reseñas de Google', heading: 'Lo que dicen los dueños de negocios del RGV', note: 'Reseñas tal como se escribieron en Google, en inglés.', link: 'Lee las reseñas en Google →', stars: '5 de 5 estrellas', more: 'Leer la reseña completa', less: 'Mostrar menos' }
+  : { eyebrow: 'Google reviews', heading: 'What RGV business owners say', note: null, link: 'Read reviews on Google →', stars: '5 out of 5 stars', more: 'Read full review', less: 'Show less' };
+---
+<section class="py-14 lg:py-20 bg-white" aria-labelledby="reviews-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+      <div>
+        <p class="text-sm font-semibold text-brand-blue mb-2">{t.eyebrow}</p>
+        <h2 id="reviews-heading" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text">{t.heading}</h2>
+        {t.note && <p class="mt-2 text-sm text-text-muted">{t.note}</p>}
+      </div>
+      <a href={site.social.gbp} target="_blank" rel="noopener" class="text-sm font-semibold text-brand-blue hover:underline">{t.link}</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {homeReviews.map((r, i) => (
+        <figure class="bg-white border border-border rounded-2xl p-6 flex flex-col">
+          <span class="text-amber-400 text-lg leading-none tracking-wide mb-4" aria-label={t.stars}>★★★★★</span>
+          <blockquote lang="en" id={`rv-${i}`} class:list={['text-text leading-relaxed flex-1', i > 0 ? 'rv-clamp mb-2' : 'mb-5']}>"{r.quote}"</blockquote>
+          {i > 0 && <button type="button" class="rv-more md:hidden self-start mb-4 text-sm font-semibold text-brand-blue" aria-controls={`rv-${i}`} aria-expanded="false" data-more={t.more} data-less={t.less}>{t.more}</button>}
+          <figcaption class="flex items-center gap-3 pt-4 border-t border-border">
+            <span class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0" style={`background:${r.bg};color:${r.fg}`}>{r.initials}</span>
+            <span class="min-w-0"><span class="block text-sm font-bold text-text">{r.name}</span><span class="block text-xs text-text-muted">{r.meta}</span></span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 767px) {
+    .rv-clamp:not(.rv-open) { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.rv-more').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const quote = document.getElementById(btn.getAttribute('aria-controls') ?? '');
+      if (!quote) return;
+      const open = quote.classList.toggle('rv-open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? btn.dataset.less ?? '' : btn.dataset.more ?? '';
+    });
+  });
+</script>

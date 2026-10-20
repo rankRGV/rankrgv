@@ -10,18 +10,18 @@ const mainEn = [
     href: '/web-design/',
     tag: 'Web design',
     title: 'Websites built in McAllen to get calls',
-    body: 'Fast, mobile-first sites with the SEO structure built in from day one: title tags, schema, city and service pages, lead forms and analytics.',
+    body: 'A fast website that explains your services and makes it easy for customers to call or send you a message. City and service pages, contact forms and visitor tracking are part of the build.',
     items: ['Foundation site, 5 to 7 pages: $1,500', 'Growth site, 10 to 15 pages: $2,500', '30 days of support after launch', 'Fixed price before any work starts'],
-    link: 'See web design',
+    link: 'View web design',
     note: 'One-time price, plus sales tax',
   },
   {
     href: '/local-seo/',
     tag: 'Local SEO',
     title: 'Get found on Google Maps in the RGV',
-    body: 'We get Valley businesses into the map pack and ranking for the city searches their customers make, with plain-English reporting.',
+    body: 'Help customers find your business on Google Maps and in the local searches they already make. You get reports in plain English.',
     items: ['Visibility plan: $600/mo', 'Domination plan: $975/mo', 'Google Business Profile management included', 'Month-to-month. Leave any month.'],
-    link: 'See local SEO',
+    link: 'View local SEO',
     note: 'Monthly, plus sales tax',
   },
 ];
@@ -31,7 +31,7 @@ const mainEs = [
     href: '/es/precios/#web-design-pricing',
     tag: 'Diseño web',
     title: 'Sitios web hechos en McAllen para recibir llamadas',
-    body: 'Sitios rápidos, pensados primero para el celular, con la estructura de SEO incluida desde el primer día: etiquetas de título, schema, páginas por ciudad y por servicio, formularios de contacto y analítica.',
+    body: 'Un sitio web rápido que explica tus servicios y hace fácil que los clientes te llamen o te manden un mensaje. Las páginas por ciudad y por servicio, los formularios de contacto y la medición de visitas son parte del sitio.',
     items: ['Sitio Fundación, de 5 a 7 páginas: $1,500', 'Sitio Crecimiento, de 10 a 15 páginas: $2,500', '30 días de soporte después del lanzamiento', 'Precio fijo antes de empezar cualquier trabajo'],
     link: 'Ver diseño web',
     note: 'Pago único, más impuesto de ventas',
@@ -40,7 +40,7 @@ const mainEs = [
     href: '/es/seo-local/',
     tag: 'SEO local',
     title: 'Aparece en Google Maps en el RGV',
-    body: 'Ponemos a negocios del Valle en el map pack y en las búsquedas por ciudad que hacen sus clientes, con reportes fáciles de entender.',
+    body: 'Ayudamos a que los clientes encuentren tu negocio en Google Maps y en las búsquedas locales que ya hacen. Recibes reportes fáciles de entender.',
     items: ['Plan Visibilidad: $600/mes', 'Plan Dominación: $975/mes', 'Incluye el manejo de tu perfil de Google Business', 'Mes a mes. Te puedes ir cualquier mes.'],
     link: 'Ver SEO local',
     note: 'Mensual, más impuesto de ventas',
@@ -81,8 +81,8 @@ const t = es
               </li>
             ))}
           </ul>
-          <span class="mt-auto flex items-center justify-between gap-4 pt-5 border-t border-border">
-            <span class="inline-flex items-center gap-2 font-bold text-brand-blue">{s.link}<span class="svc-arrow" aria-hidden="true">→</span></span>
+          <span class="mt-auto flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4 pt-5 border-t border-border">
+            <span class="inline-flex items-center gap-2 font-bold text-brand-blue whitespace-nowrap">{s.link}<span class="svc-arrow" aria-hidden="true">→</span></span>
             <span class="text-xs text-text-muted">{s.note}</span>
           </span>
         </a>
