@@ -1,5 +1,6 @@
 ---
 title: "How to Optimize Your Google Business Profile to Rank Higher (Complete Checklist)"
+seoTitle: "How to Optimize Your Google Business Profile (Checklist)"
 description: "Every field in your Google Business Profile is a ranking signal. Most businesses fill in the bare minimum. Here's exactly what to optimize, and in what order."
 pubDate: 2026-07-02
 updatedDate: 2026-09-23

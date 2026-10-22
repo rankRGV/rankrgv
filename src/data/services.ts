@@ -22,7 +22,7 @@ export const services: Service[] = [
     primaryKeyword: 'local seo rio grande valley',
     titleTag: 'Local SEO Services for the Rio Grande Valley | RankRGV',
     metaDescription:
-      'Local SEO for Rio Grande Valley businesses: Google Maps rankings and organic traffic across McAllen, Edinburg, Mission, Pharr, Harlingen and Brownsville. Month-to-month. Call (956) 391-5991.',
+      'Local SEO for Rio Grande Valley businesses: Google Maps and organic rankings in McAllen, Edinburg, Mission, Pharr, Harlingen and Brownsville.',
   },
   {
     slug: 'web-design',
@@ -59,7 +59,7 @@ export const services: Service[] = [
       'From missed call text-back to automated review requests, we set up the systems that follow up with every lead automatically, so you close more without working more.',
     icon: 'M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z',
     primaryKeyword: 'business automation rgv',
-    titleTag: 'Business Automation for RGV Businesses | Never Miss a Lead | RankRGV',
+    titleTag: 'Business Automation for RGV Businesses | RankRGV',
     metaDescription:
       'Automate follow-up, review requests, and lead response for your Rio Grande Valley business. Systems that work 24/7, call RankRGV at (956) 391-5991.',
   },

@@ -1,5 +1,6 @@
 ---
 title: "Bilingual SEO in the Rio Grande Valley: How English and Spanish Searches Really Work"
+seoTitle: "Bilingual SEO in the RGV: English and Spanish Searches"
 description: "The RGV is one of the most bilingual markets in the U.S. Here's what that actually means for your Google rankings, and what most businesses get wrong."
 pubDate: 2026-04-09
 updatedDate: 2026-09-23

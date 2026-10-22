@@ -39,7 +39,7 @@ Here's what actually changed in 2026 and what it means for businesses in McAllen
 
 Google's AI Overviews (the boxes that appear above the traditional blue links) are now showing up consistently for informational and transactional queries in the RGV. "Best HVAC company McAllen" and "how to find a good dentist in Edinburg" are both returning AI-generated answers, pulling information from multiple sources and synthesizing it into a single paragraph before the traditional search results even appear.
 
-This is a fundamental change in what it means to rank on page one. Being ranked #1 organically in traditional results used to guarantee visibility. In 2026, a significant portion of searchers who ask a question are reading the AI answer and not scrolling to the links below it. Click-through rates for informational queries are down across the board.
+This is a fundamental change in what it means to rank on page one. Being ranked #1 organically in traditional results used to guarantee visibility. In 2026, a significant portion of searchers who ask a question are reading the AI answer and not scrolling to the links below it. Click-through rates are down too: organic position 1 fell 82% year over year in [First Page Sage's September 2026 report](https://firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/).
 
 What this means for local businesses: the searches most affected are the informational ones ("how much does an AC replacement cost in McAllen"). The searches least affected are the high-intent local ones ("AC repair near me right now"). The map pack and the local results panel are not being replaced by AI Overviews. In fact, Google has been keeping those results separate. The revenue-driving searches are still working the way they always did. It's the top-of-funnel content that's competing with AI now.
 
@@ -55,7 +55,7 @@ For most Valley businesses, adding Spanish to the [GBP description](/gbp-managem
 
 McAllen's map pack has been competitive for years. What changed in 2026 is that Edinburg and Mission are catching up faster than expected.
 
-The pattern is consistent across categories: a national or regional brand opens a location, claims and optimizes their GBP from day one with professional photography and a structured review collection process, and within 90 days they're in the map pack. Meanwhile, the local business that's been in the market for a decade hasn't updated their GBP photo in two years and has 12 reviews.
+The pattern is consistent across categories: a national or regional brand opens a location, claims and optimizes their GBP from day one with professional photography and a structured review collection process, and before long they're in the map pack. Meanwhile, the local business that's been in the market for a decade hasn't updated their GBP photo in two years and has 12 reviews.
 
 This isn't a story about national brands being better. It's a story about local businesses leaving the basics undone while the competition shows up prepared. The local advantage (real community roots, existing customers, word-of-mouth reputation) is still real. But it doesn't translate into map pack positions automatically. The GBP has to reflect what the business actually is.
 

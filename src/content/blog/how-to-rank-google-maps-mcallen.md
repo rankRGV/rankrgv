@@ -136,7 +136,7 @@ After auditing dozens of RGV businesses, here's the competitive bar you're worki
 
 **Restaurants and food:** The most competitive category in McAllen. Top positions average 80–150+ reviews, but photos and post activity are strong differentiators. Most top-ranked restaurants post 2–3 times per week.
 
-The takeaway: McAllen is dramatically easier to rank in than other Texas metros. The businesses at the top aren't doing more. They're just doing the basics without stopping.
+The takeaway: in a lot of categories, McAllen searches score lower on keyword difficulty than the same searches in Austin, Dallas, Houston or San Antonio ([see the numbers](/blog/rgv-local-seo-keyword-opportunity/)). The businesses at the top aren't doing more. They're just doing the basics without stopping.
 
 ## How Long Does This Take?
 

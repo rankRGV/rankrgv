@@ -11,7 +11,7 @@ faqs:
   - question: "How much should local SEO cost for a small business in McAllen?"
     answer: "Nationally, local SEO averages $1,150/month with a freelancer and $1,819/month with an agency (Ahrefs' 2026 survey of 439 SEO providers). RGV businesses tend to land toward the lower end of that given lighter local competition than major metros, so call it $600 to $1,500/month for credible work. Below $600/month, you're usually getting automated reports and minimal real work. Above $1,500, make sure the deliverables justify it."
   - question: "What's the difference between local SEO and regular SEO?"
-    answer: "Local SEO focuses specifically on showing up in Google's Map Pack and local organic results for searches tied to a city or region. It's driven primarily by your Google Business Profile, local citations, and location-specific website content. Regular or \"national\" SEO is about organic rankings regardless of location. It's a different set of tactics and a different competitive landscape."
+    answer: "Local SEO focuses specifically on showing up in Google's Map Pack and local organic results for searches tied to a city or region. It's driven primarily by your Google Business Profile, local citations, and location-specific website content. Regular or \"national\" SEO is about organic rankings regardless of location. It's a different set of tactics and different competition."
   - question: "Can I just do this myself instead of hiring an agency?"
     answer: "For GBP management, review requests, and consistent photo uploads, yes, you can do that yourself and should. For the technical website work, location page strategy, and citation cleanup, having someone who's done it before will save you time and mistakes. Doing it wrong doesn't just waste your time; it can create problems you'll need to fix later."
   - question: "How do I know if my current agency is actually doing anything?"
@@ -59,7 +59,7 @@ You want to see Map Pack ranking position for specific keywords in your city, no
 
 **Do you have experience with service-area businesses in the RGV specifically?**
 
-The RGV is not the same market as Houston or Dallas. A lot of agencies apply the same playbook everywhere and expect similar results. The bilingual audience, the city-by-city service area structure, the specific keyword landscape in the Valley: all of it is different enough that it's worth asking whether they've worked in markets like this before.
+The RGV is not the same market as Houston or Dallas. A lot of agencies apply the same playbook everywhere and expect similar results. The bilingual audience, the city-by-city service area structure, the specific keywords people use in the Valley: all of it is different enough that it's worth asking whether they've worked in markets like this before.
 
 ## Red Flags That Show Up After You Start
 
@@ -83,9 +83,9 @@ The work isn't complicated, but it requires consistency over time and genuine kn
 
 Month one should be foundational: GBP fully optimized with the right primary category, accurate service area, strong description, and a plan for photos and posts. Your business name, address, and phone number cleaned up across the major directories. A baseline ranking report so you know where you start.
 
-Month two and three should be on-page work: location-specific service pages on your website, title tags and meta descriptions that target your actual city and service, and internal linking that tells Google what's most important on your site. This is also when you should start seeing the earliest indicators of Map Pack movement.
+Month two and three should be on-page work: location-specific service pages on your website, title tags and meta descriptions that target your actual city and service, and internal linking that tells Google what's most important on your site.
 
-By month four or five, if the foundation is solid and the review velocity is there, you should be seeing measurable improvement in Map Pack positions for your core search terms. Not top 3 for everything, but clear movement in the right direction.
+After that, your monthly ranking report should show which way things are going for your core search terms. If the foundation is solid and reviews keep coming in, you're looking for a clear trend, not top 3 for everything.
 
 That's not a guarantee. Every market and category is different. But it is a reasonable expectation for what consistent, competent work produces in the RGV.
 
@@ -103,7 +103,7 @@ What we can tell you is that the questions above are the same ones we'd want you
 Nationally, local SEO averages $1,150/month with a freelancer and $1,819/month with an agency ([Ahrefs, 2026](https://ahrefs.com/blog/seo-pricing), surveying 439 SEO providers). RGV businesses tend to land toward the lower end of that given lighter local competition than major metros, so call it $600 to $1,500/month for credible work. Below $600/month, you're usually getting automated reports and minimal real work. Above $1,500, make sure the deliverables justify it.
 
 **What's the difference between local SEO and regular SEO?**
-Local SEO focuses specifically on showing up in Google's Map Pack and local organic results for searches tied to a city or region. It's driven primarily by your Google Business Profile, local citations, and location-specific website content. Regular or "national" SEO is about organic rankings regardless of location. It's a different set of tactics and a different competitive landscape.
+Local SEO focuses specifically on showing up in Google's Map Pack and local organic results for searches tied to a city or region. It's driven primarily by your Google Business Profile, local citations, and location-specific website content. Regular or "national" SEO is about organic rankings regardless of location. It's a different set of tactics and different competition.
 
 **Can I just do this myself instead of hiring an agency?**
 For GBP management, review requests, and consistent photo uploads, yes, you can do that yourself and should. For the technical website work, location page strategy, and citation cleanup, having someone who's done it before will save you time and mistakes. Doing it wrong doesn't just waste your time; it can create problems you'll need to fix later.

@@ -1,6 +1,6 @@
 ---
 title: "Set Up Google Business Profile for Your McAllen Business"
-description: "Google Business Profile is the single most powerful free tool for local businesses in McAllen. Here's how to set it up right, and what most RGV businesses get wrong."
+description: "Google Business Profile is free, and it's how McAllen customers find you on Maps. Here's how to set it up right and the mistakes we see most."
 pubDate: 2026-04-03
 updatedDate: 2026-09-23
 author: "Eddie Urbano"
@@ -34,7 +34,7 @@ Here's how to build it right.
 - **Primary category is the single most influential field.** It decides which searches you're even eligible to show up in, not just where you rank. A Harlingen auto body shop fixed this and started appearing for the right searches within weeks.
 - NAP (name, address, phone) needs to be identical everywhere (GBP, website, Yelp, Facebook). Even small formatting differences like "St." vs. "Street" register as discrepancies to Google.
 - Aim for steady review velocity (2 to 4 new reviews per month) and at least one new photo per week; consistency beats bursts for both.
-- Most McAllen businesses see meaningful Map Pack movement within 60 to 90 days, with some lower-competition businesses in Pharr and Mission cracking the top 3 in 30 to 45 days.
+- Map Pack movement takes months of steady work, and nobody can honestly promise a date. Lower-competition categories and cities tend to move first.
 
 </div>
 
@@ -56,7 +56,7 @@ If someone else already claimed your listing (a previous owner, a staff member, 
 
 Your primary category is the single most influential field in your GBP. Google uses it to decide which searches your profile is even eligible to appear in.
 
-Getting this wrong is the most impactful mistake we see. A Harlingen auto body shop had "Auto Repair" as their category and wondered why they weren't showing up for "auto body shop Harlingen." The category was pulling them toward mechanical repair searches instead of body work. One change, switching to "Auto Body Shop," and they started appearing for the right searches within a few weeks.
+Getting this wrong is the most impactful mistake we see. Take an auto body shop listed under "Auto Repair." That category pulls it toward mechanical repair searches, so it can miss "auto body shop Harlingen" even though that's exactly what it does. Switching the primary category to "Auto Body Shop" tells Google which searches it belongs in.
 
 The rule: your primary category should match the specific type of service that drives most of your revenue. Not the broad bucket. The specific thing. "Family Dentist" is better than "Dentist." "Emergency Plumber" is better than "Plumber." "Tax Preparation Service" is better than "Financial Services." Start typing in the category field and see what Google autocompletes, and use their exact language, not your own.
 
@@ -72,7 +72,7 @@ One thing that trips people up: your business name, address (or service area), a
 
 ## Verify Your Business
 
-Google requires you to [verify ownership](/blog/verify-google-business-profile-2026/) before your listing goes fully live. How you verify depends on your business type. Most get a postcard mailed to their address with a PIN (takes 5–14 days). Some qualify for phone, text, or video verification. Don't skip it. An unverified profile has limited visibility and you can't fully manage it.
+Google requires you to [verify ownership](/blog/verify-google-business-profile-2026/) before your listing goes fully live. How you verify depends on your business type. Most get a postcard mailed to their address with a PIN, and Google says [most codes arrive within 14 days](https://support.google.com/business/answer/7107242). Some qualify for phone, text, or video verification. Don't skip it. An unverified profile has limited visibility and you can't fully manage it.
 
 ## Write a Real Business Description
 
@@ -88,7 +88,7 @@ Natural, specific, local. That's what you're going for. Avoid claims like "best 
 
 GBP profiles with more photos get more views and more clicks. Google explicitly uses photo quantity and freshness as a quality signal.
 
-Upload your cover photo (storefront, service vehicle, or your best work), your logo, photos of actual work you've done, and team photos. Real photos of your team working in an RGV home or business dramatically outperform stock photos. People can tell the difference, and it builds trust faster.
+Upload your cover photo (storefront, service vehicle, or your best work), your logo, photos of actual work you've done, and team photos. Use real photos of your team working in an RGV home or business, not stock photos. People can tell the difference.
 
 The habit that matters: add at least one new photo per week. Most McAllen businesses upload photos when they first set up their GBP and never add another one. That's a ranking signal left on the table, and it's one of the easiest things to stay consistent on.
 
@@ -140,7 +140,7 @@ Better yet: populate it yourself. Log in with a separate Google account, post th
 
 ## How Long Until You See Results?
 
-For most McAllen businesses, a fully optimized GBP starts showing meaningful Map Pack movement within 60 to 90 days. Lower-competition categories can move faster. Some businesses in Pharr and Mission have cracked the top 3 in 30 to 45 days in the right category.
+It depends on where your profile starts and what your competitors already have. SEO builds over months, not weeks, and nobody can honestly promise you a position or a date. We send a ranking report every month so you can see where you moved and where you didn't. Lower-competition categories tend to move first.
 
 The RGV market is genuinely less competitive than most Texas metros. Build the foundation now and you'll hold those positions for years.
 

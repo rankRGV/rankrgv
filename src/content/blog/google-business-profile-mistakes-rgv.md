@@ -9,7 +9,7 @@ targetKeyword: "Google Business Profile McAllen"
 draft: false
 faqs:
   - question: "Can I fix my GBP category without losing my current rankings?"
-    answer: "Yes. Category changes are effective within a few weeks and rarely cause a ranking drop. The new category is almost always better than the wrong one. The risk of staying in the wrong category is much higher than the minor temporary fluctuation from switching."
+    answer: "Yes, if the current one is wrong. Rankings can move around for a bit while Google catches up, but staying in the wrong category costs you more than a short wobble."
   - question: "How do I find out if my business info is inconsistent across directories?"
     answer: "Search your exact business name in Google, then check Yelp, Apple Maps, and Facebook manually. Look for any variation in how your name, phone number, or address is listed. For a more thorough check, tools like BrightLocal or Whitespark can scan hundreds of directories at once."
   - question: "What should I do if a competitor is keyword-stuffing their business name and outranking me?"
@@ -142,7 +142,7 @@ If you want a clear picture of everything that's holding your profile back, not 
 ## Frequently Asked Questions
 
 **Can I fix my GBP category without losing my current rankings?**
-Yes. Category changes are effective within a few weeks and rarely cause a ranking drop. The new category is almost always better than the wrong one. The risk of staying in the wrong category is much higher than the minor temporary fluctuation from switching.
+Yes, if the current one is wrong. Rankings can move around for a bit while Google catches up, but staying in the wrong category costs you more than a short wobble.
 
 **How do I find out if my business info is inconsistent across directories?**
 Search your exact business name in Google, then check Yelp, Apple Maps, and Facebook manually. Look for any variation in how your name, phone number, or address is listed. For a more thorough check, tools like BrightLocal or Whitespark can scan hundreds of directories at once.

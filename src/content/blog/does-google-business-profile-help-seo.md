@@ -1,6 +1,6 @@
 ---
 title: "Does Google Business Profile Help Local SEO?"
-description: "Google Business Profile doesn't directly raise your organic rankings, but it's the highest-ROI local marketing asset most RGV businesses have. Here's the real breakdown."
+description: "A Google Business Profile won't directly raise your organic rankings, but it runs your Maps visibility. Here's what it does for RGV businesses."
 pubDate: 2026-06-30
 updatedDate: 2026-10-18
 author: "Eddie Urbano"
@@ -17,7 +17,7 @@ faqs:
   - question: "Should I pay for GBP management?"
     answer: "If nobody on your team is doing the weekly maintenance, someone should be. The payoff shows up as measurable call volume."
   - question: "How long before I see results?"
-    answer: "Most previously neglected profiles show movement within 30 to 60 days of real optimization."
+    answer: "It depends on where your profile starts and what your competitors already have. SEO builds over months, not weeks, and nobody can honestly promise you a position or a date. We send a ranking report every month so you can see where you moved and where you didn't."
   - question: "Can I rank without a website at all?"
     answer: "Yes. Plenty of home service businesses in the Valley do exactly that. A well-built GBP plus a fast, simple website performs better together, but GBP alone can carry a business further than most owners expect. Here's the full GBP-only playbook."
   - question: "What's the single biggest mistake?"
@@ -129,7 +129,7 @@ If nobody on your team is doing the weekly maintenance, someone should be. The p
 
 ### How long before I see results?
 
-Most previously neglected profiles show movement within 30 to 60 days of real optimization.
+It depends on where your profile starts and what your competitors already have. SEO builds over months, not weeks, and nobody can honestly promise you a position or a date. We send a ranking report every month so you can see where you moved and where you didn't.
 
 ### Can I rank without a website at all?
 

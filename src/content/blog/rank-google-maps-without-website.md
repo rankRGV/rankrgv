@@ -1,6 +1,7 @@
 ---
 title: "How to Rank on Google Maps Without a Website (GBP-Only Playbook)"
-description: "You can rank in the map pack and get a steady stream of calls without a website. It takes a fully optimized GBP, consistent reviews, and weekly activity. Here's the playbook."
+seoTitle: "How to Rank on Google Maps Without a Website"
+description: "You can show up in the map pack without a website. It takes a complete GBP, steady reviews and weekly activity. Here's the playbook."
 pubDate: 2026-07-05
 updatedDate: 2026-09-23
 author: "Eddie Urbano"
@@ -43,7 +44,7 @@ Google's [local ranking algorithm](/local-seo/) runs separately from its organic
 
 ## The GBP-only playbook
 
-**Verify your profile.** This is non-negotiable. Unverified profiles don't show up in search results, period. Video verification typically takes 3 to 7 business days, postcard verification 5 to 14 days. For service-area businesses, video verification needs a branded vehicle, your equipment, and proof of identity on camera. Your address can stay hidden from public view while Google still uses it internally for proximity.
+**Verify your profile.** This is non-negotiable. An unverified profile has limited visibility and you can't fully manage it. Video verification often takes a few business days, and Google says [most postcard codes arrive within 14 days](https://support.google.com/business/answer/7107242). For service-area businesses, video verification needs a branded vehicle, your equipment, and proof of identity on camera. Your address can stay hidden from public view while Google still uses it internally for proximity.
 
 **Nail the primary category.** This is the single most impactful field. Pick the most specific match for your main service, using Google's exact category language, then add 3 to 5 relevant secondary categories.
 

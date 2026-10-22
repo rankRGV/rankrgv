@@ -1,6 +1,7 @@
 ---
 title: "How to Verify Your Google Business Profile (2026 Step-by-Step Guide)"
-description: "Verification is what makes your Google Business Profile go live and start ranking. Here's exactly how to get through the process, and what to do when it gets stuck."
+seoTitle: "How to Verify Your Google Business Profile (2026 Guide)"
+description: "Verification is what makes your Google Business Profile go live. Here's how to get through the process and what to do when it gets stuck."
 pubDate: 2026-06-25
 updatedDate: 2026-09-23
 author: "Eddie Urbano"

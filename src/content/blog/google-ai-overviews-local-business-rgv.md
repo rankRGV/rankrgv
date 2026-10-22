@@ -1,6 +1,7 @@
 ---
 title: "What Are Google AI Overviews? What RGV Business Owners Need to Know"
-description: "Google AI Overviews are changing how search results look. For most local businesses in the Rio Grande Valley, the actual impact is much smaller than the panic suggests, but a few things do matter."
+seoTitle: "Google AI Overviews: What RGV Business Owners Should Know"
+description: "Google AI Overviews are changing how search results look. Here's what actually changes for local businesses in the Rio Grande Valley."
 pubDate: 2026-06-29
 updatedDate: 2026-09-23
 author: "Eddie Urbano"

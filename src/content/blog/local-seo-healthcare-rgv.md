@@ -17,7 +17,7 @@ faqs:
   - question: "How do I rank for Spanish healthcare searches in the RGV?"
     answer: "Start with your GBP: write your business description in Spanish (or bilingual), list services in Spanish, and respond to Spanish reviews in Spanish. Then add Spanish content to at least one service page on your website. A page written in natural Valley Spanish targeting \"dentista McAllen\" or \"pediatra cerca de mí Edinburg\" will rank with very little competition."
   - question: "How long does it take to show up in the map pack for a new healthcare practice?"
-    answer: "A new GBP can appear in the map pack within 30 to 60 days for lower-competition searches, but competitive terms like \"dentist McAllen\" can take 4 to 6 months of consistent review building and profile optimization. Starting with the right primary category and complete attribute setup shortens that timeline meaningfully."
+    answer: "It depends on the search and the practices you're up against. Lower-competition searches tend to move first. SEO builds over months, and nobody can honestly promise a position or a date. Starting with the right primary category and complete attributes helps from day one."
 ---
 
 Healthcare local SEO in the Rio Grande Valley has two layers that most practices get wrong: the search layer and the trust layer. Showing up in Google is one thing. Actually getting someone who finds you to call and schedule is another. In the Valley specifically, these two problems are more tightly connected than in most markets, because patient trust here is heavily relationship-driven, and a Google presence that feels impersonal or corporate will lose to a smaller practice with 40 warm reviews every time.
@@ -106,4 +106,4 @@ Yes, if you actively serve patients across multiple cities. A family medicine pr
 Start with your GBP: write your business description in Spanish (or bilingual), list services in Spanish, and respond to Spanish reviews in Spanish. Then add Spanish content to at least one service page on your website. A page written in natural Valley Spanish targeting "dentista McAllen" or "pediatra cerca de mí Edinburg" will rank with very little competition.
 
 **How long does it take to show up in the map pack for a new healthcare practice?**
-A new GBP can appear in the map pack within 30 to 60 days for lower-competition searches, but competitive terms like "dentist McAllen" can take 4 to 6 months of consistent review building and profile optimization. Starting with the right primary category and complete attribute setup shortens that timeline meaningfully.
+It depends on the search and the practices you're up against. Lower-competition searches tend to move first. SEO builds over months, and nobody can honestly promise a position or a date. Starting with the right primary category and complete attributes helps from day one.

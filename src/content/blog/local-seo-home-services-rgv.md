@@ -2,7 +2,7 @@
 title: "Local SEO Playbook for RGV Home Service Businesses"
 description: "HVAC, plumbing, roofing: high-intent searches, emergency calls, and a market that's still largely unclaimed. Here's how to own it."
 pubDate: 2026-04-30
-updatedDate: 2026-10-18
+updatedDate: 2026-10-22
 author: "Eddie Urbano"
 category: "local-seo"
 targetKeyword: "HVAC SEO McAllen"
@@ -13,7 +13,7 @@ faqs:
   - question: "How many Google reviews does a home service business need to rank in the map pack?"
     answer: "There's no fixed number. It depends on your competitors. The real floor, per consumer research: 47% of people won't consider a business with fewer than 20 reviews (BrightLocal, 2026). Past that floor, check what your top 3 competitors in that specific city already have (McAllen's established players typically carry more than Mission or Edinburg) and aim to match or beat them."
   - question: "Should I run Google Ads while I build my organic rankings?"
-    answer: "Yes, especially if emergency searches are your primary source of revenue. Organic rankings take time. Ads are immediate. Run both simultaneously and dial back ads as organic kicks in, usually 4 to 6 months in."
+    answer: "Yes, especially if emergency searches are your primary source of revenue. Organic rankings take time. Ads are immediate. Run both and dial back ads once organic calls start showing up in your reports."
   - question: "Does a plumbing company need separate pages for each RGV city?"
     answer: "Yes, if you want to rank in each city's local results. One page can't signal relevance to five cities at once. City-specific pages are one of the highest-leverage moves available to any home service business in the Valley right now."
   - question: "Is Facebook advertising worth it for home service contractors?"
@@ -21,10 +21,10 @@ faqs:
   - question: "How many cities should I target at first?"
     answer: "Start with the cities closest to your business location where you already have jobs. Build those pages well and win that market first. Spreading across every Valley city at once usually means ranking well in none of them."
   - question: "What's the average cost per lead for HVAC in the RGV via Google Ads?"
-    answer: "Industry-wide, HVAC Google Ads CPC runs $6.84 to $12.31, averaging around $9 per click (PPC Chief's 2026 benchmark, based on $20M+ in tracked ad spend). Emergency-repair keywords sit at the high end of that range. At typical conversion rates of 10 to 15% on those searches, that works out to roughly $50 to $120 per booked call. A single AC repair job at $300 to $500 covers several calls, so the economics work strongly in your favor."
+    answer: "Industry-wide, HVAC Google Ads CPC runs $6.84 to $12.31, averaging around $9 per click (PPC Chief's 2026 benchmark, based on $20M+ in tracked ad spend). Emergency-repair keywords sit at the high end of that range. What that means per booked call depends on how many clicks turn into calls, which is why we track calls, not just clicks."
 ---
 
-The Rio Grande Valley home services market has a problem that most business owners in it don't fully appreciate yet: the keywords are nearly uncontested. Search difficulty scores for high-value terms like "HVAC repair McAllen," "plumber Edinburg TX," or "roofing company Mission TX" sit in the single digits. For comparison, those same searches in San Antonio or Houston have difficulty scores 10 to 20 times higher.
+The Rio Grande Valley home services market has a problem that most business owners in it don't fully appreciate yet: a lot of the keywords are less contested than in the big Texas metros. In DataForSEO's October 2026 scores, "ac repair McAllen" and "electrician McAllen" are both 0. The same searches score 11 and 3 in San Antonio, 21 and 4 in Houston. "Plumber McAllen" is 12, close to Houston's 13, so not every trade has the same gap ([full comparison](/blog/rgv-local-seo-keyword-opportunity/)).
 
 That gap is closing. But right now, for an HVAC company, a plumber, or a roofing contractor operating in the Valley, page one for the searches that drive emergency calls is within reach without a multi-year budget.
 
@@ -34,7 +34,7 @@ Here's how to do it. It's exactly what our [local SEO service](/local-seo/) is b
 
 **Key takeaways**
 
-- RGV home service keywords like "HVAC repair McAllen" have single-digit difficulty scores, versus 10-20x higher in San Antonio or Houston.
+- "AC repair McAllen" scores 0 for keyword difficulty, versus 11 in San Antonio and 21 in Houston (DataForSEO, October 2026). Plumbing is closer to even.
 - The conversion happens on the phone, not the website, so a fast mobile site with a visible phone number matters more than long-form content.
 - Forget a fixed review target. Clear 20 (the point where 47% of consumers stop considering a business, per [BrightLocal, 2026](https://www.brightlocal.com/research/local-consumer-review-survey/)), then beat whatever your top competitors already have.
 - Spanish searches and the weeks before peak season are the two openings most Valley contractors leave on the table.
@@ -74,7 +74,7 @@ Photos posted regularly outperform a large batch uploaded once. A photo from a j
 
 ## Reviews Are Your Competitive Moat
 
-In the home services market, there's no fixed review count that locks in the map pack. What matters is outpacing whoever you're actually up against. Start with the floor: 20 reviews is the point where nearly half of consumers (47%) rule a business out entirely ([BrightLocal, 2026](https://www.brightlocal.com/research/local-consumer-review-survey/)). Get past that floor, check your top 3 rivals' counts, and beat them. The business that gets there first and keeps the velocity going essentially owns the category.
+In the home services market, there's no fixed review count that locks in the map pack. What matters is outpacing whoever you're actually up against. Start with the floor: 20 reviews is the point where nearly half of consumers (47%) rule a business out entirely ([BrightLocal, 2026](https://www.brightlocal.com/research/local-consumer-review-survey/)). Get past that floor, check your top 3 rivals' counts, and beat them. The business that gets there first and keeps the reviews coming tends to stay ahead.
 
 The best time to ask for a review is immediately after the job, while you're still at the customer's location or on the phone wrapping up. Not a day later. Not a week later. Right then. A simple "Would you mind leaving us a quick Google review? It helps other families in McAllen find us," said to a satisfied customer, converts at a surprisingly high rate.
 
@@ -130,7 +130,7 @@ Claim and complete your GBP with the correct primary category, add every specifi
 There's no fixed number. It depends on your competitors. The real floor: 47% of people won't consider a business with fewer than 20 reviews ([BrightLocal, 2026](https://www.brightlocal.com/research/local-consumer-review-survey/)). Past that floor, check what your top 3 competitors in that specific city already have (McAllen's established players typically carry more than Mission or Edinburg) and aim to match or beat them.
 
 **Should I run Google Ads while I build my organic rankings?**
-Yes, especially if emergency searches are your primary source of revenue. Organic rankings take time. Ads are immediate. Run both simultaneously and dial back ads as organic kicks in, usually 4 to 6 months in.
+Yes, especially if emergency searches are your primary source of revenue. Organic rankings take time. Ads are immediate. Run both and dial back ads once organic calls start showing up in your reports.
 
 **Does a plumbing company need separate pages for each RGV city?**
 Yes, if you want to rank in each city's local results. One page can't signal relevance to five cities at once. City-specific pages are one of the highest-leverage moves available to any home service business in the Valley right now.
@@ -142,4 +142,4 @@ It can help, especially for before-and-after project photos and storm response. 
 Start with the cities closest to your business location where you already have jobs. Build those pages well and win that market first. Spreading across every Valley city at once usually means ranking well in none of them.
 
 **What's the average cost per lead for HVAC in the RGV via Google Ads?**
-HVAC Google Ads CPC nationally runs $6.84 to $12.31, averaging around $9, with emergency-repair keywords at the high end ([PPC Chief, 2026](https://ppcchief.com/google-ads-cost/hvac), based on $20M+ in tracked ad spend). Pair that with conversion rates of 10 to 15% on emergency searches and you're looking at roughly $50 to $120 per booked call. A single AC repair job at $300 to $500 covers several of those, so the economics work strongly in your favor.
+HVAC Google Ads CPC nationally runs $6.84 to $12.31, averaging around $9, with emergency-repair keywords at the high end ([PPC Chief, 2026](https://ppcchief.com/google-ads-cost/hvac), based on $20M+ in tracked ad spend). What that means per booked call depends on how many clicks turn into calls, which is why we track calls, not just clicks.
