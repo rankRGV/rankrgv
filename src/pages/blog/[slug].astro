@@ -26,8 +26,10 @@ const heroImageUrl = `${site.url}${heroImage}`;
 // Organization for legacy posts still on the default "RankRGV Team" author.
 const articleAuthor =
   author && author !== 'RankRGV Team'
-    ? { '@type': 'Person', name: author, worksFor: { '@type': 'Organization', name: site.name, url: site.url } }
-    : { '@type': 'Organization', name: site.name, url: site.url };
+    ? author === 'Eddie Urbano'
+      ? { '@type': 'Person', '@id': `${site.url}/about/#eddie-urbano`, name: author, url: `${site.url}/about/`, worksFor: { '@id': `${site.url}/#business` } }
+      : { '@type': 'Person', name: author, worksFor: { '@id': `${site.url}/#business` } }
+    : { '@type': 'Organization', '@id': `${site.url}/#business`, name: site.name, url: site.url };
 
 // Build schema — Article + Breadcrumb + WebPage (+ FAQPage when the post has FAQs)
 const schema = [
@@ -40,6 +42,7 @@ const schema = [
     author: articleAuthor,
     publisher: {
       '@type': 'Organization',
+      '@id': `${site.url}/#business`,
       name: site.name,
       url: site.url,
       logo: { '@type': 'ImageObject', url: `${site.url}/images/RankRGV_compact_logo.png` },

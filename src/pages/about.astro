@@ -12,6 +12,7 @@ const schema = [
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${site.url}/#business`,
     name: site.name,
     url: site.url,
     telephone: site.phone,
@@ -19,20 +20,15 @@ const schema = [
     description: description,
     areaServed: site.areaServed.map((city) => ({ '@type': 'City', name: `${city}, TX` })),
     sameAs: Object.values(site.social),
-    founder: {
-      '@type': 'Person',
-      name: 'Eddie Urbano',
-      jobTitle: 'Founder',
-      url: `${site.url}/about/`,
-      image: `${site.url}/images/eddie-urbano.png`,
-    },
+    founder: { '@id': `${site.url}/about/#eddie-urbano` },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': `${site.url}/about/#eddie-urbano`,
     name: 'Eddie Urbano',
     jobTitle: 'Founder',
-    worksFor: { '@type': 'Organization', name: site.name, url: site.url },
+    worksFor: { '@id': `${site.url}/#business` },
     url: `${site.url}/about/`,
     image: `${site.url}/images/eddie-urbano.png`,
   },
@@ -82,7 +78,7 @@ const schema = [
             McAllen, Brownsville, Edinburg, Harlingen, Mission, Pharr: six distinct cities, two counties, and one of the fastest-growing metro areas in Texas. But most digital marketing agencies working in the RGV use the same approach they use in Dallas or Houston: generic templates, no local knowledge, and keyword strategies built for someone else's market.
           </p>
           <p class="text-text-muted text-lg leading-relaxed mb-5">
-            The result is predictable. RGV businesses spend money, see generic deliverables, and end up no closer to the top of Google than when they started. Meanwhile, the actual keyword opportunity in the Rio Grande Valley is unlike anywhere else in Texas: difficulty scores of 0–9 on search terms that would cost thousands per month in a competitive market.
+            The result is predictable. RGV businesses spend money, see generic deliverables, and end up no closer to the top of Google than when they started. Meanwhile, the Valley's searches are wide open. DataForSEO scores "electrician McAllen" and "hvac McAllen" at 0 out of 100 for keyword difficulty (checked October 2026).
           </p>
           <p class="text-text-muted text-lg leading-relaxed">
             RankRGV exists to capture that opportunity for the businesses that deserve to rank: the real local businesses doing real work in the Valley. We're not a national agency with a McAllen checkbox. This is our only market. We know it, and we build for it.

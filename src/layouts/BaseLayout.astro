@@ -63,8 +63,9 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
     <slot name="head" />
   </head>
   <body class="bg-bg text-text font-sans antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-brand-blue focus:shadow-lg">{lang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>
     {!bare && <Header lang={lang} />}
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     {!bare && <Footer lang={lang} />}

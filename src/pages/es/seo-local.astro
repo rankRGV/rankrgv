@@ -35,7 +35,7 @@ const schema = [
     '@type': 'Service',
     name: 'SEO Local',
     description: 'Posicionamiento en Google Maps y resultados orgánicos para negocios del Rio Grande Valley.',
-    provider: { '@type': 'Organization', name: site.name, url: site.url },
+    provider: { '@type': 'Organization', '@id': `${site.url}/#business`, name: site.name, url: site.url },
     areaServed: site.areaServed.map(city => ({ '@type': 'City', name: `${city}, TX` })),
   },
   buildFAQSchema(faqs),
