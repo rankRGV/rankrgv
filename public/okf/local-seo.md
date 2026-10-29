@@ -18,7 +18,7 @@ Call for a Free 15-Min Consultation [ See how it works ](https://rankrgv.com/loc
 
 5.0 ★ Google rating · RGV-focused · Month-to-month
 
-seo company mcallen tx 1 Your Business Here ★★★★★ 5.0 · SEO Agency · McAllen, TX #1 2 Competitor A ★★★★ 4.1 (19) · HVAC 3 Competitor B ★★★ 3.8 (7) · HVAC 6 RGV Cities Targeted #1 Map Pack Goal 90 Days to First Movement 0 Long-Term Contracts
+seo company mcallen tx 1 Your Business Here ★★★★★ 5.0 · SEO Agency · McAllen, TX #1 2 Competitor A ★★★★ 4.1 (19) · HVAC 3 Competitor B ★★★ 3.8 (7) · HVAC 6 RGV Cities Targeted #1 Map Pack Goal Couple of months First Movement 0 Long-Term Contracts
 
 ##
 What is local SEO — and why does it matter for McAllen businesses?
