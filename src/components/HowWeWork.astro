@@ -38,8 +38,14 @@ const {
   ],
 } = Astro.props;
 
-// Determine columns: 4 steps → 4-col, 6 steps → 3-col per row
-const isEvenSix = steps.length === 6;
+// Desktop (lg+): 3 per row for 6 steps, otherwise up to 4 per row.
+// Each row gets its own horizontal rail so 6-step pages read as two clean rows of 3.
+const colCount = steps.length === 6 ? 3 : Math.min(Math.max(steps.length, 1), 4);
+const rows: { step: Step; index: number }[][] = [];
+steps.forEach((step, index) => {
+  const r = Math.floor(index / colCount);
+  (rows[r] ||= []).push({ step, index });
+});
 ---
 
 <section id="how-we-work" class="py-20 bg-bg" aria-label="How we work">
@@ -49,59 +55,200 @@ const isEvenSix = steps.length === 6;
       <p class="text-text-muted text-lg reveal reveal-delay-1">{subheadline}</p>
     </div>
 
-    <!-- Grid: 3 cols for 6 steps, 4 cols for 4 steps -->
-    <div class={`grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 ${isEvenSix ? 'lg:grid-cols-3' : 'lg:grid-cols-4'}`}>
-      {steps.map((step, i) => {
-        // Don't show connector after last in each row
-        const colCount = isEvenSix ? 3 : 4;
-        const isLastInRow = (i + 1) % colCount === 0;
-        const isLast = i === steps.length - 1;
-        const showConnector = !isLastInRow && !isLast;
+    <div class="hww" style={`--hww-cols: ${colCount};`}>
+      <!-- Mobile / tablet: one vertical rail through the whole list -->
+      {steps.length > 1 && (
+        <span class="hww-rail hww-rail--v" aria-hidden="true"><span class="hww-pulse"></span></span>
+      )}
 
-        return (
-          <div class={`relative reveal reveal-delay-${Math.min(i + 1, 4)}`}>
-            <!-- Connector line to next step (desktop only) -->
-            {showConnector && (
-              <div
-                class="step-connector hidden lg:block absolute top-8 left-[calc(50%+2.5rem)] right-[-2rem] h-px overflow-hidden"
-                aria-hidden="true"
-              >
-                <div class="h-full w-full bg-gradient-to-r from-brand-blue/40 to-brand-blue/10 origin-left scale-x-0 transition-transform duration-700 ease-out connector-line"></div>
-              </div>
-            )}
-
-            <div class="text-center">
-              <!-- Step number badge -->
-              <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-brand-blue text-white text-xl font-extrabold mb-5 mx-auto shadow-lg shadow-brand-blue/25">
-                {step.number}
-              </div>
-              <h3 class="text-base font-bold text-text mb-2">{step.title}</h3>
-              <p class="text-text-muted text-sm leading-relaxed">{step.body}</p>
-            </div>
-          </div>
-        );
-      })}
+      {rows.map((row, r) => (
+        <div class="hww-row">
+          <!-- Desktop: horizontal rail within this row only -->
+          {row.length > 1 && (
+            <span
+              class="hww-rail hww-rail--h"
+              style={`--hww-row-cols: ${row.length}; --hww-delay: ${r * 0.6}s;`}
+              aria-hidden="true"
+            ><span class="hww-pulse"></span></span>
+          )}
+          <ol class="hww-row-list" start={row[0].index + 1}>
+            {row.map(({ step, index }) => (
+              <li class={`hww-step${index === steps.length - 1 ? ' hww-step--last' : ''} reveal reveal-delay-${Math.min(index + 1, 4)}`}>
+                <span class="hww-dot" aria-hidden="true">{step.number}</span>
+                <h3 class="text-base font-bold text-text mb-2">
+                  <span class="sr-only">Step {step.number}: </span>{step.title}
+                </h3>
+                <p class="text-text-muted text-sm leading-relaxed">{step.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
-<script is:inline>
-  // Animate connector lines when steps come into view
-  const connectors = document.querySelectorAll('.connector-line');
-  const connectorObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          // Stagger each line slightly
-          const idx = Array.from(connectors).indexOf(e.target);
-          setTimeout(() => {
-            e.target.style.transform = 'scaleX(1)';
-          }, idx * 120);
-          connectorObserver.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  connectors.forEach((c) => connectorObserver.observe(c));
-</script>
+<style>
+  .hww,
+  .hww-row-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Mobile / tablet: vertical rail, left-aligned list ── */
+  .hww {
+    --hww-blue: #1d4ed8;
+    --hww-dot: 28px;
+    --hww-gap: 2rem;
+    position: relative;
+    max-width: 36rem;
+    margin-inline: auto;
+    padding-left: calc(var(--hww-dot) + 1rem);
+    display: flex;
+    flex-direction: column;
+    gap: var(--hww-gap);
+  }
+  .hww-row-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hww-gap);
+  }
+  .hww-step {
+    position: relative;
+    text-align: left;
+  }
+
+  .hww-dot {
+    position: absolute;
+    left: calc(-1 * (var(--hww-dot) + 1rem));
+    top: -3px;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--hww-dot);
+    height: var(--hww-dot);
+    border-radius: 9999px;
+    background: #fff;
+    border: 1.5px solid var(--hww-blue);
+    color: var(--hww-blue);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+    /* white halo so the rail visually stops at the circle edge */
+    box-shadow: 0 0 0 5px #fff;
+  }
+
+  .hww-rail {
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+    border-radius: 2px;
+    background: rgba(29, 78, 216, 0.12);
+    pointer-events: none;
+  }
+  .hww-rail--v {
+    left: calc(var(--hww-dot) / 2 - 1px);
+    top: calc(var(--hww-dot) / 2);
+    bottom: 0;
+    width: 2px;
+  }
+  /* Mask the rail below the final circle so it stops there (mobile) */
+  .hww-step--last::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * (var(--hww-dot) + 1rem));
+    top: calc(var(--hww-dot) / 2);
+    bottom: 0;
+    width: var(--hww-dot);
+    background: #fff;
+  }
+  .hww-rail--h {
+    display: none;
+  }
+
+  .hww-pulse {
+    position: absolute;
+    inset: 0;
+    will-change: transform, opacity;
+  }
+  .hww-rail--v .hww-pulse {
+    background: linear-gradient(to bottom, transparent 38%, rgba(29, 78, 216, 0.42) 50%, transparent 62%);
+    animation: hww-pulse-y 3.2s ease-in-out infinite;
+  }
+  .hww-rail--h .hww-pulse {
+    background: linear-gradient(to right, transparent 39%, rgba(29, 78, 216, 0.45) 50%, transparent 61%);
+    animation: hww-pulse-x 3.2s ease-in-out infinite;
+    animation-delay: var(--hww-delay, 0s);
+  }
+
+  @keyframes hww-pulse-x {
+    0%   { transform: translateX(-60%); opacity: 0; }
+    15%  { opacity: 1; }
+    85%  { opacity: 1; }
+    100% { transform: translateX(60%); opacity: 0; }
+  }
+  @keyframes hww-pulse-y {
+    0%   { transform: translateY(-60%); opacity: 0; }
+    15%  { opacity: 1; }
+    85%  { opacity: 1; }
+    100% { transform: translateY(60%); opacity: 0; }
+  }
+
+  /* ── Desktop (lg+): horizontal rail per row ── */
+  @media (min-width: 1024px) {
+    .hww {
+      --hww-dot: 36px;
+      --hww-col-gap: 2rem;
+      max-width: none;
+      padding-left: 0;
+      gap: 3.5rem;
+    }
+    .hww-rail--v,
+    .hww-step--last::before {
+      display: none;
+    }
+    .hww-row {
+      position: relative;
+    }
+    .hww-row-list {
+      display: grid;
+      grid-template-columns: repeat(var(--hww-cols), minmax(0, 1fr));
+      column-gap: var(--hww-col-gap);
+      row-gap: 0;
+    }
+    .hww-step {
+      text-align: center;
+    }
+    .hww-dot {
+      position: relative;
+      left: auto;
+      top: auto;
+      display: flex;
+      margin: 0 auto 1.25rem;
+      font-size: 13px;
+      box-shadow: 0 0 0 8px #fff;
+    }
+    /* Runs from the centre of the first circle to the centre of the last one in this row */
+    .hww-rail--h {
+      display: block;
+      top: calc(var(--hww-dot) / 2 - 1px);
+      height: 2px;
+      left: calc((100% - (var(--hww-cols) - 1) * var(--hww-col-gap)) / var(--hww-cols) / 2);
+      width: calc(
+        (100% - (var(--hww-cols) - 1) * var(--hww-col-gap)) / var(--hww-cols) * (var(--hww-row-cols) - 1)
+        + (var(--hww-row-cols) - 1) * var(--hww-col-gap)
+      );
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hww-pulse {
+      animation: none;
+      opacity: 0;
+    }
+  }
+</style>
