@@ -9,9 +9,15 @@ interface Props {
   headline?: string;
   subheadline?: string;
   steps?: Step[];
+  /** Section aria-label (e.g. Spanish pages). */
+  ariaLabel?: string;
+  /** Screen-reader prefix before each step number. */
+  stepLabel?: string;
 }
 
 const {
+  ariaLabel = 'How we work',
+  stepLabel = 'Step',
   headline = 'How it works',
   subheadline = 'No long-term contracts. No fluff. Just a clear process that gets results.',
   steps = [
@@ -48,11 +54,11 @@ steps.forEach((step, index) => {
 });
 ---
 
-<section id="how-we-work" class="py-20 bg-bg" aria-label="How we work">
+<section id="how-we-work" class="py-20 bg-bg" aria-label={ariaLabel}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mx-auto text-center mb-16">
       <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">{headline}</h2>
-      <p class="text-text-muted text-lg reveal reveal-delay-1">{subheadline}</p>
+      {subheadline && <p class="text-text-muted text-lg reveal reveal-delay-1">{subheadline}</p>}
     </div>
 
     <div class="hww" style={`--hww-cols: ${colCount};`}>
@@ -76,7 +82,7 @@ steps.forEach((step, index) => {
               <li class={`hww-step${index === steps.length - 1 ? ' hww-step--last' : ''} reveal reveal-delay-${Math.min(index + 1, 4)}`}>
                 <span class="hww-dot" aria-hidden="true">{step.number}</span>
                 <h3 class="text-base font-bold text-text mb-2">
-                  <span class="sr-only">Step {step.number}: </span>{step.title}
+                  <span class="sr-only">{stepLabel} {step.number}: </span>{step.title}
                 </h3>
                 <p class="text-text-muted text-sm leading-relaxed">{step.body}</p>
               </li>

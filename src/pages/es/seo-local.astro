@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
 import { graderHref, site } from '@/config/site';
 import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
 
@@ -162,29 +163,18 @@ const schema = [
   </section>
 
   <!-- CÓMO FUNCIONA -->
-  <section class="py-20 bg-bg" aria-labelledby="como-funciona">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 id="como-funciona" class="text-3xl font-bold text-text mb-10 text-center reveal">
-        Cómo trabajamos tu posicionamiento
-      </h2>
-      <div class="space-y-6">
-        {[
-          { step: '01', title: 'Diagnóstico gratuito', body: 'Auditamos tu Google Business Profile, tu sitio web, tus posiciones actuales y los 3 competidores más fuertes de tu área. Sin costo, sin obligación.' },
-          { step: '02', title: 'Estrategia local personalizada', body: 'Construimos un plan basado en lo que encontramos, no en una plantilla genérica. Cada industria en el Valle es diferente.' },
-          { step: '03', title: 'Construcción y optimización', body: 'Optimizamos tu GBP, tu sitio web, tus citas locales y tu schema markup. Todo lo que Google necesita para posicionarte.' },
-          { step: '04', title: 'Seguimiento y crecimiento', body: 'Reportes mensuales con tus posiciones reales, tráfico y llamadas generadas. Ajustamos la estrategia mes a mes.' },
-        ].map(({ step, title, body }) => (
-          <div class="flex gap-6 items-start reveal">
-            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center font-mono text-sm font-bold text-brand-blue">{step}</div>
-            <div>
-              <h3 class="font-bold text-text mb-1">{title}</h3>
-              <p class="text-text-muted text-sm leading-relaxed">{body}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <HowWeWork
+    ariaLabel="Cómo trabajamos"
+    stepLabel="Paso"
+    headline="Cómo trabajamos tu posicionamiento"
+    subheadline=""
+    steps={[
+      { number: '01', title: 'Diagnóstico gratuito', body: 'Auditamos tu Google Business Profile, tu sitio web, tus posiciones actuales y los 3 competidores más fuertes de tu área. Sin costo, sin obligación.' },
+      { number: '02', title: 'Estrategia local personalizada', body: 'Construimos un plan basado en lo que encontramos, no en una plantilla genérica. Cada industria en el Valle es diferente.' },
+      { number: '03', title: 'Construcción y optimización', body: 'Optimizamos tu GBP, tu sitio web, tus citas locales y tu schema markup. Todo lo que Google necesita para posicionarte.' },
+      { number: '04', title: 'Seguimiento y crecimiento', body: 'Reportes mensuales con tus posiciones reales, tráfico y llamadas generadas. Ajustamos la estrategia mes a mes.' },
+    ]}
+  />
 
   <!-- PRECIOS -->
   <section class="py-20 bg-bg-surface" aria-labelledby="precios-seo">

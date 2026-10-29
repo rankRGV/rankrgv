@@ -273,23 +273,11 @@ const schema = [
   </section>
 
   <!-- ===================== How it works ===================== -->
-  <section class="py-20 bg-bg" id="how-we-work" aria-label="How we work">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">How GBP Management works</h2>
-        <p class="text-text-muted text-lg">A repeatable monthly system, not "set it and forget it."</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {howToSteps.map((step, i) => (
-          <div class="bg-bg-surface border border-border rounded-2xl p-6">
-            <div class="text-3xl font-extrabold text-brand-blue mb-3">{String(i + 1).padStart(2, '0')}</div>
-            <h3 class="text-lg font-bold text-text mb-2">{step.name}</h3>
-            <p class="text-text-muted text-sm leading-relaxed">{step.text}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <HowWeWork
+    headline="How GBP Management works"
+    subheadline={'A repeatable monthly system, not "set it and forget it."'}
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
 
   <!-- ===================== Pricing ===================== -->
   <section class="py-20 bg-bg-surface" aria-label="GBP Management pricing">
