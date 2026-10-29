@@ -176,22 +176,23 @@ const schema = [
   <section class="py-20 bg-bg-surface" id="how-we-work">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-14">
-        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">How we actually work</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4 reveal">What we do for RGV businesses</h2>
         <p class="text-text-muted text-lg reveal reveal-delay-1">No mystery. No jargon. Just a clear approach that produces results you can measure.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 max-w-5xl mx-auto">
         {services.map((service, i) => (
-          <div class={`bg-bg rounded-2xl border border-border p-8 reveal reveal-delay-${i + 1}`}>
-            <div class="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-brand-blue" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d={service.icon} />
-              </svg>
-            </div>
-            <h3 class="text-lg font-bold text-text mb-2">{service.name}</h3>
-            <p class="text-text-muted text-sm leading-relaxed mb-4">{service.description}</p>
-            <a href={`/${service.slug}/`} class="text-sm font-semibold text-brand-blue hover:underline">
-              More on {service.name} →
-            </a>
+          <div class={`flex reveal reveal-delay-${(i % 2) + 1}`}>
+          <a
+            href={`/${service.slug}/`}
+            class="group flex flex-col w-full bg-bg rounded-2xl border border-border p-6 sm:p-8 no-underline transition-all duration-200 hover:border-brand-purple/60 hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
+          >
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-blue mb-2">{service.shortName}</p>
+            <h3 class="text-xl font-bold text-text mb-2">{service.name}</h3>
+            <p class="text-text-muted text-sm sm:text-base leading-relaxed mb-5">{service.description}</p>
+            <span class="mt-auto text-sm font-semibold text-brand-blue group-hover:underline">
+              More on {service.name} <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+            </span>
+          </a>
           </div>
         ))}
       </div>
