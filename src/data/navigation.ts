@@ -12,11 +12,6 @@ export const mainNav = [
         description: s.description,
       })),
       {
-        label: 'Google Maps Optimization',
-        href: '/google-maps-optimization/',
-        description: 'The ranking work that moves you up the Map Pack.',
-      },
-      {
         label: 'Google Business Optimization',
         href: '/google-business-optimization/',
         description: 'Keep your Google profile active: posts, photos, review replies.',
