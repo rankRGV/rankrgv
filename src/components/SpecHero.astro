@@ -21,7 +21,7 @@ const cityLinks = citySlugs.map((slug, i) => ({
 const t = es
   ? {
       eyebrow: 'Diseño web y SEO local en McAllen, TX',
-      switchHref: '/', switchLang: 'en', switchText: 'Prefer English? View in English →',
+      switchHref: '/', switchLang: 'en', switchText: 'Prefer English? View in English',
       lines: ['Cuando en McAllen', 'googlean lo que haces,', 'sé la primera llamada.'],
       sub: 'Sitios web y SEO local para negocios del Rio Grande Valley. Un sitio rápido que trae llamadas, y luego te encuentran en Google Maps y en las respuestas de IA. Trabajas directo con Eddie.',
       facts: ['Sitios web desde $1,500', 'SEO local desde $600/mes', 'Mes a mes, sin contrato'],
@@ -33,12 +33,12 @@ const t = es
       formNote: 'Una revisión automática y gratis de tu perfil público de Google Business. Sin registrarte. Para una auditoría personal, habla con Eddie.',
       citiesLabel: 'Ciudades que servimos', citiesLead: 'Con base en McAllen. Servimos a',
       allCities: null,
-      stars: '5 de 5 estrellas', rated: 'Reseñas reales en Google', readReviews: 'Léelas en Google →',
+      stars: '5 de 5 estrellas', rated: 'Reseñas reales en Google', readReviews: 'Léelas en Google',
       logosHeading: 'Negocios con los que hemos trabajado',
     }
   : {
       eyebrow: 'Web design & local SEO in McAllen, TX',
-      switchHref: '/es/', switchLang: 'es', switchText: '¿Prefiere español? Ver en español →',
+      switchHref: '/es/', switchLang: 'es', switchText: '¿Prefiere español? Ver en español',
       lines: ['When McAllen', 'Googles what you do,', 'be the first call.'],
       sub: 'Websites and local SEO for Rio Grande Valley businesses. A fast site built to get calls, then found on Google Maps and in AI answers. You work directly with Eddie.',
       facts: ['Websites from $1,500', 'Local SEO from $600/mo', 'Month-to-month, no contract'],
@@ -50,7 +50,7 @@ const t = es
       formNote: 'A free automated snapshot of your public Google Business listing. No signup. For a personal audit, talk with Eddie.',
       citiesLabel: 'Cities we serve', citiesLead: 'Based in McAllen. Serving',
       allCities: { href: '/service-areas/', text: 'All Valley cities' },
-      stars: '5 out of 5 stars', rated: 'Real Google reviews', readReviews: 'Read them on Google →',
+      stars: '5 out of 5 stars', rated: 'Real Google reviews', readReviews: 'Read them on Google',
       logosHeading: "Businesses we've worked with",
     };
 const facts = t.facts;
@@ -70,7 +70,7 @@ const clients = [
   <div class="spec-grid" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-14 lg:pb-16">
     <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 mb-6 lg:mb-12 text-sm">
-      <p class="spec-eyebrow font-semibold text-brand-blue">{t.eyebrow}</p>
+      <p class="spec-eyebrow font-semibold text-text-muted">{t.eyebrow}</p>
       <a href={t.switchHref} hreflang={t.switchLang} lang={t.switchLang} class="spec-eslink font-semibold text-text-muted hover:text-brand-blue">{t.switchText}</a>
     </div>
 
@@ -79,7 +79,7 @@ const clients = [
         <h1 id="hero-heading" class:list={['spec-h1 font-extrabold text-text', es && 'spec-h1--es']}>
           <span class="spec-line" style="--d:0ms">{t.lines[0]}</span>
           <span class="spec-line" style="--d:90ms">{t.lines[1]}</span>
-          <span class="spec-line" style="--d:180ms"><mark class="spec-mark">{t.lines[2]}</mark></span>
+          <span class="spec-line" style="--d:180ms">{t.lines[2]}</span>
         </h1>
         <p class="spec-sub mt-5 lg:mt-7 text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl spec-fade" style="--d:300ms">{t.sub}</p>
         <ul class="spec-facts mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-text spec-fade" style="--d:360ms">
@@ -101,7 +101,7 @@ const clients = [
           <input type="hidden" name="utm_source" value="rankrgv.com" /><input type="hidden" name="utm_medium" value="website" /><input type="hidden" name="utm_campaign" value="business-grader" /><input type="hidden" name="utm_content" value="homepage-hero" />{es && <input type="hidden" name="lang" value="es" />}
           <p id="grade-card-heading" class="text-base font-bold text-text">{t.formHeading}</p>
           <label class="block"><span class="sr-only">{t.bizLabel}</span><input name="business" type="text" maxlength="60" autocomplete="organization" placeholder={t.bizLabel} class="spec-input" /></label>
-          <button type="submit" class="spec-btn"><span>{t.button}</span><span class="spec-btn-arrow" aria-hidden="true">→</span></button>
+          <button type="submit" class="spec-btn"><span>{t.button}</span></button>
           <p class="pt-1 text-xs text-text-muted">{t.formNote}</p>
         </form>
       </aside>
@@ -129,7 +129,7 @@ const clients = [
         </span>
       </a>
       <div class="min-w-0">
-        <h2 class="spec-muted-on text-xs font-semibold uppercase tracking-wider text-text-muted mb-4 text-center lg:text-left">{t.logosHeading}</h2>
+        <h2 class="spec-muted-on text-sm font-semibold text-text-muted mb-4 text-center lg:text-left">{t.logosHeading}</h2>
         <ul class="grid grid-cols-3 lg:flex lg:flex-wrap items-center justify-items-center lg:justify-between gap-x-6 gap-y-5">
           {clients.map((c) => (
             <li class="flex items-center">
@@ -157,16 +157,11 @@ const clients = [
   /* Spanish lines run a little longer; scale down slightly so each still fits on one line. */
   .spec-h1--es { font-size: clamp(1.95rem, 5.2vw, 3.8rem); }
   @media (min-width: 1024px) { .spec-h1--es { font-size: clamp(1.95rem, calc((100vw - 500px) / 13.5), 3.8rem); } }
-  .spec-mark { background: none; color: inherit; position: relative; white-space: nowrap; z-index: 0; }
-  .spec-mark::before {
-    content: ''; position: absolute; left: -0.05em; right: -0.05em; bottom: 0.08em; height: 0.32em; z-index: -1;
-    background: #fcd34d; border-radius: 2px; transform-origin: left; transform: scaleX(1);
-  }
 
   .spec-card { background: #fff; border: 1px solid var(--color-border); border-radius: 18px; overflow: hidden; box-shadow: 0 1px 2px rgb(15 23 42 / .04), 0 24px 48px -16px rgb(29 78 216 / .18); }
   .spec-proof { margin: 0; padding: 0 14px 14px; }
   @media (min-width: 1024px) { .spec-proof { padding: 14px 14px 0; } }
-  .spec-proof img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--color-border); }
+  .spec-proof img { display: block; width: 100%; height: auto; border-radius: 10px; }
   .spec-proof figcaption { margin-top: 8px; font-size: 12px; color: var(--color-text-muted); }
 
   .spec-input { width: 100%; height: 50px; padding: 0 14px; border: 1px solid var(--color-border); border-radius: 10px; background: #fff; font-size: 16px; color: var(--color-text); }
@@ -174,8 +169,6 @@ const clients = [
   .spec-btn { width: 100%; height: 52px; display: flex; align-items: stretch; border-radius: 10px; overflow: hidden; background: var(--color-brand-blue); color: #fff; font-weight: 700; font-size: 16px; transition: background-color 180ms ease; }
   .spec-btn:hover { background: var(--color-brand-blue-dark); }
   .spec-btn > span:first-child { flex: 1; display: flex; align-items: center; justify-content: center; }
-  .spec-btn-arrow { width: 52px; display: flex; align-items: center; justify-content: center; background: rgb(0 0 0 / .14); transition: width 220ms cubic-bezier(.2,.8,.2,1); }
-  .spec-btn:hover .spec-btn-arrow { width: 68px; }
 
   .spec-chip { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1px solid var(--color-border); border-radius: 99px; background: #fff; color: var(--color-text); font-weight: 500; transition: border-color 150ms ease, color 150ms ease; }
   .spec-chip:hover { border-color: var(--color-brand-blue); color: var(--color-brand-blue); }
@@ -193,11 +186,9 @@ const clients = [
   .spec-scrim { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgb(11 18 36 / .78) 0%, rgb(11 18 36 / .45) 55%, rgb(11 18 36 / .15) 100%), linear-gradient(0deg, rgb(11 18 36 / .6), transparent 35%); }
   .spec--dark .spec-grid { background-image: linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px); }
   .spec--dark .spec-h1, .spec--dark .spec-ink-on { color: #fff; }
-  .spec--dark .spec-mark { color: #fbbf24; }
-  .spec--dark .spec-mark::before { height: 0.07em; bottom: -0.04em; background: #fbbf24; }
-  .spec--dark .spec-sub, .spec--dark .spec-muted-on, .spec--dark .spec-eslink { color: rgb(255 255 255 / .8); }
+  .spec--dark .spec-sub, .spec--dark .spec-muted-on, .spec--dark .spec-eslink, .spec--dark .spec-eyebrow { color: rgb(255 255 255 / .8); }
   .spec--dark .spec-eslink:hover { color: #fff; }
-  .spec--dark .spec-eyebrow, .spec--dark .spec-phone { color: #93c5fd; }
+  .spec--dark .spec-phone { color: #93c5fd; }
   .spec--dark .spec-chip { background: rgb(255 255 255 / .06); border-color: rgb(255 255 255 / .2); color: #fff; }
   .spec--dark .spec-chip:hover { border-color: #93c5fd; color: #93c5fd; }
   .spec--dark .spec-facts { color: rgb(255 255 255 / .85); }
@@ -211,11 +202,9 @@ const clients = [
   /* Entrance motion. Skipped for reduced-motion users. */
   @media (prefers-reduced-motion: no-preference) {
     .spec-line { animation: spec-rise 700ms cubic-bezier(.2,.8,.2,1) both; animation-delay: var(--d); }
-    .spec-mark::before { animation: spec-sweep 600ms cubic-bezier(.6,0,.2,1) 650ms both; }
     .spec-fade { animation: spec-fade 600ms ease-out both; animation-delay: var(--d); }
     .spec-stat { animation: spec-fade 500ms ease-out both; animation-delay: var(--d); }
   }
   @keyframes spec-rise { from { opacity: 0; transform: translateY(0.3em); } to { opacity: 1; transform: none; } }
-  @keyframes spec-sweep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
   @keyframes spec-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 </style>

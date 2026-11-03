@@ -2,15 +2,14 @@
 @import "@fontsource-variable/inter";
 
 @theme {
-  /* Brand colors — blue is primary, purple is accent only */
+  /* Brand colors: blue + navy only. No purple or amber accent (Eddie, 2026-11-03) */
   --color-brand-blue: #1d4ed8;        /* richer, vibrant blue — matches current site */
   --color-brand-blue-dark: #1e3a8a;   /* deep blue for hover states */
-  --color-brand-purple: #d97706;      /* warm amber accent — replaces the generic violet/purple AI-default */
   --color-brand-blue-light: #3b82f6;  /* lighter blue for highlights */
 
   /* Surface colors */
-  --color-bg: #ffffff;
-  --color-bg-surface: #f8f9fc;
+  --color-bg: #fbfcfe;              /* hair of blue, not pure white; cards stay #fff on top */
+  --color-bg-surface: #f3f5fa;      /* a step deeper so alternating sections still read */
   --color-bg-dark: #0f172a;
 
   /* Text */
