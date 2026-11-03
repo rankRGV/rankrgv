@@ -8,8 +8,8 @@
   --color-brand-blue-light: #3b82f6;  /* lighter blue for highlights */
 
   /* Surface colors */
-  --color-bg: #ffffff;
-  --color-bg-surface: #f8f9fc;
+  --color-bg: #fbfcfe;              /* hair of blue, not pure white; cards stay #fff on top */
+  --color-bg-surface: #f3f5fa;      /* a step deeper so alternating sections still read */
   --color-bg-dark: #0f172a;
 
   /* Text */
