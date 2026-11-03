@@ -14,12 +14,12 @@ export const mainNav = [
       {
         label: 'Google Maps Optimization',
         href: '/google-maps-optimization/',
-        description: 'Show up in Google Maps when nearby customers search.',
+        description: 'The ranking work that moves you up the Map Pack.',
       },
       {
-        label: 'GBP Management',
-        href: '/gbp-management/',
-        description: 'Google Business Profile upkeep: posts, reviews, photos.',
+        label: 'Google Business Optimization',
+        href: '/google-business-optimization/',
+        description: 'Keep your Google profile active: posts, photos, review replies.',
       },
     ],
   },

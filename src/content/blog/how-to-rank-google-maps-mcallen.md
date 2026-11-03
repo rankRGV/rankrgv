@@ -187,4 +187,4 @@ No. Ads and the Map Pack are separate systems, and paying for ads does not move 
 - [How to Set Up Google Business Profile for Your McAllen Business](/blog/google-business-profile-mcallen/): The complete setup and audit checklist before you start pushing for rankings.
 - [Local SEO McAllen TX](/service-areas/mcallen/): How RankRGV handles Map Pack rankings for McAllen businesses end-to-end.
 - [Edinburg market overview](/service-areas/edinburg/): How RankRGV works with Edinburg businesses.
-- [Google Maps Optimization](/google-maps-optimization/): Done-for-you GBP management and ranking service.
+- [Google Maps Optimization](/google-maps-optimization/): Our Map Pack ranking service.

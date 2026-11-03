@@ -49,7 +49,7 @@ Voice search use in the Rio Grande Valley is growing faster than in most other U
 
 The difference between voice search and typed search is primarily format. Voice searches are conversational and longer. "Good HVAC company near me that's open on Saturdays" is a voice search. "HVAC McAllen" is a typed search. The GBP attributes (hours, specialties, language support) play a bigger role in voice search results because those are the fields Google reads to answer conversational questions.
 
-For most Valley businesses, adding Spanish to the [GBP description](/gbp-management/) and turning on relevant attributes is still the lowest-effort, highest-impact move available for voice search optimization. Most businesses still haven't done it.
+For most Valley businesses, adding Spanish to the [GBP description](/google-business-optimization/) and turning on relevant attributes is still the lowest-effort, highest-impact move available for voice search optimization. Most businesses still haven't done it.
 
 ## The Map Pack Is Getting More Competitive in Edinburg and Mission
 

@@ -21,7 +21,7 @@ faqs:
     answer: "Only if it's fast and looks professional. A slow, broken free site is worse than having no site at all. Invest in a real mobile-optimized build when you're ready."
 ---
 
-You can rank in the Google map pack and get a steady stream of calls without a website. It takes a fully optimized [Google Business Profile](/gbp-management/), consistent review collection, and weekly activity, but it works, especially where competitors aren't doing those things either. This isn't a case for skipping a website forever. It's about what's possible right now, with just a GBP, and how to get the most out of it.
+You can rank in the Google map pack and get a steady stream of calls without a website. It takes a fully optimized [Google Business Profile](/google-business-optimization/), consistent review collection, and weekly activity, but it works, especially where competitors aren't doing those things either. This isn't a case for skipping a website forever. It's about what's possible right now, with just a GBP, and how to get the most out of it.
 
 <div class="key-takeaways">
 

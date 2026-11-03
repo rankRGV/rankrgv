@@ -4,12 +4,14 @@ RankRGV offers transparent, flat-fee pricing with no long-term contracts and no 
 
 ---
 
-## GBP Management
+## Google Business Optimization
 
-- **Price**: $300/month
-- **What it is**: Google Business Profile maintenance — not a ranking package
-- **Included**: Weekly GBP posts, review monitoring and responses (within 24 hrs), photo management, Q&A monitoring, basic category and service area checks, monthly performance snapshot
-- **Note**: GBP Management is included free in all Local SEO plans
+- **Price**: $299/month plus sales tax
+- **What it is**: Keeps your Google Business Profile active and shows the proof every month. Not a ranking package
+- **Included**: 4 Google posts a month, up to 8 of your photos posted, a reply to every new review, categories and service area set once at onboarding, monthly snapshot with one tracked keyword and city position, day 90 check in
+- **Not included**: ranking work, review generation outreach, ads, photo shoots, Loom updates
+- **Note**: Everything in Google Business Optimization is included in all Local SEO plans
+- **Page**: https://rankrgv.com/google-business-optimization/
 
 ---
 
@@ -72,7 +74,7 @@ RankRGV offers transparent, flat-fee pricing with no long-term contracts and no 
 
 ## Notes
 
-- All prices are management fees in USD, billed monthly
+- All prices are management fees in USD, billed monthly, with sales tax added at checkout
 - No setup fees on SEO or Ads plans
 - No long-term contracts — month-to-month on all recurring services
 - Ad spend (for Ads plans) is billed directly by Google or Meta — not through RankRGV

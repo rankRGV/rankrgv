@@ -21,6 +21,8 @@
   ],
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/gbp-management", "destination": "/google-business-optimization/", "permanent": true },
+    { "source": "/gbp-management/", "destination": "/google-business-optimization/", "permanent": true },
     { "source": "/blog/map-pack-mcallen-mission-edinburg", "destination": "/blog/how-to-rank-google-maps-mcallen/", "permanent": true },
     { "source": "/blog/map-pack-mcallen-mission-edinburg/", "destination": "/blog/how-to-rank-google-maps-mcallen/", "permanent": true },
     { "source": "/blog/home-services-marketing-rgv", "destination": "/blog/local-seo-home-services-rgv/", "permanent": true },

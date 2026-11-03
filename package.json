@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/sitemap-lastmod.mjs",
+    "build": "astro build && node scripts/sitemap-lastmod.mjs && node scripts/okf-build.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -17,7 +17,10 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
+    "node-html-parser": "^7.1.0",
     "playwright": "^1.58.2",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.0",
+    "turndown": "^7.2.4",
+    "turndown-plugin-gfm": "^1.0.2"
   }
 }

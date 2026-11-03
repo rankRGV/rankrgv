@@ -53,7 +53,7 @@ Pull your top-ranking pages from Google Search Console. Look at which URLs are g
 
 If you don't have Search Console set up, use Google Analytics to identify your highest-traffic pages, then set up Search Console before the redesign begins so you can monitor what happens after launch.
 
-Your GBP link is also in play. Whatever URL your [Google Business Profile](/gbp-management/) links to needs to remain live after the redesign. If that URL changes, update the GBP immediately. A broken link between your GBP and your website weakens both.
+Your GBP link is also in play. Whatever URL your [Google Business Profile](/google-business-optimization/) links to needs to remain live after the redesign. If that URL changes, update the GBP immediately. A broken link between your GBP and your website weakens both.
 
 ## Redirects: The Most Important Technical Step
 

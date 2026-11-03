@@ -86,7 +86,7 @@ If your video is rejected, resubmit immediately with a new recording: slower nar
 
 <div class="callout">
 
-**Managing a Google Business Profile for a business in the Rio Grande Valley?** We handle full setup, verification, and ongoing optimization for local businesses in McAllen, Edinburg, Harlingen, and the surrounding area. [Learn about GBP management →](/gbp-management/)
+**Want your profile kept active once it's verified?** We post weekly, add your photos, and reply to your reviews for businesses in McAllen, Edinburg, Harlingen, and the surrounding area. [Learn about Google Business Optimization →](/google-business-optimization/)
 
 </div>
 
@@ -132,4 +132,4 @@ Yes. Even when claiming a listing Google created from public data, you still nee
 
 - [Google Business Profile Suspended? Here's What to Do](/blog/google-business-profile-suspended-reinstatement/): What to do if your GBP gets flagged or removed after verification.
 - [How to Rank on Google Maps in McAllen](/blog/how-to-rank-google-maps-mcallen/): Once your GBP is verified, here's how to push it into the top 3.
-- [GBP Management for RGV Businesses](/gbp-management/): Done-for-you GBP setup, verification, and ongoing optimization.
+- [Google Business Optimization for RGV Businesses](/google-business-optimization/): Weekly posts, photos, review replies, and a monthly snapshot.

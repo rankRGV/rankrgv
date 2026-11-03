@@ -1,0 +1,328 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { graderHref, site } from '@/config/site';
+
+const title = 'Google Business Optimization McAllen TX | RankRGV';
+const description =
+  'Keep your Google Business Profile active and see the proof every month: weekly posts, fresh photos, review replies, and a monthly snapshot. $299/month plus tax, month to month.';
+const startHref = '/get-started/?service=google-business-optimization&plan=%24299%2Fmonth';
+
+const faqs = [
+  {
+    question: 'Will this get me ranked higher on Google Maps?',
+    answer:
+      "We don't promise that, and you should be careful with anyone who does. Google Business Optimization keeps your profile active and shows you where you stand. If you want to climb, Local SEO does the ranking work behind it, and your snapshot will tell you whether that's worth it.",
+  },
+  {
+    question: "What's the difference between this and Local SEO?",
+    answer:
+      'Google Business Optimization keeps your profile current and proves it. Local SEO ($600 to $1,500+/month plus sales tax) adds the work that moves rankings: citations, content, website and on page work, and deeper rank tracking. Every Local SEO plan already includes everything on this page, so you never pay for both.',
+  },
+  {
+    question: 'How much does Google Business Optimization cost?',
+    answer:
+      "$299/month plus sales tax, month to month, no contract. That covers 4 Google posts, up to 8 of your photos, a reply to every new review, and a monthly snapshot of what we did and where you stand.",
+  },
+  {
+    question: "What if I don't send photos?",
+    answer:
+      "We post what you send, up to 8 a month. If none come in, your snapshot shows 0. We'll remind you, but we don't make up photos or use stock ones.",
+  },
+  {
+    question: 'Do you reply to bad reviews automatically?',
+    answer:
+      'No. Low or mixed reviews, and anything touching money, injuries, staff, or legal issues, always get a person to read them before a reply goes out.',
+  },
+  {
+    question: 'Do you get reviews for me?',
+    answer:
+      "Asking your customers for reviews isn't part of this plan. You get a one page tip sheet and a QR code to make asking easy.",
+  },
+  {
+    question: 'Is there a contract?',
+    answer: "No. It's month to month. The day 90 check in is there to make sure it's still the right fit.",
+  },
+  {
+    question: 'Why one keyword?',
+    answer:
+      'One search, tracked the same way every month, gives you an honest trend line. Tracking a different keyword every month makes for nice reports but tells you nothing.',
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Lock your keyword',
+    text: 'At signup we pick one primary keyword and one city together, like "AC repair McAllen," and we check your categories, hours, services, and service area once.',
+  },
+  {
+    name: 'Stay active',
+    text: 'Weekly posts, your photos, and review replies go out every month on a steady schedule.',
+  },
+  {
+    name: 'See the proof',
+    text: "Every month's snapshot shows what we did and where you stand. No Looms and no meetings unless you ask.",
+  },
+  {
+    name: 'Day 90: decide with real numbers',
+    text: "At 90 days we go through your snapshots with you and give you a straight answer. Move up to Local SEO if the gap is clear and worth closing. Stay on this plan, and we'll put in writing that it keeps you active and is not a ranking promise. Or walk away. It's month to month.",
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Google Business Optimization McAllen TX',
+    'RankRGV keeps Google Business Profiles active for McAllen and Rio Grande Valley businesses: 4 posts a month, up to 8 client photos, replies to every review, and a monthly snapshot with one tracked keyword position. Not a ranking package.',
+    site.areaServed
+  ),
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Google Business Optimization', href: '/google-business-optimization/' },
+  ]),
+  buildWebPageSchema(title, description, '/google-business-optimization/'),
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero-bg pt-12 pb-20 lg:py-28 relative overflow-hidden" aria-label="Hero">
+    <div class="absolute inset-0 bg-brand-blue/15 pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
+
+        <div>
+          <div class="inline-flex items-center gap-2 mb-6 text-sm font-medium text-white/70">
+            <svg class="w-5 h-5" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+              <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+              <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+              <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+              <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+            </svg>
+            Google Business Optimization · McAllen &amp; the RGV
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            Show up active on Google. <br />
+            <span class="gradient-text">See the proof every month.</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
+            We keep your Google Business Profile current with weekly posts, fresh photos, and replies to your reviews. Every month you get a plain snapshot of what we did and where you stand on the Map for the one search that matters most to you.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            <a href={startHref} class="btn-primary">
+              Start Google Business Optimization
+            </a>
+            <a href={site.phoneHref} class="btn-secondary">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
+              </svg>
+              Call {site.phone}
+            </a>
+          </div>
+
+          <p class="text-white/60 text-sm">
+            $299/month plus sales tax · Month to month · No contract
+          </p>
+        </div>
+
+        <!-- Right: sample monthly snapshot -->
+        <div class="hidden lg:block relative px-6 pt-6 pb-8">
+          <div class="absolute inset-0 bg-brand-blue/15 rounded-3xl blur-3xl" aria-hidden="true"></div>
+          <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="flex items-center gap-3 px-5 py-4 bg-gray-50 border-b border-gray-100">
+              <svg class="w-7 h-7" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+                <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+                <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+                <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+                <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+              </svg>
+              <div>
+                <div class="text-sm font-bold text-gray-900">Monthly snapshot</div>
+                <div class="text-xs text-gray-500">Your business · Google Business Profile</div>
+              </div>
+            </div>
+            <div class="px-5 py-4 space-y-3">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Posts published</span>
+                <span class="text-gray-900 font-bold">4 of 4</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Photos posted</span>
+                <span class="text-gray-900 font-bold">Up to 8</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Reviews answered</span>
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Every one</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Calls &amp; directions</span>
+                <span class="text-gray-900 font-bold">From Google</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Map position</span>
+                <span class="text-gray-900 font-bold">1 keyword, 1 city</span>
+              </div>
+            </div>
+            <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500 italic">
+              Sample layout · what your snapshot covers
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Why it matters ===================== -->
+  <section class="py-20 bg-bg" aria-label="Why your Google Business Profile matters">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6 text-center">Why your profile matters</h2>
+      <p class="text-text-muted text-lg leading-relaxed mb-5">
+        For most RGV businesses, your Google Business Profile gets seen more than your website. It's what people see when they search your name, search "near me," or compare you against the shop down the street.
+      </p>
+      <p class="text-text-muted text-lg leading-relaxed mb-5">
+        A profile with no recent posts, old photos, and unanswered reviews looks closed, even when you're busy. Google Business Optimization keeps yours current and lets you see the proof every month.
+      </p>
+      <p class="text-text-muted text-lg leading-relaxed">
+        This is not a ranking package. We don't promise to move you up the Map. We keep your profile active and show you, in numbers, where you stand.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== What's included ===================== -->
+  <section class="py-20 bg-bg-surface" aria-label="What's included in Google Business Optimization">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">What's included every month</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Weekly Google posts</h3>
+            <p class="text-text-muted text-sm leading-relaxed">4 posts a month, one a week. Informational posts built from facts you've confirmed about your business: services, seasons, recent work. No invented claims and no spammy promos that put your profile at risk.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Fresh photos</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Up to 8 of your photos posted each month, spread out on a steady schedule. You send them and we post them. No photos sent that month? Your snapshot will show it.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Replies to your reviews</h3>
+            <p class="text-text-muted text-sm leading-relaxed">We write the reply to every new review in your voice. For the first couple of weeks we check every reply by hand until it sounds like you. After that, clean 5 star reviews get answered on their own. Anything 3 stars or lower, mixed, or sensitive always gets a person to read it before it posts.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Your monthly snapshot</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-2">One clear page, every month: posts published, photos posted, reviews answered, plus calls, direction requests, and profile activity from Google.</p>
+            <p class="text-text-muted text-sm leading-relaxed">It also shows where you show up in the Map Pack for one primary keyword in your city, picked together at signup and tracked the same way for as long as you're with us. We show that position once our rank checks for your market are reliable. We won't show you a number we don't trust.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Setup + not included ===================== -->
+  <section class="py-20 bg-bg" aria-label="Setup and what is not included">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white border border-border rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-text mb-4">Setup (first month)</h2>
+        <ul class="space-y-3 text-text-muted text-sm leading-relaxed">
+          <li><strong class="text-text">Keyword and city lock.</strong> We agree on one search, like "AC repair McAllen." That's the position line on every snapshot from then on.</li>
+          <li><strong class="text-text">Profile setup.</strong> We check your categories, hours, services, and service area at onboarding and set them right once.</li>
+          <li><strong class="text-text">What you give us:</strong> manager access to your Google Business Profile, your first batch of photos, and a quick confirmation of your business facts.</li>
+          <li><strong class="text-text">Bonus:</strong> a one page tip sheet and a QR code you can use to ask happy customers for reviews.</li>
+        </ul>
+      </div>
+      <div class="bg-white border border-border rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-text mb-4">What's not included</h2>
+        <ul class="space-y-3 text-text-muted text-sm leading-relaxed list-disc pl-5">
+          <li>Ranking work: citations, website changes, content, links, or ongoing category tuning</li>
+          <li>Going after reviews for you (texting or emailing your customers)</li>
+          <li>Ads management</li>
+          <li>Photo shoots (available separately)</li>
+          <li>Loom updates and standing meetings</li>
+        </ul>
+        <p class="text-text-muted text-sm leading-relaxed mt-5">
+          Want to move up the Map, not just stay active? That's what our <a href="/local-seo/" class="text-brand-blue font-semibold hover:underline">Local SEO plans</a> are for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== How it works ===================== -->
+  <HowWeWork
+    headline="How it works: the 90 day check in"
+    subheadline="Month to month, with a real decision point at day 90."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <!-- ===================== Pricing ===================== -->
+  <section class="py-20 bg-bg-surface" aria-label="Google Business Optimization pricing">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-border rounded-3xl p-8 sm:p-10 shadow-sm text-center">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wide">
+          Standalone plan
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-text mb-3">Google Business Optimization: $299/month</h2>
+        <p class="text-text-muted text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          Weekly posts, up to 8 photos, review replies, and a monthly snapshot with your keyword position. Plus sales tax. Month to month. We earn it every month.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={startHref} class="btn-primary">Get started</a>
+          <a href="/pricing/" class="btn-secondary">See full pricing</a>
+        </div>
+        <p class="text-xs text-text-muted mt-6">
+          Already looking at Local SEO ($600/month and up, plus sales tax)? Everything here is included in every Local SEO plan, so you never pay twice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <ServiceAreaGrid headline="Google Business Optimization across the Rio Grande Valley" />
+
+  <!-- ===================== FAQ ===================== -->
+  <FAQSection faqs={faqs} headline="Google Business Optimization questions" />
+
+  <!-- ===================== CTA ===================== -->
+  <CTASection
+    headline="Make sure Google shows you're open for business."
+    subheadline="Start with a free grade of your profile. We'll show you where you stand before you pay anything."
+    primaryCTA={{ label: 'Get My Free Business Grade', href: graderHref('gbo-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
+  />
+
+</BaseLayout>

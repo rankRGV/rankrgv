@@ -63,7 +63,7 @@ The RGV is not the same market as Houston or Dallas. A lot of agencies apply the
 
 ## Red Flags That Show Up After You Start
 
-**No changes made to your GBP in the first month.** Your [Google Business Profile](/gbp-management/) is the highest-leverage asset for local visibility. If an agency has been "working on your SEO" for 30 days and hasn't touched your GBP category, description, services, or photo strategy, ask why. There's no excuse for that being low priority.
+**No changes made to your GBP in the first month.** Your [Google Business Profile](/google-business-optimization/) is the highest-leverage asset for local visibility. If an agency has been "working on your SEO" for 30 days and hasn't touched your GBP category, description, services, or photo strategy, ask why. There's no excuse for that being low priority.
 
 **Reports with lots of numbers and no context.** Organic impressions went up 14%. Domain authority increased by 2 points. Great, but what does that mean for your Map Pack position for the search terms that matter? If the monthly report isn't showing you specific keyword position movement in your target cities, it's noise.
 
