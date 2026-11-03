@@ -98,7 +98,7 @@ const rows = [
               { label: 'DIY', value: row.diy },
             ].map(({ label, value, accent }) => (
               <div class="flex flex-col items-center gap-1.5">
-                <span class={`text-[11px] font-semibold uppercase tracking-wide ${accent ? 'text-brand-blue' : 'text-text-muted'}`}>{label}</span>
+                <span class={`text-[11px] font-semibold ${accent ? 'text-brand-blue' : 'text-text-muted'}`}>{label}</span>
                 {value === true ? (
                   <div class={`w-6 h-6 rounded-full flex items-center justify-center ${accent ? 'bg-brand-blue' : 'bg-green-100'}`}>
                     <svg class={`w-3.5 h-3.5 ${accent ? 'text-white' : 'text-green-600'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,13 +133,13 @@ const rows = [
             <th class="px-4 py-4 text-center w-[20%]">
               <div class="inline-flex flex-col items-center gap-1">
                 <span class="text-brand-blue font-extrabold text-base">RankRGV</span>
-                <span class="text-xs text-brand-blue/70 font-medium">Local · RGV-only</span>
+                <span class="text-xs text-brand-blue/70 font-medium">Local, RGV only</span>
               </div>
             </th>
             <th class="px-4 py-4 text-center w-[20%]">
               <div class="inline-flex flex-col items-center gap-1">
                 <span class="text-text font-semibold">National Agency</span>
-                <span class="text-xs text-text-muted">Remote · Multi-market</span>
+                <span class="text-xs text-text-muted">Remote, many markets</span>
               </div>
             </th>
             <th class="px-4 py-4 text-center w-[20%]">

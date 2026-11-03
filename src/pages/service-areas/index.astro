@@ -131,7 +131,7 @@ const schema = [
             <div class="p-4 rounded-xl border border-border bg-bg-surface flex items-start gap-4 reveal">
               <a
                 href={`/service-areas/${city.toLowerCase()}/`}
-                class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-brand-blue to-brand-purple flex items-center justify-center text-white font-bold text-sm no-underline hover:opacity-90 transition-opacity"
+                class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center text-white font-bold text-sm no-underline hover:opacity-90 transition-opacity"
               >
                 {city.slice(0, 2).toUpperCase()}
               </a>
@@ -197,7 +197,7 @@ const schema = [
                   href={`/service-areas/${area.slug}/${service.slug}/`}
                   class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-bg-surface transition-colors group no-underline"
                 >
-                  <div class="w-7 h-7 rounded-md bg-gradient-to-br from-brand-blue/10 to-brand-purple/10 flex items-center justify-center flex-shrink-0 group-hover:from-brand-blue/20 group-hover:to-brand-purple/20 transition-colors">
+                  <div class="w-7 h-7 rounded-md bg-brand-blue/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-blue/20 transition-colors">
                     <svg class="w-3.5 h-3.5 text-brand-blue" viewBox="0 0 24 24" fill="currentColor">
                       <path d={service.icon} />
                     </svg>
