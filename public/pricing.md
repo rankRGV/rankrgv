@@ -12,6 +12,7 @@ RankRGV offers transparent, flat-fee pricing with no long-term contracts and no 
 - **Not included**: ranking work, review generation outreach, ads, photo shoots, Loom updates
 - **Note**: Everything in Google Business Optimization is included in all Local SEO plans
 - **Page**: https://rankrgv.com/google-business-optimization/
+- **Page (español)**: https://rankrgv.com/es/optimizacion-perfil-de-negocio-google/
 
 ---
 

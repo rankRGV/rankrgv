@@ -16,6 +16,7 @@ const title = 'Google Business Optimization McAllen TX | RankRGV';
 const description =
   'Keep your Google Business Profile active and see the proof every month: weekly posts, fresh photos, review replies, and a monthly snapshot. $299/month plus tax, month to month.';
 const startHref = 'https://buy.stripe.com/dRm3cw99jfeNePqcQW1Jm0k';
+const esHref = '/es/optimizacion-perfil-de-negocio-google/';
 
 const faqs = [
   {
@@ -93,13 +94,27 @@ const schema = [
 ];
 ---
 
-<BaseLayout title={title} description={description} schema={schema}>
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  hreflang={[
+    { lang: 'en', href: `${site.url}/google-business-optimization/` },
+    { lang: 'es', href: `${site.url}${esHref}` },
+    { lang: 'x-default', href: `${site.url}/google-business-optimization/` },
+  ]}
+>
 
   <!-- ===================== HERO ===================== -->
   <section class="hero-bg pt-12 pb-20 lg:py-28 relative overflow-hidden" aria-label="Hero">
     <div class="absolute inset-0 bg-brand-blue/15 pointer-events-none" aria-hidden="true"></div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-end mb-4">
+        <a href={esHref} hreflang="es" lang="es" class="inline-flex items-center min-h-11 text-sm font-semibold text-white/80 hover:text-white no-underline">
+          ¿Prefiere español? Ver en español
+        </a>
+      </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
 
         <div>
