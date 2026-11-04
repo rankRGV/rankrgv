@@ -13,7 +13,14 @@ const es = lang === 'es';
 const graderUrl = graderHref('header', lang);
 
 const navEs = [
-  { label: 'Servicios', href: '/es/seo-local/', dropdown: null },
+  {
+    label: 'Servicios',
+    href: '/es/seo-local/',
+    dropdown: [
+      { label: 'SEO Local', href: '/es/seo-local/' },
+      { label: 'Optimización de Perfil de Google', href: '/es/optimizacion-perfil-de-negocio-google/' },
+    ],
+  },
   { label: 'Áreas de Servicio', href: '/service-areas/', dropdown: null },
   { label: 'Precios', href: '/es/precios/', dropdown: null },
   { label: 'Blog', href: '/blog/', dropdown: null },

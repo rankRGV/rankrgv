@@ -6,6 +6,7 @@ interface Props {
   subheadline?: string;
   primaryCTA?: { label: string; href: string };
   secondaryCTA?: { label: string; href: string };
+  ariaLabel?: string;
 }
 
 const {
@@ -13,13 +14,14 @@ const {
   subheadline = 'Call us and we will tell you where you stand on Google and what your competitors are doing that you are not.',
   primaryCTA = { label: `Call ${site.phone}`, href: site.phoneHref },
   secondaryCTA = { label: 'Get a Free Written Audit', href: '/get-started/' },
+  ariaLabel = 'Call to action',
 } = Astro.props;
 ---
 
 <section
   class="py-20 relative overflow-hidden"
   style="background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 60%, #0f172a 100%);"
-  aria-label="Call to action"
+  aria-label={ariaLabel}
 >
   <!-- Subtle dot-grid overlay — same as hero but lighter -->
   <div

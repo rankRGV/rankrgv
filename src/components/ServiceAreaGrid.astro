@@ -5,16 +5,18 @@ import { getServiceBySlug } from '@/data/services';
 interface Props {
   headline?: string;
   serviceSlug?: string; // If provided, links go to /service-areas/[city]/[service]/
+  lang?: 'en' | 'es';
 }
 
-const { headline = 'We serve these RGV cities', serviceSlug } = Astro.props;
+const { headline = 'We serve these RGV cities', serviceSlug, lang = 'en' } = Astro.props;
+const es = lang === 'es';
 // City-service links name the service ("McAllen / Local SEO") so the anchor
 // text tells Google what the target page is about, not just the city.
 const hasCityPages = !!serviceSlug && CITY_SPOKE_SERVICES.includes(serviceSlug);
 const serviceLabel = hasCityPages ? getServiceBySlug(serviceSlug!)?.shortName : undefined;
 ---
 
-<section class="py-20 bg-bg-surface" aria-label="Service areas">
+<section class="py-20 bg-bg-surface" aria-label={es ? 'Áreas de servicio' : 'Service areas'}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl sm:text-4xl font-bold text-text text-center mb-12 reveal">{headline}</h2>
 
@@ -22,7 +24,7 @@ const serviceLabel = hasCityPages ? getServiceBySlug(serviceSlug!)?.shortName : 
       {serviceAreas.map((area, i) => {
         const href = hasCityPages
           ? `/service-areas/${area.slug}/${serviceSlug}/`
-          : `/service-areas/${area.slug}/`;
+          : `${es ? '/es/areas-de-servicio' : '/service-areas'}/${area.slug}/`;
         return (
           <a
             href={href}
@@ -35,7 +37,7 @@ const serviceLabel = hasCityPages ? getServiceBySlug(serviceSlug!)?.shortName : 
               </svg>
             </div>
             <div class="font-semibold text-text text-sm group-hover:text-brand-blue transition-colors duration-150">{area.name}</div>
-            <div class="text-xs text-text-muted mt-0.5">{serviceLabel ?? `${area.county} Co.`}</div>
+            <div class="text-xs text-text-muted mt-0.5">{serviceLabel ?? (es ? `Condado de ${area.county}` : `${area.county} Co.`)}</div>
           </a>
         );
       })}

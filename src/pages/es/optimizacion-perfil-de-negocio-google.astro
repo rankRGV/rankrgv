@@ -1,0 +1,351 @@
+---
+// Spanish mirror of /google-business-optimization/. Facts match the live English page.
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import ServiceAreaGrid from '@/components/ServiceAreaGrid.astro';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { graderHref, site } from '@/config/site';
+
+const path = '/es/optimizacion-perfil-de-negocio-google/';
+const title = 'Optimización de Perfil de Google en McAllen | RankRGV';
+const description =
+  'Mantén activo tu Perfil de Negocio de Google y ve la prueba cada mes: publicaciones, fotos, respuestas a reseñas y un resumen mensual. $299 al mes más impuesto, mes a mes.';
+const startHref = 'https://buy.stripe.com/dRm3cw99jfeNePqcQW1Jm0k';
+
+const faqs = [
+  {
+    question: '¿Esto me va a subir en Google Maps?',
+    answer:
+      'No lo prometemos, y conviene desconfiar de quien sí lo prometa. La Optimización de Perfil de Negocio de Google mantiene tu perfil activo y te muestra dónde estás. Si quieres subir, el SEO Local hace el trabajo de posicionamiento, y tu resumen te dice si vale la pena.',
+  },
+  {
+    question: '¿Cuál es la diferencia con el SEO Local?',
+    answer:
+      'La Optimización de Perfil de Negocio de Google mantiene tu perfil al día y lo comprueba. El SEO Local (de $600 a $1,500+ al mes, más impuesto sobre la venta) agrega el trabajo que mueve posiciones: citas, contenido, sitio web y trabajo en la página, y un seguimiento de posiciones más a fondo. Cada plan de SEO Local ya incluye todo lo de esta página, así que no pagas los dos.',
+  },
+  {
+    question: '¿Cuánto cuesta la Optimización de Perfil de Negocio de Google?',
+    answer:
+      '$299 al mes más impuesto sobre la venta, mes a mes, sin contrato. Incluye 4 publicaciones en Google, hasta 8 de tus fotos, una respuesta a cada reseña nueva y un resumen mensual de lo que hicimos y de dónde estás.',
+  },
+  {
+    question: '¿Qué pasa si no mando fotos?',
+    answer:
+      'Publicamos lo que mandas, hasta 8 al mes. Si no llega ninguna, tu resumen muestra 0. Te lo recordamos, pero no inventamos fotos ni usamos fotos de stock.',
+  },
+  {
+    question: '¿Responden las reseñas malas de forma automática?',
+    answer:
+      'No. Las reseñas bajas o mixtas, y cualquier cosa que toque dinero, lesiones, personal o temas legales, siempre las lee una persona antes de que salga la respuesta.',
+  },
+  {
+    question: '¿Consiguen reseñas por mí?',
+    answer:
+      'Pedirle reseñas a tus clientes no es parte de este plan. Recibes una hoja de una página con consejos y un código QR para que pedirlas sea fácil.',
+  },
+  {
+    question: '¿Hay contrato?',
+    answer:
+      'No. Es mes a mes. La revisión del día 90 está para confirmar que sigue siendo el plan correcto.',
+  },
+  {
+    question: '¿Por qué una sola palabra clave?',
+    answer:
+      'Una búsqueda, medida igual cada mes, te da una línea de tendencia honesta. Cambiar de palabra clave cada mes hace reportes bonitos, pero no te dice nada.',
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Fija tu palabra clave',
+    text: 'Al contratar elegimos juntos una palabra clave principal y una ciudad, como "reparación de aire acondicionado McAllen", y revisamos una vez tus categorías, horarios, servicios y área de servicio.',
+  },
+  {
+    name: 'Mantente activo',
+    text: 'Cada mes salen publicaciones semanales, tus fotos y respuestas a reseñas, con un ritmo constante.',
+  },
+  {
+    name: 'Ve la prueba',
+    text: 'El resumen de cada mes muestra lo que hicimos y dónde estás. Sin Looms y sin juntas, a menos que las pidas.',
+  },
+  {
+    name: 'Día 90: decide con números reales',
+    text: 'A los 90 días revisamos contigo tus resúmenes y te damos una respuesta directa. Pasas a SEO Local si la distancia entre dónde estás y dónde quieres estar es clara y vale la pena cerrarla. Te quedas en este plan, y lo dejamos por escrito: te mantiene activo y no es una promesa de posicionamiento. O te vas. Es mes a mes.',
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Optimización de Perfil de Negocio de Google en McAllen TX',
+    'RankRGV mantiene activos los Perfiles de Negocio de Google de negocios en McAllen y el Valle: 4 publicaciones al mes, hasta 8 fotos del cliente, respuesta a cada reseña y un resumen mensual con la posición de una palabra clave. No es un paquete de posicionamiento.',
+    site.areaServed
+  ),
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Inicio', href: '/es/' },
+    { label: 'Optimización de Perfil de Negocio de Google', href: path },
+  ]),
+  buildWebPageSchema(title, description, path),
+];
+---
+
+<BaseLayout
+  lang="es"
+  title={title}
+  description={description}
+  canonical={`${site.url}${path}`}
+  schema={schema}
+  hreflang={[
+    { lang: 'en', href: `${site.url}/google-business-optimization/` },
+    { lang: 'es', href: `${site.url}${path}` },
+    { lang: 'x-default', href: `${site.url}/google-business-optimization/` },
+  ]}
+>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero-bg pt-12 pb-20 lg:py-28 relative overflow-hidden" aria-label="Inicio">
+    <div class="absolute inset-0 bg-brand-blue/15 pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-end mb-4">
+        <a href="/google-business-optimization/" hreflang="en" lang="en" class="inline-flex items-center min-h-11 text-sm font-semibold text-white/80 hover:text-white no-underline">
+          Prefer English? View in English
+        </a>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
+
+        <div>
+          <div class="inline-flex items-center gap-2 mb-6 text-sm font-medium text-white/70">
+            <svg class="w-5 h-5" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+              <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+              <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+              <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+              <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+            </svg>
+            Optimización de Perfil de Negocio de Google · McAllen y el Valle
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            Aparece activo en Google. <br />
+            <span class="gradient-text">Ve la prueba cada mes.</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
+            Mantenemos tu Perfil de Negocio de Google al día con publicaciones semanales, fotos nuevas y respuestas a tus reseñas. Cada mes recibes un resumen claro de lo que hicimos y de dónde estás en el mapa para la búsqueda que más te importa.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            <a href={startHref} class="btn-primary">
+              Empezar Optimización de Perfil de Google
+            </a>
+            <a href={site.phoneHref} class="btn-secondary">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
+              </svg>
+              Llamar al {site.phone}
+            </a>
+          </div>
+
+          <p class="text-white/60 text-sm">
+            $299 al mes más impuesto sobre la venta · Mes a mes · Sin contrato
+          </p>
+        </div>
+
+        <!-- Right: sample monthly snapshot -->
+        <div class="hidden lg:block relative px-6 pt-6 pb-8">
+          <div class="absolute inset-0 bg-brand-blue/15 rounded-3xl blur-3xl" aria-hidden="true"></div>
+          <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="flex items-center gap-3 px-5 py-4 bg-gray-50 border-b border-gray-100">
+              <svg class="w-7 h-7" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+                <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+                <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+                <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+                <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+              </svg>
+              <div>
+                <div class="text-sm font-bold text-gray-900">Resumen mensual</div>
+                <div class="text-xs text-gray-500">Tu negocio · Perfil de Negocio de Google</div>
+              </div>
+            </div>
+            <div class="px-5 py-4 space-y-3">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Publicaciones</span>
+                <span class="text-gray-900 font-bold">4 de 4</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Fotos publicadas</span>
+                <span class="text-gray-900 font-bold">Hasta 8</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Reseñas respondidas</span>
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Todas</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Llamadas y cómo llegar</span>
+                <span class="text-gray-900 font-bold">De Google</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Posición en el mapa</span>
+                <span class="text-gray-900 font-bold">1 palabra clave, 1 ciudad</span>
+              </div>
+            </div>
+            <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500 italic">
+              Ejemplo de formato · lo que cubre tu resumen
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Why it matters ===================== -->
+  <section class="py-20 bg-bg" aria-label="Por qué importa tu Perfil de Negocio de Google">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6 text-center">Por qué importa tu perfil</h2>
+      <p class="text-text-muted text-lg leading-relaxed mb-5">
+        Para la mayoría de los negocios del Valle, tu Perfil de Negocio de Google se ve más que tu sitio web. Es lo que la gente ve cuando busca tu nombre, cuando busca "cerca de mí" o cuando te compara con el negocio de enfrente.
+      </p>
+      <p class="text-text-muted text-lg leading-relaxed mb-5">
+        Un perfil sin publicaciones recientes, con fotos viejas y reseñas sin responder, se ve cerrado, aunque estés ocupado. La Optimización de Perfil de Negocio de Google (Google Business Optimization) lo mantiene al día y te deja ver la prueba cada mes.
+      </p>
+      <p class="text-text-muted text-lg leading-relaxed">
+        Esto no es un paquete de posicionamiento. No prometemos subirte en el mapa. Mantenemos tu perfil activo y te mostramos, con números, dónde estás.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== What's included ===================== -->
+  <section class="py-20 bg-bg-surface" aria-label="Qué incluye la Optimización de Perfil de Negocio de Google">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">Qué incluye cada mes</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Publicaciones semanales en Google</h3>
+            <p class="text-text-muted text-sm leading-relaxed">4 publicaciones al mes, una por semana. Publicaciones informativas hechas con datos que tú confirmaste de tu negocio: servicios, temporadas, trabajos recientes. Sin datos inventados y sin promociones agresivas que pongan en riesgo tu perfil.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Fotos nuevas</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Hasta 8 de tus fotos publicadas cada mes, repartidas en un ritmo constante. Tú las mandas y nosotros las publicamos. ¿Este mes no llegó ninguna? El resumen lo va a mostrar.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Respuestas a tus reseñas</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Escribimos la respuesta a cada reseña nueva con tu voz. Las primeras semanas revisamos cada respuesta a mano hasta que suene a ti. Después, las reseñas limpias de 5 estrellas se responden solas. Cualquier reseña de 3 estrellas o menos, mixta o delicada, siempre la lee una persona antes de publicarse.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-2xl p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text mb-2">Tu resumen mensual</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-2">Una página clara, cada mes: publicaciones hechas, fotos publicadas, reseñas respondidas, más llamadas, solicitudes de cómo llegar y actividad del perfil, según Google.</p>
+            <p class="text-text-muted text-sm leading-relaxed">También muestra dónde apareces en el Map Pack para una palabra clave principal en tu ciudad, elegida juntos al contratar y medida igual mientras sigas con nosotros. Mostramos esa posición cuando nuestras revisiones de posición en tu mercado son confiables. No te mostramos un número en el que no confiamos.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Setup + not included ===================== -->
+  <section class="py-20 bg-bg" aria-label="Configuración y qué no incluye">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white border border-border rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-text mb-4">Configuración (primer mes)</h2>
+        <ul class="space-y-3 text-text-muted text-sm leading-relaxed">
+          <li><strong class="text-text">Palabra clave y ciudad fijas.</strong> Acordamos una búsqueda, como "reparación de aire acondicionado McAllen". Esa es la línea de posición en cada resumen de ahí en adelante.</li>
+          <li><strong class="text-text">Configuración del perfil.</strong> En el alta revisamos tus categorías, horarios, servicios y área de servicio, y los dejamos bien una sola vez.</li>
+          <li><strong class="text-text">Lo que nos das:</strong> acceso de administrador a tu Perfil de Negocio de Google, tu primer grupo de fotos y una confirmación rápida de los datos de tu negocio.</li>
+          <li><strong class="text-text">De regalo:</strong> una hoja de una página con consejos y un código QR para pedir reseñas a los clientes contentos.</li>
+        </ul>
+      </div>
+      <div class="bg-white border border-border rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-text mb-4">Qué no incluye</h2>
+        <ul class="space-y-3 text-text-muted text-sm leading-relaxed list-disc pl-5">
+          <li>Trabajo de posicionamiento: citas, cambios al sitio web, contenido, enlaces o ajustes continuos de categorías</li>
+          <li>Conseguir reseñas por ti (mensajes o correos a tus clientes)</li>
+          <li>Manejo de anuncios</li>
+          <li>Sesiones de fotos (se cotizan aparte)</li>
+          <li>Actualizaciones por Loom y juntas fijas</li>
+        </ul>
+        <p class="text-text-muted text-sm leading-relaxed mt-5">
+          ¿Quieres subir en el mapa, no solo mantenerte activo? Para eso están nuestros <a href="/es/seo-local/" class="text-brand-blue font-semibold hover:underline">planes de SEO Local</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== How it works ===================== -->
+  <HowWeWork
+    ariaLabel="Cómo funciona"
+    stepLabel="Paso"
+    headline="Cómo funciona: la revisión del día 90"
+    subheadline="Mes a mes, con una decisión real al día 90."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <!-- ===================== Pricing ===================== -->
+  <section class="py-20 bg-bg-surface" aria-label="Precio de la Optimización de Perfil de Negocio de Google">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-border rounded-3xl p-8 sm:p-10 shadow-sm text-center">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wide">
+          Plan independiente
+        </div>
+        <p class="text-sm font-semibold text-text-muted mb-2">Google Business Optimization</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-text mb-3">Optimización de Perfil de Negocio de Google: $299 al mes</h2>
+        <p class="text-text-muted text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          Publicaciones semanales, hasta 8 fotos, respuestas a reseñas y un resumen mensual con la posición de tu palabra clave. Más impuesto sobre la venta. Mes a mes. Nos lo ganamos cada mes.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={startHref} class="btn-primary">Empezar</a>
+          <a href="/es/precios/" class="btn-outline">Ver precios completos</a>
+        </div>
+        <p class="text-xs text-text-muted mt-6">
+          ¿Ya estás viendo SEO Local (desde $600 al mes, más impuesto sobre la venta)? Todo lo de esta página ya va incluido en cada plan de SEO Local, así que no pagas dos veces.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <ServiceAreaGrid lang="es" headline="Optimización de Perfil de Negocio de Google en el Valle del Río Grande" />
+
+  <!-- ===================== FAQ ===================== -->
+  <FAQSection faqs={faqs} headline="Preguntas sobre la Optimización de Perfil de Negocio de Google" ariaLabel="Preguntas frecuentes" />
+
+  <!-- ===================== CTA ===================== -->
+  <CTASection
+    ariaLabel="Llamada a la acción"
+    headline="Que Google muestre que tu negocio está abierto."
+    subheadline="Empieza con una revisión gratis de tu perfil. Te mostramos dónde estás antes de que pagues nada."
+    primaryCTA={{ label: 'Califica tu negocio gratis', href: graderHref('gbo-final', 'es') }}
+    secondaryCTA={{ label: `Llamar al ${site.phone}`, href: site.phoneHref }}
+  />
+
+</BaseLayout>

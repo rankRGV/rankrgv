@@ -7,11 +7,13 @@ export interface FAQ {
 interface Props {
   headline?: string;
   faqs: FAQ[];
+  ariaLabel?: string;
 }
 
 const {
   headline = 'Frequently asked questions',
   faqs,
+  ariaLabel = 'Frequently asked questions',
 } = Astro.props;
 
 if (faqs.length < 4) {
@@ -19,7 +21,7 @@ if (faqs.length < 4) {
 }
 ---
 
-<section class="py-20 bg-bg-surface" aria-label="Frequently asked questions">
+<section class="py-20 bg-bg-surface" aria-label={ariaLabel}>
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl sm:text-4xl font-bold text-text text-center mb-12 reveal">{headline}</h2>
 
