@@ -6,6 +6,11 @@ import { Image } from 'astro:assets';
 import { site } from '@/config/site';
 import eddiePhoto from '@/assets/eddie-urbano.png';
 import HeroShader from '@/components/HeroShader.astro';
+import { reviews } from '@/data/reviews';
+// Rating and count come from the real reviews file, so adding a review there
+// updates the hero. Keep that file matching the public count on Google.
+const reviewCount = reviews.length;
+const reviewAvg = (reviews.reduce((sum, r) => sum + r.stars, 0) / reviewCount).toFixed(1);
 const cities = ['McAllen', 'Edinburg', 'Mission', 'Pharr', 'Brownsville', 'Harlingen'];
 interface Props { theme?: 'dark' | 'light'; lang?: 'en' | 'es' }
 const { theme = 'dark', lang = 'en' } = Astro.props;
@@ -33,7 +38,7 @@ const t = es
       formNote: 'Una revisión automática y gratis de tu perfil público de Google Business. Sin registrarte. Para una auditoría personal, habla con Eddie.',
       citiesLabel: 'Ciudades que servimos', citiesLead: 'Con base en McAllen. Servimos a',
       allCities: null,
-      stars: '5 de 5 estrellas', rated: 'Reseñas reales en Google', readReviews: 'Léelas en Google',
+      stars: `${reviewAvg} de 5 estrellas`, rated: `${reviewAvg} de ${reviewCount} reseñas en Google`, readReviews: 'Léelas en Google',
       logosHeading: 'Negocios con los que hemos trabajado',
     }
   : {
@@ -50,7 +55,7 @@ const t = es
       formNote: 'A free automated snapshot of your public Google Business listing. No signup. For a personal audit, talk with Eddie.',
       citiesLabel: 'Cities we serve', citiesLead: 'Based in McAllen. Serving',
       allCities: { href: '/service-areas/', text: 'All Valley cities' },
-      stars: '5 out of 5 stars', rated: 'Real Google reviews', readReviews: 'Read them on Google',
+      stars: `${reviewAvg} out of 5 stars`, rated: `${reviewAvg} from ${reviewCount} Google reviews`, readReviews: 'Read them on Google',
       logosHeading: "Businesses we've worked with",
     };
 const facts = t.facts;
@@ -102,6 +107,9 @@ const clients = [
           <p id="grade-card-heading" class="text-base font-bold text-text">{t.formHeading}</p>
           <label class="block"><span class="sr-only">{t.bizLabel}</span><input name="business" type="text" maxlength="60" autocomplete="organization" placeholder={t.bizLabel} class="spec-input" /></label>
           <button type="submit" class="spec-btn"><span>{t.button}</span></button>
+          <a href={site.social.gbp} target="_blank" rel="noopener" class="flex items-center justify-center gap-1.5 pt-1 text-sm font-semibold text-text no-underline hover:underline underline-offset-4">
+            <span class="text-amber-500 leading-none" aria-hidden="true">★★★★★</span>{t.rated}
+          </a>
           <p class="pt-1 text-xs text-text-muted">{t.formNote}</p>
         </form>
       </aside>
