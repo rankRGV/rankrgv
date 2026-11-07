@@ -35,6 +35,16 @@ const faqs = [
       "$299/month plus sales tax, month to month, no contract. That covers 4 Google posts, up to 8 of your photos, a reply to every new review, and a monthly snapshot of what we did and where you stand.",
   },
   {
+    question: 'Can you post and reply in Spanish?',
+    answer:
+      "Yes. Your posts and review replies go out in English, Spanish, or both, depending on who your customers are. A review written in Spanish gets its reply in Spanish.",
+  },
+  {
+    question: "My profile isn't verified yet. Can you help?",
+    answer:
+      "Yes. If your profile still needs to be verified, or Google asks you to verify it again, we walk you through it during setup. Google picks the method (often a short video of your business) and sets the timing, so we can't promise how long it takes.",
+  },
+  {
     question: "What if I don't send photos?",
     answer:
       "We post what you send, up to 8 a month. If none come in, your snapshot shows 0. We'll remind you, but we don't make up photos or use stock ones.",
@@ -82,7 +92,7 @@ const howToSteps = [
 const schema = [
   buildServiceSchema(
     'Google Business Optimization McAllen TX',
-    'RankRGV keeps Google Business Profiles active for McAllen and Rio Grande Valley businesses: 4 posts a month, up to 8 client photos, replies to every review, and a monthly snapshot with one tracked keyword position. Not a ranking package.',
+    'RankRGV keeps Google Business Profiles active for McAllen and Rio Grande Valley businesses: 4 posts a month, up to 8 client photos, replies to every review in English or Spanish, help with Google verification, and a monthly snapshot with one tracked keyword position. Not a ranking package.',
     site.areaServed
   ),
   buildFAQSchema(faqs),
@@ -134,7 +144,7 @@ const schema = [
           </h1>
 
           <p class="text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
-            We keep your Google Business Profile current with weekly posts, fresh photos, and replies to your reviews. Every month you get a plain snapshot of what we did and where you stand on the Map for the one search that matters most to you.
+            We keep your Google Business Profile current with weekly posts, fresh photos, and replies to your reviews, in English, Spanish, or both. Every month you get a plain snapshot of what we did and where you stand on the Map for the one search that matters most to you.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 mb-6">
@@ -278,6 +288,8 @@ const schema = [
         <ul class="space-y-3 text-text-muted text-sm leading-relaxed">
           <li><strong class="text-text">Keyword and city lock.</strong> We agree on one search, like "AC repair McAllen." That's the position line on every snapshot from then on.</li>
           <li><strong class="text-text">Profile setup.</strong> We check your categories, hours, services, and service area at onboarding and set them right once.</li>
+          <li><strong class="text-text">Verification help.</strong> Profile not verified yet, or Google asking you to verify again? We walk you through it.</li>
+          <li><strong class="text-text">Your language.</strong> Tell us if your customers speak English, Spanish, or both, and we'll write your posts and replies to match.</li>
           <li><strong class="text-text">What you give us:</strong> manager access to your Google Business Profile, your first batch of photos, and a quick confirmation of your business facts.</li>
           <li><strong class="text-text">Bonus:</strong> a one page tip sheet and a QR code you can use to ask happy customers for reviews.</li>
         </ul>
@@ -314,7 +326,7 @@ const schema = [
         </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-text mb-3">Google Business Optimization: $299/month</h2>
         <p class="text-text-muted text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
-          Weekly posts, up to 8 photos, review replies, and a monthly snapshot with your keyword position. Plus sales tax. Month to month. We earn it every month.
+          Weekly posts, up to 8 photos, review replies, and a monthly snapshot with your keyword position, in English, Spanish, or both. Plus sales tax. Month to month. We earn it every month.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
           <a href={startHref} class="btn-primary">Get started</a>
