@@ -67,3 +67,24 @@ const description = "We received your audit request. We'll review your Google Bu
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  // Count the lead here: Formspark only redirects to this page after it
+  // accepts the submission. The contact form leaves a note in sessionStorage
+  // on submit; no note (direct visit) or a stale note means no lead. The note
+  // is cleared after one use so a reload doesn't count twice.
+  (() => {
+    let pending: { label?: string; path?: string; t?: number } | null = null;
+    try {
+      pending = JSON.parse(sessionStorage.getItem('rankrgv_pending_lead') || 'null');
+      sessionStorage.removeItem('rankrgv_pending_lead');
+    } catch { return; }
+    if (!pending || !pending.t || Date.now() - pending.t > 30 * 60 * 1000) return;
+    if (typeof (window as any).gtag !== 'function') return;
+    (window as any).gtag('event', 'generate_lead', {
+      event_category: 'engagement',
+      event_label: pending.label || 'contact_form',
+      page_path: pending.path || '/contact/',
+    });
+  })();
+</script>
