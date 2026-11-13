@@ -83,8 +83,11 @@ const description = "You're in. Here's what happens next: invoice details, your 
       sessionStorage.removeItem('rankrgv_pending_checkout');
     } catch { return; }
     if (!pending || !pending.t || Date.now() - pending.t > 2 * 60 * 60 * 1000) return;
-    if (typeof (window as any).gtag !== 'function') return;
     const isGbo = (pending.link || '').includes('dRm3cw99jfeNePqcQW1Jm0k');
+    if (typeof (window as any).fbq === 'function') {
+      (window as any).fbq('track', 'Purchase', { currency: 'USD', value: isGbo ? 299 : 0, content_name: isGbo ? 'Google Business Optimization' : 'Stripe payment link' }, { eventID: 'stripe-' + pending.t });
+    }
+    if (typeof (window as any).gtag !== 'function') return;
     (window as any).gtag('event', 'purchase', {
       transaction_id: 'stripe-' + pending.t,
       currency: 'USD',

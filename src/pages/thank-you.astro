@@ -80,6 +80,7 @@ const description = "We received your audit request. We'll review your Google Bu
       sessionStorage.removeItem('rankrgv_pending_lead');
     } catch { return; }
     if (!pending || !pending.t || Date.now() - pending.t > 30 * 60 * 1000) return;
+    if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Lead', { content_name: pending.label || 'contact_form' });
     if (typeof (window as any).gtag !== 'function') return;
     (window as any).gtag('event', 'generate_lead', {
       event_category: 'engagement',

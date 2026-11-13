@@ -81,6 +81,29 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
       };
     </script>
 
+    <!-- Meta pixel. Same idea as GA4: the fbq queue exists right away, the
+         script itself loads after the page has painted, and only the real
+         site reports (no localhost or Vercel previews). -->
+    {site.metaPixelId && (
+      <script is:inline define:vars={{ metaPixelId: site.metaPixelId }}>
+        if (/(^|\.)rankrgv\.com$/.test(location.hostname)) {
+          var n = window.fbq = window.fbq || function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          };
+          if (!window._fbq) window._fbq = n;
+          n.push = n; n.loaded = true; n.version = '2.0'; n.queue = n.queue || [];
+          fbq('init', metaPixelId);
+          fbq('track', 'PageView');
+          window.__afterLoad(function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+            document.head.appendChild(s);
+          });
+        }
+      </script>
+    )}
+
     <!-- GA4 — only loads when ga4Id is set -->
     {site.ga4Id && (
       <>
@@ -136,6 +159,7 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
                   link: link.href, path: window.location.pathname, t: Date.now(),
                 }));
               } catch (err) {}
+              if (window.fbq) window.fbq('track', 'InitiateCheckout', { currency: 'USD' });
               return;
             }
 

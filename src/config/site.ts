@@ -7,6 +7,8 @@ export const site = {
   email: 'hello@rankrgv.com',
   formsparkId: 'CTzJGJckq',
   ga4Id: 'G-ZLFQ1WH6MN',
+  // Meta pixel (dataset "RankRGV Website" in the RankRgv business portfolio)
+  metaPixelId: '3051127395223832',
   graderUrl: 'https://grader.rankrgv.com',
   primaryCity: 'McAllen',
   primaryState: 'TX',
