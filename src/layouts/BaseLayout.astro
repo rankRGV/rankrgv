@@ -121,6 +121,24 @@ const resolvedOgLocale = ogLocale ?? (lang === 'es' ? 'es_MX' : 'en_US');
               return;
             }
 
+            // Stripe payment links: count the checkout start, and leave a note so
+            // /welcome/ (Stripe's after-payment redirect) can count the purchase once.
+            if (link.href.startsWith('https://buy.stripe.com/')) {
+              window.gtag('event', 'begin_checkout', {
+                event_category: 'ecommerce',
+                event_label: link.href,
+                link_text: link.textContent.trim(),
+                page_path: window.location.pathname,
+                transport_type: 'beacon',
+              });
+              try {
+                sessionStorage.setItem('rankrgv_pending_checkout', JSON.stringify({
+                  link: link.href, path: window.location.pathname, t: Date.now(),
+                }));
+              } catch (err) {}
+              return;
+            }
+
             if (!link.href.startsWith('https://grader.rankrgv.com')) return;
             window.gtag('event', 'grader_click', {
               event_category: 'engagement',

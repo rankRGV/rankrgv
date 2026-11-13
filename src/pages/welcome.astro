@@ -69,3 +69,29 @@ const description = "You're in. Here's what happens next: invoice details, your 
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  // Count the purchase here: Stripe payment links redirect to /welcome/ after a
+  // successful payment. The click handler in BaseLayout leaves a note in
+  // sessionStorage when a buy.stripe.com link is clicked; no note (direct visit,
+  // or a payment link opened from somewhere else) means no purchase event. The
+  // note is cleared after one use so a reload doesn't count twice.
+  (() => {
+    let pending: { link?: string; path?: string; t?: number } | null = null;
+    try {
+      pending = JSON.parse(sessionStorage.getItem('rankrgv_pending_checkout') || 'null');
+      sessionStorage.removeItem('rankrgv_pending_checkout');
+    } catch { return; }
+    if (!pending || !pending.t || Date.now() - pending.t > 2 * 60 * 60 * 1000) return;
+    if (typeof (window as any).gtag !== 'function') return;
+    const isGbo = (pending.link || '').includes('dRm3cw99jfeNePqcQW1Jm0k');
+    (window as any).gtag('event', 'purchase', {
+      transaction_id: 'stripe-' + pending.t,
+      currency: 'USD',
+      value: isGbo ? 299 : 0,
+      items: [{ item_name: isGbo ? 'Google Business Optimization' : 'Stripe payment link', price: isGbo ? 299 : 0, quantity: 1 }],
+      event_label: pending.link || '',
+      page_path: pending.path || '',
+    });
+  })();
+</script>
