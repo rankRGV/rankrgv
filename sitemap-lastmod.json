@@ -1,7 +1,7 @@
 {
  "/": {
-  "hash": "0c147a1c2d52986c",
-  "lastmod": "2026-11-12"
+  "hash": "c3917fc1f31c4ed0",
+  "lastmod": "2026-11-14"
  },
  "/about/": {
   "hash": "9728cf23928c3835",
@@ -104,8 +104,8 @@
   "lastmod": "2026-10-18"
  },
  "/es/": {
-  "hash": "b76c52061594ff3e",
-  "lastmod": "2026-11-07"
+  "hash": "b59b7186bc39e135",
+  "lastmod": "2026-11-14"
  },
  "/es/areas-de-servicio/brownsville/": {
   "hash": "9eb0d1f8b913c823",
@@ -136,8 +136,8 @@
   "lastmod": "2026-11-07"
  },
  "/es/precios/": {
-  "hash": "5cc008469166bc2e",
-  "lastmod": "2026-11-12"
+  "hash": "dabf60d5303df46b",
+  "lastmod": "2026-11-14"
  },
  "/es/seo-local/": {
   "hash": "42103252675058b3",
@@ -160,8 +160,8 @@
   "lastmod": "2026-11-12"
  },
  "/pricing/": {
-  "hash": "a3bb412f330dd2ea",
-  "lastmod": "2026-11-12"
+  "hash": "5f43d3d51e6f90b1",
+  "lastmod": "2026-11-14"
  },
  "/service-areas/": {
   "hash": "70106c01ce697f77",
@@ -192,7 +192,7 @@
   "lastmod": "2026-10-22"
  },
  "/web-design/": {
-  "hash": "fc2ce55c945de2b0",
+  "hash": "7a4953f2ce8bbe9a",
   "lastmod": "2026-11-14"
  }
 }
