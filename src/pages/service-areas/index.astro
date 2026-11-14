@@ -190,7 +190,8 @@ const schema = [
               <p class="text-sm text-text-muted leading-relaxed">{area.marketContext}</p>
             </div>
 
-            <!-- Service links for this city -->
+            <!-- Service links for this city (only when a city service page exists) -->
+            {CITY_SPOKE_SERVICES.length > 0 && (
             <div class="p-4 space-y-1.5">
               {services.filter((service) => CITY_SPOKE_SERVICES.includes(service.slug)).map((service) => (
                 <a
@@ -211,6 +212,7 @@ const schema = [
                 </a>
               ))}
             </div>
+            )}
           </div>
         ))}
       </div>

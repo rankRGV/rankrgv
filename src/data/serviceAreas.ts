@@ -92,7 +92,11 @@ export function getAreaBySlug(slug: string): ServiceArea | undefined {
 // Services that still have their own city page (/service-areas/[city]/[service]/).
 // Local SEO, ads and automation city pages were folded into the city hub or the
 // main service page on 2026-10-18 (no search demand, never crawled by Google).
-export const CITY_SPOKE_SERVICES = ['web-design'];
+// The six web design city pages were 301'd to /web-design/ on 2026-11-14: Search
+// Console showed Google sent web design searches to /web-design/ and the city
+// versions earned almost no impressions. Add a slug here only for a city page
+// with real local proof for that service.
+export const CITY_SPOKE_SERVICES: string[] = [];
 
 export function cityServiceHref(citySlug: string, serviceSlug: string): string {
   return CITY_SPOKE_SERVICES.includes(serviceSlug)

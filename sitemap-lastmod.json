@@ -164,59 +164,35 @@
   "lastmod": "2026-11-12"
  },
  "/service-areas/": {
-  "hash": "5932b29d0014118c",
-  "lastmod": "2026-10-22"
+  "hash": "70106c01ce697f77",
+  "lastmod": "2026-11-14"
  },
  "/service-areas/brownsville/": {
   "hash": "403e5b1eef04ca88",
   "lastmod": "2026-10-22"
  },
- "/service-areas/brownsville/web-design/": {
-  "hash": "7d451c42e2ce6881",
-  "lastmod": "2026-10-29"
- },
  "/service-areas/edinburg/": {
   "hash": "a6f7549bdccfaf2c",
   "lastmod": "2026-10-22"
- },
- "/service-areas/edinburg/web-design/": {
-  "hash": "bff6635b2df16146",
-  "lastmod": "2026-10-29"
  },
  "/service-areas/harlingen/": {
   "hash": "9d200e469311c0b0",
   "lastmod": "2026-10-22"
  },
- "/service-areas/harlingen/web-design/": {
-  "hash": "16fd133b46b8bb4f",
-  "lastmod": "2026-10-29"
- },
  "/service-areas/mcallen/": {
   "hash": "1aa83644c00350b0",
   "lastmod": "2026-10-22"
- },
- "/service-areas/mcallen/web-design/": {
-  "hash": "c760cd06773edcd0",
-  "lastmod": "2026-10-29"
  },
  "/service-areas/mission/": {
   "hash": "fdb76aeeab5a4868",
   "lastmod": "2026-10-22"
  },
- "/service-areas/mission/web-design/": {
-  "hash": "d4eeddf935d34de3",
-  "lastmod": "2026-10-29"
- },
  "/service-areas/pharr/": {
   "hash": "deecacdf1704dfcd",
   "lastmod": "2026-10-22"
  },
- "/service-areas/pharr/web-design/": {
-  "hash": "d93208895e102964",
-  "lastmod": "2026-10-29"
- },
  "/web-design/": {
-  "hash": "016c7054decb1735",
-  "lastmod": "2026-10-29"
+  "hash": "fc2ce55c945de2b0",
+  "lastmod": "2026-11-14"
  }
 }
