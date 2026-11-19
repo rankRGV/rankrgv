@@ -81,6 +81,28 @@ export const onboardingClients: OnboardingClient[] = [
     cancelNote: "Month-to-month, no long-term commitment. Give 2 weeks' notice by text or email to wind down either service, no penalty.",
   },
   {
+    slug: 'bellissimo',
+    clientName: 'Bellissimo Builders',
+    contactName: 'Clemente Gonzalez',
+    contactFirst: 'Clemente',
+    letter: [
+      "Thank you for trusting me with Bellissimo Builders. You already rank at the top around your office in Mission. The work now is getting you found in McAllen and Edinburg, and getting Google Ads to put real custom home leads on the phone.",
+      "The holidays are slow, so we'll use them to fix the basics: your listings, your website and the ad setup, working with Isaiah where it touches the site. That way everything is ready when people start calling again in January and February. When the Cameron County side is ready, we'll talk about stretching the ads to cover it.",
+    ],
+    exclusivity: {
+      title: 'One custom home builder in Mission.',
+      text: "While you're a client, I won't take on another custom home builder in Mission.",
+    },
+    updateCovers: "your map rankings, your Google Ads results (spend, calls and leads), what we did, and what's next",
+    planName: 'Local SEO + Google Ads',
+    planSub: 'Custom homes, Mission office',
+    monthly: '$1,395',
+    billingDay: '19th',
+    billingNote: '$975 Local SEO plus $420 Google Ads management. Your ad budget is paid straight to Google and is not part of this. Sales tax is added on top.',
+    setupPaid: '$500 listing cleanup',
+    cancelNote: "Month to month for the first three months. If you're not happy, you stop with no penalty. After that we move to three month agreements.",
+  },
+  {
     // Made-up client for testing the flow end to end. Safe to remove.
     slug: 'demo',
     clientName: 'Valley Demo Auto Body',
