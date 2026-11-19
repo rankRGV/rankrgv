@@ -302,7 +302,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
             <p class="text-sm text-slate-400 mt-1">plus tax</p>
             {c.setupPaid && (
               <div class="flex items-center justify-between gap-3 text-sm mt-5 pt-4 border-t border-white/10">
-                <span class="text-slate-300">Setup · {c.setupPaid}</span>
+                <span class="text-slate-300">{c.setupLabel ?? 'Setup'} · {c.setupPaid}</span>
                 <span class="inline-flex items-center gap-1.5 font-semibold text-green-400">
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
                   Paid
@@ -311,9 +311,10 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
             )}
           </div>
           <ul class="space-y-3 text-sm text-text-muted mb-8">
-            <li><strong class="text-text">When:</strong> charged automatically on the {c.billingDay} of each month, the same day as your first payment, to the card on file through Stripe.</li>
+            <li><strong class="text-text">When:</strong> {c.billingDay ? <>charged automatically on the {c.billingDay} of each month, the same day as your first payment, to the card on file through Stripe.</> : <>charged automatically every month on the same day as your first payment, to the card on file through Stripe. Pay on the 19th and you're billed on the 19th of each month; pay on the 20th and it's the 20th.</>}</li>
             <li><strong class="text-text">Receipts:</strong> emailed to you after every charge.</li>
             {c.billingNote && <li><strong class="text-text">Setup:</strong> {c.billingNote}</li>}
+            {c.adBudgetNote && <li><strong class="text-text">Ad budget:</strong> {c.adBudgetNote}</li>}
             <li><strong class="text-text">Terms:</strong> {c.cancelNote}</li>
             <li><strong class="text-text">Extra work:</strong> you get a written quote first. Work starts once you approve it.</li>
           </ul>

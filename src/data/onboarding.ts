@@ -12,10 +12,15 @@ export interface OnboardingClient {
   planName: string;
   planSub: string;
   monthly: string;
-  billingDay: string;
+  /** Omit to say "same day each month as your first payment" without naming a date. */
+  billingDay?: string;
   billingNote?: string;
   /** One-time setup already paid, shown as a "Paid" line on the billing card. */
   setupPaid?: string;
+  /** Label before setupPaid on the billing card. Defaults to "Setup". */
+  setupLabel?: string;
+  /** Ad spend note shown on the billing step, for clients with ads management. */
+  adBudgetNote?: string;
   cancelNote: string;
   /** What the biweekly update covers, matched to the client's plan. */
   updateCovers?: string;
@@ -95,11 +100,12 @@ export const onboardingClients: OnboardingClient[] = [
     },
     updateCovers: "your map rankings, your Google Ads results (spend, calls and leads), what we did, and what's next",
     planName: 'Local SEO + Google Ads',
-    planSub: 'Custom homes, Mission office',
+    planSub: '$975 Local SEO + $420 Google Ads management',
     monthly: '$1,395',
-    billingDay: '19th',
-    billingNote: '$975 Local SEO plus $420 Google Ads management. Your ad budget is paid straight to Google and is not part of this. Sales tax is added on top.',
-    setupPaid: '$500 listing cleanup',
+    billingNote: 'The $500 setup fee is a one time charge, paid with your first payment. It is never charged again.',
+    setupLabel: 'One time setup fee (charged once)',
+    setupPaid: '$500',
+    adBudgetNote: 'We start your Google Ads at up to $1,000 a month and adjust from there with you. That budget is paid straight to Google on your own card and is separate from the $420 management fee.',
     cancelNote: "Month to month for the first three months. If you're not happy, you stop with no penalty. After that we move to three month agreements.",
   },
   {
