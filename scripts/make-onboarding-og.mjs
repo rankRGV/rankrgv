@@ -18,6 +18,7 @@ const font = dataUri('node_modules/@fontsource-variable/inter/files/inter-latin-
 const headshot = dataUri('public/images/eddie-urbano.png', 'image/png');
 const esc = (s) => s.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]);
 
+const T = (c, en, es) => (c.lang === 'es' ? es : en);
 const html = (c) => `<!doctype html><html><head><style>
   @font-face { font-family: Inter; src: url(${font}) format('woff2'); font-weight: 100 900; }
   * { box-sizing: border-box; margin: 0; }
@@ -33,6 +34,7 @@ const html = (c) => `<!doctype html><html><head><style>
   .hello { margin-top: 44px; font-size: 50px; font-weight: 700; letter-spacing: -.01em; color: #e2e8f0; }
   .hello b { background: linear-gradient(90deg, #60a5fa, #93c5fd); -webkit-background-clip: text; color: transparent; font-weight: 800; }
   .name { font-size: 118px; font-weight: 800; letter-spacing: -.035em; line-height: 1.02; margin-top: 4px; }
+  .name.long { font-size: 92px; }
   .sub { margin-top: 22px; font-size: 28px; color: #94a3b8; line-height: 1.4; }
   .from { position: absolute; left: 72px; bottom: 58px; display: flex; align-items: center; gap: 18px; }
   .from img { width: 68px; height: 68px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; border: 3px solid rgba(255,255,255,.18); }
@@ -53,28 +55,29 @@ const html = (c) => `<!doctype html><html><head><style>
   .btn { margin-top: 24px; margin-left: auto; width: max-content; padding: 14px 30px; border-radius: 12px; background: #1d4ed8; color: #fff; font-size: 18px; font-weight: 700; }
 </style></head><body>
   <div class="left">
-    <div class="pill"><i></i>Private onboarding · ${esc(c.clientName)}</div>
-    <p class="hello">Welcome to <b>RankRGV</b>,</p>
-    <p class="name">${esc(c.contactFirst)}.</p>
-    <p class="sub">Your onboarding is ready.<br>It takes about three minutes.</p>
+    <div class="pill"><i></i>${T(c, 'Private onboarding', 'Registro privado')} · ${esc(c.clientName)}</div>
+    <p class="hello">${T(c, 'Welcome to', 'Bienvenido a')} <b>RankRGV</b>,</p>
+    <p class="name${c.contactFirst.length > 8 ? ' long' : ''}">${esc(c.contactFirst)}.</p>
+    <p class="sub">${T(c, 'Your onboarding is ready.<br>It takes about three minutes.', 'Su registro está listo.<br>Toma unos tres minutos.')}</p>
   </div>
-  <div class="from"><img src="${headshot}" alt=""><p>From Eddie Urbano<span>Founder, RankRGV</span></p></div>
+  <div class="from"><img src="${headshot}" alt=""><p>${T(c, 'From', 'De')} Eddie Urbano<span>${T(c, 'Founder', 'Fundador')}, RankRGV</span></p></div>
   <div class="card">
     <div class="segs"><div class="on"></div><div class="on"></div><div></div><div></div></div>
-    <div class="labels"><span class="on">✓ YOU</span><span class="on">SCHEDULE</span><span>UPDATES</span><span>BILLING</span></div>
-    <p class="eyebrow">YOUR SCHEDULE</p>
-    <p class="q">Which days are okay to contact you?</p>
+    <div class="labels">${T(c, '<span class="on">✓ YOU</span><span class="on">SCHEDULE</span><span>UPDATES</span><span>BILLING</span>', '<span class="on">✓ USTED</span><span class="on">HORARIO</span><span>AVANCES</span><span>PAGO</span>')}</div>
+    <p class="eyebrow">${T(c, 'YOUR SCHEDULE', 'SU HORARIO')}</p>
+    <p class="q">${T(c, 'Which days are okay to contact you?', '¿Qué días lo podemos contactar?')}</p>
     <div class="opts">
-      <div class="opt sel"><i></i>Mon – Fri</div><div class="opt"><i></i>Saturday</div>
+      <div class="opt sel"><i></i>${T(c, 'Mon – Fri', 'Lun – Vie')}</div><div class="opt"><i></i>${T(c, 'Saturday', 'Sábado')}</div>
     </div>
-    <div class="btn">Next</div>
+    <div class="btn">${T(c, 'Next', 'Siguiente')}</div>
   </div>
   <div class="bar"></div>
 </body></html>`;
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
-for (const c of onboardingClients) {
+// ONLY=<slug> renders one client's image; the share block below always covers every client.
+for (const c of onboardingClients.filter((x) => !process.env.ONLY || x.slug === process.env.ONLY)) {
   await page.setContent(html(c), { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
   const file = path.join(outDir, `${c.slug}.png`);
@@ -83,7 +86,7 @@ for (const c of onboardingClients) {
 }
 await browser.close();
 
-const share = Object.fromEntries(onboardingClients.map((c) => [c.slug, { contactFirst: c.contactFirst, clientName: c.clientName }]));
+const share = Object.fromEntries(onboardingClients.map((c) => [c.slug, { contactFirst: c.contactFirst, clientName: c.clientName, ...(c.lang ? { lang: c.lang } : {}) }]));
 const mwPath = path.join(root, 'middleware.js');
 const mw = readFileSync(mwPath, 'utf8');
 const block = /(\/\/ BEGIN onboardingShare\r?\n)[\s\S]*?(\r?\n\/\/ END onboardingShare)/;

@@ -5,7 +5,8 @@ import { onboardingClients, type OnboardingClient } from '@/data/onboarding';
 
 // Private onboarding wizard. Passcode-gated on Vercel by /middleware.js; noindex and out of the sitemap.
 export function getStaticPaths() {
-  return onboardingClients.map((c) => ({ params: { slug: c.slug }, props: { c } }));
+  // Spanish clients have their own page at src/pages/start/<slug>.astro.
+  return onboardingClients.filter((c) => c.lang !== 'es').map((c) => ({ params: { slug: c.slug }, props: { c } }));
 }
 
 const { c } = Astro.props as { c: OnboardingClient };

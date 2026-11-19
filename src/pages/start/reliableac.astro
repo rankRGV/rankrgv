@@ -1,0 +1,753 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+import { onboardingClients, type OnboardingClient } from '@/data/onboarding';
+
+// Spanish copy of src/pages/start/[slug].astro for Reliable AC Services. Passcode-gated by /middleware.js.
+// Labels are in Spanish; submitted values stay in English so the recap email reads the same for every client.
+const c = onboardingClients.find((x) => x.slug === 'reliableac') as OnboardingClient;
+
+const promises = [
+  { title: 'Siempre me va a encontrar.', text: 'Cada llamada, texto y correo me llega a mí, y yo hago el trabajo.' },
+  { title: 'Todo queda a su nombre.', text: 'Su sitio web, contenido, cuentas de Google y datos son suyos y se quedan con usted.' },
+  c.exclusivity,
+  { title: 'Sus reportes enseñan los números reales.', text: 'Los comparamos cada vez para ver cómo vamos.' },
+  { title: 'El trabajo extra se cotiza primero.', text: 'Lo que esté fuera de su plan lleva una cotización por escrito. Cuando usted la aprueba, empiezo.' },
+];
+
+const updateCovers = c.updateCovers ?? 'su posición en Google, lo que hicimos y lo que sigue';
+
+const updateFormats = [
+  { value: 'Loom video', title: 'Video corto (Loom)', text: 'Unos minutos, lo puede ver en su teléfono. Le enseño los números en pantalla, y si quiere platicarlo, con gusto hacemos una llamada.', lc: 'video de avance' },
+  { value: 'Written report', title: 'Reporte escrito', text: 'La misma información en un correo corto que puede leer o reenviar.', lc: 'reporte escrito' },
+  { value: 'Video and written', title: 'Los dos', text: 'El video y el reporte escrito, para verlo o leerlo rápido.', lc: 'video y reporte escrito' },
+  { value: 'Live virtual meeting', title: 'Reunión en vivo', text: 'Sin grabación. Nos vemos en línea y le explico los números en vivo.', lc: 'reunión en vivo' },
+];
+
+// Progress groups shown above the card. Numbers are step indexes.
+const segments = [
+  { label: 'Usted', steps: [1] },
+  { label: 'Horario', steps: [2, 3] },
+  { label: 'Avances', steps: [4, 5, 6] },
+  { label: 'Pago', steps: [7] },
+];
+
+const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const dayEs: Record<string, string> = { Mon: 'Lun', Tue: 'Mar', Wed: 'Mié', Thu: 'Jue', Fri: 'Vie', Sat: 'Sáb', Sun: 'Dom' };
+const reachEs: Record<string, string> = { Text: 'Texto', 'Phone call': 'Llamada', WhatsApp: 'WhatsApp', Email: 'Correo' };
+const urgentOpts = [
+  ['Call me anyway', 'Llámeme de todos modos'],
+  ["Text me, I'll see it when I see it", 'Mándeme un texto, lo veo cuando pueda'],
+  ['Wait until my hours start', 'Espere a que empiece mi horario'],
+];
+const earliest = ['6:00 AM', '7:00 AM', '8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM'];
+const latest = ['4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM'];
+const hourPresets = [
+  { value: 'business', title: 'Horario de oficina', sub: '8 AM a 5 PM', from: '8:00 AM', to: '5:00 PM' },
+  { value: 'extended', title: 'Extendido', sub: '8 AM a 7 PM', from: '8:00 AM', to: '7:00 PM' },
+  { value: 'anytime', title: 'Cuando sea', sub: 'Sin límite', from: '', to: '' },
+  { value: 'custom', title: 'A mi gusto', sub: 'Usted escoge' },
+];
+
+const check = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5" pathLength="1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+const input = 'w-full rounded-lg border border-border bg-bg-surface px-4 py-3 text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent aria-[invalid=true]:border-red-500';
+const label = 'block text-sm font-semibold text-text mb-2';
+const req = 'font-normal text-text-muted';
+const fieldError = 'text-sm text-red-600 mt-2';
+const eyebrow = 'text-xs font-bold tracking-widest uppercase text-brand-blue mb-2';
+const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
+---
+
+<BaseLayout title={`Bienvenido a RankRGV, ${c.contactFirst}`} description={`Su registro privado para ${c.clientName}. Toma unos tres minutos.`} ogImage={`/images/og/onboarding/${c.slug}.png`} noindex={true} bare={true} lang="es">
+  <div class="min-h-screen bg-bg-surface py-8 sm:py-14 px-4">
+    <div class="max-w-xl mx-auto">
+
+      <div class="flex items-center justify-between mb-6">
+        <img src="/images/RankRGV_compact_logo.png" alt="RankRGV" class="h-7 w-auto" />
+        <span class="text-xs font-semibold text-text-muted">{c.clientName}</span>
+      </div>
+
+      <div id="progress" class="mb-5" hidden>
+        <p id="progress-sr" class="sr-only" aria-live="polite"></p>
+        <div class="grid grid-cols-4 gap-1.5" aria-hidden="true">
+          {segments.map((s) => (
+            <div data-seg={s.steps.join(',')}>
+              <div class="h-1.5 rounded-full bg-border overflow-hidden">
+                <div class="seg-fill h-full bg-brand-blue rounded-full transition-[width] duration-300 ease-out" style="width:0%"></div>
+              </div>
+              <p class="mt-2 text-[11px] font-semibold tracking-wide uppercase"><span class="seg-label inline-block text-text-muted transition-colors">{s.label}</span></p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <form id="wizard" class="bg-bg rounded-2xl border border-border shadow-sm p-6 sm:p-10" novalidate
+        data-client={c.slug} data-endpoint={`https://submit-form.com/${site.formsparkId}`}>
+
+        <!-- 0: Welcome -->
+        <section data-step="0">
+          <p class={eyebrow} data-stagger>Bienvenido a RankRGV</p>
+          <h1 class={h} tabindex="-1" data-stagger>Gracias, {c.contactFirst}.</h1>
+          {c.letter.map((p) => <p class="text-text-muted leading-relaxed mb-4" data-stagger>{p}</p>)}
+          <p class="text-text-muted leading-relaxed mb-6" data-stagger>Las siguientes pantallas toman unos tres minutos. Le pregunto cómo y cuándo quiere que me comunique con usted, le explico cómo vamos a estar en contacto y confirmamos su pago. Después le mando todo por escrito.</p>
+          <div class="flex items-center gap-3 mb-8" data-stagger>
+            <img src="/images/eddie-urbano.png" alt="" width="48" height="48" class="w-12 h-12 rounded-full object-cover object-[50%_20%] ring-2 ring-border" />
+            <div>
+              <p class="font-bold text-text leading-tight">Eddie Urbano</p>
+              <p class="text-sm text-text-muted">Fundador, RankRGV</p>
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-bg-surface border border-border p-5" data-stagger>
+            <p class="text-sm font-bold text-text mb-3">Cómo vamos a trabajar juntos</p>
+            <ol class="space-y-3">
+              {promises.map((p, i) => (
+                <li class="flex gap-3 text-sm" data-stagger>
+                  <span class="font-extrabold text-brand-blue w-5 shrink-0">0{i + 1}</span>
+                  <span><strong class="text-text">{p.title}</strong> <span class="text-text-muted">{p.text}</span></span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <!-- 1: Contact method -->
+        <section data-step="1" hidden>
+          <p class={eyebrow}>Sobre usted</p>
+          <h2 class={h} tabindex="-1">¿Cómo prefiere que lo contactemos?</h2>
+          <p class="text-text-muted mb-6">Escoja los que quiera.</p>
+          <fieldset class="mb-6" data-field="reach_by">
+            <legend class="sr-only">Formas de contacto</legend>
+            <div class="grid grid-cols-2 gap-2">
+              {['Text', 'Phone call', 'WhatsApp', 'Email'].map((m) => (
+                <label class="wz-opt"><input type="checkbox" name="reach_by" value={m} class="sr-only" /><span class="wz-mark" set:html={check} />{reachEs[m]}</label>
+              ))}
+            </div>
+            <p class={fieldError} data-error-for="reach_by" hidden></p>
+          </fieldset>
+
+          <div data-field="name">
+            <label for="name" class={label}>Su nombre</label>
+            <input id="name" name="name" value={c.contactName} autocomplete="name" class={input} />
+          </div>
+          <div class="wz-reveal" data-reveal="phone" inert>
+            <div class="wz-reveal-inner"><div class="pt-4" data-field="phone">
+              <label for="phone" class={label}>Mejor número de teléfono <span class={req}>· obligatorio</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" class={input} placeholder="956-555-0123" aria-describedby="phone-error" />
+              <p id="phone-error" class={fieldError} data-error-for="phone" hidden></p>
+            </div></div>
+          </div>
+          <div class="wz-reveal" data-reveal="email" inert>
+            <div class="wz-reveal-inner"><div class="pt-4" data-field="email">
+              <label for="email" class={label}>Mejor correo <span class={req}>· obligatorio</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" class={input} aria-describedby="email-error" />
+              <p id="email-error" class={fieldError} data-error-for="email" hidden></p>
+            </div></div>
+          </div>
+
+          <fieldset class="mt-6">
+            <legend class={label}>Idioma</legend>
+            <div class="grid grid-cols-3 gap-2">
+              {[['English', 'Inglés'], ['Español', 'Español'], ['Either one', 'Cualquiera']].map(([v, t], i) => (
+                <label class="wz-opt wz-opt-stack"><input type="radio" name="language" value={v} checked={i === 1} class="sr-only" /><span class="wz-mark wz-round" set:html={check} />{t}</label>
+              ))}
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- 2: Days -->
+        <section data-step="2" hidden>
+          <p class={eyebrow}>Su horario</p>
+          <h2 class={h} tabindex="-1">¿Qué días lo podemos contactar?</h2>
+          <p class="text-text-muted mb-6">Lo que no sea urgente espera a uno de estos días.</p>
+          <fieldset data-field="ok_days">
+            <legend class="sr-only">Días</legend>
+            <div class="grid grid-cols-4 sm:grid-cols-7 gap-2">
+              {days.map((d, i) => (
+                <label class="wz-opt wz-opt-stack"><input type="checkbox" name="ok_days" value={d} checked={i < 5} class="sr-only" /><span class="wz-mark" set:html={check} />{dayEs[d]}</label>
+              ))}
+            </div>
+            <p class={fieldError} data-error-for="ok_days" hidden></p>
+          </fieldset>
+        </section>
+
+        <!-- 3: Hours -->
+        <section data-step="3" hidden>
+          <p class={eyebrow}>Su horario</p>
+          <h2 class={h} tabindex="-1">¿Qué horas le funcionan?</h2>
+          <p class="text-text-muted mb-6">Yo escribo cuando estoy trabajando, pero programo los mensajes para que le lleguen solo dentro de este horario.</p>
+          <fieldset>
+            <legend class="sr-only">Horas</legend>
+            <div class="grid grid-cols-2 gap-2">
+              {hourPresets.map((p) => (
+                <label class="wz-opt items-start">
+                  <input type="radio" name="hours_preset" value={p.value} checked={p.value === 'extended'} data-from={p.from} data-to={p.to} class="sr-only" />
+                  <span class="wz-mark wz-round mt-0.5" set:html={check} />
+                  <span><strong class="block text-text">{p.title}</strong><span class="text-text-muted font-normal">{p.sub}</span></span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <div class="wz-reveal" data-reveal="custom-hours" inert>
+            <div class="wz-reveal-inner"><div class="grid grid-cols-2 gap-4 pt-4">
+              <div>
+                <label for="earliest" class={label}>No antes de</label>
+                <select id="earliest" name="not_before" class={input}>
+                  <option value="">Sin límite</option>
+                  {earliest.map((t) => <option selected={t === '8:00 AM'}>{t}</option>)}
+                </select>
+              </div>
+              <div>
+                <label for="latest" class={label}>No después de</label>
+                <select id="latest" name="not_after" class={input}>
+                  <option value="">Sin límite</option>
+                  {latest.map((t) => <option selected={t === '7:00 PM'}>{t}</option>)}
+                </select>
+              </div>
+            </div></div>
+          </div>
+          <fieldset class="mt-8">
+            <legend class={label}>Si sale algo urgente fuera de ese horario</legend>
+            <p class="text-sm text-text-muted mb-3">Urgente es un perfil de Google suspendido, el sitio web caído o una cuenta hackeada.</p>
+            <div class="flex flex-col gap-2">
+              {urgentOpts.map(([o, t], i) => (
+                <label class="wz-opt"><input type="radio" name="urgent_after_hours" value={o} checked={i === 1} class="sr-only" /><span class="wz-mark wz-round" set:html={check} />{t}</label>
+              ))}
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- 4: Additional authorized person -->
+        <section data-step="4" hidden>
+          <p class={eyebrow}>Avances</p>
+          <h2 class={h} tabindex="-1">¿Alguien más debe recibir los avances?</h2>
+          <p class="text-text-muted mb-6">Un socio, encargado o alguien de la oficina que deba tener la misma información.</p>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="wz-opt"><input type="radio" name="has_other" value="No" checked class="sr-only" /><span class="wz-mark wz-round" set:html={check} />Solo yo</label>
+            <label class="wz-opt"><input type="radio" name="has_other" value="Yes" class="sr-only" /><span class="wz-mark wz-round" set:html={check} />Agregar a alguien</label>
+          </div>
+          <div class="wz-reveal" data-reveal="other" inert>
+            <div class="wz-reveal-inner"><div class="pt-6 space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div data-field="other_name">
+                  <label for="other_name" class={label}>Nombre <span class={req}>· obligatorio</span></label>
+                  <input id="other_name" name="other_name" class={input} aria-describedby="other_name-error" />
+                  <p id="other_name-error" class={fieldError} data-error-for="other_name" hidden></p>
+                </div>
+                <div><label for="other_role" class={label}>Puesto</label><input id="other_role" name="other_role" class={input} placeholder="Encargada de oficina" /></div>
+                <div data-field="other_contact"><label for="other_email" class={label}>Correo</label><input id="other_email" name="other_email" type="email" class={input} aria-describedby="other_contact-error" /></div>
+                <div><label for="other_phone" class={label}>Teléfono</label><input id="other_phone" name="other_phone" type="tel" class={input} aria-describedby="other_contact-error" /></div>
+              </div>
+              <p id="other_contact-error" class={fieldError} data-error-for="other_contact" hidden></p>
+              <fieldset>
+                <legend class={label}>¿Qué puede hacer?</legend>
+                <div class="flex flex-col gap-2">
+                  <label class="wz-opt"><input type="radio" name="other_access" value="Receives updates only" checked class="sr-only" /><span class="wz-mark wz-round" set:html={check} />Solo recibir avances</label>
+                  <label class="wz-opt"><input type="radio" name="other_access" value="Receives updates and can approve work" class="sr-only" /><span class="wz-mark wz-round" set:html={check} />Recibir avances y aprobar trabajo</label>
+                </div>
+              </fieldset>
+            </div></div>
+          </div>
+        </section>
+
+        <!-- 5: Update format -->
+        <section data-step="5" hidden>
+          <p class={eyebrow}>Avances</p>
+          <h2 class={h} tabindex="-1">¿Cómo quiere recibir sus avances?</h2>
+          <p class="text-text-muted mb-6">Cada dos semanas recibe un resumen de {updateCovers}.</p>
+          <div class="flex flex-col gap-3" data-formats={JSON.stringify(Object.fromEntries(updateFormats.map((f) => [f.value, { title: f.title, lc: f.lc }])))}>
+            {updateFormats.map((f, i) => (
+              <label class="wz-opt items-start p-4">
+                <input type="radio" name="update_format" value={f.value} checked={i === 0} class="sr-only" />
+                <span class="wz-mark wz-round mt-0.5" set:html={check} />
+                <span><strong class="block text-text">{f.title}</strong><span class="text-text-muted font-normal">{f.text}</span></span>
+              </label>
+            ))}
+          </div>
+        </section>
+
+        <!-- 6: Staying in touch -->
+        <section data-step="6" hidden>
+          <p class={eyebrow}>En contacto</p>
+          <h2 class={h} tabindex="-1">Así va a saber de nosotros.</h2>
+          <div class="relative ml-2 my-6">
+            <span class="wz-tl-line absolute left-0 top-2 bottom-2 w-0.5 bg-border" aria-hidden="true"></span>
+            <ol class="space-y-6">
+              <li class="wz-tl-item pl-6 relative" style="--i:0"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-blue">Cada 2 semanas</p>
+                <p class="font-bold text-text">Su <span data-fill="update_format_lc">video de avance</span></p>
+                <p class="text-sm text-text-muted">{updateCovers.charAt(0).toUpperCase() + updateCovers.slice(1)}.</p></li>
+              <li class="wz-tl-item pl-6 relative" style="--i:1"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-blue">Semana 6</p>
+                <p class="font-bold text-text">Primera llamada de revisión</p>
+                <p class="text-sm text-text-muted">Cómo vamos hasta ahora: ritmo, primeros resultados y en qué enfocarnos.</p></li>
+              <li class="wz-tl-item pl-6 relative" style="--i:2"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-blue">Después, cada 6 a 8 semanas</p>
+                <p class="font-bold text-text">Llamada de estrategia</p>
+                <p class="text-sm text-text-muted">Vemos los números juntos y armamos el plan de las siguientes semanas.</p></li>
+            </ol>
+          </div>
+          <div class="wz-tl-item rounded-xl bg-bg-surface border border-border p-5 text-sm space-y-2" style="--i:3">
+            <p><strong class="text-text">Preguntas:</strong> <span class="text-text-muted">contestadas el mismo día hábil.</span></p>
+            <p><strong class="text-text">Su horario:</strong> <span class="text-text-muted" data-fill="window_summary"></span></p>
+            <p><strong class="text-text">Búsqueme cuando quiera:</strong> <span class="text-text-muted">{site.phone} · {site.email}</span></p>
+          </div>
+        </section>
+
+        <!-- 7: Billing + review -->
+        <section data-step="7" hidden>
+          <p class={eyebrow}>Pago</p>
+          <h2 class={h} tabindex="-1">Un vistazo rápido a su pago.</h2>
+          <div class="rounded-xl bg-bg-dark text-white p-6 my-6">
+            <p class="text-lg font-extrabold">{c.planName}</p>
+            <p class="text-sm text-slate-400 mb-5">{c.planSub}</p>
+            <p class="text-5xl font-extrabold tracking-tight">{c.monthly}<span class="text-base font-semibold text-slate-400 tracking-normal">/mes</span></p>
+            <p class="text-sm text-slate-400 mt-1">más impuesto</p>
+            {c.setupPaid && (
+              <div class="flex items-center justify-between gap-3 text-sm mt-5 pt-4 border-t border-white/10">
+                <span class="text-slate-300">{c.setupLabel ?? 'Arranque'} · {c.setupPaid}</span>
+                <span class="inline-flex items-center gap-1.5 font-semibold text-green-400">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  Pagado
+                </span>
+              </div>
+            )}
+          </div>
+          <ul class="space-y-3 text-sm text-text-muted mb-8">
+            <li><strong class="text-text">Cuándo:</strong> se cobra solo cada mes, el mismo día de su primer pago, a la tarjeta que dejó en Stripe. Si pagó el 19, se le cobra el 19 de cada mes.</li>
+            <li><strong class="text-text">Recibos:</strong> le llegan por correo después de cada cobro.</li>
+            {c.billingNote && <li><strong class="text-text">Arranque:</strong> {c.billingNote}</li>}
+            <li><strong class="text-text">Términos:</strong> {c.cancelNote}</li>
+            <li><strong class="text-text">Trabajo extra:</strong> primero le doy una cotización por escrito. Empiezo cuando usted la aprueba.</li>
+          </ul>
+
+          <div class="rounded-xl border border-border">
+            <p class="text-sm font-bold text-text px-5 pt-4 pb-1">Revise sus respuestas</p>
+            <dl id="review" class="divide-y divide-border text-sm"></dl>
+          </div>
+          <div class="cf-turnstile mt-6" data-sitekey="0x4AAAAAAE4-5t1BJvBEpWkt" data-size="flexible"></div>
+          <p class="submit-error text-sm text-red-600 mt-4" role="alert" hidden>No se pudo enviar. Intente otra vez, o mándeme un texto al {site.phone} y yo me encargo.</p>
+        </section>
+
+        <!-- 8: Thank you -->
+        <section data-step="8" hidden>
+          <div class="text-center py-6">
+            <div class="wz-done-circle w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path class="wz-done-path" pathLength="1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <h2 class={h} tabindex="-1" data-stagger>Todo listo, {c.contactFirst}.</h2>
+            <p class="text-text-muted leading-relaxed mb-3" data-stagger>Gracias por su tiempo. En un día hábil le mando un resumen por escrito: sus preferencias, el plan, cómo vamos a estar en contacto y mi compromiso de confidencialidad.</p>
+            <p class="text-text-muted leading-relaxed" data-stagger>Qué gusto tenerlo con nosotros.</p>
+            <p class="font-bold text-text mt-6" data-stagger>Eddie</p>
+          </div>
+        </section>
+
+        <div id="nav" class="sticky bottom-0 z-10 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 mt-8 px-6 sm:px-10 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-bg/95 backdrop-blur border-t border-border rounded-b-2xl flex items-center justify-between gap-3">
+          <button type="button" id="back" class="min-h-12 px-4 -ml-4 text-sm font-semibold text-text-muted hover:text-text invisible">Atrás</button>
+          <button type="button" id="next" class="min-h-12 px-7 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-blue-dark active:scale-[0.97] transition-[background-color,transform] duration-150 disabled:opacity-60">Empecemos</button>
+        </div>
+      </form>
+
+      <p class="text-center text-xs text-text-muted mt-6">Privado para {c.clientName}. ¿Preguntas? {site.phone}</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .wz-opt {
+    display: flex; align-items: center; gap: 0.625rem;
+    min-height: 3rem; padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border); border-radius: 0.75rem;
+    background: var(--color-bg-surface);
+    font-size: 0.875rem; font-weight: 500; color: var(--color-text);
+    cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
+    transition: border-color 150ms, background-color 150ms, box-shadow 150ms, transform 120ms ease-out;
+  }
+  .wz-opt:hover { border-color: #cbd5e1; }
+  .wz-opt:active { transform: scale(0.97); }
+  .wz-opt:has(:checked) { border-color: var(--color-brand-blue); background: color-mix(in srgb, var(--color-brand-blue) 7%, white); }
+  .wz-opt:has(:focus-visible) { box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-brand-blue); }
+  .wz-opt-stack { flex-direction: column; justify-content: center; gap: 0.375rem; padding: 0.625rem 0.25rem; }
+
+  .wz-mark {
+    flex: none; display: grid; place-items: center;
+    width: 1.125rem; height: 1.125rem;
+    border: 1.5px solid #cbd5e1; border-radius: 0.3rem; background: #fff;
+    transition: background-color 150ms, border-color 150ms;
+  }
+  .wz-mark.wz-round { border-radius: 999px; }
+  .wz-mark svg { width: 0.75rem; height: 0.75rem; stroke: #fff; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 200ms ease-out 40ms; }
+  .wz-opt:has(:checked) .wz-mark { background: var(--color-brand-blue); border-color: var(--color-brand-blue); }
+  .wz-opt:has(:checked) .wz-mark svg { stroke-dashoffset: 0; }
+
+  /* Fields that open in place: grid rows 0fr -> 1fr animates to the content's real height. */
+  .wz-reveal { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 220ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease-out; }
+  .wz-reveal[data-open] { grid-template-rows: 1fr; opacity: 1; }
+  .wz-reveal-inner { min-height: 0; overflow: hidden; margin: 0 -4px; padding: 0 4px 4px; }
+  .wz-reveal:not([data-open]) .wz-reveal-inner { padding-bottom: 0; }
+
+  @keyframes wz-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @keyframes wz-fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes wz-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes wz-pop { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+  @keyframes wz-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+  .wz-play [data-stagger] { animation: wz-up 420ms cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(var(--i, 0) * 60ms); }
+  .wz-play .wz-tl-line { transform-origin: top; animation: wz-grow 700ms cubic-bezier(0.22, 1, 0.36, 1) 60ms both; }
+  .wz-play .wz-tl-item { animation: wz-up 380ms cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(var(--i) * 140ms + 80ms); }
+  .wz-play .wz-tl-dot { animation: wz-pop 320ms cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(var(--i) * 140ms + 80ms); }
+  .wz-done-path { stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .wz-play .wz-done-circle { animation: wz-pop 460ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .wz-play .wz-done-path { animation: wz-draw 380ms ease-out 240ms both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wz-opt:active { transform: none; }
+    .wz-reveal { transition: opacity 150ms; }
+    .wz-play [data-stagger], .wz-play .wz-tl-item, .wz-play .wz-done-circle { animation: wz-fade 200ms ease-out both; }
+    .wz-play .wz-tl-line, .wz-play .wz-tl-dot, .wz-play .wz-done-path { animation: none; }
+  }
+</style>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+
+<script>
+  const form = document.getElementById('wizard') as HTMLFormElement;
+  const steps = Array.from(form.querySelectorAll<HTMLElement>('[data-step]'));
+  const back = document.getElementById('back') as HTMLButtonElement;
+  const next = document.getElementById('next') as HTMLButtonElement;
+  const nav = document.getElementById('nav') as HTMLElement;
+  const progress = document.getElementById('progress') as HTMLElement;
+  const progressSr = document.getElementById('progress-sr') as HTMLElement;
+  const segs = Array.from(progress.querySelectorAll<HTMLElement>('[data-seg]')).map((el) => ({
+    el,
+    steps: el.dataset.seg!.split(',').map(Number),
+    fill: el.querySelector<HTMLElement>('.seg-fill')!,
+    label: el.querySelector<HTMLElement>('.seg-label')!,
+  }));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const LAST_INPUT = 7; // billing; step 8 is the thank-you screen
+  const STORE = `rankrgv-onboarding:${form.dataset.client}`;
+  const EASE_OUT = 'cubic-bezier(0.22, 1, 0.36, 1)';
+  let current = 0;
+  let returnTo: number | null = null; // set when editing an answer from the review card
+  let busy = false;
+  const played = new Set<number>();
+
+  const DAY_ES: Record<string, string> = { Mon: 'Lun', Tue: 'Mar', Wed: 'Mié', Thu: 'Jue', Fri: 'Vie', Sat: 'Sáb', Sun: 'Dom' };
+  const REACH_ES: Record<string, string> = { Text: 'Texto', 'Phone call': 'Llamada', WhatsApp: 'WhatsApp', Email: 'Correo' };
+  const LANG_ES: Record<string, string> = { English: 'Inglés', 'Español': 'Español', 'Either one': 'Cualquiera' };
+  const URGENT_ES: Record<string, string> = { 'Call me anyway': 'llámeme de todos modos', "Text me, I'll see it when I see it": 'mándeme un texto, lo veo cuando pueda', 'Wait until my hours start': 'espere a que empiece mi horario' };
+  const formats: Record<string, { title: string; lc: string }> = JSON.parse(form.querySelector<HTMLElement>('[data-formats]')!.dataset.formats!);
+  const format = () => formats[val('update_format')] ?? Object.values(formats)[0];
+  const val = (name: string) => (form.elements.namedItem(name) as RadioNodeList | HTMLInputElement | null)?.value?.trim() ?? '';
+  const all = (name: string) => Array.from(form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]:checked`)).map((i) => i.value);
+
+  // ---------- Saved progress (browser only; cleared on submit) ----------
+  function save() {
+    if (current > LAST_INPUT) return;
+    const v: Record<string, string | string[]> = {};
+    for (const el of Array.from(form.elements) as HTMLInputElement[]) {
+      if (!el.name || el.name === 'cf-turnstile-response') continue;
+      if (el.type === 'checkbox') { const arr = (v[el.name] as string[]) ?? []; if (el.checked) arr.push(el.value); v[el.name] = arr; }
+      else if (el.type === 'radio') { if (el.checked) v[el.name] = el.value; }
+      else v[el.name] = el.value;
+    }
+    try { localStorage.setItem(STORE, JSON.stringify({ at: Date.now(), step: current, v })); } catch {}
+  }
+
+  function restore(): number {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORE) || 'null');
+      if (!saved || Date.now() - saved.at > 30 * 864e5) return 0;
+      for (const el of Array.from(form.elements) as HTMLInputElement[]) {
+        if (!el.name || !(el.name in saved.v)) continue;
+        const x = saved.v[el.name];
+        if (el.type === 'checkbox') el.checked = Array.isArray(x) && x.includes(el.value);
+        else if (el.type === 'radio') el.checked = el.value === x;
+        else el.value = x;
+      }
+      return saved.step >= 0 && saved.step <= LAST_INPUT ? saved.step : 0;
+    } catch { return 0; }
+  }
+
+  // ---------- Conditional fields and summaries ----------
+  function reveal(key: string, open: boolean) {
+    const el = form.querySelector<HTMLElement>(`[data-reveal="${key}"]`)!;
+    el.toggleAttribute('data-open', open);
+    el.inert = !open;
+  }
+
+  function hoursText() {
+    const from = val('not_before'), to = val('not_after');
+    return from || to ? `${from || 'cualquier hora'} a ${to || 'cualquier hora'}` : 'a cualquier hora';
+  }
+
+  function daysText() {
+    const d = all('ok_days');
+    if (d.length === 7) return 'Cualquier día';
+    if (d.join() === 'Mon,Tue,Wed,Thu,Fri') return 'Entre semana';
+    return d.map((x) => DAY_ES[x] ?? x).join(', ') || 'Ningún día';
+  }
+
+  function buildReview() {
+    const other = val('has_other') === 'Yes'
+      ? [val('other_name'), val('other_role') && `(${val('other_role')})`, val('other_access') === 'Receives updates only' ? 'solo avances' : 'puede aprobar trabajo'].filter(Boolean).join(' ')
+      : 'Solo usted';
+    const rows: [string, string, number][] = [
+      ['Contactarlo por', [all('reach_by').map((m) => REACH_ES[m] ?? m).join(', '), val('phone'), all('reach_by').includes('Email') ? val('email') : ''].filter(Boolean).join(' · '), 1],
+      ['Idioma', LANG_ES[val('language')] ?? val('language'), 1],
+      ['Días', daysText(), 2],
+      ['Horas', `${hoursText()}. Urgente: ${URGENT_ES[val('urgent_after_hours')] ?? val('urgent_after_hours')}`, 3],
+      ['También recibe avances', other, 4],
+      ['Avances por', format().title, 5],
+    ];
+    const dl = document.getElementById('review')!;
+    dl.replaceChildren(...rows.map(([term, text, step]) => {
+      const row = document.createElement('div');
+      row.className = 'flex items-start justify-between gap-3 px-5 py-3';
+      const body = document.createElement('div');
+      const dt = document.createElement('dt'); dt.className = 'text-xs font-semibold text-text-muted'; dt.textContent = term;
+      const dd = document.createElement('dd'); dd.className = 'text-text'; dd.textContent = text;
+      body.append(dt, dd);
+      const edit = document.createElement('button');
+      edit.type = 'button'; edit.dataset.edit = String(step);
+      edit.className = 'shrink-0 -my-1 -mr-2 px-2 py-1 min-h-9 text-sm font-semibold text-brand-blue hover:underline';
+      edit.textContent = 'Cambiar'; edit.setAttribute('aria-label', `Cambiar ${term.toLowerCase()}`);
+      row.append(body, edit);
+      return row;
+    }));
+  }
+
+  function syncConditional() {
+    const methods = all('reach_by');
+    reveal('phone', methods.some((m) => m !== 'Email'));
+    reveal('email', methods.includes('Email'));
+    reveal('other', val('has_other') === 'Yes');
+    reveal('custom-hours', val('hours_preset') === 'custom');
+    form.querySelectorAll<HTMLElement>('[data-fill="update_format_lc"]').forEach((el) => {
+      el.textContent = format().lc;
+    });
+    form.querySelectorAll<HTMLElement>('[data-fill="window_summary"]').forEach((el) => {
+      el.textContent = `${daysText()}, ${hoursText()}. Lo que no es urgente se programa para llegar en ese horario.`;
+    });
+    if (current === LAST_INPUT) buildReview();
+  }
+
+  // ---------- Validation ----------
+  type Err = { key: string; msg: string };
+  function validate(step: number): Err[] {
+    const errs: Err[] = [];
+    if (step === 1) {
+      const methods = all('reach_by');
+      if (!methods.length) errs.push({ key: 'reach_by', msg: 'Escoja al menos una forma de contactarlo.' });
+      if (methods.some((m) => m !== 'Email') && !val('phone')) errs.push({ key: 'phone', msg: 'Agregue su mejor número de teléfono.' });
+      if (methods.includes('Email') && !/^\S+@\S+\.\S+$/.test(val('email'))) errs.push({ key: 'email', msg: 'Agregue un correo válido.' });
+    }
+    if (step === 2 && !all('ok_days').length) errs.push({ key: 'ok_days', msg: 'Escoja al menos un día.' });
+    if (step === 4 && val('has_other') === 'Yes') {
+      if (!val('other_name')) errs.push({ key: 'other_name', msg: 'Agregue su nombre.' });
+      if (!val('other_email') && !val('other_phone')) errs.push({ key: 'other_contact', msg: 'Agregue un correo o teléfono.' });
+    }
+    return errs;
+  }
+
+  function setError(key: string, msg: string) {
+    const p = form.querySelector<HTMLElement>(`[data-error-for="${key}"]`);
+    if (p) { p.textContent = msg; p.hidden = !msg; }
+    const field = form.querySelector<HTMLElement>(`[data-field="${key}"]`);
+    field?.querySelectorAll('input').forEach((i) => { if (i.type !== 'checkbox') i.setAttribute('aria-invalid', String(!!msg)); });
+  }
+
+  function showErrors(errs: Err[]) {
+    errs.forEach((e) => setError(e.key, e.msg));
+    const field = form.querySelector<HTMLElement>(`[data-field="${errs[0].key}"]`);
+    if (!field) return;
+    if (!reduce) field.animate(
+      [{ transform: 'translateX(0)' }, { transform: 'translateX(-3px)' }, { transform: 'translateX(3px)' }, { transform: 'translateX(-2px)' }, { transform: 'translateX(0)' }],
+      { duration: 300, easing: 'ease-out' },
+    );
+    field.querySelector<HTMLInputElement>('input:not([type=checkbox]), input')?.focus({ preventScroll: true });
+    field.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' });
+  }
+
+  const errorKey = (name: string) => (name === 'other_email' || name === 'other_phone' ? 'other_contact' : name);
+
+  // ---------- Progress ----------
+  function renderProgress(step: number, prev: number) {
+    progress.hidden = step === 0 || step > LAST_INPUT;
+    segs.forEach((s) => {
+      const last = s.steps[s.steps.length - 1];
+      const idx = s.steps.indexOf(step);
+      const done = step > last;
+      s.fill.style.width = done ? '100%' : idx >= 0 ? `${((idx + 1) / s.steps.length) * 100}%` : '0%';
+      s.label.textContent = (done ? '✓ ' : '') + s.el.dataset.name;
+      s.label.className = `seg-label inline-block transition-colors ${done ? 'text-brand-blue' : idx >= 0 ? 'text-text' : 'text-text-muted'}`;
+      if (done && prev <= last && prev > 0 && !reduce) {
+        s.label.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.12)' }, { transform: 'scale(1)' }], { duration: 360, easing: 'ease-out' });
+      }
+    });
+    const seg = segs.find((s) => s.steps.includes(step));
+    if (seg) progressSr.textContent = `Paso ${step} de ${LAST_INPUT}: ${seg.el.dataset.name}`;
+  }
+  segs.forEach((s) => (s.el.dataset.name = s.label.textContent!.trim()));
+
+  // ---------- Step rendering and transitions ----------
+  function play(step: number) {
+    if (played.has(step)) return;
+    played.add(step);
+    const s = steps[step];
+    const offset = step === 8 ? 5 : 0; // thank-you text waits for the check to draw
+    s.querySelectorAll<HTMLElement>('[data-stagger]').forEach((el, i) => el.style.setProperty('--i', String(i + offset)));
+    s.classList.remove('wz-play');
+    void s.offsetWidth;
+    s.classList.add('wz-play');
+  }
+
+  function render(step: number) {
+    const prev = current;
+    steps.forEach((s) => (s.hidden = Number(s.dataset.step) !== step));
+    current = step;
+    syncConditional();
+    back.classList.toggle('invisible', step === 0);
+    next.textContent = step === 0 ? 'Empecemos'
+      : step === LAST_INPUT ? 'Terminar'
+      : returnTo !== null ? 'Volver a revisar' : 'Siguiente';
+    nav.hidden = step > LAST_INPUT;
+    renderProgress(step, prev);
+    if (step === 0 || step === 6 || step === 8) play(step);
+    steps[step].querySelector<HTMLElement>('h1, h2')?.focus({ preventScroll: true });
+    if (window.scrollY > 0) window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    save();
+  }
+
+  async function go(to: number) {
+    if (busy || to === current) return;
+    busy = true;
+    const dir = to > current ? 1 : -1;
+    const x = reduce ? 0 : 24 * dir;
+    const out = steps[current].animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: `translateX(${-x}px)` }], { duration: 140, easing: 'cubic-bezier(0.4, 0, 1, 1)' });
+    // Never let a throttled animation hold the wizard hostage.
+    await Promise.race([out.finished.catch(() => {}), new Promise((r) => setTimeout(r, 200))]);
+    out.cancel();
+    render(to);
+    steps[to].animate([{ opacity: 0, transform: `translateX(${x}px)` }, { opacity: 1, transform: 'none' }], { duration: 240, easing: EASE_OUT });
+    busy = false;
+  }
+
+  // ---------- Submit ----------
+  function answers() {
+    return {
+      client: form.dataset.client,
+      name: val('name'),
+      reach_by: all('reach_by').join(', '),
+      phone: val('phone'),
+      email: val('email'),
+      language: val('language'),
+      ok_days: all('ok_days').join(', '),
+      not_before: val('not_before') || 'No limit',
+      not_after: val('not_after') || 'No limit',
+      urgent_after_hours: val('urgent_after_hours'),
+      other_person: val('has_other') === 'Yes'
+        ? { name: val('other_name'), role: val('other_role'), email: val('other_email'), phone: val('other_phone'), access: val('other_access') }
+        : null,
+      update_format: val('update_format'),
+    };
+  }
+
+  function confetti(origin: HTMLElement) {
+    if (reduce) return;
+    const r = origin.getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    const colors = ['#1d4ed8', '#3b82f6', '#d97706', '#fbbf24'];
+    for (let i = 0; i < 36; i++) {
+      const p = document.createElement('span');
+      const size = 5 + Math.random() * 4;
+      Object.assign(p.style, { position: 'fixed', left: `${cx}px`, top: `${cy}px`, width: `${size}px`, height: `${size * 0.6}px`, background: colors[i % 4], borderRadius: '1px', pointerEvents: 'none', zIndex: '50' });
+      document.body.appendChild(p);
+      const a = Math.random() * Math.PI * 2, d = 60 + Math.random() * 90;
+      const dx = Math.cos(a) * d, dy = Math.sin(a) * d - 30, rot = Math.random() * 540 - 270;
+      p.animate([
+        { transform: 'translate(-50%, -50%) rotate(0deg)', opacity: 1 },
+        { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) rotate(${rot / 2}deg)`, opacity: 1, offset: 0.6 },
+        { transform: `translate(calc(-50% + ${dx * 1.1}px), calc(-50% + ${dy + 60}px)) rotate(${rot}deg)`, opacity: 0 },
+      ], { duration: 900 + Math.random() * 500, easing: 'cubic-bezier(0.2, 0.7, 0.3, 1)' }).finished.then(() => p.remove());
+    }
+  }
+
+  async function submit() {
+    const err = form.querySelector<HTMLElement>('.submit-error')!;
+    err.hidden = true;
+    next.disabled = true;
+    next.textContent = 'Enviando...';
+    const a = answers();
+    const { other_person, ...flat } = a;
+    const payload = {
+      ...flat,
+      other_person: other_person ? `${other_person.name} (${other_person.role || 'no role'}) ${other_person.email} ${other_person.phone} · ${other_person.access}` : 'None',
+      form_type: 'onboarding-wizard',
+      '_email.subject': `Onboarding complete: ${a.client}`,
+      recap_json: JSON.stringify(a),
+      // Formspark rejects submissions without a Turnstile token.
+      'cf-turnstile-response': val('cf-turnstile-response'),
+    };
+    try {
+      const res = await fetch(form.dataset.endpoint!, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      try { localStorage.removeItem(STORE); } catch {}
+      next.disabled = false;
+      await go(LAST_INPUT + 1);
+      setTimeout(() => confetti(steps[LAST_INPUT + 1].querySelector<HTMLElement>('.wz-done-circle')!), 260);
+    } catch {
+      (window as any).turnstile?.reset(); // tokens are single-use
+      err.hidden = false;
+      next.disabled = false;
+      next.textContent = 'Terminar';
+    }
+  }
+
+  // ---------- Events ----------
+  next.addEventListener('click', () => {
+    if (busy || next.disabled) return;
+    const errs = validate(current);
+    if (errs.length) { showErrors(errs); return; }
+    if (current === LAST_INPUT) { submit(); return; }
+    if (returnTo !== null) { const to = returnTo; returnTo = null; go(to); return; }
+    go(current + 1);
+  });
+  back.addEventListener('click', () => go(Math.max(0, current - 1)));
+
+  form.addEventListener('click', (e) => {
+    const edit = (e.target as HTMLElement).closest<HTMLElement>('[data-edit]');
+    if (!edit) return;
+    returnTo = LAST_INPUT;
+    go(Number(edit.dataset.edit));
+  });
+
+  form.addEventListener('change', (e) => {
+    const t = e.target as HTMLInputElement;
+    if (t.name === 'hours_preset' && t.value !== 'custom') {
+      (form.elements.namedItem('not_before') as HTMLSelectElement).value = t.dataset.from ?? '';
+      (form.elements.namedItem('not_after') as HTMLSelectElement).value = t.dataset.to ?? '';
+    }
+    if (t.name) setError(errorKey(t.name), '');
+    syncConditional();
+    save();
+  });
+  form.addEventListener('input', (e) => {
+    const t = e.target as HTMLInputElement;
+    if (t.name) setError(errorKey(t.name), '');
+    save();
+  });
+  form.addEventListener('submit', (e) => e.preventDefault());
+  form.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && (e.target as HTMLElement).tagName === 'INPUT') { e.preventDefault(); next.click(); }
+  });
+
+  const start = restore();
+  render(start);
+</script>

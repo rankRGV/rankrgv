@@ -24,6 +24,8 @@ export interface OnboardingClient {
   cancelNote: string;
   /** What the biweekly update covers, matched to the client's plan. */
   updateCovers?: string;
+  /** 'es' clients get the Spanish wizard (src/pages/start/<slug>.astro) and a Spanish passcode screen. */
+  lang?: 'es';
 }
 
 export const onboardingClients: OnboardingClient[] = [
@@ -107,6 +109,29 @@ export const onboardingClients: OnboardingClient[] = [
     setupPaid: '$500',
     adBudgetNote: 'We start your Google Ads at up to $1,000 a month and adjust from there with you. That budget is paid straight to Google on your own card and is separate from the $420 management fee.',
     cancelNote: "Month to month for the first three months. If you're not happy, you stop with no penalty. After that we move to three month agreements.",
+  },
+  {
+    slug: 'reliableac',
+    lang: 'es',
+    clientName: 'Reliable AC Services',
+    contactName: 'Juan Carlos Reyes',
+    contactFirst: 'Juan Carlos',
+    letter: [
+      'Gracias por confiar en nosotros con Reliable AC Services. Su perfil de Google ya está activo y la competencia en La Feria es débil: la compañía que más sale en el pueblo tiene solo 5 reseñas.',
+      'Empezamos por lo que más pesa: arreglar su perfil, conseguir sus primeras reseñas y ponerle un sitio web en inglés y español. Cada dos semanas va a ver qué hicimos y qué se movió en el mapa.',
+    ],
+    exclusivity: {
+      title: 'Una sola compañía de aire acondicionado en La Feria.',
+      text: 'Mientras trabajemos juntos, no tomo a otra compañía de aire acondicionado en La Feria.',
+    },
+    updateCovers: 'su posición en el mapa de Google, sus reseñas, lo que hicimos y lo que sigue',
+    planName: 'SEO local',
+    planSub: 'Perfil de Google, reseñas, sitio web y directorios',
+    monthly: '$975',
+    billingNote: 'Los $500 de arranque se cobran una sola vez, con su primer pago. No se vuelven a cobrar.',
+    setupLabel: 'Arranque (una sola vez)',
+    setupPaid: '$500',
+    cancelNote: 'Mes a mes los primeros tres meses. Si no está contento, para cuando quiera, sin penalidad. Después pasamos a acuerdos de tres meses.',
   },
   {
     // Made-up client for testing the flow end to end. Safe to remove.

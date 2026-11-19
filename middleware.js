@@ -24,6 +24,11 @@ const onboardingShare = {
     "contactFirst": "Clemente",
     "clientName": "Bellissimo Builders"
   },
+  "reliableac": {
+    "contactFirst": "Juan Carlos",
+    "clientName": "Reliable AC Services",
+    "lang": "es"
+  },
   "demo": {
     "contactFirst": "Maria",
     "clientName": "Valley Demo Auto Body"
@@ -63,11 +68,13 @@ function readCookie(request, name) {
 function shareMeta(origin, slug) {
   const c = Object.hasOwn(onboardingShare, slug) ? { slug, ...onboardingShare[slug] } : null;
   if (!c) return { title: 'RankRGV · Client access', tags: '' };
-  const title = `Welcome to RankRGV, ${c.contactFirst}`;
-  const desc = `Your private onboarding for ${c.clientName}. It takes about three minutes.`;
+  const es = c.lang === 'es';
+  const title = es ? `Bienvenido a RankRGV, ${c.contactFirst}` : `Welcome to RankRGV, ${c.contactFirst}`;
+  const desc = es ? `Su registro privado para ${c.clientName}. Toma unos tres minutos.` : `Your private onboarding for ${c.clientName}. It takes about three minutes.`;
   const img = `${origin}/images/og/onboarding/${c.slug}.png`;
   return {
     title,
+    lang: es ? 'es' : 'en',
     first: c.contactFirst,
     clientName: c.clientName,
     tags: `<meta name="description" content="${esc(desc)}">
@@ -82,7 +89,8 @@ function shareMeta(origin, slug) {
 }
 
 function page(status, body, meta = { title: 'RankRGV · Client access', tags: '' }) {
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  const es = meta.lang === 'es';
+  const html = `<!doctype html><html lang="${es ? 'es' : 'en'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>${esc(meta.title)}</title>
 ${meta.tags}
 <style>
@@ -96,7 +104,7 @@ ${meta.tags}
   .err{color:#dc2626;font-size:14px;margin:12px 0 0}.help{font-size:13px;margin:20px 0 0}
 </style></head><body><main class="card">
 <img src="/images/RankRGV_compact_logo.png" alt="RankRGV">${body}
-<p class="help">No code? Text Eddie at 956-391-5991.</p></main></body></html>`;
+<p class="help">${es ? '¿No tiene código? Mándele un texto a Eddie al 956-391-5991.' : 'No code? Text Eddie at 956-391-5991.'}</p></main></body></html>`;
   return new Response(html, {
     status,
     headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' },
@@ -104,6 +112,13 @@ ${meta.tags}
 }
 
 function loginPage(meta, error) {
+  if (meta.lang === 'es') {
+    const forWho = meta.clientName ? ` de ${esc(meta.clientName)}` : '';
+    return page(error ? 401 : 200, `<h1>Bienvenido a RankRGV, ${esc(meta.first)}</h1><p>Escriba el código que le mandó Eddie para abrir su registro${forWho}.</p>
+<form method="POST"><label for="code">Código</label>
+<input id="code" name="code" autocomplete="one-time-code" autocapitalize="characters" required autofocus>
+${error ? `<p class="err" role="alert">${error}</p>` : ''}<button type="submit">Continuar</button></form>`, meta);
+  }
   const heading = meta.first ? `Welcome to RankRGV, ${esc(meta.first)}` : 'Welcome to RankRGV';
   const forWho = meta.clientName ? ` for ${esc(meta.clientName)}` : '';
   // 200, not 401: iMessage and other link previewers skip non-200 pages.
@@ -134,7 +149,7 @@ export default async function middleware(request) {
     const ok = safeEqual(await sign(secret, `${slug}:${given}`), expected);
     if (!ok) {
       await new Promise((r) => setTimeout(r, 600));
-      return loginPage(meta, "That code didn't match. Check the text from Eddie and try again.");
+      return loginPage(meta, meta.lang === 'es' ? 'Ese código no coincide. Revise el texto de Eddie e intente otra vez.' : "That code didn't match. Check the text from Eddie and try again.");
     }
     return new Response(null, {
       status: 303,
