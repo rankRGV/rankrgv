@@ -21,7 +21,7 @@ const updateFormats = [
   { value: 'Loom video', title: 'Video corto (Loom)', text: 'Unos minutos, lo puede ver en su teléfono. Le enseño los números en pantalla, y si quiere platicarlo, con gusto hacemos una llamada.', lc: 'video de avance' },
   { value: 'Written report', title: 'Reporte escrito', text: 'La misma información en un correo corto que puede leer o reenviar.', lc: 'reporte escrito' },
   { value: 'Video and written', title: 'Los dos', text: 'El video y el reporte escrito, para verlo o leerlo rápido.', lc: 'video y reporte escrito' },
-  { value: 'Live virtual meeting', title: 'Reunión en vivo', text: 'Sin grabación. Nos vemos en línea y le explico los números en vivo.', lc: 'reunión en vivo' },
+  { value: 'Live virtual meeting', title: 'Llamada', text: 'Sin grabación. Hablamos por teléfono o en línea y le explico los números en vivo.', lc: 'llamada mensual' },
 ];
 
 // Progress groups shown above the card. Numbers are step indexes.
@@ -255,7 +255,7 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
         <section data-step="5" hidden>
           <p class={eyebrow}>Avances</p>
           <h2 class={h} tabindex="-1">¿Cómo quiere recibir sus avances?</h2>
-          <p class="text-text-muted mb-6">Cada dos semanas recibe un resumen de {updateCovers}.</p>
+          <p class="text-text-muted mb-6">Cada mes recibe un resumen de {updateCovers}. Usted escoge cómo.</p>
           <div class="flex flex-col gap-3" data-formats={JSON.stringify(Object.fromEntries(updateFormats.map((f) => [f.value, { title: f.title, lc: f.lc }])))}>
             {updateFormats.map((f, i) => (
               <label class="wz-opt items-start p-4">
@@ -275,17 +275,13 @@ const h = 'text-2xl sm:text-3xl font-extrabold text-text mb-3 outline-none';
             <span class="wz-tl-line absolute left-0 top-2 bottom-2 w-0.5 bg-border" aria-hidden="true"></span>
             <ol class="space-y-6">
               <li class="wz-tl-item pl-6 relative" style="--i:0"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
-                <p class="text-xs font-bold uppercase tracking-wider text-brand-blue">Cada 2 semanas</p>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-blue">Cada mes</p>
                 <p class="font-bold text-text">Su <span data-fill="update_format_lc">video de avance</span></p>
                 <p class="text-sm text-text-muted">{updateCovers.charAt(0).toUpperCase() + updateCovers.slice(1)}.</p></li>
               <li class="wz-tl-item pl-6 relative" style="--i:1"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
-                <p class="text-xs font-bold uppercase tracking-wider text-brand-blue">Semana 6</p>
-                <p class="font-bold text-text">Primera llamada de revisión</p>
-                <p class="text-sm text-text-muted">Cómo vamos hasta ahora: ritmo, primeros resultados y en qué enfocarnos.</p></li>
-              <li class="wz-tl-item pl-6 relative" style="--i:2"><span class="wz-tl-dot absolute -left-[7px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-bg"></span>
-                <p class="text-xs font-bold uppercase tracking-wider text-brand-blue">Después, cada 6 a 8 semanas</p>
-                <p class="font-bold text-text">Llamada de estrategia</p>
-                <p class="text-sm text-text-muted">Vemos los números juntos y armamos el plan de las siguientes semanas.</p></li>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-blue">Cada mes</p>
+                <p class="font-bold text-text">Revisión del mapa</p>
+                <p class="text-sm text-text-muted">Los mismos 25 puntos de su auditoría alrededor de La Feria, para ver qué se movió.</p></li>
             </ol>
           </div>
           <div class="wz-tl-item rounded-xl bg-bg-surface border border-border p-5 text-sm space-y-2" style="--i:3">
