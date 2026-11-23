@@ -1,0 +1,145 @@
+---
+// Where the Increase Call Plan Stripe link (English) sends buyers after payment.
+// Every fact here matches /increase-call-plan/. Spanish mirror: /es/bienvenida/plan-mas-llamadas/.
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PurchaseTracking from '@/components/PurchaseTracking.astro';
+import { site } from '@/config/site';
+
+const title = 'Welcome to the Increase Call Plan | RankRGV';
+const description = "You're in. Here's what happens next with your Increase Call Plan and what to have ready for your first call.";
+
+const steps = [
+  {
+    title: 'We call you',
+    text: 'Same business day. We set up your first call at a time that works for you.',
+  },
+  {
+    title: 'You add us to your Google profile',
+    text: "On the call, you add RankRGV as a manager on your Google Business Profile. We walk you through it. You just need to be able to sign in to the Google account that owns your profile.",
+  },
+  {
+    title: 'We set your baseline in writing',
+    text: 'We confirm your listing has been open a year or more, pull your calls for the same 90 days last year, and ask whether you run Google Ads. Your guarantee is measured against that baseline.',
+  },
+  {
+    title: 'Month one: fix and build',
+    text: 'We fix your profile (categories, services, hours, service area, photos) and order about 35 directory listings in week one, since they take a few weeks to go live.',
+  },
+  {
+    title: 'Every month after that',
+    text: '4 Google posts, up to 8 of your photos, a reply to every review within 1 business day, and a one page snapshot of your calls next to your baseline.',
+  },
+];
+
+const checklist = [
+  "Access to the Google account that owns your Google Business Profile. Not sure which account it is? Tell us when we call and we'll help you find it before the first call.",
+  "Your average monthly Google Ads spend, if you run ads. If you don't, just tell us.",
+  'A few photos of your work, your team or your shop. Real photos only, no stock.',
+  'Anything about your business that changed lately: phone, hours, services or service area.',
+];
+
+const keepGuarantee = [
+  'Answer or return calls during your listed hours.',
+  'Share your review QR code and link with every customer.',
+  'Tell us within 7 days if you change your phone, address, hours or categories.',
+  "Don't give another agency access to your listing.",
+  'Stay the full first 90 days.',
+];
+---
+
+<BaseLayout title={title} description={description} noindex={true} hideSticky={true}>
+  <section class="min-h-[80vh] py-20 bg-bg">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center">
+        <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-8">
+          <svg class="w-10 h-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-text mb-4">
+          You're in. Let's get you more calls.
+        </h1>
+        <p class="text-text-muted text-lg leading-relaxed mb-8">
+          Your Increase Call Plan is paid and active. Here's what happens next and what to have ready.
+        </p>
+        <p class="text-text-muted mb-10">
+          <strong class="text-text">We'll call you the same business day.</strong>
+          <br />
+          Want to reach us first? Call or text <a href={site.phoneHref} class="text-brand-blue font-semibold hover:underline">{site.phone}</a>.
+        </p>
+      </div>
+
+      <!-- What happens next -->
+      <div class="bg-bg-surface rounded-2xl border border-border p-8 mb-8">
+        <h2 class="font-bold text-text mb-5 text-lg">What happens next</h2>
+        <ol class="space-y-5">
+          {steps.map(({ title, text }, i) => (
+            <li class="flex gap-4">
+              <div class="flex-shrink-0 w-9 h-9 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span class="text-brand-blue font-bold text-xs">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <div class="pt-1">
+                <p class="font-semibold text-text text-sm">{title}</p>
+                <p class="text-text-muted text-sm leading-relaxed mt-1">{text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <!-- Have ready -->
+      <div class="bg-white rounded-2xl border-2 border-brand-blue/30 p-8 mb-8">
+        <h2 class="font-bold text-text mb-2 text-lg">Have these ready for the call</h2>
+        <p class="text-text-muted text-sm mb-5">The first one matters most. Without it we can't start on your profile.</p>
+        <ul class="space-y-3">
+          {checklist.map((item) => (
+            <li class="flex gap-3 text-text-muted text-sm leading-relaxed">
+              <svg class="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Keep the guarantee -->
+      <div class="bg-bg-surface rounded-2xl border border-border p-8 mb-8">
+        <h2 class="font-bold text-text mb-2 text-lg">How to keep your calls guarantee</h2>
+        <p class="text-text-muted text-sm mb-4">For listings open a year or more. Your part is short:</p>
+        <ul class="space-y-2 text-text-muted text-sm leading-relaxed list-disc pl-5">
+          {keepGuarantee.map((item) => <li>{item}</li>)}
+        </ul>
+        <p class="text-text-muted text-sm mt-4">
+          Full terms: <a href="/increase-call-plan/#guarantee" class="text-brand-blue font-semibold hover:underline">the calls guarantee, in plain words</a>.
+        </p>
+      </div>
+
+      <!-- Billing -->
+      <p class="text-text-muted text-sm leading-relaxed text-center mb-10">
+        $397 a month plus sales tax, charged on the same day each month to the card you used today. No setup fee and no contract. Stay the first 90 days to keep the calls guarantee, then you can stop any month.
+      </p>
+
+      <!-- Contact -->
+      <div class="bg-bg-surface rounded-2xl border border-border p-6 mb-10 text-center">
+        <h2 class="font-bold text-text mb-2">Questions before the call?</h2>
+        <p class="text-text-muted text-sm mb-4">Send them over. We read everything.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={`mailto:${site.email}`} class="inline-flex items-center justify-center px-5 py-2.5 bg-brand-blue text-white font-semibold text-sm rounded-lg hover:opacity-90 transition-opacity">
+            Email {site.email}
+          </a>
+          <a href={site.phoneHref} class="inline-flex items-center justify-center px-5 py-2.5 bg-white border border-border text-text font-semibold text-sm rounded-lg hover:border-brand-blue hover:text-brand-blue transition-colors">
+            Call {site.phone}
+          </a>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="/" class="text-sm text-brand-blue font-semibold hover:underline">← Back to home</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<PurchaseTracking />

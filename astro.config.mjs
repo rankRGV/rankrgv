@@ -15,7 +15,9 @@ export default defineConfig({
           'https://rankrgv.com/terms/',
           'https://rankrgv.com/google-ads-tool/',
         ].includes(page) &&
-        !page.startsWith('https://rankrgv.com/start/'),
+        !page.startsWith('https://rankrgv.com/start/') &&
+        !page.startsWith('https://rankrgv.com/welcome/') &&
+        !page.startsWith('https://rankrgv.com/es/bienvenida/'),
     }),
   ],
   vite: {
