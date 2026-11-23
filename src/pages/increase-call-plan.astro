@@ -18,7 +18,7 @@ const path = '/increase-call-plan/';
 const esHref = '/es/plan-mas-llamadas/';
 const title = 'Increase Call Plan: More Google Calls in McAllen | RankRGV';
 const description =
-  'A $397/month plan for RGV businesses that want more calls from Google. Profile fixes, 35 directory listings, weekly posts, review replies and review texts. Calls guarantee for listings open a year or more.';
+  'A $397/month plan for RGV businesses that want more calls from Google. Profile fixes, 35 directory listings, 4 posts a month, review replies and a review QR code and link. Calls guarantee for listings open a year or more.';
 
 // Set this to the Stripe payment link once it exists. Until then the buttons call Eddie.
 const stripeHref: string | null = null;
@@ -54,7 +54,7 @@ const faqs = [
   {
     question: 'I run Google Ads. Does that matter?',
     answer:
-      "Yes, so we ask at signup. Google Ads activity shows up in your profile's numbers. If ads were running during last year's 90 days and you stop them, or cut the budget or targeting in a big way, the comparison isn't fair anymore and the calls guarantee doesn't apply. If you start ads during your 90 days, your report says so, so the result stays honest.",
+      "Yes, so we ask at signup. Google Ads activity shows up in your profile's numbers. If you lower your average monthly Google Ads spend by more than 25% compared with the same 90 days last year, the comparison isn't fair anymore and the calls guarantee doesn't apply. If you start ads during your 90 days, your report says so, so the result stays honest.",
   },
   {
     question: 'Is there a setup fee or a contract?',
@@ -64,7 +64,7 @@ const faqs = [
   {
     question: 'Can you do it in Spanish?',
     answer:
-      'Yes. Posts, review replies and review texts go out in English, Spanish, or both, depending on who your customers are. A review written in Spanish gets its reply in Spanish.',
+      'Yes. Posts, review replies and the review request text go out in English, Spanish, or both, depending on who your customers are. A review written in Spanish gets its reply in Spanish.',
   },
 ];
 
@@ -79,7 +79,7 @@ const howToSteps = [
   },
   {
     name: 'Every month: stay active',
-    text: 'Weekly posts, your photos, a reply to every review, and review request texts to the customers you send us. Your monthly snapshot shows the work and your call numbers.',
+    text: '4 posts a month, your photos, a reply to every review, and a review QR code and link to share with every customer. Your monthly snapshot shows the work and your call numbers.',
   },
   {
     name: 'Day 90: the call count',
@@ -90,7 +90,7 @@ const howToSteps = [
 const schema = [
   buildServiceSchema(
     'Increase Call Plan',
-    'RankRGV plan for Rio Grande Valley businesses that want more calls from Google: Google Business Profile fixes, a directory listing build, weekly posts, photos, review replies and review request texts, with a 90 day calls guarantee for listings open a year or more.',
+    'RankRGV plan for Rio Grande Valley businesses that want more calls from Google: Google Business Profile fixes, a directory listing build, 4 posts a month, photos, review replies and a review QR code and link, with a 90 day calls guarantee for listings open a year or more.',
     site.areaServed
   ),
   buildFAQSchema(faqs),
@@ -208,7 +208,7 @@ const schema = [
           <p class="text-text-muted text-sm leading-relaxed">First we fix old or wrong listings of your business around the web. Then we build about 35 new ones on local and industry directories, so your name, address and phone match everywhere. They take a few weeks to go live, so we order them in week one.</p>
         </div>
         <div class="bg-white border border-border rounded-2xl p-6">
-          <h3 class="text-lg font-bold text-text mb-2">Weekly Google posts and your photos</h3>
+          <h3 class="text-lg font-bold text-text mb-2">4 Google posts a month and your photos</h3>
           <p class="text-text-muted text-sm leading-relaxed">4 posts a month built from facts you confirm about your business, plus up to 8 of your photos a month. No stock photos and no invented claims.</p>
         </div>
         <div class="bg-white border border-border rounded-2xl p-6">
@@ -216,8 +216,8 @@ const schema = [
           <p class="text-text-muted text-sm leading-relaxed">Every new review gets a reply within 1 business day, in your voice. Low or mixed reviews always get read by a person before anything posts.</p>
         </div>
         <div class="bg-white border border-border rounded-2xl p-6">
-          <h3 class="text-lg font-bold text-text mb-2">Review request texts</h3>
-          <p class="text-text-muted text-sm leading-relaxed">Send us your customer contacts, or connect the system you already use, and we text them a short review request. You also get a QR code and a review link to hand out.</p>
+          <h3 class="text-lg font-bold text-text mb-2">A review QR code and link</h3>
+          <p class="text-text-muted text-sm leading-relaxed">A review QR code and a review link you can share with every customer, plus a review request text ready to send from your own phone.</p>
         </div>
         <div class="bg-white border border-border rounded-2xl p-6">
           <h3 class="text-lg font-bold text-text mb-2">A monthly snapshot</h3>
@@ -257,8 +257,7 @@ const schema = [
           <h3 class="text-xl font-bold text-text mt-6 mb-4">What we need from you</h3>
           <ul class="space-y-3 text-text-muted text-sm leading-relaxed list-disc pl-5">
             <li>Answer or return calls during your listed hours.</li>
-            <li>Share the review QR code and link we give you with customers.</li>
-            <li>Send us customer contacts, or connect your system, so we can send review texts.</li>
+            <li>Share the review QR code and review link with every customer.</li>
             <li>Stay the full 90 days.</li>
           </ul>
         </div>
@@ -271,7 +270,7 @@ const schema = [
             <li>Your profile gets suspended because of something on your side.</li>
             <li>You give another agency access to your listing.</li>
             <li>You cancel early or pay late.</li>
-            <li>You stop or cut back Google Ads that were running during last year's 90 days. Ads show up in your profile numbers, so the comparison stops being fair.</li>
+            <li>You lower your average monthly Google Ads spend by more than 25% compared with the same 90 days last year. Ads show up in your profile numbers, so the comparison stops being fair.</li>
           </ul>
           <p class="text-text-muted text-sm leading-relaxed mt-5">
             Listing open less than a year? Same plan, with our delivery guarantee instead: 4 posts a month and every review answered within 1 business day, or that month is free.
@@ -287,7 +286,7 @@ const schema = [
       <div class="bg-white border border-border rounded-3xl p-8 sm:p-10 shadow-sm text-center">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-text mb-3">Increase Call Plan: $397/month</h2>
         <p class="text-text-muted text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
-          Profile fixes and about 35 directory listings in month one, then weekly posts, photos, review replies and review texts every month. Plus sales tax, added at checkout. No setup fee.
+          Profile fixes and about 35 directory listings in month one, then 4 posts a month, photos, review replies and a review QR code and link. Plus sales tax, added at checkout. No setup fee.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
           <a href={startHref} class="btn-primary">{startLabel}</a>
