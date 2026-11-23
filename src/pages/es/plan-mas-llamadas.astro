@@ -1,0 +1,304 @@
+---
+// Spanish mirror of /increase-call-plan/ (DRAFT until Eddie says go). Facts match the English page.
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { graderHref, site } from '@/config/site';
+
+const path = '/es/plan-mas-llamadas/';
+const enHref = '/increase-call-plan/';
+const title = 'Plan Más Llamadas: más llamadas de Google en McAllen | RankRGV';
+const description =
+  'Un plan de $397 al mes para negocios del Valle que quieren más llamadas de Google. Arreglos del perfil, 35 directorios, publicaciones, respuestas y mensajes para reseñas. Garantía de llamadas para perfiles con 1 año o más.';
+
+// Mismo enlace de Stripe que la página en inglés. Mientras no exista, los botones llaman a Eddie.
+const stripeHref: string | null = null;
+const startHref = stripeHref ?? site.phoneHref;
+const startLabel = stripeHref ? 'Empezar el Plan Más Llamadas' : `Llame al ${site.phone} para empezar`;
+
+const faqs = [
+  {
+    question: '¿Cómo funciona la garantía de llamadas?',
+    answer:
+      'Comparamos las llamadas que recibe su perfil de Google en sus primeros 90 días con nosotros contra los mismos 90 días de hace un año. Si las llamadas no suben por lo menos 30%, seguimos trabajando otros 90 días sin costo. La garantía aplica una sola vez, a sus primeros 90 días. Después, el trabajo y su plan mensual continúan, pero los resultados no están garantizados.',
+  },
+  {
+    question: '¿Por qué los mismos 90 días del año pasado?',
+    answer:
+      'Casi todos los negocios del Valle tienen temporada alta y temporada baja. Una compañía de aire acondicionado en julio y en enero son dos negocios distintos. Comparar contra la misma época del año evita que la temporada decida el resultado.',
+  },
+  {
+    question: '¿Qué cuenta como llamada?',
+    answer:
+      'Los clics para llamar en su Perfil de Negocio de Google, como Google los reporta en los números de rendimiento de su perfil. Google le da ese número a cada dueño de negocio, así que usted mismo lo puede revisar.',
+  },
+  {
+    question: 'Mi perfil tiene menos de un año. ¿Puedo inscribirme?',
+    answer:
+      'Sí. Recibe el mismo trabajo por los mismos $397, sin la garantía de llamadas, porque no hay año pasado para comparar. En su lugar recibe nuestra garantía de entrega: 4 publicaciones al mes y cada reseña contestada en 1 día hábil, o ese mes es gratis. Si su perfil todavía necesita verificación, le ayudamos con el proceso. Google decide si lo aprueba y cuándo, así que no podemos prometer una fecha. Cuando tenga un año completo de llamadas, la garantía de llamadas puede aplicar.',
+  },
+  {
+    question: '¿Esto me va a poner en el #1 de Google Maps?',
+    answer:
+      'No prometemos posiciones, y le recomendamos cuidarse de quien sí las prometa. Este plan se mide en llamadas, que es lo que usted realmente quiere de su perfil. Si quiere trabajar directamente en su posición, para eso son nuestros planes de SEO Local.',
+  },
+  {
+    question: 'Tengo anuncios en Google Ads. ¿Eso importa?',
+    answer:
+      'Sí, por eso le preguntamos al inscribirse. La actividad de Google Ads aparece en los números de su perfil. Si tenía anuncios durante los 90 días del año pasado y los quita, o recorta mucho el presupuesto o la segmentación, la comparación ya no es justa y la garantía de llamadas no aplica. Si empieza anuncios durante sus 90 días, su reporte lo dice, para que el resultado sea honesto.',
+  },
+  {
+    question: '¿Hay cuota de inicio o contrato?',
+    answer:
+      'No hay cuota de inicio. Son $397 al mes más impuesto, mes a mes. Para calificar para la garantía de llamadas, usted se queda los primeros 90 días completos. Después puede cancelar cualquier mes.',
+  },
+  {
+    question: '¿Lo pueden hacer en inglés y en español?',
+    answer:
+      'Sí. Las publicaciones, las respuestas y los mensajes para reseñas salen en inglés, en español o en los dos, según quiénes sean sus clientes. Una reseña escrita en español recibe su respuesta en español.',
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Inscripción y punto de partida',
+    text: 'Confirmamos que su perfil tiene un año o más, sacamos sus llamadas de los mismos 90 días del año pasado y le preguntamos si tiene Google Ads. Ese punto de partida queda por escrito antes de empezar.',
+  },
+  {
+    name: 'Primer mes: arreglar y construir',
+    text: 'Revisamos su perfil y arreglamos lo que está mal: categorías, servicios, horario y área de servicio. Corregimos listados viejos o equivocados de su negocio y luego pedimos unos 35 listados nuevos en la primera semana, porque tardan semanas en aparecer.',
+  },
+  {
+    name: 'Cada mes: perfil activo',
+    text: 'Publicaciones cada semana, sus fotos, una respuesta a cada reseña y mensajes de texto pidiendo reseñas a los clientes que usted nos mande. Su resumen mensual muestra el trabajo y sus llamadas.',
+  },
+  {
+    name: 'Día 90: contamos las llamadas',
+    text: 'Ponemos sus primeros 90 días junto a los mismos 90 días del año pasado. Con 30% más llamadas o más, el plan sigue mes a mes. Si no llega, los siguientes 90 días de trabajo van por nuestra cuenta.',
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Plan Más Llamadas',
+    'Plan de RankRGV para negocios del Valle del Río Grande que quieren más llamadas de Google: arreglos del Perfil de Negocio de Google, listados en directorios, publicaciones, fotos, respuestas a reseñas y mensajes para pedir reseñas, con garantía de llamadas de 90 días para perfiles con un año o más.',
+    site.areaServed
+  ),
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Inicio', href: '/es/' },
+    { label: 'Plan Más Llamadas', href: path },
+  ]),
+  buildWebPageSchema(title, description, path),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  lang="es"
+  hreflang={[
+    { lang: 'en', href: `${site.url}${enHref}` },
+    { lang: 'es', href: `${site.url}${path}` },
+    { lang: 'x-default', href: `${site.url}${enHref}` },
+  ]}
+>
+
+  <section class="hero-bg pt-12 pb-20 lg:py-28 relative overflow-hidden" aria-label="Inicio">
+    <div class="absolute inset-0 bg-brand-blue/15 pointer-events-none" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-end mb-4">
+        <a href={enHref} hreflang="en" lang="en" class="inline-flex items-center min-h-11 text-sm font-semibold text-white/80 hover:text-white no-underline">
+          Prefer English? View in English
+        </a>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 mb-6 text-sm font-medium text-white/70">
+            Plan Más Llamadas · McAllen y el Valle
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            Más llamadas de Google <br />
+            <span class="gradient-text">en sus primeros 90 días.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
+            Arreglamos su Perfil de Negocio de Google, ponemos su negocio en unos 35 directorios y mantenemos el perfil activo cada semana. Si su perfil tiene un año o más y sus llamadas de Google no suben por lo menos 30% en 90 días, trabajamos los siguientes 90 días gratis.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            <a href={startHref} class="btn-primary">{startLabel}</a>
+            <a href={graderHref('icp-hero', 'es')} class="btn-secondary">Revisar mi perfil gratis primero</a>
+          </div>
+          <p class="text-white/60 text-sm">
+            $397 al mes más impuesto · Sin cuota de inicio · Mes a mes después del día 90
+          </p>
+        </div>
+
+        <div class="hidden lg:block relative px-6 pt-6 pb-8">
+          <div class="absolute inset-0 bg-brand-blue/15 rounded-3xl blur-3xl" aria-hidden="true"></div>
+          <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="px-5 py-4 bg-gray-50 border-b border-gray-100">
+              <div class="text-sm font-bold text-gray-900">Conteo de llamadas, día 90</div>
+              <div class="text-xs text-gray-500">Clics para llamar en su perfil de Google</div>
+            </div>
+            <div class="px-5 py-4 space-y-3">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Mismos 90 días, año pasado</span>
+                <span class="text-gray-900 font-bold">Su punto de partida</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Sus primeros 90 días</span>
+                <span class="text-gray-900 font-bold">Se cuentan el día 90</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">30% o más</span>
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">El plan sigue</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Menos de 30%</span>
+                <span class="bg-brand-blue/10 text-brand-blue text-xs font-bold px-2 py-0.5 rounded-full">90 días gratis</span>
+              </div>
+            </div>
+            <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500 italic">
+              Perfiles con 1 año o más · solo los primeros 90 días
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg" aria-label="Por qué contamos llamadas">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6 text-center">Por qué contamos llamadas</h2>
+      <p class="text-text-muted text-lg leading-relaxed mb-5">
+        Las vistas y los clics se ven bien en un reporte. Una llamada es alguien que quiere contratarlo. Por eso este plan se mide con un solo número: cuántas veces la gente tocó llamar en su perfil de Google.
+      </p>
+      <p class="text-text-muted text-lg leading-relaxed">
+        Google le muestra ese número a cada dueño de negocio. No tiene que creernos el resultado. Usted mismo puede abrir su perfil y revisarlo.
+      </p>
+    </div>
+  </section>
+
+  <section id="incluye" class="py-20 bg-bg-surface" aria-label="Qué incluye el Plan Más Llamadas">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">Qué incluye</h2>
+        <p class="text-text-muted text-lg">El mismo trabajo para cada negocio. Sin cuota de inicio.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">Primer mes: revisión y arreglos del perfil</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Revisamos sus categorías, servicios, horario, área de servicio y fotos, y arreglamos lo que está mal o falta. Si su perfil no está verificado, le ayudamos con los pasos de Google.</p>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">Primer mes: listados en directorios</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Primero corregimos listados viejos o equivocados de su negocio en internet. Luego creamos unos 35 nuevos en directorios locales y de su industria, para que su nombre, dirección y teléfono coincidan en todos lados. Tardan unas semanas en aparecer, así que los pedimos en la primera semana.</p>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">Publicaciones cada semana y sus fotos</h3>
+          <p class="text-text-muted text-sm leading-relaxed">4 publicaciones al mes con datos que usted confirma de su negocio, más hasta 8 de sus fotos al mes. Sin fotos de archivo y sin datos inventados.</p>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">Respuesta a cada reseña</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Cada reseña nueva recibe respuesta en 1 día hábil, con su manera de hablar. Las reseñas bajas o mixtas siempre las lee una persona antes de publicar algo.</p>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">Mensajes para pedir reseñas</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Mándenos los contactos de sus clientes, o conecte el sistema que ya usa, y les enviamos un mensaje corto pidiendo su reseña. También recibe un código QR y un enlace para reseñas.</p>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">Un resumen mensual</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Una página al mes: lo que hicimos y sus llamadas, solicitudes de direcciones y vistas del perfil en Google, junto a su punto de partida.</p>
+        </div>
+      </div>
+      <p class="text-text-muted text-sm text-center mt-8">
+        No incluye: cambios al sitio web, contenido, manejo de anuncios ni sesiones de fotos. ¿Quiere trabajar directamente en su posición? Vea nuestros <a href="/es/seo-local/" class="text-brand-blue font-semibold hover:underline">planes de SEO Local</a>.
+      </p>
+    </div>
+  </section>
+
+  <HowWeWork
+    headline="Cómo funcionan los 90 días"
+    subheadline="Un punto de partida por escrito antes de empezar, y un conteo claro el día 90."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <section id="garantia" class="py-20 bg-bg-surface" aria-label="Términos de la garantía de llamadas">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6 text-center">La garantía de llamadas, en palabras simples</h2>
+      <div class="bg-white border border-border rounded-2xl p-8 mb-6">
+        <p class="text-text text-lg leading-relaxed">
+          Si sus llamadas de Google en sus primeros 90 días con nosotros no son por lo menos 30% más que en los mismos 90 días del año pasado, seguimos trabajando otros 90 días sin costo. Esta garantía aplica una sola vez, solo a sus primeros 90 días. Después, el trabajo y su plan mensual continúan, pero los resultados no están garantizados.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white border border-border rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-text mb-4">A quién aplica</h3>
+          <ul class="space-y-3 text-text-muted text-sm leading-relaxed list-disc pl-5">
+            <li>Perfiles de Google con 1 año o más, para tener un año pasado con qué comparar. Lo revisamos a mano al inscribirse.</li>
+            <li>Solo sus primeros 90 días. Los 90 días gratis que siguen no tienen una segunda garantía.</li>
+            <li>Llamadas son los clics para llamar en su perfil de Google, como Google los reporta.</li>
+          </ul>
+          <h3 class="text-xl font-bold text-text mt-6 mb-4">Lo que necesitamos de usted</h3>
+          <ul class="space-y-3 text-text-muted text-sm leading-relaxed list-disc pl-5">
+            <li>Contestar o regresar las llamadas en su horario publicado.</li>
+            <li>Compartir con sus clientes el código QR y el enlace para reseñas que le damos.</li>
+            <li>Mandarnos los contactos de sus clientes, o conectar su sistema, para enviar los mensajes de reseñas.</li>
+            <li>Quedarse los 90 días completos.</li>
+          </ul>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-text mb-4">Lo que cancela la garantía</h3>
+          <ul class="space-y-3 text-text-muted text-sm leading-relaxed list-disc pl-5">
+            <li>Deja de contestar o regresar llamadas.</li>
+            <li>Cambia su teléfono, dirección, horario o categorías sin avisarnos en 7 días.</li>
+            <li>Abre, cierra o muda un local sin avisarnos.</li>
+            <li>Su perfil es suspendido por algo de su lado.</li>
+            <li>Le da acceso a su perfil a otra agencia.</li>
+            <li>Cancela antes de tiempo o paga tarde.</li>
+            <li>Quita o recorta anuncios de Google Ads que estaban activos en los 90 días del año pasado. Los anuncios aparecen en los números de su perfil, así que la comparación deja de ser justa.</li>
+          </ul>
+          <p class="text-text-muted text-sm leading-relaxed mt-5">
+            ¿Su perfil tiene menos de un año? El mismo plan, con nuestra garantía de entrega: 4 publicaciones al mes y cada reseña contestada en 1 día hábil, o ese mes es gratis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg" aria-label="Precio del Plan Más Llamadas">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-border rounded-3xl p-8 sm:p-10 shadow-sm text-center">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-text mb-3">Plan Más Llamadas: $397 al mes</h2>
+        <p class="text-text-muted text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          Arreglos del perfil y unos 35 listados en directorios el primer mes, luego publicaciones, fotos, respuestas a reseñas y mensajes para reseñas cada mes. Más impuesto, que se agrega al pagar. Sin cuota de inicio.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={startHref} class="btn-primary">{startLabel}</a>
+          <a href="/es/precios/" class="btn-outline">Ver todos los precios</a>
+        </div>
+        <p class="text-xs text-text-muted mt-6">
+          ¿Listo para más después? El siguiente paso es el <a href="/es/seo-local/" class="text-brand-blue font-semibold hover:underline">SEO Local</a>, que agrega el trabajo de posicionamiento.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Preguntas sobre el Plan Más Llamadas" />
+
+  <CTASection
+    headline="Vea primero cómo está su perfil."
+    subheadline="Haga la revisión gratis. Le muestra lo que tienen los negocios que aparecen junto a usted en el mapa."
+    primaryCTA={{ label: 'Revisar mi perfil de Google', href: graderHref('icp-final', 'es') }}
+    secondaryCTA={{ label: `Llame al ${site.phone}`, href: site.phoneHref }}
+  />
+
+</BaseLayout>

@@ -1,0 +1,312 @@
+---
+// DRAFT (Eddie 2026-11-20): the Increase Call Plan replaces the $299 GBO pitch
+// for grader leads once Eddie says go. Terms come from the vault note
+// "00 - Inbox/2026-11-12 RankRGV Meta ads plan.md" (2026-11-20 and 11-21).
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import {
+  buildServiceSchema,
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+} from '@/components/SchemaMarkup.astro';
+import { graderHref, site } from '@/config/site';
+
+const path = '/increase-call-plan/';
+const esHref = '/es/plan-mas-llamadas/';
+const title = 'Increase Call Plan: More Google Calls in McAllen | RankRGV';
+const description =
+  'A $397/month plan for RGV businesses that want more calls from Google. Profile fixes, 35 directory listings, weekly posts, review replies and review texts. Calls guarantee for listings open a year or more.';
+
+// Set this to the Stripe payment link once it exists. Until then the buttons call Eddie.
+const stripeHref: string | null = null;
+const startHref = stripeHref ?? site.phoneHref;
+const startLabel = stripeHref ? 'Start the Increase Call Plan' : `Call ${site.phone} to start`;
+
+const faqs = [
+  {
+    question: 'How does the calls guarantee work?',
+    answer:
+      "We compare the calls your Google profile gets in your first 90 days with us against the same 90 days one year earlier. If calls are not at least 30% higher, we keep working for another 90 days at no charge. It applies once, to your first 90 days only. After that the work and your monthly plan continue, but results are not guaranteed.",
+  },
+  {
+    question: 'Why the same 90 days last year?',
+    answer:
+      "Most RGV businesses have a busy season and a slow one. An AC company in July and an AC company in January are two different businesses. Comparing against the same stretch of the year keeps the season from deciding the result.",
+  },
+  {
+    question: 'What counts as a call?',
+    answer:
+      "Call clicks on your Google Business Profile, as Google reports them in your profile's performance numbers. That's the number Google gives every business owner, so you can check it yourself.",
+  },
+  {
+    question: "My listing is less than a year old. Can I still sign up?",
+    answer:
+      "Yes. You get the same work for the same $397, without the calls guarantee, since there's no last year to compare against. You get our delivery guarantee instead: 4 posts a month and every review answered within 1 business day, or that month is free. If your profile still needs to be verified, we help you through it. Google decides if and when it approves, so we can't promise a date. Once you have a full year of call history, the calls guarantee can apply.",
+  },
+  {
+    question: 'Will this get me ranked #1 on Google Maps?',
+    answer:
+      "We don't promise rankings, and you should be careful with anyone who does. This plan is built around calls, which is what you actually want from your profile. If you want to go after rankings directly, that's what our Local SEO plans do.",
+  },
+  {
+    question: 'I run Google Ads. Does that matter?',
+    answer:
+      "Yes, so we ask at signup. Google Ads activity shows up in your profile's numbers. If ads were running during last year's 90 days and you stop them, or cut the budget or targeting in a big way, the comparison isn't fair anymore and the calls guarantee doesn't apply. If you start ads during your 90 days, your report says so, so the result stays honest.",
+  },
+  {
+    question: 'Is there a setup fee or a contract?',
+    answer:
+      "No setup fee. It's $397 a month plus sales tax, month to month. To qualify for the calls guarantee you stay the full first 90 days. After that you can stop any month.",
+  },
+  {
+    question: 'Can you do it in Spanish?',
+    answer:
+      'Yes. Posts, review replies and review texts go out in English, Spanish, or both, depending on who your customers are. A review written in Spanish gets its reply in Spanish.',
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Signup and baseline',
+    text: "We confirm your listing has been open a year or more, pull your call numbers for the same 90 days last year, and ask whether you run Google Ads. That baseline goes in writing before we start.",
+  },
+  {
+    name: 'Month one: fix and build',
+    text: 'We audit your profile and fix what is wrong: categories, services, hours, service area. We clean up old or wrong listings of your business, then order about 35 new directory listings in week one, since they take weeks to go live.',
+  },
+  {
+    name: 'Every month: stay active',
+    text: 'Weekly posts, your photos, a reply to every review, and review request texts to the customers you send us. Your monthly snapshot shows the work and your call numbers.',
+  },
+  {
+    name: 'Day 90: the call count',
+    text: "We put your first 90 days next to the same 90 days last year. 30% more calls or better, the plan keeps going month to month. Short of that, the next 90 days of work are on us.",
+  },
+];
+
+const schema = [
+  buildServiceSchema(
+    'Increase Call Plan',
+    'RankRGV plan for Rio Grande Valley businesses that want more calls from Google: Google Business Profile fixes, a directory listing build, weekly posts, photos, review replies and review request texts, with a 90 day calls guarantee for listings open a year or more.',
+    site.areaServed
+  ),
+  buildFAQSchema(faqs),
+  buildBreadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Increase Call Plan', href: path },
+  ]),
+  buildWebPageSchema(title, description, path),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  hreflang={[
+    { lang: 'en', href: `${site.url}${path}` },
+    { lang: 'es', href: `${site.url}${esHref}` },
+    { lang: 'x-default', href: `${site.url}${path}` },
+  ]}
+>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero-bg pt-12 pb-20 lg:py-28 relative overflow-hidden" aria-label="Hero">
+    <div class="absolute inset-0 bg-brand-blue/15 pointer-events-none" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-end mb-4">
+        <a href={esHref} hreflang="es" lang="es" class="inline-flex items-center min-h-11 text-sm font-semibold text-white/80 hover:text-white no-underline">
+          ¿Prefiere español? Ver en español
+        </a>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 mb-6 text-sm font-medium text-white/70">
+            Increase Call Plan · McAllen &amp; the RGV
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            More calls from Google <br />
+            <span class="gradient-text">in your first 90 days.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
+            We fix your Google Business Profile, list your business on about 35 directories, and keep the profile active every week. If your listing has been open a year or more and your Google calls aren't up at least 30% in 90 days, we work the next 90 days free.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            <a href={startHref} class="btn-primary">{startLabel}</a>
+            <a href={graderHref('icp-hero')} class="btn-secondary">Check my listing free first</a>
+          </div>
+          <p class="text-white/60 text-sm">
+            $397/month plus sales tax · No setup fee · Month to month after day 90
+          </p>
+        </div>
+
+        <!-- Right: the guarantee card -->
+        <div class="hidden lg:block relative px-6 pt-6 pb-8">
+          <div class="absolute inset-0 bg-brand-blue/15 rounded-3xl blur-3xl" aria-hidden="true"></div>
+          <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="px-5 py-4 bg-gray-50 border-b border-gray-100">
+              <div class="text-sm font-bold text-gray-900">Day 90 call count</div>
+              <div class="text-xs text-gray-500">Call clicks from your Google profile</div>
+            </div>
+            <div class="px-5 py-4 space-y-3">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Same 90 days, last year</span>
+                <span class="text-gray-900 font-bold">Your baseline</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Your first 90 days with us</span>
+                <span class="text-gray-900 font-bold">Counted at day 90</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Up 30% or more</span>
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Plan continues</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Less than 30%</span>
+                <span class="bg-brand-blue/10 text-brand-blue text-xs font-bold px-2 py-0.5 rounded-full">Next 90 days free</span>
+              </div>
+            </div>
+            <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500 italic">
+              Listings open 1 year or more · first 90 days only
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Why calls ===================== -->
+  <section class="py-20 bg-bg" aria-label="Why this plan counts calls">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6 text-center">Why we count calls</h2>
+      <p class="text-text-muted text-lg leading-relaxed mb-5">
+        Views and clicks look nice in a report. A call is someone who wants to hire you. So this plan is measured on one number: how many times people tapped call on your Google profile.
+      </p>
+      <p class="text-text-muted text-lg leading-relaxed">
+        Google shows that number to every business owner. You don't have to take our word for the result. You can open your own profile and check it.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== What's included ===================== -->
+  <section id="included" class="py-20 bg-bg-surface" aria-label="What's included in the Increase Call Plan">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-4">What's included</h2>
+        <p class="text-text-muted text-lg">Same work for every business. No setup fee.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">Month one: profile audit and fixes</h3>
+          <p class="text-text-muted text-sm leading-relaxed">We go through your categories, services, hours, service area and photos, and fix what is wrong or missing. If your profile isn't verified yet, we help you through Google's steps.</p>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">Month one: directory listings</h3>
+          <p class="text-text-muted text-sm leading-relaxed">First we fix old or wrong listings of your business around the web. Then we build about 35 new ones on local and industry directories, so your name, address and phone match everywhere. They take a few weeks to go live, so we order them in week one.</p>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">Weekly Google posts and your photos</h3>
+          <p class="text-text-muted text-sm leading-relaxed">4 posts a month built from facts you confirm about your business, plus up to 8 of your photos a month. No stock photos and no invented claims.</p>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">A reply to every review</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Every new review gets a reply within 1 business day, in your voice. Low or mixed reviews always get read by a person before anything posts.</p>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">Review request texts</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Send us your customer contacts, or connect the system you already use, and we text them a short review request. You also get a QR code and a review link to hand out.</p>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-text mb-2">A monthly snapshot</h3>
+          <p class="text-text-muted text-sm leading-relaxed">One page a month: what we did, and your calls, direction requests and profile views from Google, next to your baseline.</p>
+        </div>
+      </div>
+      <p class="text-text-muted text-sm text-center mt-8">
+        Not included: website changes, content, ads management and photo shoots. Want to go after rankings directly? See our <a href="/local-seo/" class="text-brand-blue font-semibold hover:underline">Local SEO plans</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== How it works ===================== -->
+  <HowWeWork
+    headline="How the 90 days work"
+    subheadline="A baseline in writing before we start, and a straight count at day 90."
+    steps={howToSteps.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.name, body: s.text }))}
+  />
+
+  <!-- ===================== Guarantee terms ===================== -->
+  <section id="guarantee" class="py-20 bg-bg-surface" aria-label="Calls guarantee terms">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6 text-center">The calls guarantee, in plain words</h2>
+      <div class="bg-white border border-border rounded-2xl p-8 mb-6">
+        <p class="text-text text-lg leading-relaxed">
+          If your Google calls in your first 90 days with us are not at least 30% higher than the same 90 days last year, we keep working for another 90 days at no charge. This guarantee applies once, to your first 90 days only. After that, the work and your monthly plan continue, but results are not guaranteed.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white border border-border rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-text mb-4">Who it covers</h3>
+          <ul class="space-y-3 text-text-muted text-sm leading-relaxed list-disc pl-5">
+            <li>Google listings open 1 year or more, so there's a last year to compare against. We check this by hand at signup.</li>
+            <li>Your first 90 days only. The free 90 days that follow carry no second guarantee.</li>
+            <li>Calls means call clicks on your Google profile, as Google reports them.</li>
+          </ul>
+          <h3 class="text-xl font-bold text-text mt-6 mb-4">What we need from you</h3>
+          <ul class="space-y-3 text-text-muted text-sm leading-relaxed list-disc pl-5">
+            <li>Answer or return calls during your listed hours.</li>
+            <li>Share the review QR code and link we give you with customers.</li>
+            <li>Send us customer contacts, or connect your system, so we can send review texts.</li>
+            <li>Stay the full 90 days.</li>
+          </ul>
+        </div>
+        <div class="bg-white border border-border rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-text mb-4">What cancels the guarantee</h3>
+          <ul class="space-y-3 text-text-muted text-sm leading-relaxed list-disc pl-5">
+            <li>You stop answering or returning calls.</li>
+            <li>You change your phone, address, hours or categories without telling us within 7 days.</li>
+            <li>You open, close or move a location without telling us.</li>
+            <li>Your profile gets suspended because of something on your side.</li>
+            <li>You give another agency access to your listing.</li>
+            <li>You cancel early or pay late.</li>
+            <li>You stop or cut back Google Ads that were running during last year's 90 days. Ads show up in your profile numbers, so the comparison stops being fair.</li>
+          </ul>
+          <p class="text-text-muted text-sm leading-relaxed mt-5">
+            Listing open less than a year? Same plan, with our delivery guarantee instead: 4 posts a month and every review answered within 1 business day, or that month is free.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Pricing ===================== -->
+  <section class="py-20 bg-bg" aria-label="Increase Call Plan pricing">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-border rounded-3xl p-8 sm:p-10 shadow-sm text-center">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-text mb-3">Increase Call Plan: $397/month</h2>
+        <p class="text-text-muted text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+          Profile fixes and about 35 directory listings in month one, then weekly posts, photos, review replies and review texts every month. Plus sales tax, added at checkout. No setup fee.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={startHref} class="btn-primary">{startLabel}</a>
+          <a href="/pricing/" class="btn-outline">See full pricing</a>
+        </div>
+        <p class="text-xs text-text-muted mt-6">
+          Ready for more later? The next step up is <a href="/local-seo/" class="text-brand-blue font-semibold hover:underline">Local SEO</a>, which adds the ranking work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} headline="Increase Call Plan questions" />
+
+  <CTASection
+    headline="See where your listing stands first."
+    subheadline="Run the free check. It shows what the businesses next to you on the Map have that you don't."
+    primaryCTA={{ label: 'Check my Google listing', href: graderHref('icp-final') }}
+    secondaryCTA={{ label: `Call ${site.phone}`, href: site.phoneHref }}
+  />
+
+</BaseLayout>
