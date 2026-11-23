@@ -83,16 +83,22 @@ const description = "You're in. Here's what happens next: invoice details, your 
       sessionStorage.removeItem('rankrgv_pending_checkout');
     } catch { return; }
     if (!pending || !pending.t || Date.now() - pending.t > 2 * 60 * 60 * 1000) return;
-    const isGbo = (pending.link || '').includes('dRm3cw99jfeNePqcQW1Jm0k');
+    // Known self-serve plans: payment link id -> name and monthly price.
+    const plans: Record<string, { name: string; value: number }> = {
+      'eVq5kEadn9Ut0YA6sy1Jm0p': { name: 'Increase Call Plan', value: 397 },
+      'dRm3cw99jfeNePqcQW1Jm0k': { name: 'Google Business Optimization', value: 299 },
+    };
+    const planKey = Object.keys(plans).find((k) => (pending!.link || '').includes(k));
+    const plan = planKey ? plans[planKey] : { name: 'Stripe payment link', value: 0 };
     if (typeof (window as any).fbq === 'function') {
-      (window as any).fbq('track', 'Purchase', { currency: 'USD', value: isGbo ? 299 : 0, content_name: isGbo ? 'Google Business Optimization' : 'Stripe payment link' }, { eventID: 'stripe-' + pending.t });
+      (window as any).fbq('track', 'Purchase', { currency: 'USD', value: plan.value, content_name: plan.name }, { eventID: 'stripe-' + pending.t });
     }
     if (typeof (window as any).gtag !== 'function') return;
     (window as any).gtag('event', 'purchase', {
       transaction_id: 'stripe-' + pending.t,
       currency: 'USD',
-      value: isGbo ? 299 : 0,
-      items: [{ item_name: isGbo ? 'Google Business Optimization' : 'Stripe payment link', price: isGbo ? 299 : 0, quantity: 1 }],
+      value: plan.value,
+      items: [{ item_name: plan.name, price: plan.value, quantity: 1 }],
       event_label: pending.link || '',
       page_path: pending.path || '',
     });
