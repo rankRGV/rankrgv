@@ -1,0 +1,142 @@
+---
+// Free Google Business Profile setup guide. Content lives in src/data/gbpSetupGuide.ts (EN + ES).
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import CTASection from '@/components/CTASection.astro';
+import { buildFAQSchema, buildBreadcrumbSchema, buildWebPageSchema } from '@/components/SchemaMarkup.astro';
+import { graderHref, site } from '@/config/site';
+import type { GuideContent } from '@/data/gbpSetupGuide';
+
+interface Props {
+  c: GuideContent;
+}
+
+const { c } = Astro.props;
+const homeHref = c.lang === 'es' ? '/es/' : '/';
+const enPath = c.lang === 'en' ? c.path : c.altPath;
+const esPath = c.lang === 'es' ? c.path : c.altPath;
+
+const schema = [
+  buildFAQSchema(c.faqs),
+  buildBreadcrumbSchema([
+    { label: c.breadcrumbHome, href: homeHref },
+    { label: c.breadcrumbLabel, href: c.path },
+  ]),
+  buildWebPageSchema(c.title, c.description, c.path),
+];
+---
+
+<BaseLayout
+  title={c.title}
+  description={c.description}
+  schema={schema}
+  lang={c.lang}
+  hreflang={[
+    { lang: 'en', href: `${site.url}${enPath}` },
+    { lang: 'es', href: `${site.url}${esPath}` },
+    { lang: 'x-default', href: `${site.url}${enPath}` },
+  ]}
+>
+  <!-- Hero -->
+  <section class="hero-bg pt-12 pb-16 lg:py-24 relative overflow-hidden" aria-label="Hero">
+    <div class="absolute inset-0 bg-brand-blue/15 pointer-events-none" aria-hidden="true"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-end mb-4">
+        <a href={c.altPath} hreflang={c.lang === 'en' ? 'es' : 'en'} lang={c.lang === 'en' ? 'es' : 'en'} class="inline-flex items-center min-h-11 text-sm font-semibold text-white/80 hover:text-white no-underline">
+          {c.altLabel}
+        </a>
+      </div>
+      <div class="text-sm font-medium text-white/70 mb-6">{c.eyebrow}</div>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-6">{c.h1}</h1>
+      <p class="text-lg sm:text-xl text-white/75 leading-relaxed mb-6 max-w-3xl">{c.intro}</p>
+      <p class="text-white/70">
+        {c.helpLine} <a href={site.phoneHref} class="text-white font-semibold underline underline-offset-4">{site.phone}</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-bg" aria-label={c.readyHeading}>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Have ready -->
+      <div class="bg-white rounded-2xl border-2 border-brand-blue/30 p-6 sm:p-8 mb-14">
+        <h2 class="font-bold text-text mb-2 text-xl">{c.readyHeading}</h2>
+        <p class="text-text-muted text-sm mb-5">{c.readyIntro}</p>
+        <ul class="space-y-3">
+          {c.ready.map((item) => (
+            <li class="flex gap-3 text-text-muted leading-relaxed">
+              <svg class="w-5 h-5 text-brand-blue flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Steps -->
+      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-10">{c.stepsHeading}</h2>
+      <ol class="space-y-10">
+        {c.steps.map((step, i) => (
+          <li class="flex gap-4 sm:gap-6" id={`step-${i + 1}`}>
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold">
+              {i + 1}
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-xl font-bold text-text mb-3 pt-1.5">{step.title}</h3>
+              {step.body.map((p) => <p class="text-text-muted leading-relaxed mb-3">{p}</p>)}
+              {step.bullets && (
+                <ul class="space-y-2 text-text-muted leading-relaxed list-disc pl-5 mb-3">
+                  {step.bullets.map((b) => <li>{b}</li>)}
+                </ul>
+              )}
+              {step.image && (
+                <figure class="mb-4">
+                  <img src={step.image.src} alt={step.image.alt} width={step.image.width} height={step.image.height} loading="lazy" decoding="async" class="w-full h-auto rounded-xl border border-border bg-white" />
+                  <figcaption class="text-xs text-text-muted mt-2">{step.image.caption}</figcaption>
+                </figure>
+              )}
+              {step.note && (
+                <p class="bg-bg-surface border border-border rounded-xl px-4 py-3 text-sm text-text leading-relaxed">{step.note}</p>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <!-- Mistakes -->
+      <div class="bg-bg-surface rounded-2xl border border-border p-6 sm:p-8 mt-14">
+        <h2 class="font-bold text-text mb-4 text-xl">{c.mistakesHeading}</h2>
+        <ul class="space-y-2 text-text-muted leading-relaxed list-disc pl-5">
+          {c.mistakes.map((m) => <li>{m}</li>)}
+        </ul>
+      </div>
+
+      <p class="text-sm mt-8">
+        <a href={c.moreLink.href} class="text-brand-blue font-semibold hover:underline">{c.moreLink.label}</a>
+      </p>
+    </div>
+  </section>
+
+  <FAQSection faqs={c.faqs} headline={c.faqHeading} />
+
+  <!-- Sources -->
+  <section class="py-14 bg-bg" aria-label={c.sourcesHeading}>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-bold text-text mb-3 text-xl">{c.sourcesHeading}</h2>
+      <p class="text-text-muted text-sm mb-4">{c.sourcesIntro}</p>
+      <ul class="space-y-2 text-sm list-disc pl-5">
+        {c.sources.map((s) => (
+          <li><a href={s.href} target="_blank" rel="noopener" class="text-brand-blue hover:underline">{s.label}</a></li>
+        ))}
+      </ul>
+      <p class="text-text-muted text-xs mt-4">{c.sourcesChecked}</p>
+    </div>
+  </section>
+
+  <CTASection
+    headline={c.ctaHeadline}
+    subheadline={c.ctaSub}
+    primaryCTA={{ label: c.ctaPrimary, href: graderHref('gbp-setup-guide', c.lang) }}
+    secondaryCTA={{ label: `${c.ctaSecondary} ${site.phone}`, href: site.phoneHref }}
+  />
+</BaseLayout>
