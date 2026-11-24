@@ -12,9 +12,9 @@ export const mainNav = [
         description: s.description,
       })),
       {
-        label: 'Google Business Optimization',
-        href: '/google-business-optimization/',
-        description: 'Keep your Google profile active: posts, photos, review replies.',
+        label: 'Increase Call Plan',
+        href: '/increase-call-plan/',
+        description: 'More calls from your Google profile: fixes, listings, posts, reviews.',
       },
     ],
   },

@@ -108,16 +108,14 @@ function getFooterServiceLink(slug: string, fallbackLabel: string) {
               })()}
             </li>
           ))}
-          {es && (
-            <li>
-              <a
-                href="/es/optimizacion-perfil-de-negocio-google/"
-                class="text-sm text-white/60 hover:text-white transition-colors no-underline"
-              >
-                Optimización de Perfil de Google
-              </a>
-            </li>
-          )}
+          <li>
+            <a
+              href={es ? '/es/plan-mas-llamadas/' : '/increase-call-plan/'}
+              class="text-sm text-white/60 hover:text-white transition-colors no-underline"
+            >
+              {es ? 'Plan Más Llamadas' : 'Increase Call Plan'}
+            </a>
+          </li>
           <li class="pt-2">
             <a href={graderUrl} class="text-sm text-brand-blue-light hover:text-white transition-colors no-underline font-medium">
               {es ? 'Revisar mi perfil de Google' : 'Check my Google listing'}

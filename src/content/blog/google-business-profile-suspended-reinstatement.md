@@ -135,4 +135,4 @@ No. Google's [appeal instructions](https://support.google.com/business/answer/45
 
 - [How to Verify Your Google Business Profile](/blog/verify-google-business-profile-2026/): Before suspension prevention, get verification right from the start.
 - [How to Rank on Google Maps in McAllen](/blog/how-to-rank-google-maps-mcallen/): The GBP optimization fundamentals that build a profile worth protecting.
-- [Google Business Optimization for RGV Businesses](/google-business-optimization/): Weekly posts, photos, and review replies that follow Google's rules, with a monthly snapshot.
+- [Increase Call Plan for RGV Businesses](/increase-call-plan/): Profile fixes, directory listings, 4 posts a month, photos, and review replies that follow Google's rules, with a monthly snapshot.

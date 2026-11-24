@@ -20,7 +20,6 @@
     const plans: Record<string, { name: string; value: number }> = {
       'eVq5kEadn9Ut0YA6sy1Jm0p': { name: 'Increase Call Plan', value: 397 },
       'bJe8wQ1GRaYx9v604a1Jm0q': { name: 'Increase Call Plan', value: 397 },
-      'dRm3cw99jfeNePqcQW1Jm0k': { name: 'Google Business Optimization', value: 299 },
     };
     const planKey = Object.keys(plans).find((k) => (pending!.link || '').includes(k));
     const plan = planKey ? plans[planKey] : { name: 'Stripe payment link', value: 0 };

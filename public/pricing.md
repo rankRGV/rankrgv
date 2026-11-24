@@ -4,15 +4,15 @@ RankRGV offers transparent, flat-fee pricing with no long-term contracts and no 
 
 ---
 
-## Google Business Optimization
+## Increase Call Plan
 
-- **Price**: $299/month plus sales tax
-- **What it is**: Keeps your Google Business Profile active and shows the proof every month. Not a ranking package
-- **Included**: 4 Google posts a month, up to 8 of your photos posted, a reply to every new review, categories and service area set once at onboarding, monthly snapshot with one tracked keyword and city position, day 90 check in
-- **Not included**: ranking work, review generation outreach, ads, photo shoots, Loom updates
-- **Note**: Everything in Google Business Optimization is included in all Local SEO plans
-- **Page**: https://rankrgv.com/google-business-optimization/
-- **Page (español)**: https://rankrgv.com/es/optimizacion-perfil-de-negocio-google/
+- **Price**: $397/month plus sales tax, no setup fee
+- **What it is**: More calls from your Google Business Profile. Not a ranking package
+- **Included**: profile audit and fixes plus about 35 directory listings in month one; then 4 Google posts a month, up to 8 of your photos, a reply to every review within 1 business day, a review QR code and link, and a monthly snapshot of calls, direction requests and profile views next to your baseline
+- **Guarantee**: for listings open a year or more, if Google calls in the first 90 days aren't at least 30% higher than the same 90 days last year, the next 90 days are free. Listings under a year get a delivery guarantee instead
+- **Not included**: website changes, content, ads management, photo shoots
+- **Page**: https://rankrgv.com/increase-call-plan/
+- **Page (español)**: https://rankrgv.com/es/plan-mas-llamadas/
 
 ---
 
