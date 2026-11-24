@@ -7,6 +7,8 @@ interface Props {
   primaryCTA?: { label: string; href: string };
   secondaryCTA?: { label: string; href: string };
   ariaLabel?: string;
+  /** The primary button shows a phone icon. Pass false when the primary action is not a call. */
+  primaryIcon?: boolean;
 }
 
 const {
@@ -15,6 +17,7 @@ const {
   primaryCTA = { label: `Call ${site.phone}`, href: site.phoneHref },
   secondaryCTA = { label: 'Get a Free Written Audit', href: '/get-started/' },
   ariaLabel = 'Call to action',
+  primaryIcon = true,
 } = Astro.props;
 ---
 
@@ -40,9 +43,11 @@ const {
         href={primaryCTA.href}
         class="inline-flex items-center justify-center gap-2 bg-white text-brand-blue font-bold px-7 py-3.5 rounded-lg transition-all duration-200 hover:bg-blue-50 hover:shadow-lg no-underline"
       >
-        <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
-        </svg>
+        {primaryIcon && (
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
+          </svg>
+        )}
         {primaryCTA.label}
       </a>
       <!-- Secondary CTA: ghost on blue bg -->

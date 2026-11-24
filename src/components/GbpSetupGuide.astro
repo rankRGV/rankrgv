@@ -13,8 +13,10 @@ interface Props {
 
 const { c } = Astro.props;
 const homeHref = c.lang === 'es' ? '/es/' : '/';
+const altLang = c.lang === 'en' ? 'es' : 'en';
 const enPath = c.lang === 'en' ? c.path : c.altPath;
 const esPath = c.lang === 'es' ? c.path : c.altPath;
+const lastStep = c.steps.length - 1;
 
 const schema = [
   buildFAQSchema(c.faqs),
@@ -24,13 +26,19 @@ const schema = [
   ]),
   buildWebPageSchema(c.title, c.description, c.path),
 ];
+
+// Shared class strings, so every step reads the same.
+const bodyText = 'text-slate-700 text-[1.0625rem] leading-relaxed';
+const smallText = 'text-slate-700 text-[0.9375rem] leading-relaxed';
 ---
 
+{/* The mobile sticky bar pushes the grader, which can't scan a business with no listing yet. */}
 <BaseLayout
   title={c.title}
   description={c.description}
   schema={schema}
   lang={c.lang}
+  hideSticky
   hreflang={[
     { lang: 'en', href: `${site.url}${enPath}` },
     { lang: 'es', href: `${site.url}${esPath}` },
@@ -38,82 +46,243 @@ const schema = [
   ]}
 >
   <!-- Hero -->
-  <section class="hero-bg pt-12 pb-16 lg:py-24 relative overflow-hidden" aria-label="Hero">
+  <section class="hero-bg pt-8 pb-12 lg:pt-14 lg:pb-16 relative overflow-hidden" aria-label="Hero">
     <div class="absolute inset-0 bg-brand-blue/15 pointer-events-none" aria-hidden="true"></div>
-    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-end mb-4">
-        <a href={c.altPath} hreflang={c.lang === 'en' ? 'es' : 'en'} lang={c.lang === 'en' ? 'es' : 'en'} class="inline-flex items-center min-h-11 text-sm font-semibold text-white/80 hover:text-white no-underline">
-          {c.altLabel}
-        </a>
-      </div>
-      <div class="text-sm font-medium text-white/70 mb-6">{c.eyebrow}</div>
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-6">{c.h1}</h1>
-      <p class="text-lg sm:text-xl text-white/75 leading-relaxed mb-6 max-w-3xl">{c.intro}</p>
-      <p class="text-white/70">
-        {c.helpLine} <a href={site.phoneHref} class="text-white font-semibold underline underline-offset-4">{site.phone}</a>.
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a
+        href={c.altPath}
+        hreflang={altLang}
+        lang={altLang}
+        class="inline-flex items-center gap-2 min-h-11 px-4 mb-6 rounded-full border border-white/25 text-sm font-semibold text-white/90 no-underline transition-colors duration-150 hover:bg-white/10 hover:text-white"
+      >
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+        </svg>
+        {c.altLabel}
+      </a>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight text-balance mb-5 max-w-3xl">{c.h1}</h1>
+      <p class="text-lg text-white/80 leading-relaxed mb-6 max-w-2xl">{c.intro}</p>
+      <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-white/90 mb-6">
+        {c.facts.map((fact) => (
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+            {fact}
+          </li>
+        ))}
+      </ul>
+      <p class="text-white/75">
+        {c.helpLine} <a href={site.phoneHref} class="text-white font-semibold underline underline-offset-4 whitespace-nowrap">{site.phone}</a>.
       </p>
     </div>
   </section>
 
-  <section class="py-16 bg-bg" aria-label={c.readyHeading}>
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Have ready -->
-      <div class="bg-white rounded-2xl border-2 border-brand-blue/30 p-6 sm:p-8 mb-14">
-        <h2 class="font-bold text-text mb-2 text-xl">{c.readyHeading}</h2>
-        <p class="text-text-muted text-sm mb-5">{c.readyIntro}</p>
-        <ul class="space-y-3">
-          {c.ready.map((item) => (
-            <li class="flex gap-3 text-text-muted leading-relaxed">
-              <svg class="w-5 h-5 text-brand-blue flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>{item}</span>
+  <section class="py-12 lg:py-16 bg-bg" aria-label={c.stepsHeading}>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-x-14">
+      <!-- Step rail (desktop): stays in view while the reader works through Google in another tab -->
+      <aside class="hidden lg:block">
+        <nav class="sticky top-28" aria-label={c.jumpLabel}>
+          <p class="text-sm font-bold text-text mb-3">{c.jumpLabel}</p>
+          <ol class="border-l border-border">
+            {c.steps.map((step, i) => (
+              <li>
+                <a
+                  href={`#step-${i + 1}`}
+                  data-step-link={i + 1}
+                  class="group -ml-px flex gap-3 border-l-2 border-transparent py-2 pl-4 text-sm leading-snug text-slate-600 no-underline transition-colors duration-150 hover:text-text aria-[current=step]:border-brand-blue aria-[current=step]:font-semibold aria-[current=step]:text-text"
+                >
+                  <span class="tabular-nums text-slate-400 group-aria-[current=step]:text-brand-blue" aria-hidden="true">{i + 1}</span>
+                  <span>{step.title}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+          <p class="mt-6 border-t border-border pt-5 text-sm leading-relaxed text-slate-600">
+            {c.helpLine}
+            <a href={site.phoneHref} class="block font-semibold text-brand-blue hover:underline">{site.phone}</a>
+          </p>
+        </nav>
+      </aside>
+
+      <div class="min-w-0 max-w-2xl">
+        <!-- Have ready: a real checklist; ticks are remembered on this device -->
+        <div class="bg-white rounded-2xl border border-border p-5 sm:p-8 mb-14">
+          <h2 class="font-bold text-text mb-2 text-xl">{c.readyHeading}</h2>
+          <p class={`${smallText} mb-3`}>{c.readyIntro}</p>
+          <ul class="divide-y divide-border" data-ready-list={c.lang}>
+            {c.ready.map((item, i) => (
+              <li>
+                <label class="flex cursor-pointer gap-3.5 py-3.5">
+                  <input type="checkbox" data-ready-item={i} class="mt-0.5 h-5 w-5 flex-shrink-0 cursor-pointer accent-brand-blue" />
+                  <span class="leading-snug">
+                    <span class="font-semibold text-text">{item.label}</span>
+                    {item.detail && <span class={`mt-1 block ${smallText}`}>{item.detail}</span>}
+                  </span>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Steps -->
+        <h2 class="text-3xl sm:text-4xl font-bold text-text mb-6">{c.stepsHeading}</h2>
+
+        <!-- Step list (mobile and tablet): the whole route before the detail -->
+        <nav class="lg:hidden mb-10 rounded-2xl border border-border bg-bg-surface px-5 py-3" aria-label={c.jumpLabel}>
+          <ol class="sm:columns-2 sm:gap-x-8">
+            {c.steps.map((step, i) => (
+              <li class="break-inside-avoid">
+                <a href={`#step-${i + 1}`} class="flex min-h-11 items-center gap-3 py-1.5 text-[0.9375rem] font-medium leading-snug text-text no-underline hover:text-brand-blue">
+                  <span class="w-4 flex-shrink-0 tabular-nums text-brand-blue font-bold" aria-hidden="true">{i + 1}</span>
+                  <span>{step.title}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+
+        <ol>
+          {c.steps.map((step, i) => (
+            <li id={`step-${i + 1}`} data-step={i + 1} class="relative grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 sm:gap-x-6 pb-12 last:pb-0 scroll-mt-24 sm:scroll-mt-32">
+              {i < lastStep && <span class="hidden sm:block absolute left-5 top-12 bottom-2 w-px bg-border" aria-hidden="true"></span>}
+              <span class="col-start-1 row-start-1 w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold" aria-hidden="true">
+                {i + 1}
+              </span>
+              <h3 class="col-start-2 row-start-1 self-center text-xl font-bold text-text leading-snug">{step.title}</h3>
+
+              <div class="col-span-2 sm:col-span-1 sm:col-start-2 mt-4 space-y-4">
+                {step.body.map((p) => <p class={bodyText}>{p}</p>)}
+
+                {step.action && (
+                  <p>
+                    <a href={step.action.href} target="_blank" rel="noopener" class="btn-outline min-h-11 !px-5 !py-2.5 text-[0.9375rem]">
+                      {step.action.label}
+                      <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      <span class="sr-only">({c.newTabLabel})</span>
+                    </a>
+                  </p>
+                )}
+
+                {step.bullets && (
+                  <ul class={`${bodyText} space-y-2 list-disc pl-5 marker:text-brand-blue`}>
+                    {step.bullets.map((b) => <li>{b}</li>)}
+                  </ul>
+                )}
+
+                {step.options && (
+                  <div class="rounded-xl border border-border bg-white divide-y divide-border">
+                    {step.options.map((o) => (
+                      <div class="px-4 py-4 sm:px-5">
+                        <p class="font-bold text-text leading-snug">{o.title}</p>
+                        {o.text && <p class={`${smallText} mt-2`}>{o.text}</p>}
+                        {o.bullets && (
+                          <ul class={`${smallText} mt-3 space-y-1.5 list-disc pl-5 marker:text-brand-blue`}>
+                            {o.bullets.map((b) => <li>{b}</li>)}
+                          </ul>
+                        )}
+                        {o.goTo && (
+                          <a href={`#step-${o.goTo.step}`} class="mt-1 -mb-2 inline-flex min-h-11 items-center gap-1.5 text-[0.9375rem] font-semibold text-brand-blue no-underline hover:underline">
+                            {o.goTo.label}
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                            </svg>
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {step.example && (
+                  <dl class="rounded-xl border border-border bg-white divide-y divide-border">
+                    <div class="flex gap-3 px-4 py-3">
+                      <svg class="w-5 h-5 mt-0.5 text-emerald-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <div>
+                        <dt class="text-sm font-semibold text-emerald-700">{step.example.good.label}</dt>
+                        <dd class="font-semibold text-text">{step.example.good.text}</dd>
+                      </div>
+                    </div>
+                    <div class="flex gap-3 px-4 py-3">
+                      <svg class="w-5 h-5 mt-0.5 text-red-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <div>
+                        <dt class="text-sm font-semibold text-red-700">{step.example.bad.label}</dt>
+                        <dd class="font-semibold text-text">{step.example.bad.text}</dd>
+                      </div>
+                    </div>
+                  </dl>
+                )}
+
+                {step.methods && (
+                  <dl class="divide-y divide-border border-y border-border">
+                    {step.methods.map((m) => (
+                      <div class="py-4">
+                        <dt class="flex flex-wrap items-center gap-x-3 gap-y-1 font-bold text-text">
+                          {m.name}
+                          {m.tag && <span class="rounded-full bg-brand-blue/10 px-2.5 py-0.5 text-xs font-semibold text-brand-blue-dark">{m.tag}</span>}
+                        </dt>
+                        <dd class={`${smallText} mt-1.5`}>
+                          {m.text}
+                          {m.points && (
+                            <ul class="mt-2 space-y-1.5 list-disc pl-5 marker:text-brand-blue">
+                              {m.points.map((pt) => <li>{pt}</li>)}
+                            </ul>
+                          )}
+                          {m.after && <p class="mt-2">{m.after}</p>}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+
+                {step.image && (
+                  <figure>
+                    <img src={step.image.src} alt={step.image.alt} width={step.image.width} height={step.image.height} loading="lazy" decoding="async" class="w-full h-auto rounded-xl border border-border bg-white" />
+                    <figcaption class="text-sm text-slate-600 mt-2">{step.image.caption}</figcaption>
+                  </figure>
+                )}
+
+                {step.note && (
+                  <p class="flex gap-3 bg-bg-surface border border-border rounded-xl px-4 py-3 text-[0.9375rem] text-text leading-relaxed">
+                    <svg class="w-5 h-5 mt-0.5 text-brand-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>
+                      {step.note}
+                      {step.noteCall && <>{' '}<a href={site.phoneHref} class="font-semibold text-brand-blue whitespace-nowrap hover:underline">{site.phone}</a></>}
+                    </span>
+                  </p>
+                )}
+              </div>
             </li>
           ))}
-        </ul>
+        </ol>
+
+        <!-- Mistakes -->
+        <div class="bg-bg-surface rounded-2xl border border-border p-5 sm:p-8 mt-14">
+          <h2 class="font-bold text-text mb-4 text-xl">{c.mistakesHeading}</h2>
+          <ul class={`${bodyText} space-y-3`}>
+            {c.mistakes.map((m) => (
+              <li class="flex gap-3">
+                <svg class="w-5 h-5 mt-1 text-red-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>{m}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <p class="mt-6">
+          <a href={c.moreLink.href} class="inline-flex min-h-11 items-center text-[0.9375rem] text-brand-blue font-semibold no-underline hover:underline">{c.moreLink.label}</a>
+        </p>
       </div>
-
-      <!-- Steps -->
-      <h2 class="text-3xl sm:text-4xl font-bold text-text mb-10">{c.stepsHeading}</h2>
-      <ol class="space-y-10">
-        {c.steps.map((step, i) => (
-          <li class="flex gap-4 sm:gap-6" id={`step-${i + 1}`}>
-            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold">
-              {i + 1}
-            </div>
-            <div class="min-w-0 flex-1">
-              <h3 class="text-xl font-bold text-text mb-3 pt-1.5">{step.title}</h3>
-              {step.body.map((p) => <p class="text-text-muted leading-relaxed mb-3">{p}</p>)}
-              {step.bullets && (
-                <ul class="space-y-2 text-text-muted leading-relaxed list-disc pl-5 mb-3">
-                  {step.bullets.map((b) => <li>{b}</li>)}
-                </ul>
-              )}
-              {step.image && (
-                <figure class="mb-4">
-                  <img src={step.image.src} alt={step.image.alt} width={step.image.width} height={step.image.height} loading="lazy" decoding="async" class="w-full h-auto rounded-xl border border-border bg-white" />
-                  <figcaption class="text-xs text-text-muted mt-2">{step.image.caption}</figcaption>
-                </figure>
-              )}
-              {step.note && (
-                <p class="bg-bg-surface border border-border rounded-xl px-4 py-3 text-sm text-text leading-relaxed">{step.note}</p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ol>
-
-      <!-- Mistakes -->
-      <div class="bg-bg-surface rounded-2xl border border-border p-6 sm:p-8 mt-14">
-        <h2 class="font-bold text-text mb-4 text-xl">{c.mistakesHeading}</h2>
-        <ul class="space-y-2 text-text-muted leading-relaxed list-disc pl-5">
-          {c.mistakes.map((m) => <li>{m}</li>)}
-        </ul>
-      </div>
-
-      <p class="text-sm mt-8">
-        <a href={c.moreLink.href} class="text-brand-blue font-semibold hover:underline">{c.moreLink.label}</a>
-      </p>
     </div>
   </section>
 
@@ -123,13 +292,17 @@ const schema = [
   <section class="py-14 bg-bg" aria-label={c.sourcesHeading}>
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-bold text-text mb-3 text-xl">{c.sourcesHeading}</h2>
-      <p class="text-text-muted text-sm mb-4">{c.sourcesIntro}</p>
-      <ul class="space-y-2 text-sm list-disc pl-5">
+      <p class={`${smallText} mb-4`}>{c.sourcesIntro}</p>
+      <ul class="space-y-1 text-[0.9375rem] list-disc pl-5 marker:text-brand-blue">
         {c.sources.map((s) => (
-          <li><a href={s.href} target="_blank" rel="noopener" class="text-brand-blue hover:underline">{s.label}</a></li>
+          <li>
+            <a href={s.href} target="_blank" rel="noopener" class="inline-block py-1.5 text-brand-blue hover:underline">
+              {s.label}<span class="sr-only"> ({c.newTabLabel})</span>
+            </a>
+          </li>
         ))}
       </ul>
-      <p class="text-text-muted text-xs mt-4">{c.sourcesChecked}</p>
+      <p class="text-slate-600 text-sm mt-4">{c.sourcesChecked}</p>
     </div>
   </section>
 
@@ -138,5 +311,50 @@ const schema = [
     subheadline={c.ctaSub}
     primaryCTA={{ label: c.ctaPrimary, href: graderHref('gbp-setup-guide', c.lang) }}
     secondaryCTA={{ label: `${c.ctaSecondary} ${site.phone}`, href: site.phoneHref }}
+    primaryIcon={false}
   />
 </BaseLayout>
+
+<script>
+  // Checklist: remember ticks on this device, so a reader who comes back after
+  // hunting for a document doesn't start over.
+  document.querySelectorAll<HTMLElement>('[data-ready-list]').forEach((list) => {
+    const key = `gbp-setup-ready-${list.dataset.readyList}`;
+    const boxes = Array.from(list.querySelectorAll<HTMLInputElement>('[data-ready-item]'));
+    let saved: string[] = [];
+    try {
+      saved = JSON.parse(localStorage.getItem(key) || '[]');
+    } catch {}
+    boxes.forEach((box) => {
+      box.checked = saved.includes(box.dataset.readyItem || '');
+      box.addEventListener('change', () => {
+        const ticked = boxes.filter((b) => b.checked).map((b) => b.dataset.readyItem);
+        try {
+          localStorage.setItem(key, JSON.stringify(ticked));
+        } catch {}
+      });
+    });
+  });
+
+  // Step rail: mark the step the reader is on.
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-step-link]');
+  const steps = document.querySelectorAll<HTMLElement>('[data-step]');
+  if (links.length && steps.length && 'IntersectionObserver' in window) {
+    const setCurrent = (n: string) => {
+      links.forEach((link) => {
+        if (link.dataset.stepLink === n) link.setAttribute('aria-current', 'step');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setCurrent((entry.target as HTMLElement).dataset.step || '');
+        });
+      },
+      // A thin band a third of the way down the screen: whichever step crosses it is current.
+      { rootMargin: '-35% 0px -60% 0px' }
+    );
+    steps.forEach((step) => observer.observe(step));
+  }
+</script>

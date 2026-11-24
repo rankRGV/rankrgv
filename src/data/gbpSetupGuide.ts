@@ -6,8 +6,18 @@
 export interface GuideStep {
   title: string;
   body: string[];
+  /** A button that opens the Google page this step happens on (new tab, so the guide stays open). */
+  action?: { label: string; href: string };
   bullets?: string[];
+  /** An either/or choice. `goTo` links to another step on this page. */
+  options?: { title: string; text?: string; bullets?: string[]; goTo?: { label: string; step: number } }[];
+  /** A right way and a wrong way, side by side. */
+  example?: { good: { label: string; text: string }; bad: { label: string; text: string } };
+  /** Named items, each with its own rules (the verification methods). */
+  methods?: { name: string; tag?: string; text: string; points?: string[]; after?: string }[];
   note?: string;
+  /** Put the phone number after the note. */
+  noteCall?: boolean;
   image?: { src: string; alt: string; caption: string; width: number; height: number };
 }
 
@@ -18,14 +28,16 @@ export interface GuideContent {
   altLabel: string;
   title: string;
   description: string;
-  eyebrow: string;
   h1: string;
   intro: string;
+  facts: string[];
   helpLine: string;
   readyHeading: string;
   readyIntro: string;
-  ready: string[];
+  ready: { label: string; detail?: string }[];
   stepsHeading: string;
+  jumpLabel: string;
+  newTabLabel: string;
   steps: GuideStep[];
   mistakesHeading: string;
   mistakes: string[];
@@ -53,52 +65,84 @@ const googleSources = {
   category: 'https://support.google.com/business/answer/7249669',
 };
 
+const googlePages = {
+  maps: 'https://www.google.com/maps',
+  add: 'https://business.google.com/add',
+};
+
+const screenshot = { src: '/images/guides/gbp-find-or-add-business.webp', width: 613, height: 320 };
+
 export const gbpSetupGuide: Record<'en' | 'es', GuideContent> = {
   en: {
     lang: 'en',
     path: '/google-business-profile-setup/',
     altPath: '/es/crear-perfil-de-google/',
-    altLabel: '¿Prefiere español? Ver en español',
+    altLabel: 'Ver en español',
     title: 'How to Set Up a Google Business Profile, Step by Step | RankRGV',
     description:
       "No Google listing yet? A free step by step guide to creating and verifying your Google Business Profile, based on Google's own rules. For Rio Grande Valley businesses.",
-    eyebrow: 'Free guide · Google Business Profile',
     h1: 'Set up your Google Business Profile, step by step',
     intro:
-      "If your business doesn't show up on Google Maps, it most likely has no Google Business Profile yet, or the profile was never verified. Customers can't find you there until it is. Setting one up is free and you can do it yourself. Every step below follows Google's own help pages, linked at the bottom, so you know what Google will ask before it asks.",
+      "If your business doesn't show up on Google Maps, it most likely has no Google Business Profile yet, or the profile was never verified. Setting one up is free and you can do it yourself. Every step below follows Google's own help pages, so you know what Google will ask before it asks.",
+    facts: ['Free', '8 steps', 'Google review: up to 5 business days in most cases'],
     helpLine: 'Rather do it together? Call or text',
     readyHeading: 'Have these ready before you start',
-    readyIntro: 'Ten minutes of prep saves you a stuck verification later.',
+    readyIntro: 'Ten minutes of prep saves you a stuck verification later. Check each one off as you find it.',
     ready: [
-      "A Google account you'll keep for the long run. Use one that belongs to the business, not an employee's personal account, so you don't lose your listing when someone leaves.",
-      'Your business name exactly as it appears on your sign, invoices and paperwork.',
-      "A phone that can take calls or texts. Google's code can't get through an automated phone menu.",
-      "Your mailing address, even if customers never come there. Google may mail you a code.",
-      "If you go to your customers: the cities or ZIP codes you serve, up to 20 of them.",
-      'Your business hours.',
-      'For a video check: a smartphone, plus a document in the business name, like a business permit, an invoice or a utility bill.',
+      {
+        label: "A Google account you'll keep for the long run.",
+        detail: "Use one that belongs to the business, not an employee's personal account, so you don't lose your listing when someone leaves.",
+      },
+      { label: 'Your exact business name.', detail: 'As it appears on your sign, invoices and paperwork.' },
+      {
+        label: 'A phone that can take calls or texts.',
+        detail: "Google's code can't get through an automated phone menu.",
+      },
+      {
+        label: 'Your mailing address, even if customers never come there.',
+        detail: 'Google may mail you a code.',
+      },
+      { label: 'If you go to your customers: the cities or ZIP codes you serve.', detail: 'Up to 20 of them.' },
+      { label: 'Your business hours.' },
+      {
+        label: 'For a video check: a smartphone and a document in the business name.',
+        detail: 'Like a business permit, an invoice or a utility bill.',
+      },
     ],
     stepsHeading: 'The steps',
+    jumpLabel: 'Jump to a step',
+    newTabLabel: 'opens in a new tab',
     steps: [
       {
         title: 'Check if Google already has a listing for you',
         body: [
-          "Google sometimes creates listings on its own from public information. Search Google Maps for your business name and your city before you make a new one.",
-          'If you find yours, open it, select "Claim this business," then "Manage now." Then skip to step 7 to verify it. If nothing comes up, go to step 2.',
+          'Google sometimes creates listings on its own from public information. Search Google Maps for your business name and your city before you make a new one.',
+        ],
+        action: { label: 'Search Google Maps', href: googlePages.maps },
+        options: [
+          {
+            title: 'You found it',
+            text: 'Open it, select "Claim this business," then "Manage now."',
+            goTo: { label: 'Skip to step 7 to verify it', step: 7 },
+          },
+          {
+            title: 'Nothing comes up',
+            goTo: { label: 'Go to step 2', step: 2 },
+          },
         ],
         note: "Found your business but someone else already manages it? Don't make a second listing. Call us and we'll help you sort out who has access.",
+        noteCall: true,
       },
       {
         title: 'Start your profile',
         body: [
           'Go to business.google.com/add and sign in with the Google account you picked. Google first asks you to type your business name, so it can check for a listing one more time. If yours does not come up, select "Add your business to Google" and follow the prompts.',
         ],
+        action: { label: 'Open business.google.com/add', href: googlePages.add },
         image: {
-          src: '/images/guides/gbp-find-or-add-business.webp',
+          ...screenshot,
           alt: 'Google Business Profile start screen with a "Type your business name" search box and an "Add your business to Google" link',
           caption: 'The first screen at business.google.com/add (November 2026).',
-          width: 613,
-          height: 320,
         },
       },
       {
@@ -112,7 +156,10 @@ export const gbpSetupGuide: Record<'en' | 'es', GuideContent> = {
           'No words in ALL CAPS.',
           'LLC or Inc. only if it really appears on your sign or invoices.',
         ],
-        note: 'Good: "Garza Plumbing." Gets you in trouble: "Garza Plumbing McAllen 24 Hr Drain Cleaning."',
+        example: {
+          good: { label: 'Good', text: 'Garza Plumbing' },
+          bad: { label: 'Gets you in trouble', text: 'Garza Plumbing McAllen 24 Hr Drain Cleaning' },
+        },
       },
       {
         title: 'Pick your category',
@@ -123,32 +170,56 @@ export const gbpSetupGuide: Record<'en' | 'es', GuideContent> = {
       },
       {
         title: 'Address or service area',
-        body: [
-          "Do customers come to your place? Add the address. Only do this if there's a permanent sign and staff there during your listed hours.",
-          "Do you go to the customer (home services, mobile work, security, cleaning)? Leave the address off the public profile and list the areas you serve instead. Working from home is fine. Google's own example is a plumber who works from home.",
-        ],
-        bullets: [
-          'Up to 20 service areas, by city or ZIP code.',
-          'No radius. Google does not allow it.',
-          'Keep the areas within about 2 hours of driving from your base.',
+        body: [],
+        options: [
+          {
+            title: 'Customers come to your place',
+            text: "Add the address. Only do this if there's a permanent sign and staff there during your listed hours.",
+          },
+          {
+            title: 'You go to the customer',
+            text: "Home services, mobile work, security, cleaning. Leave the address off the public profile and list the areas you serve instead. Working from home is fine. Google's own example is a plumber who works from home.",
+            bullets: [
+              'Up to 20 service areas, by city or ZIP code.',
+              'No radius. Google does not allow it.',
+              'Keep the areas within about 2 hours of driving from your base.',
+            ],
+          },
         ],
       },
       {
         title: 'Add your phone and website',
-        body: [
-          "Use the number you actually answer. No website yet? You can leave it blank and add one later.",
-        ],
+        body: ['Use the number you actually answer. No website yet? You can leave it blank and add one later.'],
       },
       {
         title: 'Verify your business',
         body: [
           "Google picks the verification method for you, based on your type of business, public information, your region and your hours. You can't change it, and Google may ask for more than one. The options are a text or call, an email, a live video call, a recorded video, or a postcard.",
         ],
-        bullets: [
-          'Recorded video (Google recommends it when offered): at least 30 seconds, one continuous take, no edits, recorded and uploaded from your phone through the profile. Show where you are (street signs, your address number, landmarks), proof the business is real (equipment, tools, branded shirts or a work vehicle) and proof you run it (a permit, invoice or utility bill in the business name). Do not show other people\'s faces or private information.',
-          'Live video call: only during your listed business hours. Have the same proof ready.',
-          'Text or call: you have to answer the business phone yourself. A phone menu system will not get the code.',
-          "Postcard: it arrives within 14 days and the code expires after 30. While you wait, don't edit your name, address or category, and don't ask for a second code.",
+        methods: [
+          {
+            name: 'Recorded video',
+            tag: 'Google recommends it when offered',
+            text: 'At least 30 seconds, one continuous take, no edits, recorded and uploaded from your phone through the profile. Show:',
+            points: [
+              'Where you are: street signs, your address number, landmarks.',
+              'That the business is real: equipment, tools, branded shirts or a work vehicle.',
+              'That you run it: a permit, invoice or utility bill in the business name.',
+            ],
+            after: "Do not show other people's faces or private information.",
+          },
+          {
+            name: 'Live video call',
+            text: 'Only during your listed business hours. Have the same proof ready.',
+          },
+          {
+            name: 'Text or call',
+            text: 'You have to answer the business phone yourself. A phone menu system will not get the code.',
+          },
+          {
+            name: 'Postcard',
+            text: "It arrives within 14 days and the code expires after 30. While you wait, don't edit your name, address or category, and don't ask for a second code.",
+          },
         ],
         note: "Google says reviews take up to 5 business days in most cases. You'll get an email when it's done.",
       },
@@ -218,47 +289,79 @@ export const gbpSetupGuide: Record<'en' | 'es', GuideContent> = {
     lang: 'es',
     path: '/es/crear-perfil-de-google/',
     altPath: '/google-business-profile-setup/',
-    altLabel: 'Prefer English? View in English',
+    altLabel: 'View in English',
     title: 'Cómo Crear su Perfil de Negocio en Google, Paso a Paso | RankRGV',
     description:
       'Si su negocio no aparece en Google Maps, esta guía gratis le explica cómo crear y verificar su Perfil de Negocio en Google, según las reglas de Google. Para negocios del Valle.',
-    eyebrow: 'Guía gratis · Perfil de Negocio en Google',
     h1: 'Cree su Perfil de Negocio en Google, paso a paso',
     intro:
-      'Si su negocio no aparece en Google Maps, lo más probable es que todavía no tenga un Perfil de Negocio en Google, o que nunca se verificó. Sus clientes no lo van a encontrar ahí hasta que esté verificado. Crearlo es gratis y lo puede hacer usted mismo. Cada paso de esta guía sigue las páginas de ayuda de Google, que encuentra al final, para que sepa qué le va a pedir Google antes de que se lo pida.',
+      'Si su negocio no aparece en Google Maps, lo más probable es que todavía no tenga un Perfil de Negocio en Google, o que nunca se verificó. Crearlo es gratis y lo puede hacer usted mismo. Cada paso de esta guía sigue las páginas de ayuda de Google, para que sepa qué le va a pedir Google antes de que se lo pida.',
+    facts: ['Gratis', '8 pasos', 'Revisión de Google: hasta 5 días hábiles en la mayoría de los casos'],
     helpLine: '¿Prefiere hacerlo con nosotros? Llame o mande texto al',
     readyHeading: 'Tenga esto listo antes de empezar',
-    readyIntro: 'Diez minutos de preparación le ahorran una verificación atorada después.',
+    readyIntro:
+      'Diez minutos de preparación le ahorran una verificación atorada después. Marque cada cosa cuando la tenga.',
     ready: [
-      'Una cuenta de Google que va a conservar. Use una que sea del negocio, no la cuenta personal de un empleado, para no perder su perfil si esa persona se va.',
-      'El nombre de su negocio tal como aparece en su letrero, sus facturas y sus papeles.',
-      'Un teléfono que reciba llamadas o textos. El código de Google no pasa por un menú automático de opciones.',
-      'Su dirección postal, aunque sus clientes nunca vayan ahí. Google le puede mandar un código por correo.',
-      'Si usted va con sus clientes: las ciudades o códigos postales donde trabaja, hasta 20.',
-      'Su horario.',
-      'Para la verificación por video: un celular y un documento a nombre del negocio, como un permiso, una factura o un recibo de luz o agua.',
+      {
+        label: 'Una cuenta de Google que va a conservar.',
+        detail: 'Use una que sea del negocio, no la cuenta personal de un empleado, para no perder su perfil si esa persona se va.',
+      },
+      {
+        label: 'El nombre exacto de su negocio.',
+        detail: 'Tal como aparece en su letrero, sus facturas y sus papeles.',
+      },
+      {
+        label: 'Un teléfono que reciba llamadas o textos.',
+        detail: 'El código de Google no pasa por un menú automático de opciones.',
+      },
+      {
+        label: 'Su dirección postal, aunque sus clientes nunca vayan ahí.',
+        detail: 'Google le puede mandar un código por correo.',
+      },
+      {
+        label: 'Si usted va con sus clientes: las ciudades o códigos postales donde trabaja.',
+        detail: 'Hasta 20.',
+      },
+      { label: 'Su horario.' },
+      {
+        label: 'Para la verificación por video: un celular y un documento a nombre del negocio.',
+        detail: 'Como un permiso, una factura o un recibo de luz o agua.',
+      },
     ],
     stepsHeading: 'Los pasos',
+    jumpLabel: 'Ir a un paso',
+    newTabLabel: 'se abre en otra pestaña',
     steps: [
       {
         title: 'Revise si Google ya tiene su negocio',
         body: [
           'A veces Google crea perfiles por su cuenta con información pública. Antes de crear uno nuevo, busque en Google Maps el nombre de su negocio y su ciudad.',
-          'Si lo encuentra, ábralo y elija la opción para reclamar el negocio (en inglés dice "Claim this business") y luego "Manage now" (administrar ahora). Después pase al paso 7 para verificarlo. Si no aparece, siga al paso 2.',
+        ],
+        action: { label: 'Buscar en Google Maps', href: googlePages.maps },
+        options: [
+          {
+            title: 'Lo encontró',
+            text: 'Ábralo y elija la opción para reclamar el negocio (en inglés dice "Claim this business") y luego "Manage now" (administrar ahora).',
+            goTo: { label: 'Pase al paso 7 para verificarlo', step: 7 },
+          },
+          {
+            title: 'No aparece',
+            goTo: { label: 'Siga al paso 2', step: 2 },
+          },
         ],
         note: '¿Encontró su negocio pero alguien más ya lo administra? No cree un segundo perfil. Llámenos y le ayudamos a aclarar quién tiene acceso.',
+        noteCall: true,
       },
       {
         title: 'Empiece su perfil',
         body: [
           'Entre a business.google.com/add con la cuenta de Google que eligió. Primero Google le pide escribir el nombre de su negocio, para buscarlo una vez más. Si no aparece, elija la opción para agregar su negocio a Google (en inglés dice "Add your business to Google") y siga las instrucciones.',
         ],
+        action: { label: 'Abrir business.google.com/add', href: googlePages.add },
         image: {
-          src: '/images/guides/gbp-find-or-add-business.webp',
+          ...screenshot,
           alt: 'Pantalla de inicio de Perfil de Negocio en Google, con un cuadro para escribir el nombre del negocio y el enlace "Add your business to Google"',
           caption: 'La primera pantalla en business.google.com/add, con Google en inglés (noviembre de 2026).',
-          width: 613,
-          height: 320,
         },
       },
       {
@@ -272,7 +375,10 @@ export const gbpSetupGuide: Record<'en' | 'es', GuideContent> = {
           'Sin palabras TODO EN MAYÚSCULAS.',
           'LLC o Inc. solo si de verdad aparece en su letrero o sus facturas.',
         ],
-        note: 'Bien: "Plomería Garza." Le causa problemas: "Plomería Garza McAllen Destapes 24 Horas."',
+        example: {
+          good: { label: 'Bien', text: 'Plomería Garza' },
+          bad: { label: 'Le causa problemas', text: 'Plomería Garza McAllen Destapes 24 Horas' },
+        },
       },
       {
         title: 'Elija su categoría',
@@ -283,14 +389,21 @@ export const gbpSetupGuide: Record<'en' | 'es', GuideContent> = {
       },
       {
         title: 'Dirección o área de servicio',
-        body: [
-          '¿Sus clientes van a su local? Ponga la dirección. Hágalo solo si tiene un letrero fijo y personal ahí durante su horario.',
-          '¿Usted va con el cliente (servicios para el hogar, trabajo móvil, seguridad, limpieza)? No muestre la dirección en el perfil y ponga las zonas donde trabaja. Trabajar desde su casa está bien. El ejemplo que usa Google es un plomero que trabaja desde su casa.',
-        ],
-        bullets: [
-          'Hasta 20 áreas de servicio, por ciudad o código postal.',
-          'Sin radio en millas. Google no lo permite.',
-          'Que las zonas queden a unas 2 horas manejando de su base, como máximo.',
+        body: [],
+        options: [
+          {
+            title: 'Sus clientes van a su local',
+            text: 'Ponga la dirección. Hágalo solo si tiene un letrero fijo y personal ahí durante su horario.',
+          },
+          {
+            title: 'Usted va con el cliente',
+            text: 'Servicios para el hogar, trabajo móvil, seguridad, limpieza. No muestre la dirección en el perfil y ponga las zonas donde trabaja. Trabajar desde su casa está bien. El ejemplo que usa Google es un plomero que trabaja desde su casa.',
+            bullets: [
+              'Hasta 20 áreas de servicio, por ciudad o código postal.',
+              'Sin radio en millas. Google no lo permite.',
+              'Que las zonas queden a unas 2 horas manejando de su base, como máximo.',
+            ],
+          },
         ],
       },
       {
@@ -304,11 +417,30 @@ export const gbpSetupGuide: Record<'en' | 'es', GuideContent> = {
         body: [
           'Google escoge el método de verificación por usted, según su tipo de negocio, la información pública, su región y su horario. No lo puede cambiar, y Google le puede pedir más de uno. Las opciones son un texto o llamada, un correo electrónico, una videollamada en vivo, un video grabado o una tarjeta postal.',
         ],
-        bullets: [
-          'Video grabado (Google lo recomienda cuando se lo ofrece): por lo menos 30 segundos, en una sola toma, sin editar, grabado y subido desde su celular dentro del perfil. Muestre dónde está (letreros de la calle, el número de su dirección, lugares conocidos), pruebas de que el negocio es real (equipo, herramientas, camisas o vehículo con su marca) y pruebas de que usted lo maneja (un permiso, factura o recibo a nombre del negocio). No muestre caras de otras personas ni información privada.',
-          'Videollamada en vivo: solo durante su horario de atención. Tenga las mismas pruebas a la mano.',
-          'Texto o llamada: usted tiene que contestar el teléfono del negocio. Un menú automático no recibe el código.',
-          'Tarjeta postal: llega en un plazo de 14 días y el código vence a los 30. Mientras espera, no cambie su nombre, dirección ni categoría, y no pida un segundo código.',
+        methods: [
+          {
+            name: 'Video grabado',
+            tag: 'Google lo recomienda cuando se lo ofrece',
+            text: 'Por lo menos 30 segundos, en una sola toma, sin editar, grabado y subido desde su celular dentro del perfil. Muestre:',
+            points: [
+              'Dónde está: letreros de la calle, el número de su dirección, lugares conocidos.',
+              'Que el negocio es real: equipo, herramientas, camisas o vehículo con su marca.',
+              'Que usted lo maneja: un permiso, factura o recibo a nombre del negocio.',
+            ],
+            after: 'No muestre caras de otras personas ni información privada.',
+          },
+          {
+            name: 'Videollamada en vivo',
+            text: 'Solo durante su horario de atención. Tenga las mismas pruebas a la mano.',
+          },
+          {
+            name: 'Texto o llamada',
+            text: 'Usted tiene que contestar el teléfono del negocio. Un menú automático no recibe el código.',
+          },
+          {
+            name: 'Tarjeta postal',
+            text: 'Llega en un plazo de 14 días y el código vence a los 30. Mientras espera, no cambie su nombre, dirección ni categoría, y no pida un segundo código.',
+          },
         ],
         note: 'Google dice que la revisión tarda hasta 5 días hábiles en la mayoría de los casos. Le llega un correo cuando termina.',
       },
